@@ -1,0 +1,200 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'helveticaneuecyrlight';
+  font-size: $main-font-size;
+}
+
+.common {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0;
+  padding: 0 0 25px 0;
+  font-size: $font-size-h1 + px;
+  font-weight: normal;
+  font-family: 'helveticaneuecyrbold';
+}
+
+h2 {
+  margin: 0;
+  padding: 0 0 17px 0;
+  font-size: $font-size-h2 + px;
+  font-weight: normal;
+  font-family: 'helveticaneuecyrmedium';
+}
+
+h3 {
+  margin: 0;
+  padding: 0 0 17px 0;
+  font-size: $font-size-h3 + px;
+  font-weight: normal;
+  font-family: 'helveticaneuecyrbold';
+}
+
+b {
+  font-weight: normal;
+  font-family: 'helveticaneuecyrbold';
+}
+
+p {
+  margin: 0;
+  padding: 0 0 30px 0;
+}
+
+a {
+  color: $main-link-color;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.color-green {
+  color: $color-green;
+}
+.color-gold {
+  color: $color-gold;
+}
+.color-red {
+  color: $text-red;
+}
+.color-blue {
+  color: $main-link-color;
+}
+.large-text {
+  font-size: 150%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.list-main {
+  margin: 0;
+  padding: 0 0 20px 0;
+  list-style: none;
+
+  li {
+    padding: 0 0 6px 0;
+
+    ul {
+      margin: 0;
+      padding: 7px 0 0 15px;
+      list-style: none;
+    }
+  }
+}
+
+.table-main {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.main {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  position: relative;
+}
+
+.center-col {
+  float: left;
+  width: 650px;
+}
+.right-col {
+  float: left;
+  width: 300px;
+  padding: 0 0 0 50px;
+}
+
+.clear-fix {
+  clear: both;
+  height: 1px;
+  font-size: 1px;
+  line-height: 1px;
+}
+
+.push-right {
+  float: right;
+}
+.push-left {
+  float: left;
+}
+
+/* new */
+
+.fullscreen-loading {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: white;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .9;
+    font-family: $font-medium;
+    color: black;
+    left: 0;
+    top: 0;
+}
+
+.loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;
+  animation: ellipsis steps(4,end) 900ms infinite;
+  /* content: "..."; /* ascii code for the ellipsis character */
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+  position: absolute;
+}
+
+.loading-inside-button {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+.invisible {
+    visibility: hidden;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+.pointer {
+    cursor: pointer !important;
+}
+
+a {
+    cursor: pointer;
+}
+
+button {
+    outline: none;
+}

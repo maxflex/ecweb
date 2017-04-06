@@ -1,0 +1,29 @@
+.price {
+  padding: 0 0 15px 0;
+
+  &-title {
+    font-family: 'helveticaneuecyrbold';
+    background: #e8e8e8;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 0 0 20px 0;
+  }
+
+  &-list {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
+
+    td {
+      padding: 0 0 10px 0;
+
+      &:nth-child(1) {
+        width: 400px;
+      }
+      &:nth-child(2) {
+        width: 350px;
+      }
+    }
+  }
+}

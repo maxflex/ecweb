@@ -1,0 +1,161 @@
+.header {
+  padding: 0 0 30px 0;
+
+  &-inner {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 24px 0 15px 0;
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+  &-logo {
+    display: block;
+    background: url('../img/logo_yellow.svg') no-repeat;
+    width: 131px;
+    height: 62px;
+    overflow: hidden;
+    text-indent: -3000px;
+    float: left;
+  }
+
+  &-title {
+    border-left: 1px solid #e5e5e5;
+
+    font-size: 12px;
+    line-height: 16px;
+    font-family: 'helveticaneuecyrlight';
+//    font-family: 'helveticaneuecyrmedium';
+    float: left;
+    padding: 0 0 0 15px;
+    margin: 5px 0 0 15px;
+  }
+
+  &-contacts {
+    float: right;
+    font-family: 'helveticaneuecyrlight';
+    padding: 5px 0 0 0;
+
+    &-phone {
+      font-size: 24px;
+    }
+    &-worktime {
+      font-size: 14px;
+      text-align: right;
+      padding: 5px 0 0 0;
+    }
+  }
+
+  &-menu {
+    height: 48px;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 1000px;
+    position: relative;
+    z-index: 1;
+
+    &-wrap {
+      background: #3a6699;
+      position: relative;
+
+      &__img {
+        background: url('../img/header-img.jpg') no-repeat 50% 0;
+        height: 470px;
+
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 48px;
+          width: 100%;
+          background: rgba(0, 0, 0, 0.1);
+        }
+
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, .5);
+        }
+      }
+
+      .header-menu {
+        .header-menu-item__active {
+          background: rgba(0, 0, 0, .5);
+        }
+      }
+    }
+
+    &-item {
+      float: left;
+      padding: 0 15px;
+      font-size: 14px;
+      font-family: 'helveticaneuecyrmedium';
+
+      &__active {
+        background: #6185ad;
+      }
+
+      &:hover {
+          background: rgba(0, 0, 0, .5);
+      }
+
+      a {
+        display: block;
+        height: 32px;
+        padding: 16px 0 0 0;
+        text-decoration: none;
+        color: #fff;
+
+        &:hover {
+        //   text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &-img {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0 0 0;
+    width: 1000px;
+    margin: 0 auto;
+
+    &-title {
+      font-family: 'helveticaneuecyrthin';
+      font-size: 64px;
+      padding: 0 0 20px 0;
+
+      &__large {
+        font-family: 'helveticaneuecyrthin';
+        font-size: 132px;
+        line-height: 128px;
+      }
+    }
+
+    .button-green-large {
+      margin: 10px 0 0 0;
+    }
+  }
+
+  .button-green-large__enrollment {
+    position: absolute;
+    font-weight: 100;
+    top: 32px;
+    left: 450px;
+  }
+}

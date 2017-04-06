@@ -1,0 +1,92 @@
+#map {
+    width: 500px;
+    height: 500px;
+}
+
+body {
+    -webkit-overflow-scrolling: touch;
+    &.modal-open {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        &:before {
+            content: '';
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(black, 0.75);
+            position: fixed;
+            z-index: 99;
+        }
+    }
+}
+
+.lightbox-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    width: 60%;
+    height: 50%;
+    background: white;
+    z-index: 99;
+    left: 20%;
+    top: 25%;
+    // top: 25%;
+    border-radius: $border-radius;
+    display: none;
+    overflow: scroll;
+    line-height: 20px;
+    &.active {
+        display: block;
+    }
+    & .cross {
+        position: absolute;
+        right: 1em;
+        width: 1.1em;
+        height: 1.1em;
+        background: url(../img/svg/cross.svg) no-repeat;
+        cursor: pointer;
+        z-index: 3;
+    }
+    & .modal-content {
+        padding: 1em;
+        & h4 {
+            font-weight: normal;
+            font-family: 'helveticaneuecyrbold';
+        }
+        & .col {
+            width: 50%;
+            float: left;
+        }
+    }
+}
+.modal-open {
+    & .main {
+        // -webkit-filter: blur(5px);
+        //    -moz-filter: blur(5px);
+        //      -o-filter: blur(5px);
+        //     -ms-filter: blur(5px);
+        //         filter: blur(5px);
+    }
+    & .lightbox-background {
+        display: block;
+    }
+}
+
+#modal-video {
+    overflow: hidden;
+    width: 800px;
+    height: 450px;
+    & #youtube-video {
+        width: 100%;
+        height: 100%;
+    }
+}

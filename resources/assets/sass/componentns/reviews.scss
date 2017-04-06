@@ -1,0 +1,14 @@
+.reviews {
+  margin: 0;
+  padding: 0 0 20px 0;
+  list-style: none;
+
+  &-item {
+    padding: 0 0 45px 0;
+
+    &-signature {
+      padding: 20px 0 0 0;
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+.footer {
+  background: #3b3b3b;
+  color: #fff;
+  font-family: 'helveticaneuecyrlight';
+  font-size: $main-font-size;
+  font-weight: normal;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: $footer-height + px;
+
+  &-fix {
+    clear: both;
+    height: $footer-height + 50px;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-inner {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0 0 0
+  }
+
+  &-title {
+    color: #ababab;
+    font-family: 'helveticaneuecyrbold';
+    padding: 0 0 20px 0;
+  }
+
+  &-popular {
+    float: left;
+    width: 400px;
+  }
+
+  &-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      padding: 0 0 2px 0;
+    }
+  }
+
+  &-main {
+    float: left;
+    width: 390px;
+  }
+
+  &-contacts {
+    float: left;
+    width: 210px;
+  }
+
+  &-copyright {
+    text-align: center;
+
+    &:before {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+}
