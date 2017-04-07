@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Programm;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -34,6 +35,17 @@ class PagesController extends Controller
         if (Yacht::whereId($id)->exists()) {
             $html = Variable::display('page-yacht');
             Parser::compileYacht($id, $html);
+        } else {
+            $html = Variable::display('page-404');
+        }
+        return view('pages.index')->with(compact('html'));
+    }
+
+    public function programm($id)
+    {
+        if (Programm::whereId($id)->exists()) {
+            $html = Page::whereUrl(Programm::PAGE_URL)->first()->html;
+            Parser::compileProgramm($id, $html);
         } else {
             $html = Variable::display('page-404');
         }
