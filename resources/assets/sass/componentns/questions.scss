@@ -5,7 +5,7 @@
 
   &-item {
     // padding: 0 0 15px 0;
-    line-height: $line-height-main;
+    line-height: $line-height-main + px;
     &-title {
       color: $main-link-color;
       display: inline;
@@ -18,7 +18,7 @@
       display: none;
       color: $text-grey;
       padding: 14px 0;
-      line-height: $line-height-main;
+      line-height: $line-height-main + px;
     }
   }
 }

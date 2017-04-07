@@ -1,5 +1,5 @@
 <div>
-    <div class="double-spacing">
+    <div class="half-spacing">
         @{{ review.comment }}
         <span class='review-rating' ng-class="{
             'color-green': review.rating == 5,

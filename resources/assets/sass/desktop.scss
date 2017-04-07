@@ -151,11 +151,15 @@ span.customSelect {
 }
 
 .default-height {
-    line-height: $line-height-main;
+    line-height: $line-height-main + px;
 }
 
 .double-spacing {
-    margin-bottom: $line-height-main;
+    margin-bottom: $line-height-main + px;
+}
+
+.half-spacing {
+    margin-bottom: ($line-height-main / 2) + px;
 }
 
 .tutor-name {

@@ -45,7 +45,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    line-height: $line-height-main;
+    line-height: $line-height-main + px;
     li {
       padding: 0 0 2px 0;
     }

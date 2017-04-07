@@ -4,6 +4,6 @@
   list-style: none;
 
   li {
-      line-height: $line-height-main;
+      line-height: $line-height-main + px;
   }
 }
