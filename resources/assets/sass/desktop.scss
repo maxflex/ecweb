@@ -90,3 +90,47 @@ body {
         height: 100%;
     }
 }
+
+.check-mark {
+    @extend .fa;
+    @extend .fa-check;
+}
+
+.caret {
+    background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 70%;
+    background-size: 14px;
+    height: 15px;
+    width: 27px;
+    right: 0 !important;
+    top: 17px;
+    border: 0 !important;
+}
+
+.bootstrap-select {
+    width: 100% !important;
+    outline: none !important;
+    & button {
+        outline: none !important;
+        height: 48px;
+        font-size: 16px;
+    }
+}
+
+.dropdown-toggle:focus {
+    outline: none !important;
+}
+
+.dropdown-menu {
+    font-size: 16px;
+}
+
+span.customSelect {
+    background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 65%;
+    background-size: 14px;
+}
+
+.form-errors {
+    display: inline-block;
+    margin: 14px;
+    color: $text-red;
+}

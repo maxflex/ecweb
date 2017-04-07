@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "jquery": "~2.2.0",
-    "bootstrap": "~3.3.6",
+    "bootstrap": "^3.3.7",
     "bootswatch-scss": "~3.2.0",
     "normalize-css": "normalize.css#~3.0.3",
     "Ionicons": "ionicons#~2.0.1",
@@ -61,7 +61,7 @@
     "normalize-strings": "normalize#^1.1.0",
     "iCheck": "icheck#^1.0.2",
     "angular-file-upload": "^2.3.4",
-    "bootstrap-select": "^1.11.2",
+    "bootstrap-select": "^1.12.2",
     "mark.js": "^8.4.0",
     "angular-toArrayFilter": "^1.0.1",
     "ng-image-gallery": "^2.0.8"

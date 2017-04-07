@@ -195,6 +195,6 @@ a {
     cursor: pointer;
 }
 
-button {
-    outline: none;
+button, input, textarea {
+    outline: none !important;
 }
