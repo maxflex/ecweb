@@ -1,3 +1,3 @@
 angular
     .module 'App'
-    .controller 'Programms', ($scope, Programm) ->
+    .controller 'Programms', ($scope) ->
