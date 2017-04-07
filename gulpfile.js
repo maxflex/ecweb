@@ -46,6 +46,7 @@ elixir(mix => {
         .sass('main.scss')
         .coffee(['resources/assets/coffee/*.coffee', 'resources/assets/coffee/*/*.coffee'], 'resources/assets/js')
         .copy(fileFromBower('ng-image-gallery/res/icons'), 'public/img/icons')
+        .copy(fileFromBower('font-awesome/fonts'), 'public/fonts')
         .scripts(jsFromBower([
             'jquery/dist/jquery',
             'angular/angular.min',
@@ -63,8 +64,8 @@ elixir(mix => {
             'jquery.customSelect/jquery.customSelect.min',
             'iCheck/icheck.min',
             'angular-file-upload/dist/angular-file-upload.min',
-            'bootstrap-select/dist/js/bootstrap-select.min',
             'bootstrap/js/bootstrap.min',
+            'bootstrap-select/dist/js/bootstrap-select.min',
             'jquery.inputmask/dist/jquery.inputmask.bundle',
             'mark.js/dist/jquery.mark.min',
             'angular-toArrayFilter/toArrayFilter',

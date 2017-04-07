@@ -10,7 +10,7 @@ class Limiter
 {
     public static function run($key, $hours, $max, $success, $fail = null, $sms_text = null)
     {
-        $key = "egerep:{$key}:count";
+        $key = "ecweb:{$key}:count";
         $count = intval(Redis::get($key));
         if ($count < $max) {
             $return = $success();
