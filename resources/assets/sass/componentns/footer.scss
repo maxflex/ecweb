@@ -25,7 +25,7 @@
   }
 
   &-inner {
-    width: 1000px;
+    width: $screen-width;
     margin: 0 auto;
     padding: 20px 0 0 0
   }
@@ -38,7 +38,7 @@
 
   &-popular {
     float: left;
-    width: 400px;
+    width: 380px;
   }
 
   &-menu {
@@ -53,7 +53,7 @@
 
   &-main {
     float: left;
-    width: 390px;
+    width: 380px;
   }
 
   &-contacts {

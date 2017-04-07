@@ -18,7 +18,7 @@ class Tutor extends Service\Model
     ];
 
     const USER_TYPE  = 'TEACHER';
-    
+
     const URL = 'tutors';
 
     protected $commaSeparated = ['subjects', 'grades', 'branches'];
@@ -73,6 +73,10 @@ class Tutor extends Service\Model
 
         $query = Tutor::query();
 
+        if (isset($subject_id) && $subject_id) {
+            $query->whereRaw("FIND_IN_SET($subject_id, subjects)");;
+        }
+
         $query->selectDefault()->orderBy('clients_count', 'desc');
 
         return $query;
@@ -87,6 +91,7 @@ class Tutor extends Service\Model
             'tutors.id',
             'first_name',
             'middle_name',
+            'last_name',
             'subjects',
             'public_desc',
             'photo_extension',

@@ -3734,7 +3734,7 @@ body {
   font-size: 14px; }
 
 .common {
-  width: 1000px;
+  width: 980px;
   margin: 0 auto; }
 
 h1 {
@@ -3792,14 +3792,12 @@ a {
 
 .list-main {
   margin: 0;
-  padding: 0 0 20px 0;
+  padding: 0;
   list-style: none; }
-  .list-main li {
-    padding: 0 0 6px 0; }
-    .list-main li ul {
-      margin: 0;
-      padding: 7px 0 0 15px;
-      list-style: none; }
+  .list-main li ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
 
 .table-main, .courses-list {
   border-collapse: collapse;
@@ -3901,7 +3899,7 @@ button, input, textarea {
   background: #fef9de;
   border-bottom: 1px solid #ffe65c; }
   .top-message-inner {
-    width: 1000px;
+    width: 980px;
     margin: 0 auto;
     padding: 7px 0;
     font-size: 16px;
@@ -3914,13 +3912,13 @@ button, input, textarea {
   margin: 0;
   list-style: none; }
   .licence-list li {
-    padding: 0 0 3px 0; }
+    line-height: 21px; }
 
 .header {
-  padding: 0 0 30px 0; }
+  padding: 0 0 19px 0; }
   .header-inner {
     position: relative;
-    width: 1000px;
+    width: 980px;
     margin: 0 auto;
     padding: 24px 0 15px 0; }
     .header-inner:after {
@@ -3958,10 +3956,11 @@ button, input, textarea {
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    width: 1000px;
+    width: 980px;
     position: relative;
     z-index: 1;
-    overflow: hidden; }
+    overflow: hidden;
+    left: -14px; }
     .header-menu-wrap {
       background: #3a6699;
       position: relative; }
@@ -3975,7 +3974,7 @@ button, input, textarea {
           position: absolute;
           left: 0;
           top: 0;
-          height: 48px;
+          height: 44px;
           width: 100%;
           background: rgba(0, 0, 0, 0.1); }
         .header-menu-wrap__img:after {
@@ -4010,7 +4009,7 @@ button, input, textarea {
     color: #fff;
     text-align: center;
     padding: 20px 0 0 0;
-    width: 1000px;
+    width: 980px;
     margin: 0 auto; }
     .header-img-title {
       font-family: 'helveticaneuecyrultralight';
@@ -4049,7 +4048,7 @@ button, input, textarea {
     .footer a:hover {
       text-decoration: underline; }
   .footer-inner {
-    width: 1000px;
+    width: 980px;
     margin: 0 auto;
     padding: 20px 0 0 0; }
   .footer-title {
@@ -4058,7 +4057,7 @@ button, input, textarea {
     padding: 0 0 20px 0; }
   .footer-popular {
     float: left;
-    width: 400px; }
+    width: 380px; }
   .footer-menu {
     margin: 0;
     padding: 0;
@@ -4068,7 +4067,7 @@ button, input, textarea {
       padding: 0 0 2px 0; }
   .footer-main {
     float: left;
-    width: 390px; }
+    width: 380px; }
   .footer-contacts {
     float: left;
     width: 210px; }
@@ -4187,17 +4186,18 @@ button, input, textarea {
     .questions-item-answer {
       display: none;
       color: #818181;
-      padding: 8px 0 5px;
+      padding: 14px 0;
       line-height: 21px; }
 
 .reviews {
   margin: 0;
   padding: 0 0 20px 0;
-  list-style: none; }
+  list-style: none;
+  line-height: 21px; }
   .reviews-item {
     padding: 0 0 45px 0; }
     .reviews-item-signature {
-      padding: 20px 0 0 0;
+      padding: 0;
       text-align: right; }
 
 .price {
@@ -4247,13 +4247,13 @@ button, input, textarea {
         border-radius: 6px; }
     .tutors-item-info {
       float: left;
-      width: 880px; }
+      width: 860px; }
     .tutors-item-links {
       margin: 0;
       padding: 0;
       list-style: none; }
       .tutors-item-links-item {
-        padding: 0 0 3px 0; }
+        padding: 0; }
     .tutors-item-reviews {
       background: #f4f4f4;
       padding: 10px 15px 20px 15px;
@@ -4306,7 +4306,7 @@ button, input, textarea {
 
 .landing-main {
   position: absolute;
-  width: 1000px;
+  width: 980px;
   height: 420px;
   top: 50%;
   left: 50%;
@@ -4416,7 +4416,7 @@ button, input, textarea {
 .button-white-large {
   background: transparent;
   color: #818181;
-  font-family: 'helveticaneuecyrbold';
+  font-family: 'helveticaneuecyrmedium';
   border: 1px solid #acacac; }
 
 .input-text,
@@ -4586,5 +4586,17 @@ span.customSelect {
 
 .link-gray {
   color: #818181; }
+
+.close-cross {
+  width: 50px;
+  float: right;
+  padding: 20px;
+  cursor: pointer;
+  opacity: .5; }
+  .close-cross:hover {
+    opacity: 1; }
+
+.default-height {
+  line-height: 21px; }
 
 /*# sourceMappingURL=main.css.map */

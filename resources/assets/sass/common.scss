@@ -8,7 +8,7 @@ body {
 }
 
 .common {
-  width: 1000px;
+  width: $screen-width;
   margin: 0 auto;
 }
 
@@ -77,15 +77,17 @@ a {
 
 .list-main {
   margin: 0;
-  padding: 0 0 20px 0;
+  // padding: 0 0 20px 0;
+  padding: 0;
   list-style: none;
 
   li {
-    padding: 0 0 6px 0;
+    // padding: 0 0 6px 0;
 
     ul {
       margin: 0;
-      padding: 7px 0 0 15px;
+    //   padding: 7px 0 0 15px;
+        padding: 0;
       list-style: none;
     }
   }

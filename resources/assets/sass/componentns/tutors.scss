@@ -27,8 +27,7 @@
 
     &-info {
       float: left;
-
-      width: 880px;
+      width: 860px;
     }
 
     &-links {
@@ -37,7 +36,8 @@
       list-style: none;
 
       &-item {
-        padding: 0 0 3px 0;
+        // padding: 0 0 3px 0;
+        padding: 0;
       }
     }
 
