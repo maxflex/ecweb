@@ -236,6 +236,11 @@
 }).call(this);
 
 (function() {
+  angular.module('App').controller('Programms', function($scope, Programm) {});
+
+}).call(this);
+
+(function() {
   angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Tutors', function($scope, $timeout, $http, $sce, Tutor, REVIEWS_PER_PAGE) {
     var filter, filter_used, search, search_count;
     search_count = 0;
@@ -419,6 +424,30 @@
           'person': ['человек', 'человека', 'человек'],
           'ton': ['тонна', 'тонны', 'тонн'],
           'yacht': ['яхта', 'яхты', 'яхт']
+        };
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('programmItem', function() {
+    return {
+      templateUrl: '/directives/programm',
+      scope: {
+        item: '=',
+        level: '=?',
+        levelstring: '='
+      },
+      controller: function($timeout, $element, $scope) {
+        if (!$scope.level) {
+          $scope.level = 0;
+        }
+        return $scope.getChildLevelString = function(child_index) {
+          var str;
+          str = $scope.levelstring ? $scope.levelstring : '';
+          return str + (child_index + 1) + '.';
         };
       }
     };

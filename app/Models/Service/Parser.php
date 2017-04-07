@@ -1,5 +1,6 @@
 <?php
     namespace App\Models\Service;
+    use App\Models\Programm;
     use App\Models\Variable;
     use App\Models\Review;
     use App\Models\Page;
@@ -130,6 +131,16 @@
             // h1 и desc
             // static::replace($html, 'title', view('tutor.title', compact('tutor')));
             // static::replace($html, 'desc', self::_cleanString(view('tutor.desc', compact('tutor'))));
+        }
+
+        /**
+         * Компилировать страницу препода
+         */
+        public static function compileProgramm($id, &$html)
+        {
+            if ($programm = Programm::find($id)) {
+                static::replace($html, 'current_programm', $programm->toJson());
+            }
         }
 
         /**
