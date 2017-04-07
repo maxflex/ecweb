@@ -20,7 +20,7 @@ class ReviewsController extends Controller
     {
         $paginator = Review::simplePaginate(30);
         $reviews = $paginator->getCollection()->map(function ($review) {
-            $review->tutor = DB::connection('egerep')->table('tutors')->whereId($review->id_teacher)->select('id', 'first_name', 'last_name', 'middle_name')->get();
+            $review->tutor = DB::connection('egerep')->table('tutors')->whereId($review->id_teacher)->select('id', 'first_name', 'last_name', 'middle_name')->first();
             return $review;
         });
         return [

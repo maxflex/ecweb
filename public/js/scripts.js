@@ -16940,7 +16940,7 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
       restrict: 'E',
       templateUrl: 'directives/review',
       scope: {
-        reivew: '=review'
+        review: '=review'
       }
     };
   });

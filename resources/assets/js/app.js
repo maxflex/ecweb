@@ -602,7 +602,7 @@
       restrict: 'E',
       templateUrl: 'directives/review',
       scope: {
-        reivew: '=review'
+        review: '=review'
       }
     };
   });
