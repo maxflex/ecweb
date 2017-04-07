@@ -4,8 +4,8 @@
   list-style: none;
 
   &-item {
-    padding: 0 0 15px 0;
-
+    // padding: 0 0 15px 0;
+    line-height: $line-height-main;
     &-title {
       color: $main-link-color;
       display: inline;
@@ -17,7 +17,8 @@
     &-answer {
       display: none;
       color: $text-grey;
-      padding: 20px 0 5px;
+      padding: 8px 0 5px;
+      line-height: $line-height-main;
     }
   }
 }

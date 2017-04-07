@@ -2,17 +2,17 @@
   background: #3b3b3b;
   color: #fff;
   font-family: 'helveticaneuecyrlight';
-  font-size: $main-font-size;
+  font-size: 14px;
   font-weight: normal;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
+  padding-bottom: 20px;
   height: $footer-height + px;
-
   &-fix {
     clear: both;
-    height: $footer-height + 50px;
+    height: $footer-height;
   }
 
   a {
@@ -32,7 +32,7 @@
 
   &-title {
     color: #ababab;
-    font-family: 'helveticaneuecyrbold';
+    font-family: 'helveticaneuecyrmedium';
     padding: 0 0 20px 0;
   }
 
@@ -45,7 +45,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-
+    line-height: $line-height-main;
     li {
       padding: 0 0 2px 0;
     }

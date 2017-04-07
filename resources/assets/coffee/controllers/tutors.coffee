@@ -9,7 +9,7 @@ angular
 
         # личная страница преподавателя?
         $scope.profilePage = ->
-            RegExp(/^\/[\d]+$/).test(window.location.pathname)
+            RegExp(/^\/tutors\/[\d]+$/).test(window.location.pathname)
 
         # страница поиска
         $timeout ->

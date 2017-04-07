@@ -1,5 +1,7 @@
 <?php
     use App\Models\Variable;
+    use App\Models\Programm;
+    use App\Models\Tutor;
 
     URL::forceSchema('https');
 
@@ -38,9 +40,9 @@
     Route::get('login/{hash}', 'PagesController@login');
 
     # Tutor profile page
-    Route::get('{id}', 'PagesController@yacht')->where('id', '[0-9]+');
-
-    Route::get('programm/{id}', 'PagesController@programm')->where('id', '[0-9]+');
+    Route::get(Tutor::URL . '/{id}', 'PagesController@tutor')->where('id', '[0-9]+');
+    
+    Route::get(Programm::URL . '/{id}', 'PagesController@programm')->where('id', '[0-9]+');
 
     # All serp pages
     Route::get('{url?}', 'PagesController@index')->where('url', '.*');

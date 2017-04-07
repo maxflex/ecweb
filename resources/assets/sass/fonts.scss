@@ -64,3 +64,21 @@
   font-style: normal;
 
 }
+
+@font-face {
+  font-family: 'helveticaneuecyrultralight';
+  src: url('../fonts/HelveticaNeue-UltraLight.eot') format('eot'),
+  url('../fonts/HelveticaNeue-UltraLight.ttf') format('ttf'),
+  url('../fonts/HelveticaNeue-UltraLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'helveticaneuecyrregular';
+  src: url('../fonts/HelveticaNeueRegular.eot') format('eot'),
+  url('../fonts/HelveticaNeueRegular.ttf') format('ttf'),
+  url('../fonts/HelveticaNeueRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

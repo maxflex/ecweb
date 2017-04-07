@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Page;
 use App\Models\Variable;
-use App\Models\Yacht;
+use App\Models\Tutor;
 use App\Models\Service\Parser;
 
 class PagesController extends Controller
@@ -28,17 +28,20 @@ class PagesController extends Controller
     }
 
     /**
-     * Yacht profile page
+     * Tutor profile page
      */
-    public function yacht($id)
+    public function tutor($id)
     {
-        if (Yacht::whereId($id)->exists()) {
-            $html = Variable::display('page-yacht');
-            Parser::compileYacht($id, $html);
+        if (Tutor::whereId($id)->exists()) {
+            $html = Page::whereUrl(Tutor::URL . '/:id')->first()->html;
+            Parser::compileTutor($id, $html);
+            $status = 200;
         } else {
             $html = Variable::display('page-404');
+            $status = 404;
         }
-        return view('pages.index')->with(compact('html'));
+        $_SESSION['action'] = 'profile';
+        return response()->view('pages.index', compact('html'), $status);
     }
 
     public function programm($id)

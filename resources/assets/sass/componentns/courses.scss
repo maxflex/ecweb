@@ -1,9 +1,9 @@
 .courses {
-  padding: 0 0 90px 0;
+  padding: 0 0 30px 0;
 
   &-title {
-    font-size: 40px;
-    padding: 0 0 40px 0;
+    font-size: 32px;
+    padding: 0 0 30px 0;
 
     .button-green-small {
       margin-left: 8px;
@@ -13,7 +13,7 @@
   &-list {
     @extend .table-main;
     margin-bottom: 20px;
-
+    font-size: 14px;
     td {
       padding: 0 0 10px 0;
       vertical-align: middle;
@@ -31,11 +31,12 @@
       width: 60px;
 
       img {
-        width: 40px;
+        width: 32px;
       }
     }
 
     &-text {
+        line-height: 21px;
       width: 715px;
       padding-right: 70px !important;
     }

@@ -301,7 +301,7 @@
     bindArguments($scope, arguments);
     search_count = 0;
     $scope.profilePage = function() {
-      return RegExp(/^\/[\d]+$/).test(window.location.pathname);
+      return RegExp(/^\/tutors\/[\d]+$/).test(window.location.pathname);
     };
     $timeout(function() {
       var id;

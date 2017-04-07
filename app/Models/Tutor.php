@@ -18,6 +18,8 @@ class Tutor extends Service\Model
     ];
 
     const USER_TYPE  = 'TEACHER';
+    
+    const URL = 'tutors';
 
     protected $commaSeparated = ['subjects', 'grades', 'branches'];
 

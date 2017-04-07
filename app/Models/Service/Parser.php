@@ -4,6 +4,7 @@
     use App\Models\Variable;
     use App\Models\Review;
     use App\Models\Page;
+    use App\Models\Tutor;
 
     /**
      * Parser
@@ -116,21 +117,9 @@
         /**
          * Компилировать страницу препода
          */
-        public static function compileYacht($id, &$html)
+        public static function compileTutor($id, &$html)
         {
-            $yacht = Yacht::find($id);
-            // $similar_tutors = Yacht::getSimilar($tutor);
-            //
-            // // Ссылка «все репетиторы по ...»
-            // $subjects_url = Page::getUrl(@Page::$subject_page_id[implode(',', $tutor->subjects)]);
-
-            static::replace($html, 'current_yacht', $yacht->toJson());
-            // static::replace($html, 'similar_tutors', $similar_tutors->toJson());
-            // static::replace($html, 'subjects_url', $subjects_url);
-
-            // h1 и desc
-            // static::replace($html, 'title', view('tutor.title', compact('tutor')));
-            // static::replace($html, 'desc', self::_cleanString(view('tutor.desc', compact('tutor'))));
+            static::replace($html, 'current_tutor', Tutor::selectDefault()->whereId($id)->first()->toJson());
         }
 
         /**
