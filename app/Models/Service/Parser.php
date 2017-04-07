@@ -1,6 +1,6 @@
 <?php
     namespace App\Models\Service;
-    use App\Models\Programm;
+    use App\Models\Program;
     use App\Models\Variable;
     use App\Models\Review;
     use App\Models\Page;
@@ -136,10 +136,10 @@
         /**
          * Компилировать страницу препода
          */
-        public static function compileProgramm($id, &$html)
+        public static function compileProgram($id, &$html)
         {
-            if ($programm = Programm::find($id)) {
-                static::replace($html, 'current_programm', $programm->toJson());
+            if ($program = Program::find($id)) {
+                static::replace($html, 'current_program', $program->toJson());
             }
         }
 

@@ -3,6 +3,6 @@
 </span>
 <ul ng-if="item.content.length" ng-class="{'list-main': !level }">
     <li ng-repeat="child in item.content">
-        <programm-item item="child" level="level + 1" levelstring="getChildLevelString($index)"></programm-item>
+        <program-item item="child" level="level + 1" levelstring="getChildLevelString($index)"></program-item>
     </li>
 </ul>

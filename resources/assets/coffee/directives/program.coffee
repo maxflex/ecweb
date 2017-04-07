@@ -1,7 +1,7 @@
 angular
     .module 'App'
-    .directive 'programmItem', ->
-        templateUrl: '/directives/programm'
+    .directive 'programItem', ->
+        templateUrl: '/directives/program'
         scope:
             item:   '='
             level:  '=?'
