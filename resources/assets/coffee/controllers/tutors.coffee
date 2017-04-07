@@ -1,10 +1,9 @@
 angular
     .module 'App'
     .constant 'REVIEWS_PER_PAGE', 5
-    # .filter 'youtubeEmbedUrl', ($sce) ->
-    #     (videoId) ->
-    #         $sce.trustAsResourceUrl('http://www.youtube.com/embed/' + videoId)
-    .controller 'Tutors', ($scope, $timeout, $http, $sce, Tutor, REVIEWS_PER_PAGE) ->
+    .controller 'Tutors', ($scope, $timeout, $http, $sce, Tutor, REVIEWS_PER_PAGE, Subjects) ->
+        bindArguments($scope, arguments)
+
         # сколько загрузок преподавателей было
         search_count = 0
 

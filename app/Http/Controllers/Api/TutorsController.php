@@ -15,7 +15,7 @@ class TutorsController extends Controller
 {
     public function index(Request $request)
     {
-        return Tutor::paginate(10);
+        return Tutor::simplePaginate(10);
     }
 
     /**
@@ -23,16 +23,7 @@ class TutorsController extends Controller
      */
     public function reviews($id)
     {
-        return Tutor::reviews($id)
-        ->select(
-            'reviews.created_at',
-            'reviews.score',
-            'reviews.comment',
-            'reviews.signature',
-            DB::raw('attachments.date as attachment_date'),
-            DB::raw('archives.date as archive_date'),
-            DB::raw('(SELECT COUNT(*) FROM account_datas ad WHERE ad.tutor_id = attachments.tutor_id AND ad.client_id = attachments.client_id) as lesson_count')
-        )->orderBy('reviews.created_at', 'desc')->get();
+        return Tutor::reviews($id)->get();
     }
 
     /**

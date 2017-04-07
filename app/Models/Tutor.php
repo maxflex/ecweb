@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Scopes\TutorScope;
-use App\Scopes\ReviewScope;
 use DB;
 use App\Service\Cacher;
 
@@ -58,17 +57,6 @@ class Tutor extends Service\Model
         }, $this->subjects));
     }
 
-    public static function reviews($tutor_id)
-    {
-        return DB::connection('egerep')
-            ->table('reviews')
-            ->join('attachments', 'attachments.id', '=', 'attachment_id')
-            ->join('archives', 'archives.attachment_id', '=', 'attachments.id')
-            ->where('tutor_id', $tutor_id)
-            ->where('reviews.state', 'published')
-            ->whereBetween('score', [1, 10]);
-    }
-
     public static function boot()
     {
         static::addGlobalScope(new TutorScope);
@@ -81,7 +69,7 @@ class Tutor extends Service\Model
     {
         @extract($search);
 
-        $query = Tutor::with(['markers']);
+        $query = Tutor::query();
 
         $query->selectDefault()->orderBy('clients_count', 'desc');
 

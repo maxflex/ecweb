@@ -7,10 +7,11 @@ angular.module('App')
             reviews:
                 method: 'GET'
                 isArray: true
-                url: apiPath('tutors', 'reviews')
+                url: apiPath('reviews')
 
     .factory 'Request', ($resource) ->
         $resource apiPath('requests'), {id: '@id'}, updatable()
+
 
 apiPath = (entity, additional = '') ->
     "/api/#{entity}/" + (if additional then additional + '/' else '') + ":id"

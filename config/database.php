@@ -67,12 +67,12 @@ return [
             'unix_socket' => env('DB_SOCKET', ''),
         ],
 
-        'ycrm' => [
+        'egecrm' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST_YCRM', 'localhost'),
-            'database'  => env('DB_DATABASE_YCRM'),
-            'username'  => env('DB_USERNAME_YCRM'),
-            'password'  => env('DB_PASSWORD_YCRM'),
+            'host'      => env('DB_HOST_EGECRM', 'localhost'),
+            'database'  => env('DB_DATABASE_EGECRM'),
+            'username'  => env('DB_USERNAME_EGECRM'),
+            'password'  => env('DB_PASSWORD_EGECRM'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
