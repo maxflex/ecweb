@@ -6,7 +6,6 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
 
     Route::resource('requests', 'RequestsController', ['only' => 'store']);
 
-    Route::post('cv/uploadPhoto', 'CvController@uploadPhoto');
     Route::resource('cv', 'CvController', ['only' => 'store']);
     Route::resource('stream', 'StreamController', ['only' => 'store']);
 

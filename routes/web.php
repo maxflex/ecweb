@@ -10,11 +10,6 @@
         return $html;
     });
 
-    Route::get('/cv', function() {
-        $html = Variable::display('page-cv');
-        return $html;
-    });
-
     Route::get('/login', function() {
         $html = Variable::display('page-login');
         return $html;

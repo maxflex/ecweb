@@ -16197,6 +16197,209 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
 }).call(this);
 
 (function() {
+
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Cv', function($scope, $timeout, $http, Cv) {
+    bindArguments($scope, arguments);
+    $timeout(function() {
+      return $scope.cv = {};
+    });
+    return $scope.send = function() {
+      $scope.sending = true;
+      $scope.errors = {};
+      return Cv.save($scope.cv, function() {
+        $scope.sending = false;
+        return $scope.sent = true;
+      }, function(response) {
+        $scope.sending = false;
+        return angular.forEach(response.data, function(errors, field) {
+          var selector;
+          $scope.errors[field] = errors;
+          selector = "[ng-model$='" + field + "']";
+          return $("input" + selector + ", textarea" + selector).focus();
+        });
+      });
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Empty', function($scope, StreamService) {
+    return bindArguments($scope, arguments);
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Branches, Request) {
+    bindArguments($scope, arguments);
+    $timeout(function() {
+      return $scope.order = {};
+    });
+    return $scope.request = function() {
+      $scope.sending = true;
+      $scope.errors = {};
+      return Request.save($scope.order, function() {
+        $scope.sending = false;
+        return $scope.sent = true;
+      }, function(response) {
+        $scope.sending = false;
+        return angular.forEach(response.data, function(errors, field) {
+          var selector;
+          $scope.errors[field] = errors;
+          selector = "[ng-model$='" + field + "']";
+          return $("input" + selector + ", textarea" + selector).focus();
+        });
+      });
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Programms', function($scope) {});
+
+}).call(this);
+
+(function() {
+  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Tutors', function($scope, $timeout, $http, $sce, Tutor, REVIEWS_PER_PAGE) {
+    var filter, filter_used, search, search_count;
+    search_count = 0;
+    $scope.profilePage = function() {
+      return RegExp(/^\/[\d]+$/).test(window.location.pathname);
+    };
+    $timeout(function() {
+      var id;
+      initYoutube();
+      if (!$scope.profilePage()) {
+        if ($.cookie('search') !== void 0) {
+          id = $scope.search.id;
+          $scope.search = JSON.parse($.cookie('search'));
+          $scope.search.id = id;
+        }
+        return $scope.filter();
+      }
+    });
+    $scope.reviews = function(tutor, index) {
+      if (tutor.all_reviews === void 0) {
+        tutor.all_reviews = Tutor.reviews({
+          id: tutor.id
+        }, function(response) {
+          return $scope.showMoreReviews(tutor);
+        });
+      }
+      return $scope.toggleShow(tutor, 'show_reviews', 'reviews', false);
+    };
+    $scope.showMoreReviews = function(tutor, index) {
+      var from, to;
+      tutor.reviews_page = !tutor.reviews_page ? 1 : tutor.reviews_page + 1;
+      from = (tutor.reviews_page - 1) * REVIEWS_PER_PAGE;
+      to = from + REVIEWS_PER_PAGE;
+      return tutor.displayed_reviews = tutor.all_reviews.slice(0, to);
+    };
+    $scope.reviewsLeft = function(tutor) {
+      var reviews_left;
+      if (!tutor.all_reviews || !tutor.displayed_reviews) {
+        return;
+      }
+      reviews_left = tutor.all_reviews.length - tutor.displayed_reviews.length;
+      if (reviews_left > REVIEWS_PER_PAGE) {
+        return REVIEWS_PER_PAGE;
+      } else {
+        return reviews_left;
+      }
+    };
+    filter_used = false;
+    $scope.filter = function() {
+      $scope.tutors = [];
+      $scope.page = 1;
+      if (filter_used) {
+        return filter();
+      } else {
+        filter();
+        return filter_used = true;
+      }
+    };
+    filter = function() {
+      search();
+      return $.cookie('search', JSON.stringify($scope.search));
+    };
+    $scope.nextPage = function() {
+      $scope.page++;
+      return search();
+    };
+    $scope.$watch('page', function(newVal, oldVal) {
+      if (newVal !== void 0) {
+        return $.cookie('page', $scope.page);
+      }
+    });
+    search = function() {
+      $scope.searching = true;
+      return Tutor.search({
+        filter_used: filter_used,
+        page: $scope.page,
+        search: $scope.search
+      }, function(response) {
+        search_count++;
+        $scope.searching = false;
+        $scope.data = response;
+        return $scope.tutors = $scope.tutors.concat(response.data);
+      });
+    };
+    $scope.video = function(tutor) {
+      $scope.video_link = tutor.video_link;
+      return openModal('video');
+    };
+    $scope.videoLink = function() {
+      return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + $scope.video_link + "?enablejsapi=1&rel=0&amp;showinfo=0");
+    };
+    return $scope.toggleShow = function(tutor, prop, iteraction_type, index) {
+      if (index == null) {
+        index = null;
+      }
+      if (tutor[prop]) {
+        return $timeout(function() {
+          return tutor[prop] = false;
+        }, $scope.mobile ? 400 : 0);
+      } else {
+        return tutor[prop] = true;
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('digitsOnly', function() {
+    return {
+      restrics: 'A',
+      require: 'ngModel',
+      link: function($scope, $element, $attr, $ctrl) {
+        var filter, ref;
+        filter = function(value) {
+          var new_value;
+          if (!value) {
+            return void 0;
+          }
+          new_value = value.replace(/[^0-9]/g, '');
+          if (new_value !== value) {
+            $ctrl.$setViewValue(new_value);
+            $ctrl.$render();
+          }
+          return value;
+        };
+        return (ref = $ctrl.$parsers) != null ? ref.push(filter) : void 0;
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
   angular.module('App').directive('errors', function() {
     return {
       restrict: 'E',
@@ -16376,157 +16579,6 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
 }).call(this);
 
 (function() {
-
-
-}).call(this);
-
-(function() {
-  angular.module('App').controller('Empty', function($scope, StreamService) {
-    return bindArguments($scope, arguments);
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Branches, Request) {
-    bindArguments($scope, arguments);
-    $timeout(function() {
-      return $scope.order = {};
-    });
-    return $scope.request = function() {
-      $scope.sending = true;
-      $scope.errors = {};
-      return Request.save($scope.order, function() {
-        $scope.sending = false;
-        return $scope.sent = true;
-      }, function(response) {
-        $scope.sending = false;
-        return angular.forEach(response.data, function(errors, field) {
-          var selector;
-          $scope.errors[field] = errors;
-          selector = "[ng-model$='" + field + "']";
-          return $("input" + selector + ", textarea" + selector).focus();
-        });
-      });
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').controller('Programms', function($scope) {});
-
-}).call(this);
-
-(function() {
-  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Tutors', function($scope, $timeout, $http, $sce, Tutor, REVIEWS_PER_PAGE) {
-    var filter, filter_used, search, search_count;
-    search_count = 0;
-    $scope.profilePage = function() {
-      return RegExp(/^\/[\d]+$/).test(window.location.pathname);
-    };
-    $timeout(function() {
-      var id;
-      initYoutube();
-      if (!$scope.profilePage()) {
-        if ($.cookie('search') !== void 0) {
-          id = $scope.search.id;
-          $scope.search = JSON.parse($.cookie('search'));
-          $scope.search.id = id;
-        }
-        return $scope.filter();
-      }
-    });
-    $scope.reviews = function(tutor, index) {
-      if (tutor.all_reviews === void 0) {
-        tutor.all_reviews = Tutor.reviews({
-          id: tutor.id
-        }, function(response) {
-          return $scope.showMoreReviews(tutor);
-        });
-      }
-      return $scope.toggleShow(tutor, 'show_reviews', 'reviews', false);
-    };
-    $scope.showMoreReviews = function(tutor, index) {
-      var from, to;
-      tutor.reviews_page = !tutor.reviews_page ? 1 : tutor.reviews_page + 1;
-      from = (tutor.reviews_page - 1) * REVIEWS_PER_PAGE;
-      to = from + REVIEWS_PER_PAGE;
-      return tutor.displayed_reviews = tutor.all_reviews.slice(0, to);
-    };
-    $scope.reviewsLeft = function(tutor) {
-      var reviews_left;
-      if (!tutor.all_reviews || !tutor.displayed_reviews) {
-        return;
-      }
-      reviews_left = tutor.all_reviews.length - tutor.displayed_reviews.length;
-      if (reviews_left > REVIEWS_PER_PAGE) {
-        return REVIEWS_PER_PAGE;
-      } else {
-        return reviews_left;
-      }
-    };
-    filter_used = false;
-    $scope.filter = function() {
-      $scope.tutors = [];
-      $scope.page = 1;
-      if (filter_used) {
-        return filter();
-      } else {
-        filter();
-        return filter_used = true;
-      }
-    };
-    filter = function() {
-      search();
-      return $.cookie('search', JSON.stringify($scope.search));
-    };
-    $scope.nextPage = function() {
-      $scope.page++;
-      return search();
-    };
-    $scope.$watch('page', function(newVal, oldVal) {
-      if (newVal !== void 0) {
-        return $.cookie('page', $scope.page);
-      }
-    });
-    search = function() {
-      $scope.searching = true;
-      return Tutor.search({
-        filter_used: filter_used,
-        page: $scope.page,
-        search: $scope.search
-      }, function(response) {
-        search_count++;
-        $scope.searching = false;
-        $scope.data = response;
-        return $scope.tutors = $scope.tutors.concat(response.data);
-      });
-    };
-    $scope.video = function(tutor) {
-      $scope.video_link = tutor.video_link;
-      return openModal('video');
-    };
-    $scope.videoLink = function() {
-      return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + $scope.video_link + "?enablejsapi=1&rel=0&amp;showinfo=0");
-    };
-    return $scope.toggleShow = function(tutor, prop, iteraction_type, index) {
-      if (index == null) {
-        index = null;
-      }
-      if (tutor[prop]) {
-        return $timeout(function() {
-          return tutor[prop] = false;
-        }, $scope.mobile ? 400 : 0);
-      } else {
-        return tutor[prop] = true;
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
   angular.module('App').value('Grades', {
     1: '1 класс',
     2: '2 класс',
@@ -16639,55 +16691,6 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
       color: '#ACADAF'
     }
   });
-
-}).call(this);
-
-(function() {
-  var apiPath, countable, updatable;
-
-  angular.module('App').factory('Tutor', function($resource) {
-    return $resource(apiPath('tutors'), {
-      id: '@id',
-      type: '@type'
-    }, {
-      search: {
-        method: 'POST',
-        url: apiPath('tutors', 'search')
-      },
-      reviews: {
-        method: 'GET',
-        isArray: true,
-        url: apiPath('tutors', 'reviews')
-      }
-    });
-  }).factory('Request', function($resource) {
-    return $resource(apiPath('requests'), {
-      id: '@id'
-    }, updatable());
-  });
-
-  apiPath = function(entity, additional) {
-    if (additional == null) {
-      additional = '';
-    }
-    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
-  };
-
-  updatable = function() {
-    return {
-      update: {
-        method: 'PUT'
-      }
-    };
-  };
-
-  countable = function() {
-    return {
-      count: {
-        method: 'GET'
-      }
-    };
-  };
 
 }).call(this);
 
@@ -16868,6 +16871,59 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
     };
     return this;
   });
+
+}).call(this);
+
+(function() {
+  var apiPath, countable, updatable;
+
+  angular.module('App').factory('Tutor', function($resource) {
+    return $resource(apiPath('tutors'), {
+      id: '@id',
+      type: '@type'
+    }, {
+      search: {
+        method: 'POST',
+        url: apiPath('tutors', 'search')
+      },
+      reviews: {
+        method: 'GET',
+        isArray: true,
+        url: apiPath('tutors', 'reviews')
+      }
+    });
+  }).factory('Request', function($resource) {
+    return $resource(apiPath('requests'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Cv', function($resource) {
+    return $resource(apiPath('cv'), {
+      id: '@id'
+    }, updatable());
+  });
+
+  apiPath = function(entity, additional) {
+    if (additional == null) {
+      additional = '';
+    }
+    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
+  };
+
+  updatable = function() {
+    return {
+      update: {
+        method: 'PUT'
+      }
+    };
+  };
+
+  countable = function() {
+    return {
+      count: {
+        method: 'GET'
+      }
+    };
+  };
 
 }).call(this);
 
