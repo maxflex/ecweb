@@ -1,8 +1,10 @@
 .price {
   padding: 0 0 15px 0;
-
+  &:first-of-type {
+      padding-top: 15px;
+  }
   &-title {
-    font-family: 'helveticaneuecyrbold';
+    font-family: 'helveticaneuecyrmedium';
     background: #e8e8e8;
     border-radius: 3px;
     padding: 10px;

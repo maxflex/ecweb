@@ -229,6 +229,32 @@
 }).call(this);
 
 (function() {
+  angular.module('App').controller('Cv', function($scope, $timeout, $http, Cv) {
+    bindArguments($scope, arguments);
+    $timeout(function() {
+      return $scope.cv = {};
+    });
+    return $scope.send = function() {
+      $scope.sending = true;
+      $scope.errors = {};
+      return Cv.save($scope.cv, function() {
+        $scope.sending = false;
+        return $scope.sent = true;
+      }, function(response) {
+        $scope.sending = false;
+        return angular.forEach(response.data, function(errors, field) {
+          var selector;
+          $scope.errors[field] = errors;
+          selector = "[ng-model$='" + field + "']";
+          return $("input" + selector + ", textarea" + selector).focus();
+        });
+      });
+    };
+  });
+
+}).call(this);
+
+(function() {
   angular.module('App').controller('Empty', function($scope, StreamService) {
     return bindArguments($scope, arguments);
   });
@@ -262,7 +288,7 @@
 }).call(this);
 
 (function() {
-  angular.module('App').controller('Programms', function($scope) {});
+  angular.module('App').controller('Programs', function($scope) {});
 
 }).call(this);
 
@@ -398,6 +424,224 @@
         }, $scope.mobile ? 400 : 0);
       } else {
         return tutor[prop] = true;
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('academic', function() {
+    return {
+      restrict: 'E',
+      template: "{{ year }}–{{ +(year) + 1 }}",
+      scope: {
+        year: '='
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('digitsOnly', function() {
+    return {
+      restrics: 'A',
+      require: 'ngModel',
+      link: function($scope, $element, $attr, $ctrl) {
+        var filter, ref;
+        filter = function(value) {
+          var new_value;
+          if (!value) {
+            return void 0;
+          }
+          new_value = value.replace(/[^0-9]/g, '');
+          if (new_value !== value) {
+            $ctrl.$setViewValue(new_value);
+            $ctrl.$render();
+          }
+          return value;
+        };
+        return (ref = $ctrl.$parsers) != null ? ref.push(filter) : void 0;
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('errors', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'directives/errors',
+      scope: {
+        model: '@'
+      },
+      controller: function($scope, $element, $attrs) {
+        $scope.only_first = $attrs.hasOwnProperty('onlyFirst');
+        return $scope.getErrors = function() {
+          var errors;
+          if ($scope.$parent.errors === void 0) {
+            return;
+          }
+          errors = $scope.$parent.errors[$scope.model];
+          if ($scope.only_first) {
+            return [errors[0]];
+          } else {
+            return errors;
+          }
+        };
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('ngPhone', function() {
+    return {
+      restrict: 'A',
+      link: function($scope, element) {
+        return $(element).mask("+7 (999) 999-99-99", {
+          autoclear: false
+        });
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('plural', function() {
+    return {
+      restrict: 'E',
+      scope: {
+        count: '=',
+        type: '@',
+        noneText: '@'
+      },
+      templateUrl: '/directives/plural',
+      controller: function($scope, $element, $attrs, $timeout) {
+        $scope.textOnly = $attrs.hasOwnProperty('textOnly');
+        $scope.hideZero = $attrs.hasOwnProperty('hideZero');
+        return $scope.when = {
+          'age': ['год', 'года', 'лет'],
+          'student': ['ученик', 'ученика', 'учеников'],
+          'minute': ['минуту', 'минуты', 'минут'],
+          'hour': ['час', 'часа', 'часов'],
+          'day': ['день', 'дня', 'дней'],
+          'rubbles': ['рубль', 'рубля', 'рублей'],
+          'client': ['клиент', 'клиента', 'клиентов'],
+          'mark': ['оценки', 'оценок', 'оценок'],
+          'review': ['отзыв', 'отзыва', 'отзывов'],
+          'request': ['заявка', 'заявки', 'заявок'],
+          'profile': ['анкета', 'анкеты', 'анкет'],
+          'address': ['адрес', 'адреса', 'адресов'],
+          'person': ['человек', 'человека', 'человек'],
+          'ton': ['тонна', 'тонны', 'тонн'],
+          'yacht': ['яхта', 'яхты', 'яхт']
+        };
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('programItem', function() {
+    return {
+      templateUrl: '/directives/program',
+      scope: {
+        item: '=',
+        level: '=?',
+        levelstring: '='
+      },
+      controller: function($timeout, $element, $scope) {
+        if (!$scope.level) {
+          $scope.level = 0;
+        }
+        return $scope.getChildLevelString = function(child_index) {
+          var str;
+          str = $scope.levelstring ? $scope.levelstring : '';
+          return str + (child_index + 1) + '.';
+        };
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('requestForm', function() {
+    return {
+      replace: true,
+      scope: {
+        tutor: '=',
+        sentIds: '=',
+        index: '='
+      },
+      templateUrl: function(elem, attrs) {
+        if (attrs.hasOwnProperty('mobile')) {
+          return 'directives/request-form-mobile';
+        } else {
+          return 'directives/request-form';
+        }
+      },
+      controller: function($scope, $element, $timeout, $rootScope, Request, Sources) {
+        var trackDataLayer;
+        $scope.request = function() {
+          if ($scope.tutor.request === void 0) {
+            $scope.tutor.request = {};
+          }
+          $scope.tutor.request.tutor_id = $scope.tutor.id;
+          return Request.save($scope.tutor.request, function() {
+            $scope.tutor.request_sent = true;
+            $scope.$parent.StreamService.run('request', $scope.$parent.StreamService.identifySource($scope.tutor), {
+              position: $scope.index || $scope.$parent.index,
+              tutor_id: $scope.tutor.id
+            });
+            return trackDataLayer();
+          }, function(response) {
+            if (response.status === 422) {
+              return angular.forEach(response.data, function(errors, field) {
+                var selector;
+                selector = "[ng-model$='" + field + "']";
+                return $($element).find("input" + selector + ", textarea" + selector).focus().notify(errors[0], notify_options);
+              });
+            } else {
+              return $scope.tutor.request_error = true;
+            }
+          });
+        };
+        return trackDataLayer = function() {
+          return dataLayerPush({
+            event: 'purchase',
+            ecommerce: {
+              currencyCode: 'RUR',
+              purchase: {
+                actionField: {
+                  id: googleClientId(),
+                  affiliation: $scope.$parent.StreamService.identifySource(),
+                  revenue: $scope.tutor.public_price
+                },
+                products: [
+                  {
+                    id: $scope.tutor.id,
+                    price: $scope.tutor.public_price,
+                    brand: $scope.tutor.subjects,
+                    category: $scope.tutor.gender + '_' + $rootScope.yearsPassed($scope.tutor.birth_year),
+                    quantity: 1
+                  }
+                ]
+              }
+            }
+          });
+        };
       }
     };
   });
@@ -576,194 +820,55 @@
 }).call(this);
 
 (function() {
-  angular.module('App').directive('academic', function() {
-    return {
-      restrict: 'E',
-      template: "{{ year }}–{{ +(year) + 1 }}",
-      scope: {
-        year: '='
-      }
-    };
-  });
+  var apiPath, countable, updatable;
 
-}).call(this);
-
-(function() {
-  angular.module('App').directive('errors', function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'directives/errors',
-      scope: {
-        model: '@'
+  angular.module('App').factory('Tutor', function($resource) {
+    return $resource(apiPath('tutors'), {
+      id: '@id',
+      type: '@type'
+    }, {
+      search: {
+        method: 'POST',
+        url: apiPath('tutors', 'search')
       },
-      controller: function($scope, $element, $attrs) {
-        $scope.only_first = $attrs.hasOwnProperty('onlyFirst');
-        return $scope.getErrors = function() {
-          var errors;
-          if ($scope.$parent.errors === void 0) {
-            return;
-          }
-          errors = $scope.$parent.errors[$scope.model];
-          if ($scope.only_first) {
-            return [errors[0]];
-          } else {
-            return errors;
-          }
-        };
+      reviews: {
+        method: 'GET',
+        isArray: true,
+        url: apiPath('reviews')
       }
-    };
+    });
+  }).factory('Request', function($resource) {
+    return $resource(apiPath('requests'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Cv', function($resource) {
+    return $resource(apiPath('cv'), {
+      id: '@id'
+    }, updatable());
   });
 
-}).call(this);
+  apiPath = function(entity, additional) {
+    if (additional == null) {
+      additional = '';
+    }
+    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
+  };
 
-(function() {
-
-
-}).call(this);
-
-(function() {
-  angular.module('App').directive('ngPhone', function() {
+  updatable = function() {
     return {
-      restrict: 'A',
-      link: function($scope, element) {
-        return $(element).mask("+7 (999) 999-99-99", {
-          autoclear: false
-        });
+      update: {
+        method: 'PUT'
       }
     };
-  });
+  };
 
-}).call(this);
-
-(function() {
-  angular.module('App').directive('plural', function() {
+  countable = function() {
     return {
-      restrict: 'E',
-      scope: {
-        count: '=',
-        type: '@',
-        noneText: '@'
-      },
-      templateUrl: '/directives/plural',
-      controller: function($scope, $element, $attrs, $timeout) {
-        $scope.textOnly = $attrs.hasOwnProperty('textOnly');
-        $scope.hideZero = $attrs.hasOwnProperty('hideZero');
-        return $scope.when = {
-          'age': ['год', 'года', 'лет'],
-          'student': ['ученик', 'ученика', 'учеников'],
-          'minute': ['минуту', 'минуты', 'минут'],
-          'hour': ['час', 'часа', 'часов'],
-          'day': ['день', 'дня', 'дней'],
-          'rubbles': ['рубль', 'рубля', 'рублей'],
-          'client': ['клиент', 'клиента', 'клиентов'],
-          'mark': ['оценки', 'оценок', 'оценок'],
-          'review': ['отзыв', 'отзыва', 'отзывов'],
-          'request': ['заявка', 'заявки', 'заявок'],
-          'profile': ['анкета', 'анкеты', 'анкет'],
-          'address': ['адрес', 'адреса', 'адресов'],
-          'person': ['человек', 'человека', 'человек'],
-          'ton': ['тонна', 'тонны', 'тонн'],
-          'yacht': ['яхта', 'яхты', 'яхт']
-        };
+      count: {
+        method: 'GET'
       }
     };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').directive('programmItem', function() {
-    return {
-      templateUrl: '/directives/programm',
-      scope: {
-        item: '=',
-        level: '=?',
-        levelstring: '='
-      },
-      controller: function($timeout, $element, $scope) {
-        if (!$scope.level) {
-          $scope.level = 0;
-        }
-        return $scope.getChildLevelString = function(child_index) {
-          var str;
-          str = $scope.levelstring ? $scope.levelstring : '';
-          return str + (child_index + 1) + '.';
-        };
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').directive('requestForm', function() {
-    return {
-      replace: true,
-      scope: {
-        tutor: '=',
-        sentIds: '=',
-        index: '='
-      },
-      templateUrl: function(elem, attrs) {
-        if (attrs.hasOwnProperty('mobile')) {
-          return 'directives/request-form-mobile';
-        } else {
-          return 'directives/request-form';
-        }
-      },
-      controller: function($scope, $element, $timeout, $rootScope, Request, Sources) {
-        var trackDataLayer;
-        $scope.request = function() {
-          if ($scope.tutor.request === void 0) {
-            $scope.tutor.request = {};
-          }
-          $scope.tutor.request.tutor_id = $scope.tutor.id;
-          return Request.save($scope.tutor.request, function() {
-            $scope.tutor.request_sent = true;
-            $scope.$parent.StreamService.run('request', $scope.$parent.StreamService.identifySource($scope.tutor), {
-              position: $scope.index || $scope.$parent.index,
-              tutor_id: $scope.tutor.id
-            });
-            return trackDataLayer();
-          }, function(response) {
-            if (response.status === 422) {
-              return angular.forEach(response.data, function(errors, field) {
-                var selector;
-                selector = "[ng-model$='" + field + "']";
-                return $($element).find("input" + selector + ", textarea" + selector).focus().notify(errors[0], notify_options);
-              });
-            } else {
-              return $scope.tutor.request_error = true;
-            }
-          });
-        };
-        return trackDataLayer = function() {
-          return dataLayerPush({
-            event: 'purchase',
-            ecommerce: {
-              currencyCode: 'RUR',
-              purchase: {
-                actionField: {
-                  id: googleClientId(),
-                  affiliation: $scope.$parent.StreamService.identifySource(),
-                  revenue: $scope.tutor.public_price
-                },
-                products: [
-                  {
-                    id: $scope.tutor.id,
-                    price: $scope.tutor.public_price,
-                    brand: $scope.tutor.subjects,
-                    category: $scope.tutor.gender + '_' + $rootScope.yearsPassed($scope.tutor.birth_year),
-                    quantity: 1
-                  }
-                ]
-              }
-            }
-          });
-        };
-      }
-    };
-  });
+  };
 
 }).call(this);
 
@@ -944,55 +1049,6 @@
     };
     return this;
   });
-
-}).call(this);
-
-(function() {
-  var apiPath, countable, updatable;
-
-  angular.module('App').factory('Tutor', function($resource) {
-    return $resource(apiPath('tutors'), {
-      id: '@id',
-      type: '@type'
-    }, {
-      search: {
-        method: 'POST',
-        url: apiPath('tutors', 'search')
-      },
-      reviews: {
-        method: 'GET',
-        isArray: true,
-        url: apiPath('reviews')
-      }
-    });
-  }).factory('Request', function($resource) {
-    return $resource(apiPath('requests'), {
-      id: '@id'
-    }, updatable());
-  });
-
-  apiPath = function(entity, additional) {
-    if (additional == null) {
-      additional = '';
-    }
-    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
-  };
-
-  updatable = function() {
-    return {
-      update: {
-        method: 'PUT'
-      }
-    };
-  };
-
-  countable = function() {
-    return {
-      count: {
-        method: 'GET'
-      }
-    };
-  };
 
 }).call(this);
 

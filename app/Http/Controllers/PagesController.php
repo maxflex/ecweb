@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Programm;
+use App\Models\Program;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -44,11 +44,11 @@ class PagesController extends Controller
         return response()->view('pages.index', compact('html'), $status);
     }
 
-    public function programm($id)
+    public function program($id)
     {
-        if (Programm::whereId($id)->exists()) {
-            $html = Page::whereUrl(Programm::PAGE_URL)->first()->html;
-            Parser::compileProgramm($id, $html);
+        if (Program::whereId($id)->exists()) {
+            $html = Page::whereUrl(Program::URL)->first()->html;
+            Parser::compileProgram($id, $html);
         } else {
             $html = Variable::display('page-404');
         }

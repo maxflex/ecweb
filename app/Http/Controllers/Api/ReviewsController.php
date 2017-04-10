@@ -18,7 +18,7 @@ class ReviewsController extends Controller
      */
     public function index()
     {
-        $paginator = Review::simplePaginate(30);
+        $paginator = Review::simplePaginate(20);
         $reviews = $paginator->getCollection()->map(function ($review) {
             $review->tutor = DB::connection('egerep')->table('tutors')->whereId($review->id_teacher)->select('id', 'first_name', 'last_name', 'middle_name')->first();
             return $review;

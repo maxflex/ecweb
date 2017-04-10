@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Programm extends Model
+class Program extends Model
 {
-    const URL = 'programm';
+    const URL = 'program';
 
     protected $casts = [
         'content' => 'collection',

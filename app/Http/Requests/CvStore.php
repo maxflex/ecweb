@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class CvStore extends FormRequest
 {
     const NAME_FIELDS = ['first_name', 'last_name', 'middle_name'];
-    const TEXT_FIELDS = ['education', 'achievements', 'tutoring_experience', 'students_category', 'preferences', 'schedule', 'price', 'contacts'];
+    const TEXT_FIELDS = ['education', 'achievements', 'experience', 'price', 'contacts'];
 
     /**
      * Determine if the user is authorized to make this request.

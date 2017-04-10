@@ -3792,6 +3792,7 @@ a {
 
 .list-main {
   margin: 0;
+  line-height: 21px;
   padding: 0;
   list-style: none; }
   .list-main li ul {
@@ -3813,7 +3814,7 @@ a {
 
 .center-col {
   float: left;
-  width: 650px; }
+  width: 630px; }
 
 .right-col {
   float: left;
@@ -4085,7 +4086,7 @@ button, input, textarea {
 
 .address-right {
   float: left;
-  width: 500px;
+  width: 480px;
   overflow: hidden;
   border-radius: 6px; }
 
@@ -4205,8 +4206,10 @@ button, input, textarea {
 
 .price {
   padding: 0 0 15px 0; }
+  .price:first-of-type {
+    padding-top: 15px; }
   .price-title {
-    font-family: 'helveticaneuecyrbold';
+    font-family: 'helveticaneuecyrmedium';
     background: #e8e8e8;
     border-radius: 3px;
     padding: 10px;
@@ -4264,9 +4267,10 @@ button, input, textarea {
       border-radius: 4px; }
 
 .right-img {
-  padding: 0 0 30px 0; }
+  padding: 0 0 20px 0; }
   .right-img-title {
-    padding: 0 0 25px 0; }
+    padding: 0 0 25px 0;
+    line-height: 21px; }
   .right-img-img {
     max-width: 300px;
     border-radius: 4px; }
@@ -4591,13 +4595,10 @@ span.customSelect {
   color: #818181; }
 
 .close-cross {
-  width: 50px;
+  width: 25px;
   float: right;
   padding: 20px;
-  cursor: pointer;
-  opacity: .5; }
-  .close-cross:hover {
-    opacity: 1; }
+  cursor: pointer; }
 
 .default-height {
   line-height: 21px; }
@@ -4613,5 +4614,11 @@ span.customSelect {
 
 .font-medium {
   font-family: "helveticaneuecyrmedium"; }
+
+p {
+  line-height: 21px; }
+
+h3.padding-top {
+  padding-top: 17px; }
 
 /*# sourceMappingURL=main.css.map */
