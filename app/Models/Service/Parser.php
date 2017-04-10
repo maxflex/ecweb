@@ -2,6 +2,7 @@
     namespace App\Models\Service;
     use App\Models\Program;
     use App\Models\Variable;
+    use App\Models\Photo;
     use App\Models\Review;
     use App\Models\Page;
     use App\Models\Tutor;
@@ -80,6 +81,12 @@
                         // получить ссылку либо по [link|id_раздела] или по [link|math]
                         $replacement = is_numeric($args[0]) ? Page::getUrl($args[0]) : Page::getSubjectUrl($args[0]);
                         break;
+                    case 'program':
+                        $replacement = view('pages.program', ['program' => Program::find($args[0])]);
+                        break;
+//                    case 'gallery':
+//                        $replacement = view('pages.gallery', ['images' => Photo::gallery($args[0])->get()]);
+//                        break;
                     case 'count':
                         $type = array_shift($args);
                         switch($type) {
@@ -120,16 +127,6 @@
         public static function compileTutor($id, &$html)
         {
             static::replace($html, 'current_tutor', Tutor::selectDefault()->whereId($id)->first()->toJson());
-        }
-
-        /**
-         * Компилировать страницу препода
-         */
-        public static function compileProgram($id, &$html)
-        {
-            if ($program = Program::find($id)) {
-                static::replace($html, 'current_program', $program->toJson());
-            }
         }
 
         /**
