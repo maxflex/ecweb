@@ -255,8 +255,9 @@
 }).call(this);
 
 (function() {
-  angular.module('App').controller('Empty', function($scope, StreamService) {
-    return bindArguments($scope, arguments);
+  angular.module('App').controller('Empty', function($scope) {
+    bindArguments($scope, arguments);
+    return $scope.gallery = {};
   });
 
 }).call(this);
@@ -265,7 +266,8 @@
   angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Branches, Request) {
     bindArguments($scope, arguments);
     $timeout(function() {
-      return $scope.order = {};
+      $scope.order = {};
+      return $scope.sent = true;
     });
     return $scope.request = function() {
       $scope.sending = true;
@@ -722,7 +724,8 @@
       full: 'Тургеневская',
       short: 'ТУР',
       address: 'Мясницкая 40с1',
-      color: '#FBAA33'
+      color: '#FBAA33',
+      address: 'ЕГЭ-Центр-Калужская<br> Часы работы: 12:00-20:00<br> Телефон: (495) 646-85-92<br> Адрес: Москва, Научный проезд, д. 8, стр. 1'
     },
     2: {
       code: 'PVN',

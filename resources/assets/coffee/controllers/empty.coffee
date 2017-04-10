@@ -1,4 +1,7 @@
 angular
     .module 'App'
-    .controller 'Empty', ($scope, StreamService) ->
+    .controller 'Empty', ($scope) ->
         bindArguments($scope, arguments)
+
+        # gallery methods
+        $scope.gallery = {}

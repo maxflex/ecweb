@@ -123,6 +123,65 @@ BRANCH_COORDS = {
     }
 }
 
+BRANCH_ADDRESS = {
+    TRG: ['<span class="font-medium">ЕГЭ-Центр-Тургеневская</span>',
+          'Часы работы: 11:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, ул. Мясницкая, д. 40, стр. 1'].join('<br>'),
+	PVN: ['<span class="font-medium">ЕГЭ-Центр-Калужская</span>',
+          'Часы работы: 12:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, Научный проезд, д. 8, стр. 1'].join('<br>'),
+	BGT: ['<span class="font-medium">ЕГЭ-Центр-Калужская</span>',
+          'Часы работы: 12:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, Научный проезд, д. 8, стр. 1'].join('<br>'),
+	IZM: ['<span class="font-medium">ЕГЭ-Центр-Калужская</span>',
+          'Часы работы: 12:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, Научный проезд, д. 8, стр. 1'].join('<br>'),
+	OPL: ['<span class="font-medium">ЕГЭ-Центр-Калужская</span>',
+          'Часы работы: 12:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, Научный проезд, д. 8, стр. 1'].join('<br>'),
+	RPT: ['<span class="font-medium">ЕГЭ-Центр-Калужская</span>',
+          'Часы работы: 12:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, Научный проезд, д. 8, стр. 1'].join('<br>'),
+	VKS: ['<span class="font-medium">ЕГЭ-Центр-Калужская</span>',
+          'Часы работы: 12:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, Научный проезд, д. 8, стр. 1'].join('<br>'),
+	ORH: ['<span class="font-medium">ЕГЭ-Центр-Калужская</span>',
+          'Часы работы: 12:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, Научный проезд, д. 8, стр. 1'].join('<br>'),
+	UJN: ['<span class="font-medium">ЕГЭ-Центр-Калужская</span>',
+          'Часы работы: 12:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, Научный проезд, д. 8, стр. 1'].join('<br>'),
+	PER: ['<span class="font-medium">ЕГЭ-Центр-Калужская</span>',
+          'Часы работы: 12:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, Научный проезд, д. 8, стр. 1'].join('<br>'),
+	KLG: ['<span class="font-medium">ЕГЭ-Центр-Калужская</span>',
+          'Часы работы: 12:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, Научный проезд, д. 8, стр. 1'].join('<br>'),
+	BRT: ['<span class="font-medium">ЕГЭ-Центр-Калужская</span>',
+          'Часы работы: 12:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, Научный проезд, д. 8, стр. 1'].join('<br>'),
+	MLD: ['<span class="font-medium">ЕГЭ-Центр-Калужская</span>',
+          'Часы работы: 12:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, Научный проезд, д. 8, стр. 1'].join('<br>'),
+	VLD: ['<span class="font-medium">ЕГЭ-Центр-Калужская</span>',
+          'Часы работы: 12:00-20:00',
+          'Телефон: (495) 646-85-92',
+          'Адрес: Москва, Научный проезд, д. 8, стр. 1'].join('<br>')
+}
+
 newMarker = function(latLng, map, type) {
   if (type == null) {
     type = 'green';
@@ -136,6 +195,15 @@ newMarker = function(latLng, map, type) {
     lng: latLng.lng(),
   });
 };
+
+newTooltip = function(marker, text) {
+    tooltipOptions = {
+	  marker: marker,    // required
+	  content: text,    // required
+	  cssClass: 'speech-bubble' // name of a css class to apply to tooltip
+	};
+    return new Tooltip(tooltipOptions)
+}
 
 getMarkerType = function(type) {
     switch (type) {
@@ -158,11 +226,5 @@ addMarker = function(map, latLng) {
   return new google.maps.Marker({
     map: map,
     position: latLng
-  });
-};
-
-infoWindow = function(contentString) {
-  return new google.maps.InfoWindow({
-    content: contentString
   });
 };

@@ -6,6 +6,7 @@ angular
         $timeout ->
             # @todo: client_id, referer, referer_url, user agent
             $scope.order = {}
+            $scope.sent = true
 
         $scope.request = ->
             $scope.sending = true

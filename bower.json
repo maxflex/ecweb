@@ -64,7 +64,7 @@
     "bootstrap-select": "^1.12.2",
     "mark.js": "^8.4.0",
     "angular-toArrayFilter": "^1.0.1",
-    "ng-image-gallery": "^2.0.8"
+    "ng-image-gallery": "^2.1.1"
   },
   "devDependencies": {
     "angular-bootstrap-multiselect": "https://github.com/bentorfs/angular-bootstrap-multiselect.git#^1.1.4",

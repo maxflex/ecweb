@@ -64,6 +64,11 @@ class Tutor extends Service\Model
         static::addGlobalScope(new TutorScope);
     }
 
+    public function scopeWhereSubject($query, $subject_id)
+    {
+        return $query->whereRaw("FIND_IN_SET($subject_id, subjects)");;
+    }
+
     /**
      * Search tutors by params
      */
@@ -74,7 +79,7 @@ class Tutor extends Service\Model
         $query = Tutor::query();
 
         if (isset($subject_id) && $subject_id) {
-            $query->whereRaw("FIND_IN_SET($subject_id, subjects)");;
+            $query->whereSubject($subject_id);
         }
 
         $query->selectDefault()->orderBy('clients_count', 'desc');

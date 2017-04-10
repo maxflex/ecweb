@@ -5,6 +5,7 @@
     use App\Models\Review;
     use App\Models\Page;
     use App\Models\Tutor;
+    use App\Models\Photo;
 
     /**
      * Parser
@@ -80,6 +81,10 @@
                         // получить ссылку либо по [link|id_раздела] или по [link|math]
                         $replacement = is_numeric($args[0]) ? Page::getUrl($args[0]) : Page::getSubjectUrl($args[0]);
                         break;
+                    case 'gallery':
+                        $ids = explode(',', $args[0]);
+                        $replacement = Photo::parse($ids);
+                        break;
                     case 'count':
                         $type = array_shift($args);
                         switch($type) {
@@ -88,6 +93,13 @@
                                 break;
                             case 'reviews':
                                 $replacement = Review::count();
+                                break;
+                            case 'subjects':
+                                $counts = [];
+                                foreach(range(1, 11) as $subject_id) {
+                                    $counts[$subject_id] = Tutor::whereSubject($subject_id)->count();
+                                }
+                                $replacement = json_encode($counts);
                                 break;
                         }
                     break;

@@ -83,13 +83,18 @@ a {
   list-style: none;
 
   li {
-    // padding: 0 0 6px 0;
+    .program-list-item & {
+      padding: 0 0 6px 0;
+    }
 
     ul {
       margin: 0;
     //   padding: 7px 0 0 15px;
         padding: 0;
       list-style: none;
+      &.program-list-item {
+        padding-left: 15px;
+      }
     }
   }
 }
@@ -200,4 +205,16 @@ a {
 
 button, input, textarea {
     outline: none !important;
+}
+
+a[href^="http://maps.google.com/maps"],
+a[href^="https://maps.google.com/maps"],
+a[href^="https://www.google.com/maps"] {
+    display: none !important;
+}
+.gmnoprint:not(.gm-bundled-control) {
+    display: none;
+}
+.gm-bundled-control .gmnoprint {
+    display: block;
 }
