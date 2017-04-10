@@ -2,10 +2,10 @@
     namespace App\Models\Service;
     use App\Models\Program;
     use App\Models\Variable;
+    use App\Models\Photo;
     use App\Models\Review;
     use App\Models\Page;
     use App\Models\Tutor;
-    use App\Models\Photo;
 
     /**
      * Parser
@@ -85,6 +85,9 @@
                         $ids = explode(',', $args[0]);
                         $replacement = Photo::parse($ids);
                         break;
+                    case 'program':
+                        $replacement = view('pages.program', ['program' => Program::find($args[0])]);
+                        break;
                     case 'count':
                         $type = array_shift($args);
                         switch($type) {
@@ -129,19 +132,19 @@
         /**
          * Компилировать страницу препода
          */
-        public static function compileTutor($id, &$html)
-        {
-            static::replace($html, 'current_tutor', Tutor::selectDefault()->whereId($id)->first()->toJson());
-        }
-
-        /**
-         * Компилировать страницу препода
-         */
         public static function compileProgram($id, &$html)
         {
             if ($program = Program::find($id)) {
                 static::replace($html, 'current_program', $program->toJson());
             }
+        }
+
+        /**
+         * Компилировать страницу препода
+         */
+        public static function compileTutor($id, &$html)
+        {
+            static::replace($html, 'current_tutor', Tutor::selectDefault()->whereId($id)->first()->toJson());
         }
 
         /**
