@@ -4,5 +4,9 @@
   }
   .form-row-messages {
     width: 370px;
+    .form-errors {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }

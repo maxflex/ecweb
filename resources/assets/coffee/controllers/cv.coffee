@@ -5,6 +5,7 @@ angular
 
         $timeout ->
             $scope.cv = {}
+            $scope.sent = false
 
         $scope.send = ->
             $scope.sending = true

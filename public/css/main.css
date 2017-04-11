@@ -5410,6 +5410,11 @@ a[href^="https://www.google.com/maps"] {
   width: 370px;
 }
 
+.enrollment .form-row-messages .form-errors {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .tutors {
   margin: 0;
   padding: 0 0 20px 0;
