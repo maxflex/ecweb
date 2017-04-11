@@ -9,16 +9,19 @@ class Photo extends Model
     public $timestamps = false;
     const STORAGE_DIR = 'storage/images/';
 
+    public $appends = [
+        'url'
+    ];
+
+    public function getUrlAttribute()
+    {
+        return config('app.crm-url') . self::STORAGE_DIR . $this->filename;
+    }
+
     public static function parse($ids)
     {
-        $photos = Photo::whereIn('id', $ids)->get();
-        $urls = [];
-        foreach($photos as $photo) {
-            $urls[] = (object)[
-                'id' => $photo->id,
-                'url' => config('app.crm-url') . self::STORAGE_DIR . $photo->filename
-            ];
-        }
-        return view('gallery.index')->with(compact('urls'));
+        return view('gallery.index')->with([
+            'urls' => Photo::whereIn('id', $ids)->get()
+        ]);
     }
 }

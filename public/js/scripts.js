@@ -16547,6 +16547,13 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
   var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angular-toArrayFilter', 'thatisuday.ng-image-gallery']).config([
+    'ngImageGalleryOptsProvider', function(ngImageGalleryOptsProvider) {
+      return ngImageGalleryOptsProvider.setOpts({
+        bubbles: true,
+        bubbleSize: 80
+      });
+    }
+  ]).config([
     '$compileProvider', function($compileProvider) {
       return $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|sip):/);
     }

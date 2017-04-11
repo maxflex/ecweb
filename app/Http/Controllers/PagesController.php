@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
 use App\Models\Program;
 use Illuminate\Http\Request;
 
@@ -52,6 +53,13 @@ class PagesController extends Controller
         } else {
             $html = Variable::display('page-404');
         }
+        return view('pages.index')->with(compact('html'));
+    }
+
+    public function about()
+    {
+        $html = Page::whereUrl(Faq::URL)->first()->html;
+        Parser::compileFaq($html);
         return view('pages.index')->with(compact('html'));
     }
 }

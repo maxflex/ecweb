@@ -4731,17 +4731,19 @@ span.customSelect {
   left: 0;
   z-index: 2; }
 
+.ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .control-icons-container,
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .destroy-icons-container {
   position: absolute;
-  right: 10px;
-  top: 20px; }
+  right: 15px;
+  top: 15px; }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .destroy-icons-container .ext-url,
+.ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .control-icons-container .close,
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .destroy-icons-container .close {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   overflow: hidden;
   cursor: pointer;
   text-decoration: none;
@@ -4767,8 +4769,10 @@ span.customSelect {
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .destroy-icons-container .ext-url:before {
   background-image: url(../img/icons/external-link.svg); }
 
+.ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .control-icons-container .close,
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .destroy-icons-container .close:before {
-  background-image: url(../img/icons/close.svg); }
+  background-image: url(../img/icons/close.svg);
+  background-size: cover; }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .prev,
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .next {
@@ -4784,7 +4788,7 @@ span.customSelect {
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .prev.bubbles-on,
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .next.bubbles-on {
-  top: calc((100% - 50px) / 2); }
+  top: calc((100% - 80px) / 2); }
 
 @media screen and (max-width: 600px) {
   .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .prev,
@@ -4818,8 +4822,8 @@ span.customSelect {
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images {
   position: relative;
-  -webkit-box-flex: 1;
-  flex: 1;
+  -webkit-box-flex: 8;
+  flex: 8;
   width: 100%;
   /*****************************************************/
   /*****************************************************/ }
@@ -5040,10 +5044,10 @@ span.customSelect {
   flex: none;
   position: relative;
   display: inline-block;
-  margin: 2px 4px;
+  margin: 10px 4px;
   cursor: pointer;
   overflow: hidden;
-  border-radius: 100%;
+  border-radius: 5px;
   background-size: cover;
   background-position: center center;
   vertical-align: middle; }
@@ -5052,7 +5056,7 @@ span.customSelect {
   width: 12px;
   height: 12px;
   background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 100%;
+  border-radius: 5px;
   overflow: hidden;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
@@ -5065,12 +5069,11 @@ span.customSelect {
   width: 12px;
   height: 12px;
   margin: 2px 4px;
-  border: 1px solid transparent;
   -webkit-transition: border 0.3s ease-in-out;
   transition: border 0.3s ease-in-out; }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-bubbles span.img-bubble.active {
-  border: 1px solid #fff; }
+  border: 1px solid white !important; }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-loader {
   position: absolute;
@@ -5160,6 +5163,24 @@ span.customSelect {
 
 .ng-image-gallery.inline .ng-image-gallery-modal .ng-image-gallery-loader .spinner > div {
   background-color: #999; }
+
+.galleria-bubbles-wrapper {
+  -webkit-box-flex: 1.3;
+  flex: 1.3;
+  position: relative;
+  -webkit-box-align: center;
+  -ms-grid-row-align: center;
+  align-items: center; }
+
+.galleria-title-description-wrapper {
+  -webkit-box-flex: 0.7;
+  flex: 0.7;
+  -webkit-box-align: center;
+  -ms-grid-row-align: center;
+  align-items: center; }
+  .galleria-title-description-wrapper .title {
+    font-size: 1.3em;
+    color: white; }
 
 #map {
   width: 500px;
