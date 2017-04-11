@@ -6,6 +6,7 @@
 }
 
 body {
+    min-width: $body-width;
     -webkit-overflow-scrolling: touch;
     &.modal-open {
         overflow-x: scroll;
@@ -137,6 +138,7 @@ body {
 }
 
 span.customSelect {
+    font-family: inherit;
     background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 65%;
     background-size: 14px;
     box-sizing: border-box;
@@ -145,6 +147,8 @@ span.customSelect {
 .form-errors {
     display: inline-block;
     margin: 14px;
+    margin-bottom: 0;
+    line-height: $line-height-main + px;
     color: $text-red;
 }
 
@@ -169,6 +173,10 @@ span.customSelect {
 
 .half-spacing {
     margin-bottom: ($line-height-main / 2) + px;
+}
+
+.half-spacing-top {
+    margin-top: ($line-height-main / 2) + px;
 }
 
 .tutor-name {

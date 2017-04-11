@@ -16811,8 +16811,7 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
   angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Branches, Request) {
     bindArguments($scope, arguments);
     $timeout(function() {
-      $scope.order = {};
-      return $scope.sent = true;
+      return $scope.order = {};
     });
     return $scope.request = function() {
       $scope.sending = true;
@@ -16960,6 +16959,12 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
     };
     $scope.videoLink = function() {
       return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + $scope.video_link + "?enablejsapi=1&rel=0&amp;showinfo=0");
+    };
+    $scope.videoDuration = function(tutor) {
+      var duration, format;
+      duration = parseInt(tutor.video_duration);
+      format = duration >= 60 ? 'm мин s сек' : 's сек';
+      return moment.utc(duration * 1000).format(format);
     };
     return $scope.toggleShow = function(tutor, prop, iteraction_type, index) {
       if (index == null) {

@@ -36,14 +36,25 @@ h3 {
   font-family: 'helveticaneuecyrbold';
 }
 
-b, .b-like {
+b {
   font-weight: normal;
   font-family: 'helveticaneuecyrbold';
 }
 
+.b-like {
+    display: block;
+    font-family: $font-medium;
+    @extend .half-spacing-top;
+}
+
+
 p {
   margin: 0;
   padding: 0 0 30px 0;
+}
+
+p.half-padding {
+    padding-bottom: (25 - ($line-height-main / 2)) + px;
 }
 
 a {
@@ -66,6 +77,9 @@ a {
 }
 .color-blue {
   color: $main-link-color;
+}
+.color-placeholder {
+    color: $placeholder-gray;
 }
 .large-text {
   font-size: 150%;
@@ -93,7 +107,7 @@ a {
         padding: 0;
       list-style: none;
       &.program-list-item {
-        padding-left: 15px;
+        padding-left: 30px;
       }
     }
   }
@@ -115,7 +129,7 @@ a {
 
 .center-col {
   float: left;
-  width: 630px;
+  width: 650px;
 }
 .right-col {
   float: left;

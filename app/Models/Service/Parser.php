@@ -88,6 +88,9 @@
                     case 'program':
                         $replacement = view('pages.program', ['program' => Program::find($args[0])]);
                         break;
+                    case 'map':
+                        $replacement = view('map.index', ['branch' => strtoupper($args[0])]);
+                        break;
                     case 'count':
                         $type = array_shift($args);
                         switch($type) {

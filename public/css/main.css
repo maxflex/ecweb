@@ -3746,7 +3746,7 @@ body {
   font-size: 14px; }
 
 .common {
-  width: 980px;
+  width: 1000px;
   margin: 0 auto; }
 
 h1 {
@@ -3770,13 +3770,20 @@ h3 {
   font-weight: normal;
   font-family: 'helveticaneuecyrbold'; }
 
-b, .b-like {
+b {
   font-weight: normal;
   font-family: 'helveticaneuecyrbold'; }
+
+.b-like {
+  display: block;
+  font-family: "helveticaneuecyrmedium"; }
 
 p {
   margin: 0;
   padding: 0 0 30px 0; }
+
+p.half-padding {
+  padding-bottom: 14.5px; }
 
 a {
   color: #3a6699;
@@ -3796,6 +3803,9 @@ a {
 .color-blue {
   color: #3a6699; }
 
+.color-placeholder {
+  color: #757575; }
+
 .large-text {
   font-size: 150%; }
 
@@ -3814,7 +3824,7 @@ a {
     padding: 0;
     list-style: none; }
     .list-main li ul.program-list-item {
-      padding-left: 15px; }
+      padding-left: 30px; }
 
 .table-main, .courses-list {
   border-collapse: collapse;
@@ -3830,7 +3840,7 @@ a {
 
 .center-col {
   float: left;
-  width: 630px; }
+  width: 650px; }
 
 .right-col {
   float: left;
@@ -3927,7 +3937,7 @@ a[href^="https://www.google.com/maps"] {
   background: #fef9de;
   border-bottom: 1px solid #ffe65c; }
   .top-message-inner {
-    width: 980px;
+    width: 1000px;
     margin: 0 auto;
     padding: 7px 0;
     font-size: 16px;
@@ -3946,7 +3956,7 @@ a[href^="https://www.google.com/maps"] {
   padding: 0 0 19px 0; }
   .header-inner {
     position: relative;
-    width: 980px;
+    width: 1000px;
     margin: 0 auto;
     padding: 24px 0 15px 0; }
     .header-inner:after {
@@ -3984,7 +3994,7 @@ a[href^="https://www.google.com/maps"] {
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    width: 980px;
+    width: 1000px;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -4037,7 +4047,7 @@ a[href^="https://www.google.com/maps"] {
     color: #fff;
     text-align: center;
     padding: 20px 0 0 0;
-    width: 980px;
+    width: 1000px;
     margin: 0 auto; }
     .header-img-title {
       font-family: 'helveticaneuecyrultralight';
@@ -4076,7 +4086,7 @@ a[href^="https://www.google.com/maps"] {
     .footer a:hover {
       text-decoration: underline; }
   .footer-inner {
-    width: 980px;
+    width: 1000px;
     margin: 0 auto;
     padding: 20px 0 0 0; }
   .footer-title {
@@ -4085,7 +4095,7 @@ a[href^="https://www.google.com/maps"] {
     padding: 0 0 20px 0; }
   .footer-popular {
     float: left;
-    width: 380px; }
+    width: 400px; }
   .footer-menu {
     margin: 0;
     padding: 0;
@@ -4095,7 +4105,7 @@ a[href^="https://www.google.com/maps"] {
       padding: 0 0 2px 0; }
   .footer-main {
     float: left;
-    width: 380px; }
+    width: 390px; }
   .footer-contacts {
     float: left;
     width: 210px; }
@@ -4113,7 +4123,7 @@ a[href^="https://www.google.com/maps"] {
 
 .address-right {
   float: left;
-  width: 480px;
+  width: 500px;
   overflow: hidden;
   border-radius: 6px; }
 
@@ -4280,7 +4290,7 @@ a[href^="https://www.google.com/maps"] {
         border-radius: 6px; }
     .tutors-item-info {
       float: left;
-      width: 860px; }
+      width: 880px; }
     .tutors-item-links {
       margin: 0;
       padding: 0;
@@ -4331,28 +4341,44 @@ a[href^="https://www.google.com/maps"] {
         padding: 0 0 5px 0; }
 
 .landing-body {
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAIAAABL1vtsAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA49pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NTUzNzQ1RjE0QjMxMUU3OEVFRjgzOEMwMDVCMzg2RCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NTUzNzQ1RTE0QjMxMUU3OEVFRjgzOEMwMDVCMzg2RCIgeG1wOkNyZWF0b3JUb29sPSJBQ0RTZWUgUHJvIDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0iMEU4QUQxQzc0MUUzMEMxNTA2OTJBOUMyRjdCOEVCNTkiIHN0UmVmOmRvY3VtZW50SUQ9IjBFOEFEMUM3NDFFMzBDMTUwNjkyQTlDMkY3QjhFQjU5Ii8+IDxkYzpyaWdodHM+IDxyZGY6QWx0PiA8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPmFsaG92aWsvMTIzUkY8L3JkZjpsaT4gPC9yZGY6QWx0PiA8L2RjOnJpZ2h0cz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz42KqDWAAAAr0lEQVR42qST0Q3CMAxE74xLm10YhB1YjAUYhGn44wtSqiYxH6hS4QfEnax8WS++i8PD8bLfReo8pWFIWw9iY8AMVIB4UyyntcL7WG75UQpxOl9rjdZWFT/Uqt+HwUnw476vWvVb1zvQIMj6nipi6zXgEoJsQUiICENoRiDLXquiGdGnoI5wOQ/T87S6fMD/ESWoIhCkmgVDnaI2+UXGrC6X5dygWbEpyhyTgngKMADRM3dm4hhFxwAAAABJRU5ErkJggg=="); }
-  .landing-body .footer-fix {
-    height: 880px; }
+  position: relative; }
+  .landing-body:after {
+    content: "";
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAIAAABL1vtsAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA49pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NTUzNzQ1RjE0QjMxMUU3OEVFRjgzOEMwMDVCMzg2RCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NTUzNzQ1RTE0QjMxMUU3OEVFRjgzOEMwMDVCMzg2RCIgeG1wOkNyZWF0b3JUb29sPSJBQ0RTZWUgUHJvIDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0iMEU4QUQxQzc0MUUzMEMxNTA2OTJBOUMyRjdCOEVCNTkiIHN0UmVmOmRvY3VtZW50SUQ9IjBFOEFEMUM3NDFFMzBDMTUwNjkyQTlDMkY3QjhFQjU5Ii8+IDxkYzpyaWdodHM+IDxyZGY6QWx0PiA8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPmFsaG92aWsvMTIzUkY8L3JkZjpsaT4gPC9yZGY6QWx0PiA8L2RjOnJpZ2h0cz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz42KqDWAAAAr0lEQVR42qST0Q3CMAxE74xLm10YhB1YjAUYhGn44wtSqiYxH6hS4QfEnax8WS++i8PD8bLfReo8pWFIWw9iY8AMVIB4UyyntcL7WG75UQpxOl9rjdZWFT/Uqt+HwUnw476vWvVb1zvQIMj6nipi6zXgEoJsQUiICENoRiDLXquiGdGnoI5wOQ/T87S6fMD/ESWoIhCkmgVDnaI2+UXGrC6X5dygWbEpyhyTgngKMADRM3dm4hhFxwAAAABJRU5ErkJggg=="); }
   .landing-body h1 {
     text-align: center;
-    padding-bottom: 80px; }
+    padding-bottom: 80px;
+    font-family: "helveticaneuecyrmedium"; }
+  .landing-body h2 {
+    font-size: 18px; }
 
 .landing-main {
-  position: absolute;
-  width: 980px;
-  height: 420px;
-  top: 50%;
-  left: 50%;
-  margin: -320px 0 0 -500px; }
+  height: calc(100vh - 336px);
+  min-height: 400px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center; }
+
+.landing-cols {
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-around;
+  width: 1000px; }
 
 .landing-col {
-  width: 350px;
-  padding: 0 20px; }
+  width: 350px; }
   .landing-col .list-main {
     min-height: 110px; }
-  .landing-col.push-left {
-    padding-left: 75px; }
 
 .courses {
   padding: 0 0 30px 0; }
@@ -4477,7 +4503,10 @@ a[href^="https://www.google.com/maps"] {
   .form-row-inner {
     vertical-align: top;
     display: inline-block; }
+    .form-row-inner.placeholder-select .customSelect {
+      color: #757575 !important; }
   .form-row-messages {
+    line-height: 21px;
     vertical-align: top;
     display: inline-block;
     padding: 10px 0 0 15px;
@@ -5137,6 +5166,7 @@ span.customSelect {
   height: 500px; }
 
 body {
+  min-width: 1040px;
   -webkit-overflow-scrolling: touch; }
   body.modal-open {
     overflow-x: scroll;
@@ -5233,6 +5263,7 @@ body {
   font-size: 16px; }
 
 span.customSelect {
+  font-family: inherit;
   background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 65%;
   background-size: 14px;
   box-sizing: border-box; }
@@ -5240,6 +5271,8 @@ span.customSelect {
 .form-errors {
   display: inline-block;
   margin: 14px;
+  margin-bottom: 0;
+  line-height: 21px;
   color: #a30000; }
 
 .link-gray {
@@ -5259,6 +5292,9 @@ span.customSelect {
 
 .half-spacing {
   margin-bottom: 10.5px; }
+
+.half-spacing-top, .b-like {
+  margin-top: 10.5px; }
 
 .tutor-name {
   font-size: 18px; }

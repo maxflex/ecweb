@@ -6,6 +6,8 @@ $text-red: #a30000;
 $color-green: #35a45b;
 $color-gold: #c8ca00;
 
+$placeholder-gray: #757575;
+
 /* font size */
 $main-font-size: 14px;
 $font-size-h1: 24;
@@ -21,7 +23,8 @@ $border-radius: 4px;
 
 $line-height-main: 21;
 
-$screen-width: 980px;
+$screen-width: 1000px;
+$body-width: 1040px; // $body-width - $screen-width = отступ со сторон
 
 $font-light: 'helveticaneuecyrlight';
 $font-roman: 'helveticaneuecyrroman';

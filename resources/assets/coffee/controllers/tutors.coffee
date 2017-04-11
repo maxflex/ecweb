@@ -99,9 +99,15 @@ angular
             $scope.video_link = tutor.video_link
             openModal('video')
 
-        # angular – говно, не разрешает использовать concat во view
+        # ссылка на видео
         $scope.videoLink = ->
             $sce.trustAsResourceUrl("https://www.youtube.com/embed/#{$scope.video_link}?enablejsapi=1&rel=0&amp;showinfo=0")
+
+        # длительность видео
+        $scope.videoDuration = (tutor) ->
+            duration = parseInt(tutor.video_duration)
+            format = if duration >= 60 then 'm мин s сек' else 's сек'
+            moment.utc(duration * 1000).format(format)
 
         # stream if index isnt null
         $scope.toggleShow = (tutor, prop, iteraction_type, index = null) ->
