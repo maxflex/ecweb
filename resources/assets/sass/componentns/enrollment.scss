@@ -1,8 +1,11 @@
 .enrollment {
   .form-row-inner {
-    width: 370px;
+    width: $form-input-width;
   }
   .form-row-messages {
-    width: 370px;
+    width: $form-input-width;
+    .form-errors {
+      margin: 0;
+    }
   }
 }

@@ -133,10 +133,6 @@ body {
     outline: none !important;
 }
 
-.dropdown-menu {
-    font-size: 16px;
-}
-
 span.customSelect {
     font-family: inherit;
     background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 65%;
@@ -150,6 +146,7 @@ span.customSelect {
     margin-bottom: 0;
     line-height: $line-height-main + px;
     color: $text-red;
+    white-space: nowrap;
 }
 
 .link-gray {
@@ -235,4 +232,8 @@ h3.padding-top {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.btn {
+    padding: 6px 10px;
 }

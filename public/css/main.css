@@ -4264,10 +4264,12 @@ a[href^="https://www.google.com/maps"] {
         width: 350px; }
 
 .enrollment .form-row-inner {
-  width: 370px; }
+  width: 320px; }
 
 .enrollment .form-row-messages {
-  width: 370px; }
+  width: 320px; }
+  .enrollment .form-row-messages .form-errors {
+    margin: 0; }
 
 .tutors {
   margin: 0;
@@ -5280,9 +5282,6 @@ body {
 .dropdown-toggle:focus {
   outline: none !important; }
 
-.dropdown-menu {
-  font-size: 16px; }
-
 span.customSelect {
   font-family: inherit;
   background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 65%;
@@ -5294,7 +5293,8 @@ span.customSelect {
   margin: 14px;
   margin-bottom: 0;
   line-height: 21px;
-  color: #a30000; }
+  color: #a30000;
+  white-space: nowrap; }
 
 .link-gray {
   color: #818181; }
@@ -5368,5 +5368,8 @@ h3.padding-top {
   align-items: center;
   -webkit-box-pack: center;
   justify-content: center; }
+
+.btn {
+  padding: 6px 10px; }
 
 /*# sourceMappingURL=main.css.map */
