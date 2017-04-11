@@ -1,5 +1,4 @@
 .address {
-
   &-left {
     width: 470px;
     float: left;
@@ -41,54 +40,6 @@
 
       &__main {
         padding-bottom: 35px;
-      }
-    }
-
-    &-metro {
-      &:before {
-        content: '';
-        width: 7px;
-        height: 7px;
-        border-radius: 100%;
-        position: absolute;
-        top: 6px;
-        left: 0;
-      }
-
-      &__orange {
-        &:before {
-          background: #de823a;
-        }
-      }
-      &__red {
-        &:before {
-          background: #9e2a47;
-        }
-      }
-      &__green {
-        &:before {
-          background: #35a45b;
-        }
-      }
-      &__grey {
-        &:before {
-          background: #c4c4c4;
-        }
-      }
-      &__greenlight {
-        &:before {
-          background: #c0dc92;
-        }
-      }
-      &__blue {
-        &:before {
-          background: #56bdef;
-        }
-      }
-      &__violet {
-        &:before {
-          background: #293694;
-        }
       }
     }
   }
@@ -145,4 +96,15 @@
     line-height: 24px;
     padding: 45px 0 0 0;
   }
+}
+
+.metro-circle {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    position: absolute;
+    top: 6px;
+    left: 0;
+    background: #293694;
 }

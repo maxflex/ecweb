@@ -4147,28 +4147,6 @@ a[href^="https://www.google.com/maps"] {
       color: #818181; }
     .address-list-item__main {
       padding-bottom: 35px; }
-  .address-list-metro:before {
-    content: '';
-    width: 7px;
-    height: 7px;
-    border-radius: 100%;
-    position: absolute;
-    top: 6px;
-    left: 0; }
-  .address-list-metro__orange:before {
-    background: #de823a; }
-  .address-list-metro__red:before {
-    background: #9e2a47; }
-  .address-list-metro__green:before {
-    background: #35a45b; }
-  .address-list-metro__grey:before {
-    background: #c4c4c4; }
-  .address-list-metro__greenlight:before {
-    background: #c0dc92; }
-  .address-list-metro__blue:before {
-    background: #56bdef; }
-  .address-list-metro__violet:before {
-    background: #293694; }
 
 .address-more {
   margin: 0;
@@ -4208,6 +4186,16 @@ a[href^="https://www.google.com/maps"] {
   color: #a30000;
   line-height: 24px;
   padding: 45px 0 0 0; }
+
+.metro-circle {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 100%;
+  position: absolute;
+  top: 6px;
+  left: 0;
+  background: #293694; }
 
 .questions {
   margin: 0;

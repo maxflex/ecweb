@@ -65,7 +65,7 @@ angular.module('App')
             11: 'ГЕО'
         short_eng: ['math', 'phys', 'rus', 'lit', 'eng', 'his', 'soc', 'chem', 'bio', 'inf', 'geo']
     .value 'Branches',
-        1:
+        TRG:
             code:'TRG',
             full:'Тургеневская',
             short:'ТУР',
@@ -75,79 +75,79 @@ angular.module('App')
                 Часы работы: 12:00-20:00<br>
                 Телефон: (495) 646-85-92<br>
                 Адрес: Москва, Научный проезд, д. 8, стр. 1'
-        2:
+        PVN:
             code:'PVN',
             full:'Проспект Вернадского',
             short:'ВЕР',
             address:'',
             color:'#EF1E25',
-        3:
+        BGT:
             code:'BGT',
             full:'Багратионовская',
             short:'БАГ',
             address:'',
             color:'#019EE0',
-        5:
+        IZM:
             code:'IZM',
             full:'Измайловская',
             short:'ИЗМ',
             address:'',
             color:'#0252A2',
-        6:
+        OPL:
             code:'OPL',
             full:'Октябрьское поле',
             short:'ОКТ',
             address:'',
             color:'#B61D8E',
-        7:
+        RPT:
             code:'RPT',
             full:'Рязанский Проспект',
             short:'РЯЗ',
             address:'',
             color:'#B61D8E',
-        8:
+        VKS:
             code:'VKS',
             full:'Войковская',
             short:'ВОЙ',
             address:'',
             color:'#029A55',
-        9:
+        ORH:
             code:'ORH',
             full:'Орехово',
             short:'ОРЕ',
             address:'',
             color:'#029A55',
-        11:
+        UJN:
             code:'UJN',
             full:'Южная',
             short:'ЮЖН',
             address:'',
             color:'#ACADAF',
-        12:
+        PER:
             code:'PER',
             full:'Перово',
             short:'ПЕР',
             address:'',
             color:'#FFD803',
-        13:
+        KLG:
             code:'KLG',
             full:'Калужская',
             short:'КЛЖ',
             address:'Научный проезд 8с1',
             color:'#C07911',
-        14:
+        BRT:
             code:'BRT',
             full:'Братиславская',
             short:'БРА',
             address:'',
             color:'#B1D332',
-        15:
+        MLD:
             code:'MLD',
             full:'Молодежная',
             short:'МОЛ',
             address:'',
             color:'#0252A2',
-        16:
+        VLD:
             code:'VLD',
             full:'Владыкино',
             short:'ВЛА',
