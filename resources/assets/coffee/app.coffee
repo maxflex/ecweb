@@ -1,9 +1,16 @@
 angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angular-toArrayFilter', 'thatisuday.ng-image-gallery'])
     .config [
+        'ngImageGalleryOptsProvider',
+        (ngImageGalleryOptsProvider) ->
+            ngImageGalleryOptsProvider.setOpts
+                bubbles         :   true
+                bubbleSize      :   80
+    ]
+    .config [
         '$compileProvider'
         ($compileProvider) ->
             $compileProvider.aHrefSanitizationWhitelist /^\s*(https?|ftp|mailto|chrome-extension|sip):/
-	]
+    ]
     .config (laddaProvider) ->
         laddaProvider.setOption
             spinnerColor: '#83b060'
