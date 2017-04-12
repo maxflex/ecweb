@@ -5015,6 +5015,7 @@ span.customSelect {
   animation-duration: 0.3s; }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-bubbles {
+  margin-top: -40px;
   -webkit-box-flex: 0;
   flex: 0 0 50px;
   text-align: center;
@@ -5065,7 +5066,7 @@ span.customSelect {
   transition: border 0.3s ease-in-out; }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-bubbles span.img-bubble.active {
-  border: 1px solid white !important; }
+  border: none !important; }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-loader {
   position: absolute;
@@ -5165,8 +5166,8 @@ span.customSelect {
   align-items: center; }
 
 .galleria-title-description-wrapper {
-  -webkit-box-flex: 0.7;
-  flex: 0.7;
+  -webkit-box-flex: 1;
+  flex: 1;
   -webkit-box-align: center;
   -ms-grid-row-align: center;
   align-items: center;
@@ -5174,6 +5175,10 @@ span.customSelect {
   .galleria-title-description-wrapper .title {
     font-size: 1.3em;
     color: white; }
+
+.galleria-bubble.img-bubble.active {
+  height: 120px !important;
+  width: 120px !important; }
 
 #map {
   width: 500px;
