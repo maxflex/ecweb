@@ -38,7 +38,7 @@
 
   &-popular {
     float: left;
-    width: 400px;
+    width: calc(400px - #{$screen-padding});
   }
 
   &-menu {
@@ -53,7 +53,7 @@
 
   &-main {
     float: left;
-    width: 390px;
+    width: calc(390px - #{$screen-padding});
   }
 
   &-contacts {

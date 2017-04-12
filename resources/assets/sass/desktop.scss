@@ -6,7 +6,7 @@
 }
 
 body {
-    min-width: $body-width;
+    min-width: calc(#{$screen-width} + (#{$screen-padding} * 2));
     -webkit-overflow-scrolling: touch;
     &.modal-open {
         overflow-x: scroll;

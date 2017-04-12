@@ -27,7 +27,7 @@
 
     &-info {
       float: left;
-      width: 880px;
+      width: calc(880px - (#{$screen-padding} * 2));
     }
 
     &-links {

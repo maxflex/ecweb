@@ -129,11 +129,11 @@ a {
 
 .center-col {
   float: left;
-  width: 650px;
+  width: calc(650px - #{$screen-padding});
 }
 .right-col {
   float: left;
-  width: 300px;
+  width: calc(300px - #{$screen-padding});
   padding: 0 0 0 50px;
 }
 

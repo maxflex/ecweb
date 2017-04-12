@@ -90,7 +90,10 @@
                         $replacement = view('pages.program', ['program' => Program::find($args[0])]);
                         break;
                     case 'map':
-                        $replacement = view('map.index', ['branch' => strtoupper($args[0])]);
+                        $replacement = view('address.map', ['branch' => strtoupper($args[0])]);
+                        break;
+                    case 'address-info':
+                        $replacement = view('address.info', ['branch' => strtoupper($args[0])]);
                         break;
                     case 'count':
                         $type = array_shift($args);

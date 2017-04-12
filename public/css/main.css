@@ -3746,7 +3746,7 @@ body {
   font-size: 14px; }
 
 .common {
-  width: 1000px;
+  width: 960px;
   margin: 0 auto; }
 
 h1 {
@@ -3840,11 +3840,11 @@ a {
 
 .center-col {
   float: left;
-  width: 650px; }
+  width: calc(650px - 20px); }
 
 .right-col {
   float: left;
-  width: 300px;
+  width: calc(300px - 20px);
   padding: 0 0 0 50px; }
 
 .clear-fix {
@@ -3937,7 +3937,7 @@ a[href^="https://www.google.com/maps"] {
   background: #fef9de;
   border-bottom: 1px solid #ffe65c; }
   .top-message-inner {
-    width: 1000px;
+    width: 960px;
     margin: 0 auto;
     padding: 7px 0;
     font-size: 16px;
@@ -3956,7 +3956,7 @@ a[href^="https://www.google.com/maps"] {
   padding: 0 0 19px 0; }
   .header-inner {
     position: relative;
-    width: 1000px;
+    width: 960px;
     margin: 0 auto;
     padding: 24px 0 15px 0; }
     .header-inner:after {
@@ -3994,7 +3994,7 @@ a[href^="https://www.google.com/maps"] {
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    width: 1000px;
+    width: 960px;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -4047,7 +4047,7 @@ a[href^="https://www.google.com/maps"] {
     color: #fff;
     text-align: center;
     padding: 20px 0 0 0;
-    width: 1000px;
+    width: 960px;
     margin: 0 auto; }
     .header-img-title {
       font-family: 'helveticaneuecyrultralight';
@@ -4086,7 +4086,7 @@ a[href^="https://www.google.com/maps"] {
     .footer a:hover {
       text-decoration: underline; }
   .footer-inner {
-    width: 1000px;
+    width: 960px;
     margin: 0 auto;
     padding: 20px 0 0 0; }
   .footer-title {
@@ -4095,7 +4095,7 @@ a[href^="https://www.google.com/maps"] {
     padding: 0 0 20px 0; }
   .footer-popular {
     float: left;
-    width: 400px; }
+    width: calc(400px - 20px); }
   .footer-menu {
     margin: 0;
     padding: 0;
@@ -4105,7 +4105,7 @@ a[href^="https://www.google.com/maps"] {
       padding: 0 0 2px 0; }
   .footer-main {
     float: left;
-    width: 390px; }
+    width: calc(390px - 20px); }
   .footer-contacts {
     float: left;
     width: 210px; }
@@ -4117,13 +4117,13 @@ a[href^="https://www.google.com/maps"] {
       clear: both; }
 
 .address-left {
-  width: 470px;
+  width: calc(470px - 20px);
   float: left;
   padding: 0 30px 0 0; }
 
 .address-right {
   float: left;
-  width: 500px;
+  width: calc(500px - 20px);
   overflow: hidden;
   border-radius: 6px; }
 
@@ -4280,7 +4280,7 @@ a[href^="https://www.google.com/maps"] {
         border-radius: 6px; }
     .tutors-item-info {
       float: left;
-      width: 880px; }
+      width: calc(880px - (20px * 2)); }
     .tutors-item-links {
       margin: 0;
       padding: 0;
@@ -4363,7 +4363,7 @@ a[href^="https://www.google.com/maps"] {
   display: -webkit-box;
   display: flex;
   justify-content: space-around;
-  width: 1000px; }
+  width: 960px; }
 
 .landing-col {
   width: 350px; }
@@ -5177,7 +5177,7 @@ span.customSelect {
   height: 500px; }
 
 body {
-  min-width: 1040px;
+  min-width: calc(960px + (20px * 2));
   -webkit-overflow-scrolling: touch; }
   body.modal-open {
     overflow-x: scroll;
