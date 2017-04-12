@@ -463,7 +463,7 @@
             margin: 10px 4px;
             cursor: pointer;
             overflow: hidden;
-            border-radius: 5px;
+            // border-radius: 5px;
             background-size: cover;
             background-position: center center;
             vertical-align: middle; }
@@ -590,7 +590,7 @@
 }
 
 .galleria-bubble {
-    // transition:all 0.1s linear !important;
+    // transition: height 0.2s, width 0.2s linear !important;
 }
 
 .galleria-bubble.img-bubble.active {
