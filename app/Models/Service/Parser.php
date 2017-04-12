@@ -1,6 +1,5 @@
 <?php
     namespace App\Models\Service;
-    use App\Models\Faq;
     use App\Models\Program;
     use App\Models\Variable;
     use App\Models\Photo;
@@ -147,7 +146,7 @@
         }
 
         public static function compileFaq(&$html) {
-            static::replace($html, 'faq', Faq::get()->toJSON());
+            static::replace($html, 'faq', view('pages.faq'));
         }
         /**
          * Компилировать страницу препода

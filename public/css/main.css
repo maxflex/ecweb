@@ -4815,6 +4815,8 @@ span.customSelect {
   -webkit-box-flex: 8;
   flex: 8;
   width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
   /*****************************************************/
   /*****************************************************/ }
 
@@ -5167,7 +5169,8 @@ span.customSelect {
   flex: 0.7;
   -webkit-box-align: center;
   -ms-grid-row-align: center;
-  align-items: center; }
+  align-items: center;
+  text-align: center; }
   .galleria-title-description-wrapper .title {
     font-size: 1.3em;
     color: white; }
