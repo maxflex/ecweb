@@ -20,7 +20,6 @@
             preg_match_all('#\\' . static::interpolate('[\S]+\\') . '#', $html, $matches);
             $vars = $matches[0];
             foreach ($vars as $var) {
-                dump($var);
                 $var = trim($var, static::interpolate());
                 static::compileFunctions($html, $var);
                 $query = Variable::findByName($var);
