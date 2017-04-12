@@ -4705,7 +4705,7 @@ span.customSelect {
   opacity: 1; }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-backdrop {
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.9);
   position: absolute;
   top: 0;
   right: 0;
@@ -4731,6 +4731,7 @@ span.customSelect {
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .control-icons-container .close,
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .destroy-icons-container .close {
   position: relative;
+  z-index: 99;
   display: inline-block;
   width: 30px;
   height: 30px;
@@ -4761,20 +4762,39 @@ span.customSelect {
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .control-icons-container .close,
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .destroy-icons-container .close:before {
-  background-image: url(../img/icons/close.svg);
+  background-image: url(/img/svg/cross-out.svg);
   background-size: cover; }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .prev,
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .next {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px; }
+
+.ng-image-gallery .next-wrapper, .ng-image-gallery .prev-wrapper {
+  z-index: 99999999;
   position: absolute;
   top: 50%;
   margin-top: -25px;
-  width: 50px;
-  height: 50px;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  width: 60px;
+  height: 60px;
   overflow: hidden;
-  cursor: pointer; }
+  cursor: pointer;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center; }
+
+.ng-image-gallery .next-wrapper {
+  right: 0;
+  -webkit-box-pack: end;
+  justify-content: flex-end; }
+
+.ng-image-gallery .prev-wrapper {
+  left: 0;
+  -webkit-box-pack: start;
+  justify-content: flex-start; }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .prev.bubbles-on,
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .next.bubbles-on {
@@ -4788,35 +4808,25 @@ span.customSelect {
     height: 30px; } }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .prev {
-  left: 0px;
-  background-image: url(../img/icons/prev.svg); }
+  background-image: url("/img/svg/left-arrow.svg"); }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .next {
-  right: 0px;
-  background-image: url(../img/icons/next.svg); }
+  background-image: url("/img/svg/next.svg"); }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 80px;
-  right: 80px;
   overflow: hidden;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-  -webkit-box-align: center;
-  align-items: center; }
+  height: 100%;
+  width: 100%;
+  padding: 60px;
+  box-sizing: border-box; }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images {
   position: relative;
-  -webkit-box-flex: 8;
-  flex: 8;
   width: 100%;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  height: 100%;
   /*****************************************************/
   /*****************************************************/ }
 
@@ -5027,8 +5037,8 @@ span.customSelect {
   flex-direction: row;
   -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
+  -webkit-box-align: baseline;
+  align-items: baseline;
   align-content: center;
   flex-wrap: wrap; }
 
@@ -5176,8 +5186,14 @@ span.customSelect {
     color: white; }
 
 .galleria-bubble.img-bubble.active {
-  height: 120px !important;
-  width: 120px !important; }
+  height: 110px !important;
+  width: 110px !important; }
+
+.title {
+  color: white;
+  text-align: center;
+  margin: 19px 0px;
+  font-size: 16px; }
 
 #map {
   width: 500px;

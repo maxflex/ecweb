@@ -72,7 +72,6 @@ elixir(mix => {
             'jquery.cookie/jquery.cookie',
             'jquery.panzoom/dist/jquery.panzoom',
             'angular-animate/angular-animate.min',
-            'ng-image-gallery/dist/ng-image-gallery',
         ]).concat(['resources/assets/js/*.js']), 'public/js/scripts.js')
         .scripts('resources/assets/js/mobile/*.js', 'public/js/mobile/scripts.js')
 });
