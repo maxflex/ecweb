@@ -224,11 +224,11 @@ newMarker = function(latLng, map, type) {
   });
 };
 
-newTooltip = function(marker, BranchAddress) {
-    text = ['<span class="font-medium">' + BranchAddress.name + '</span>',
-          'Часы работы: ' + BranchAddress.time,
-          'Телефон: ' + BranchAddress.phone,
-          'Адрес: ' + BranchAddress.address].join('<br>')
+newTooltip = function(marker, branch) {
+    text = ['<span class="font-medium">' + branch.name + '</span>',
+          'Часы работы: ' + branch.time,
+          'Телефон: ' + branch.phone,
+          'Адрес: ' + branch.address].join('<br>')
     tooltipOptions = {
 	  marker: marker,    // required
 	  content: text,    // required
