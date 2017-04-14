@@ -8,7 +8,7 @@ use App\Models\Faq;
 class FaqGroup extends Model
 {
     public $fillable = ['faq'];
-    
+
     public function faq()
     {
         return $this->hasMany(Faq::class, 'group_id')->orderBy('position', 'asc');
@@ -16,7 +16,7 @@ class FaqGroup extends Model
 
     public static function getAll()
     {
-        $groups = self::with('faq')->get();
+        $groups = self::with('faq')->orderBy('position', 'asc')->get();
         $groups->add(new FaqGroup([
             'faq'   => Faq::whereNull('group_id')->orderBy('position', 'asc')->get()
         ]));
