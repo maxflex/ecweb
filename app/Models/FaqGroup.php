@@ -7,6 +7,8 @@ use App\Models\Faq;
 
 class FaqGroup extends Model
 {
+    public $fillable = ['faq'];
+    
     public function faq()
     {
         return $this->hasMany(Faq::class, 'group_id')->orderBy('position', 'asc');
