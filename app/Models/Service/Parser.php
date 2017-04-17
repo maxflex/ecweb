@@ -137,8 +137,12 @@
                         $replacement = is_numeric($args[0]) ? Page::getUrl($args[0]) : Page::getSubjectUrl($args[0]);
                         break;
                     case 'gallery':
-                        $ids = explode(',', $args[0]);
-                        $replacement = Photo::parse($ids);
+                        if ($args[0] == 'all') {
+                            $replacement = Photo::parse(Photo::pluck('id'));
+                        } else {
+                            $ids = explode(',', $args[0]);
+                            $replacement = Photo::parse($ids);
+                        }
                         break;
                     case 'program':
                         $replacement = view('pages.program', ['program' => Program::find($args[0])]);
