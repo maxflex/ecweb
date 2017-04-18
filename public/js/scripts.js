@@ -16151,6 +16151,63 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
         return "https://lk.ege-repetitor.ru/img/tutors/no-profile-img.gif";
       }
     };
+    $rootScope.fullName = function(tutor) {
+      return tutor.last_name + ' ' + tutor.first_name + ' ' + tutor.middle_name;
+    };
+    $rootScope.shortenGrades = function(tutor) {
+      var a, combo_end, combo_start, grade_string, grades, i, j, last_grade, limit, pairs;
+      if (tutor.grades.length <= 3) {
+        grades = _.clone(tutor.grades);
+        if (grades.length > 1) {
+          last_grade = grades.pop();
+        }
+        grade_string = grades.join(', ');
+        if (last_grade) {
+          grade_string += ' и ' + last_grade;
+        }
+        return grade_string + (last_grade ? ' классы' : ' класс');
+      } else {
+        a = _.clone(tutor.grades);
+        if (a.length < 1) {
+          return;
+        }
+        limit = a.length - 1;
+        combo_end = -1;
+        pairs = [];
+        i = 0;
+        while (i <= limit) {
+          combo_start = parseInt(a[i]);
+          if (combo_start > 11) {
+            i++;
+            combo_end = -1;
+            pairs.push(combo_start);
+            continue;
+          }
+          if (combo_start <= combo_end) {
+            i++;
+            continue;
+          }
+          j = i;
+          while (j <= limit) {
+            combo_end = parseInt(a[j]);
+            if (combo_end >= 11) {
+              break;
+            }
+            if (parseInt(a[j + 1]) - combo_end > 1) {
+              break;
+            }
+            j++;
+          }
+          if (combo_start !== combo_end) {
+            pairs.push(combo_start + '–' + combo_end + ' классы');
+          } else {
+            pairs.push(combo_start + ' класс');
+          }
+          i++;
+        }
+        return pairs.join(', ');
+      }
+    };
     return $rootScope.formatBytes = function(bytes) {
       if (bytes < 1024) {
         return bytes + ' Bytes';
@@ -16160,6 +16217,221 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
         return (bytes / 1048576).toFixed(1) + ' MB';
       } else {
         return (bytes / 1073741824).toFixed(1) + ' GB';
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Cv', function($scope, $timeout, $http, Cv) {
+    bindArguments($scope, arguments);
+    $timeout(function() {
+      $scope.cv = {};
+      return $scope.sent = false;
+    });
+    return $scope.send = function() {
+      $scope.sending = true;
+      $scope.errors = {};
+      return Cv.save($scope.cv, function() {
+        $scope.sending = false;
+        return $scope.sent = true;
+      }, function(response) {
+        $scope.sending = false;
+        return angular.forEach(response.data, function(errors, field) {
+          var selector;
+          $scope.errors[field] = errors;
+          selector = "[ng-model$='" + field + "']";
+          return $("input" + selector + ", textarea" + selector).focus();
+        });
+      });
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Empty', function($scope) {
+    bindArguments($scope, arguments);
+    return $scope.gallery = {};
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Branches, Request) {
+    bindArguments($scope, arguments);
+    $timeout(function() {
+      return $scope.order = {};
+    });
+    return $scope.request = function() {
+      $scope.sending = true;
+      $scope.errors = {};
+      return Request.save($scope.order, function() {
+        $scope.sending = false;
+        return $scope.sent = true;
+      }, function(response) {
+        $scope.sending = false;
+        return angular.forEach(response.data, function(errors, field) {
+          var selector;
+          $scope.errors[field] = errors;
+          selector = "[ng-model$='" + field + "']";
+          return $("input" + selector + ", textarea" + selector).focus();
+        });
+      });
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Programs', function($scope) {});
+
+}).call(this);
+
+(function() {
+  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Reviews', function($scope, $timeout, $http, Subjects) {
+    var search;
+    bindArguments($scope, arguments);
+    $timeout(function() {
+      $scope.reviews = [];
+      $scope.page = 1;
+      $scope.has_more_pages = true;
+      return search();
+    });
+    $scope.nextPage = function() {
+      $scope.page++;
+      return search();
+    };
+    return search = function() {
+      $scope.searching = true;
+      return $http.get('api/reviews', {
+        page: $scope.page
+      }).then(function(response) {
+        console.log(response);
+        $scope.searching = false;
+        $scope.reviews = $scope.reviews.concat(response.data.reviews);
+        return $scope.has_more_pages = response.data.has_more_pages;
+      });
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Tutors', function($scope, $timeout, $http, $sce, Tutor, REVIEWS_PER_PAGE, Subjects) {
+    var filter, filter_used, search, search_count;
+    bindArguments($scope, arguments);
+    search_count = 0;
+    $scope.profilePage = function() {
+      return RegExp(/^\/tutors\/[\d]+$/).test(window.location.pathname);
+    };
+    $timeout(function() {
+      var id;
+      initYoutube();
+      if (!$scope.profilePage()) {
+        if ($.cookie('search') !== void 0) {
+          id = $scope.search.id;
+          $scope.search = JSON.parse($.cookie('search'));
+          $scope.search.id = id;
+        }
+        return $scope.filter();
+      }
+    });
+    $scope.reviews = function(tutor, index) {
+      if (tutor.all_reviews === void 0) {
+        tutor.all_reviews = Tutor.reviews({
+          id: tutor.id
+        }, function(response) {
+          return $scope.showMoreReviews(tutor);
+        });
+      }
+      return $scope.toggleShow(tutor, 'show_reviews', 'reviews', false);
+    };
+    $scope.showMoreReviews = function(tutor, index) {
+      var from, to;
+      tutor.reviews_page = !tutor.reviews_page ? 1 : tutor.reviews_page + 1;
+      from = (tutor.reviews_page - 1) * REVIEWS_PER_PAGE;
+      to = from + REVIEWS_PER_PAGE;
+      return tutor.displayed_reviews = tutor.all_reviews.slice(0, to);
+    };
+    $scope.reviewsLeft = function(tutor) {
+      var reviews_left;
+      if (!tutor.all_reviews || !tutor.displayed_reviews) {
+        return;
+      }
+      reviews_left = tutor.all_reviews.length - tutor.displayed_reviews.length;
+      if (reviews_left > REVIEWS_PER_PAGE) {
+        return REVIEWS_PER_PAGE;
+      } else {
+        return reviews_left;
+      }
+    };
+    filter_used = false;
+    $scope.filter = function() {
+      $scope.tutors = [];
+      $scope.page = 1;
+      if (filter_used) {
+        return filter();
+      } else {
+        filter();
+        return filter_used = true;
+      }
+    };
+    filter = function() {
+      search();
+      return $.cookie('search', JSON.stringify($scope.search));
+    };
+    $scope.nextPage = function() {
+      $scope.page++;
+      return search();
+    };
+    $scope.$watch('page', function(newVal, oldVal) {
+      if (newVal !== void 0) {
+        return $.cookie('page', $scope.page);
+      }
+    });
+    search = function() {
+      $scope.searching = true;
+      return Tutor.search({
+        filter_used: filter_used,
+        page: $scope.page,
+        search: $scope.search
+      }, function(response) {
+        search_count++;
+        $scope.searching = false;
+        $scope.data = response;
+        return $scope.tutors = $scope.tutors.concat(response.data);
+      });
+    };
+    $scope.video = function(tutor) {
+      $scope.video_link = tutor.video_link;
+      return openModal('video');
+    };
+    $scope.videoLink = function() {
+      return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + $scope.video_link + "?enablejsapi=1&rel=0&amp;showinfo=0");
+    };
+    $scope.videoDuration = function(tutor) {
+      var duration, format;
+      duration = parseInt(tutor.video_duration);
+      format = duration >= 60 ? 'm мин s сек' : 's сек';
+      return moment.utc(duration * 1000).format(format);
+    };
+    return $scope.toggleShow = function(tutor, prop, iteraction_type, index) {
+      if (index == null) {
+        index = null;
+      }
+      if (tutor[prop]) {
+        return $timeout(function() {
+          return tutor[prop] = false;
+        }, $scope.mobile ? 400 : 0);
+      } else {
+        return tutor[prop] = true;
       }
     };
   });
@@ -16378,221 +16650,6 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
             }
           });
         };
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-
-
-}).call(this);
-
-(function() {
-  angular.module('App').controller('Cv', function($scope, $timeout, $http, Cv) {
-    bindArguments($scope, arguments);
-    $timeout(function() {
-      $scope.cv = {};
-      return $scope.sent = false;
-    });
-    return $scope.send = function() {
-      $scope.sending = true;
-      $scope.errors = {};
-      return Cv.save($scope.cv, function() {
-        $scope.sending = false;
-        return $scope.sent = true;
-      }, function(response) {
-        $scope.sending = false;
-        return angular.forEach(response.data, function(errors, field) {
-          var selector;
-          $scope.errors[field] = errors;
-          selector = "[ng-model$='" + field + "']";
-          return $("input" + selector + ", textarea" + selector).focus();
-        });
-      });
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').controller('Empty', function($scope) {
-    bindArguments($scope, arguments);
-    return $scope.gallery = {};
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Branches, Request) {
-    bindArguments($scope, arguments);
-    $timeout(function() {
-      return $scope.order = {};
-    });
-    return $scope.request = function() {
-      $scope.sending = true;
-      $scope.errors = {};
-      return Request.save($scope.order, function() {
-        $scope.sending = false;
-        return $scope.sent = true;
-      }, function(response) {
-        $scope.sending = false;
-        return angular.forEach(response.data, function(errors, field) {
-          var selector;
-          $scope.errors[field] = errors;
-          selector = "[ng-model$='" + field + "']";
-          return $("input" + selector + ", textarea" + selector).focus();
-        });
-      });
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').controller('Programs', function($scope) {});
-
-}).call(this);
-
-(function() {
-  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Reviews', function($scope, $timeout, $http, Subjects) {
-    var search;
-    bindArguments($scope, arguments);
-    $timeout(function() {
-      $scope.reviews = [];
-      $scope.page = 1;
-      $scope.has_more_pages = true;
-      return search();
-    });
-    $scope.nextPage = function() {
-      $scope.page++;
-      return search();
-    };
-    return search = function() {
-      $scope.searching = true;
-      return $http.get('api/reviews', {
-        page: $scope.page
-      }).then(function(response) {
-        console.log(response);
-        $scope.searching = false;
-        $scope.reviews = $scope.reviews.concat(response.data.reviews);
-        return $scope.has_more_pages = response.data.has_more_pages;
-      });
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Tutors', function($scope, $timeout, $http, $sce, Tutor, REVIEWS_PER_PAGE, Subjects) {
-    var filter, filter_used, search, search_count;
-    bindArguments($scope, arguments);
-    search_count = 0;
-    $scope.profilePage = function() {
-      return RegExp(/^\/tutors\/[\d]+$/).test(window.location.pathname);
-    };
-    $timeout(function() {
-      var id;
-      initYoutube();
-      if (!$scope.profilePage()) {
-        if ($.cookie('search') !== void 0) {
-          id = $scope.search.id;
-          $scope.search = JSON.parse($.cookie('search'));
-          $scope.search.id = id;
-        }
-        return $scope.filter();
-      }
-    });
-    $scope.reviews = function(tutor, index) {
-      if (tutor.all_reviews === void 0) {
-        tutor.all_reviews = Tutor.reviews({
-          id: tutor.id
-        }, function(response) {
-          return $scope.showMoreReviews(tutor);
-        });
-      }
-      return $scope.toggleShow(tutor, 'show_reviews', 'reviews', false);
-    };
-    $scope.showMoreReviews = function(tutor, index) {
-      var from, to;
-      tutor.reviews_page = !tutor.reviews_page ? 1 : tutor.reviews_page + 1;
-      from = (tutor.reviews_page - 1) * REVIEWS_PER_PAGE;
-      to = from + REVIEWS_PER_PAGE;
-      return tutor.displayed_reviews = tutor.all_reviews.slice(0, to);
-    };
-    $scope.reviewsLeft = function(tutor) {
-      var reviews_left;
-      if (!tutor.all_reviews || !tutor.displayed_reviews) {
-        return;
-      }
-      reviews_left = tutor.all_reviews.length - tutor.displayed_reviews.length;
-      if (reviews_left > REVIEWS_PER_PAGE) {
-        return REVIEWS_PER_PAGE;
-      } else {
-        return reviews_left;
-      }
-    };
-    filter_used = false;
-    $scope.filter = function() {
-      $scope.tutors = [];
-      $scope.page = 1;
-      if (filter_used) {
-        return filter();
-      } else {
-        filter();
-        return filter_used = true;
-      }
-    };
-    filter = function() {
-      search();
-      return $.cookie('search', JSON.stringify($scope.search));
-    };
-    $scope.nextPage = function() {
-      $scope.page++;
-      return search();
-    };
-    $scope.$watch('page', function(newVal, oldVal) {
-      if (newVal !== void 0) {
-        return $.cookie('page', $scope.page);
-      }
-    });
-    search = function() {
-      $scope.searching = true;
-      return Tutor.search({
-        filter_used: filter_used,
-        page: $scope.page,
-        search: $scope.search
-      }, function(response) {
-        search_count++;
-        $scope.searching = false;
-        $scope.data = response;
-        return $scope.tutors = $scope.tutors.concat(response.data);
-      });
-    };
-    $scope.video = function(tutor) {
-      $scope.video_link = tutor.video_link;
-      return openModal('video');
-    };
-    $scope.videoLink = function() {
-      return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + $scope.video_link + "?enablejsapi=1&rel=0&amp;showinfo=0");
-    };
-    $scope.videoDuration = function(tutor) {
-      var duration, format;
-      duration = parseInt(tutor.video_duration);
-      format = duration >= 60 ? 'm мин s сек' : 's сек';
-      return moment.utc(duration * 1000).format(format);
-    };
-    return $scope.toggleShow = function(tutor, prop, iteraction_type, index) {
-      if (index == null) {
-        index = null;
-      }
-      if (tutor[prop]) {
-        return $timeout(function() {
-          return tutor[prop] = false;
-        }, $scope.mobile ? 400 : 0);
-      } else {
-        return tutor[prop] = true;
       }
     };
   });
