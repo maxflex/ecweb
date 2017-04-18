@@ -156,12 +156,45 @@ angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angu
             return tutor.last_name + ' ' + tutor.first_name + ' ' + tutor.middle_name
 
         $rootScope.shortenGrades = (tutor) ->
-            grades = tutor.grades
-            if (grades.length > 1)
-                last_grade = grades.pop()
-            grade_string = grades.join ', '
-            grade_string += ' и ' + last_grade if last_grade
-            grade_string + if last_grade then ' классы' else ' класс'
+            if tutor.grades.length <= 3
+                grades = _.clone tutor.grades
+                if (grades.length > 1)
+                    last_grade = grades.pop()
+                grade_string = grades.join ', '
+                grade_string += ' и ' + last_grade if last_grade
+                return grade_string + if last_grade then ' классы' else ' класс'
+            else
+                a = _.clone tutor.grades
+                return if a.length < 1
+                limit = a.length - 1
+                combo_end = -1
+                pairs = []
+                i = 0
+                while i <= limit
+                    combo_start = parseInt(a[i])
+                    if combo_start > 11
+                        i++
+                        combo_end = -1
+                        pairs.push combo_start
+                        continue
+
+                    if combo_start <= combo_end
+                        i++
+                        continue
+
+                    j = i
+                    while j <= limit
+                        combo_end = parseInt(a[j])
+                        # если уже начинает искать по студентам
+                        break if combo_end >= 11
+                        break if parseInt(a[j + 1]) - combo_end > 1
+                        j++
+                    if combo_start != combo_end
+                        pairs.push combo_start + '–' + combo_end + ' классы'
+                    else
+                        pairs.push combo_start + ' класс'
+                    i++
+                return pairs.join ', '
 
         $rootScope.formatBytes = (bytes) ->
           if bytes < 1024

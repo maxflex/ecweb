@@ -15611,16 +15611,58 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
       return tutor.last_name + ' ' + tutor.first_name + ' ' + tutor.middle_name;
     };
     $rootScope.shortenGrades = function(tutor) {
-      var grade_string, grades, last_grade;
-      grades = tutor.grades;
-      if (grades.length > 1) {
-        last_grade = grades.pop();
+      var a, combo_end, combo_start, grade_string, grades, i, j, last_grade, limit, pairs;
+      if (tutor.grades.length <= 3) {
+        grades = _.clone(tutor.grades);
+        if (grades.length > 1) {
+          last_grade = grades.pop();
+        }
+        grade_string = grades.join(', ');
+        if (last_grade) {
+          grade_string += ' и ' + last_grade;
+        }
+        return grade_string + (last_grade ? ' классы' : ' класс');
+      } else {
+        a = _.clone(tutor.grades);
+        if (a.length < 1) {
+          return;
+        }
+        limit = a.length - 1;
+        combo_end = -1;
+        pairs = [];
+        i = 0;
+        while (i <= limit) {
+          combo_start = parseInt(a[i]);
+          if (combo_start > 11) {
+            i++;
+            combo_end = -1;
+            pairs.push(combo_start);
+            continue;
+          }
+          if (combo_start <= combo_end) {
+            i++;
+            continue;
+          }
+          j = i;
+          while (j <= limit) {
+            combo_end = parseInt(a[j]);
+            if (combo_end >= 11) {
+              break;
+            }
+            if (parseInt(a[j + 1]) - combo_end > 1) {
+              break;
+            }
+            j++;
+          }
+          if (combo_start !== combo_end) {
+            pairs.push(combo_start + '–' + combo_end + ' классы');
+          } else {
+            pairs.push(combo_start + ' класс');
+          }
+          i++;
+        }
+        return pairs.join(', ');
       }
-      grade_string = grades.join(', ');
-      if (last_grade) {
-        grade_string += ' и ' + last_grade;
-      }
-      return grade_string + (last_grade ? ' классы' : ' класс');
     };
     return $rootScope.formatBytes = function(bytes) {
       if (bytes < 1024) {
@@ -15849,6 +15891,59 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
       }
     };
   });
+
+}).call(this);
+
+(function() {
+  var apiPath, countable, updatable;
+
+  angular.module('App').factory('Tutor', function($resource) {
+    return $resource(apiPath('tutors'), {
+      id: '@id',
+      type: '@type'
+    }, {
+      search: {
+        method: 'POST',
+        url: apiPath('tutors', 'search')
+      },
+      reviews: {
+        method: 'GET',
+        isArray: true,
+        url: apiPath('reviews')
+      }
+    });
+  }).factory('Request', function($resource) {
+    return $resource(apiPath('requests'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Cv', function($resource) {
+    return $resource(apiPath('cv'), {
+      id: '@id'
+    }, updatable());
+  });
+
+  apiPath = function(entity, additional) {
+    if (additional == null) {
+      additional = '';
+    }
+    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
+  };
+
+  updatable = function() {
+    return {
+      update: {
+        method: 'PUT'
+      }
+    };
+  };
+
+  countable = function() {
+    return {
+      count: {
+        method: 'GET'
+      }
+    };
+  };
 
 }).call(this);
 
@@ -16139,59 +16234,6 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
     },
     short_eng: ['math', 'phys', 'rus', 'lit', 'eng', 'his', 'soc', 'chem', 'bio', 'inf', 'geo']
   });
-
-}).call(this);
-
-(function() {
-  var apiPath, countable, updatable;
-
-  angular.module('App').factory('Tutor', function($resource) {
-    return $resource(apiPath('tutors'), {
-      id: '@id',
-      type: '@type'
-    }, {
-      search: {
-        method: 'POST',
-        url: apiPath('tutors', 'search')
-      },
-      reviews: {
-        method: 'GET',
-        isArray: true,
-        url: apiPath('reviews')
-      }
-    });
-  }).factory('Request', function($resource) {
-    return $resource(apiPath('requests'), {
-      id: '@id'
-    }, updatable());
-  }).factory('Cv', function($resource) {
-    return $resource(apiPath('cv'), {
-      id: '@id'
-    }, updatable());
-  });
-
-  apiPath = function(entity, additional) {
-    if (additional == null) {
-      additional = '';
-    }
-    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
-  };
-
-  updatable = function() {
-    return {
-      update: {
-        method: 'PUT'
-      }
-    };
-  };
-
-  countable = function() {
-    return {
-      count: {
-        method: 'GET'
-      }
-    };
-  };
 
 }).call(this);
 
