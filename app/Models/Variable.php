@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Shared\Model;
 use App\Models\Service\Parser;
 
 class Variable extends Model

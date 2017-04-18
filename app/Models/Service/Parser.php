@@ -12,8 +12,13 @@
      */
     class Parser
     {
+        // обёртка для переменных
         const START_VAR = '[';
         const END_VAR   = ']';
+
+        // обёртка для высчитываемых переменных типа [map|focus=trg]
+        const START_VAR_CALC = '{';
+        const END_VAR_CALC   = '}';
 
         public static function compileVars($html)
         {
@@ -21,16 +26,66 @@
             $vars = $matches[0];
             foreach ($vars as $var) {
                 $var = trim($var, static::interpolate());
-                static::compileFunctions($html, $var);
-                $query = Variable::findByName($var);
-                if ($query->exists()) {
-                    $variable = $query->first();
-                    static::replace($html, $var, $variable->html);
+                // если в переменной есть знак =, то воспроизводить значения
+                if (strpos($var, '=')) {
+                    static::replace($html, $var, static::compileValues($var));
+                } else {
+                    static::compileFunctions($html, $var);
+                    $variable = Variable::findByName($var)->first();
+                    if ($variable) {
+                        static::replace($html, $var, $variable->html);
+                    }
                 }
             }
             return $html;
         }
 
+        /**
+         * Компилировать значения типа [map|center=95,23|branch=trg|deadline=[deadline]]
+         */
+        public static function compileValues($var_string)
+        {
+            // map|a=1|b=2
+            $values = explode('|', $var_string);
+
+            // первая часть – название переменной
+            $variable = Variable::findByName($values[0])->first();
+
+            // если переменная нашлась
+            if ($variable) {
+                $html = $variable->html;
+                // $html = static::compileVars($html);
+
+                // убираем название переменной из массива
+                array_shift($values);
+
+                foreach($values as $value) {
+                    // разбиваем a=1
+                    list($var_name, $var_val) = explode('=', $value);
+                    // если $var_val – это переменная
+                    if ($var_val[0] == self::START_VAR) {
+                        // заменяем на значение переменной, если таковая найдена
+                        $variable = Variable::findByName(trim($var_val, self::START_VAR . self::END_VAR))->first();
+                        if ($variable) {
+                            static::replace($html, $var_name, $variable->html, self::START_VAR_CALC, self::END_VAR_CALC);
+                        }
+                    } else {
+                    // иначе просто заменяем на значение после =
+                        // // если значение не numeric, оборачиваем как строку
+                        // // e.g. var x = test | var x = 'test'
+                        // if (! is_numeric($var_val)) {
+                        //     $var_val = static::interpolate($var_val, "'", "'");
+                        // }
+                        static::replace($html, $var_name, $var_val, self::START_VAR_CALC, self::END_VAR_CALC);
+                    }
+                }
+
+                return $html;
+            } else {
+                // если переменная не нашлась, возвращаем неизменную $var_string
+                return $var_string;
+            }
+        }
 
         /**
          * Компилирует функции типа [factory|subjects|name]
@@ -82,17 +137,15 @@
                         $replacement = is_numeric($args[0]) ? Page::getUrl($args[0]) : Page::getSubjectUrl($args[0]);
                         break;
                     case 'gallery':
-                        $ids = explode(',', $args[0]);
-                        $replacement = Photo::parse($ids);
+                        if ($args[0] == 'all') {
+                            $replacement = Photo::parse(Photo::pluck('id'));
+                        } else {
+                            $ids = explode(',', $args[0]);
+                            $replacement = Photo::parse($ids);
+                        }
                         break;
                     case 'program':
                         $replacement = view('pages.program', ['program' => Program::find($args[0])]);
-                        break;
-                    case 'map':
-                        $replacement = view('address.map', ['branch' => strtoupper($args[0])]);
-                        break;
-                    case 'address-info':
-                        $replacement = view('address.info', ['branch' => strtoupper($args[0])]);
                         break;
                     case 'count':
                         $type = array_shift($args);
@@ -178,17 +231,23 @@
             unset($_SESSION['page_was_refreshed']);
         }
 
-        public static function interpolate($text = '')
+        public static function interpolate($text = '', $start = null, $end = null)
         {
-            return self::START_VAR . $text . self::END_VAR;
+            if (! $start) {
+                $start = self::START_VAR;
+            }
+            if (! $end) {
+                $end = self::END_VAR;
+            }
+            return $start . $text . $end;
         }
 
         /**
          * Произвести замену переменной в html
          */
-        public static function replace(&$html, $var, $replacement)
+        public static function replace(&$html, $var, $replacement, $start = null, $end = null)
         {
-            $html = str_replace(static::interpolate($var), $replacement, $html);
+            $html = str_replace(static::interpolate($var, $start, $end), $replacement, $html);
         }
 
         /**
