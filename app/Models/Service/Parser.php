@@ -144,8 +144,14 @@
                             $replacement = Photo::parse($ids);
                         }
                         break;
+                    case 'photo':
+                        $replacement = Photo::find($args[0])->url;
+                        break;
                     case 'program':
                         $replacement = view('pages.program', ['program' => Program::find($args[0])]);
+                        break;
+                    case 'price':
+                        $replacement = \App\Service\Price::parse(...$args);
                         break;
                     case 'count':
                         $type = array_shift($args);

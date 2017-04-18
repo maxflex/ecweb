@@ -3840,11 +3840,11 @@ a {
 
 .center-col {
   float: left;
-  width: calc(650px - 20px); }
+  width: calc(650px - 20px - 20px); }
 
 .right-col {
   float: left;
-  width: calc(300px - 20px);
+  width: calc(300px);
   padding: 0 0 0 50px; }
 
 .clear-fix {
@@ -4301,6 +4301,11 @@ a[href^="https://www.google.com/maps"] {
   .right-img-img {
     max-width: 300px;
     border-radius: 4px; }
+  .right-img-custom {
+    border-radius: 4px;
+    width: 300px;
+    height: 200px;
+    background-size: cover; }
 
 .tutors-small {
   margin: 0;

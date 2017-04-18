@@ -10,4 +10,11 @@
     max-width: 300px;
     border-radius: 4px;
   }
+
+  &-custom {
+    border-radius: 4px;
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+  }
 }
