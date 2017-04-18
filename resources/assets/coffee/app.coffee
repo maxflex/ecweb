@@ -152,6 +152,17 @@ angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angu
             else
                 "https://lk.ege-repetitor.ru/img/tutors/no-profile-img.gif"
 
+        $rootScope.fullName = (tutor) ->
+            return tutor.last_name + ' ' + tutor.first_name + ' ' + tutor.middle_name
+
+        $rootScope.shortenGrades = (tutor) ->
+            grades = tutor.grades
+            if (grades.length > 1)
+                last_grade = grades.pop()
+            grade_string = grades.join ', '
+            grade_string += ' и ' + last_grade if last_grade
+            grade_string + if last_grade then ' классы' else ' класс'
+
         $rootScope.formatBytes = (bytes) ->
           if bytes < 1024
             bytes + ' Bytes'

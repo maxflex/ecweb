@@ -21,6 +21,8 @@ class Tutor extends Service\Model
 
     const URL = 'tutors';
 
+    const SHORT_LIST_COUNT = 3;
+
     protected $commaSeparated = ['subjects', 'grades', 'branches'];
 
     protected $multiLine = ['public_desc', 'education', 'achievements', 'experience', 'preferences'];
@@ -66,7 +68,7 @@ class Tutor extends Service\Model
 
     public function scopeWhereSubject($query, $subject_id)
     {
-        return $query->whereRaw("FIND_IN_SET($subject_id, subjects)");;
+        return $query->whereRaw("FIND_IN_SET($subject_id, subjects)");
     }
 
     /**
@@ -125,5 +127,29 @@ class Tutor extends Service\Model
             'tutor_data.svg_map',
             'tutor_data.photo_exists',
         ])->join('tutor_data', 'tutor_data.tutor_id', '=', 'tutors.id');
+    }
+
+    public function scopeLight($query)
+    {
+        return $query->select([
+            'tutors.id',
+            'first_name',
+            'middle_name',
+            'last_name',
+            'subjects',
+            'photo_extension',
+            'start_career_year',
+            'grades',
+            'tutor_data.photo_exists',
+        ])->join('tutor_data', 'tutor_data.tutor_id', '=', 'tutors.id');
+    }
+
+    public static function bySubject($subject_eng, $limit = false)
+    {
+        $subject_id = Service\Factory::getSubjectId($subject_eng);
+        return static::whereSubject($subject_id)
+                     ->light()
+                     ->take($limit ?: static::SHORT_LIST_COUNT)
+                     ->get();
     }
 }
