@@ -6,6 +6,7 @@
     use App\Models\Review;
     use App\Models\Page;
     use App\Models\Tutor;
+    use DB;
 
     /**
      * Parser
@@ -22,6 +23,18 @@
 
         public static function compileVars($html)
         {
+            // compile values inside first
+            // preg_match_all('#{.*?}#', $html, $matches);
+            // $vars = $matches[0];
+            // foreach ($vars as $var) {
+            //     dump($var);
+            //     // skip angular vars
+            //     if (strpos($var, '{{') === 0) {
+            //         continue;
+            //     }
+            //     $var = trim($var, self::START_VAR_CALC . self::END_VAR_CALC);
+            // }
+
             preg_match_all('#\\' . static::interpolate('[\S]+\\') . '#', $html, $matches);
             $vars = $matches[0];
             foreach ($vars as $var) {
@@ -30,12 +43,22 @@
                 if (strpos($var, '=')) {
                     static::replace($html, $var, static::compileValues($var));
                 } else {
-                    static::compileFunctions($html, $var);
                     $variable = Variable::findByName($var)->first();
                     if ($variable) {
                         static::replace($html, $var, $variable->html);
                     }
                 }
+            }
+            // compile functions after values & vars
+            preg_match_all('#\\' . static::interpolate('[\S]+\\') . '#', $html, $matches);
+            $vars = $matches[0];
+            foreach($vars as $var) {
+                // если функция содержит внутри {} – пропускать
+                if (strpos($var, '{')) {
+                    continue;
+                }
+                $var = trim($var, static::interpolate());
+                static::compileFunctions($html, $var);
             }
             return $html;
         }
@@ -46,16 +69,14 @@
         public static function compileValues($var_string)
         {
             // map|a=1|b=2
+            // tutor|{subject}|{count}
             $values = explode('|', $var_string);
-
             // первая часть – название переменной
-            $variable = Variable::findByName($values[0])->first();
+            $html = Variable::findByName($values[0])->first()->html;
+            // $html = DB::table('variables')->whereName($values[0])->value('html');
 
             // если переменная нашлась
-            if ($variable) {
-                $html = $variable->html;
-                // $html = static::compileVars($html);
-
+            if ($html !== null) {
                 // убираем название переменной из массива
                 array_shift($values);
 
@@ -71,11 +92,6 @@
                         }
                     } else {
                     // иначе просто заменяем на значение после =
-                        // // если значение не numeric, оборачиваем как строку
-                        // // e.g. var x = test | var x = 'test'
-                        // if (! is_numeric($var_val)) {
-                        //     $var_val = static::interpolate($var_val, "'", "'");
-                        // }
                         static::replace($html, $var_name, $var_val, self::START_VAR_CALC, self::END_VAR_CALC);
                     }
                 }

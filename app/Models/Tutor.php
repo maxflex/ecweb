@@ -146,9 +146,15 @@ class Tutor extends Service\Model
 
     public static function bySubject($subject_eng, $limit = false)
     {
-        $subject_id = Service\Factory::getSubjectId($subject_eng);
-        return static::whereSubject($subject_id)
-                     ->light()
+        $query = static::query();
+        if ($subject_eng != 'any') {
+            $subject_id = Service\Factory::getSubjectId($subject_eng);
+            $query->whereSubject($subject_id);
+        } else {
+            $query->inRandomOrder();
+        }
+
+        return $query->light()
                      ->take($limit ?: static::SHORT_LIST_COUNT)
                      ->get();
     }
