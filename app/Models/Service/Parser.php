@@ -23,18 +23,6 @@
 
         public static function compileVars($html)
         {
-            // compile values inside first
-            // preg_match_all('#{.*?}#', $html, $matches);
-            // $vars = $matches[0];
-            // foreach ($vars as $var) {
-            //     dump($var);
-            //     // skip angular vars
-            //     if (strpos($var, '{{') === 0) {
-            //         continue;
-            //     }
-            //     $var = trim($var, self::START_VAR_CALC . self::END_VAR_CALC);
-            // }
-
             preg_match_all('#\\' . static::interpolate('[\S]+\\') . '#', $html, $matches);
             $vars = $matches[0];
             foreach ($vars as $var) {
