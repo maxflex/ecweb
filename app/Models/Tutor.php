@@ -15,6 +15,7 @@ class Tutor extends Service\Model
     protected $appends = [
         'subjects_string',
         'subjects_string_common',
+        'types' // ЕГЭ/ОГЭ
     ];
 
     const USER_TYPE  = 'TEACHER';
@@ -56,9 +57,27 @@ class Tutor extends Service\Model
 
     public function getSubjectsStringCommonAttribute()
     {
-        return implode(', ', array_map(function($subject_id) {
-            return Cacher::getSubjectName($subject_id, 'name');
-        }, $this->subjects));
+        $subjects = [];
+        foreach($this->subjects as $subject_id) {
+            $name = Cacher::getSubjectName($subject_id, 'name');
+            if (count($this->types)) {
+                $name .= " ({$this->types})";
+            }
+            $subjects[] = $name;
+        }
+        return implode(', ', $subjects);
+    }
+
+    public function getTypesAttribute()
+    {
+        $types = [];
+        if (in_array(11, $this->grades)) {
+            $types[] = 'ЕГЭ';
+        }
+        if (in_array(9, $this->grades)) {
+            $types[] = 'ОГЭ';
+        }
+        return implode(', ', $types);
     }
 
     public static function boot()
@@ -144,7 +163,7 @@ class Tutor extends Service\Model
         ])->join('tutor_data', 'tutor_data.tutor_id', '=', 'tutors.id');
     }
 
-    public static function bySubject($subject_eng, $limit = false)
+    public static function bySubject($subject_eng, $limit = false, $grade = false)
     {
         $query = static::query();
         if ($subject_eng != 'any') {
@@ -152,6 +171,10 @@ class Tutor extends Service\Model
             $query->whereSubject($subject_id);
         } else {
             $query->inRandomOrder();
+        }
+
+        if ($grade) {
+            $query->whereRaw("FIND_IN_SET($grade, grades)");
         }
 
         return $query->light()
