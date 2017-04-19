@@ -41,7 +41,7 @@
         }
 
         /**
-         * Компилировать значения типа [map|center=95,23|branch=trg|deadline=[deadline]]
+         * Компилировать значения типа [map|center=95,23|branch=trg|deadline=[deadline]|param={value}]
          */
         public static function compileValues($var_string)
         {
@@ -53,11 +53,13 @@
 
             // если переменная нашлась
             if ($variable) {
+                array_shift($values);
+                $variable->shallowReplace('html', $values);
+
                 $html = $variable->html;
                 // $html = static::compileVars($html);
 
                 // убираем название переменной из массива
-                array_shift($values);
 
                 foreach($values as $value) {
                     // разбиваем a=1

@@ -17,6 +17,14 @@ class Variable extends Model
         'desc'
     ];
 
+    public function shallowReplace($field, $values)
+    {
+        foreach($values as $value) {
+            list($var_name, $var_val) = explode('=', $value);
+            Parser::replace($this->attributes[$field], $var_name, $var_val, Parser::START_VAR_CALC, Parser::END_VAR_CALC);
+        }
+    }
+
     public function getHtmlAttribute($value)
     {
         return Parser::compileVars($value);
