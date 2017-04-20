@@ -139,6 +139,7 @@ class Tutor extends Service\Model
             'js',
             'video_link',
             'video_duration',
+            'description',
             'tutor_data.clients_count',
             'tutor_data.reviews_count_egecrm as reviews_count',
             'tutor_data.first_attachment_date',

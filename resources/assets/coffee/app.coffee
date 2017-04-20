@@ -196,6 +196,9 @@ angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angu
                     i++
                 return pairs.join ', '
 
+        $rootScope.countObj = (obj) ->
+            Object.keys(obj).length
+
         $rootScope.formatBytes = (bytes) ->
           if bytes < 1024
             bytes + ' Bytes'

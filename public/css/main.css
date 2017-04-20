@@ -3932,6 +3932,9 @@ a[href^="https://www.google.com/maps"] {
 .gm-bundled-control .gmnoprint {
   display: block; }
 
+.medium {
+  font-family: "helveticaneuecyrmedium"; }
+
 /* Components */
 .top-message {
   background: #fef9de;
@@ -5329,6 +5332,9 @@ span.customSelect {
 
 .half-spacing {
   margin-bottom: 10.5px; }
+
+.one-and-half-spacing {
+  margin-bottom: 14px; }
 
 .half-spacing-top, .b-like {
   margin-top: 10.5px; }
