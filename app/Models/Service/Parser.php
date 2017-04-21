@@ -162,14 +162,14 @@
                         $type = array_shift($args);
                         switch($type) {
                             case 'tutors':
-                                if ($args[1] == 'egerep') {
+                                if ($args[0] == 'egerep') {
                                     $replacement = egerep('tutors')->where('public_desc', '!=', '')->count();
                                 } else {
                                     $replacement = Tutor::count(...$args);
                                 }
                                 break;
                             case 'reviews':
-                                if ($args[1] == 'egerep') {
+                                if ($args[0] == 'egerep') {
                                     $replacement = egerep('reviews')->where('state', 'published')->count();
                                 } else {
                                     $replacement = Review::count();
