@@ -23,7 +23,7 @@
 
         public static function compileVars($html)
         {
-            preg_match_all('#\\' . static::interpolate('[\S]+\\') . '#', $html, $matches);
+            preg_match_all('#\\' . static::interpolate('(.)+\\') . '#', $html, $matches);
             $vars = $matches[0];
             foreach ($vars as $var) {
                 $var = trim($var, static::interpolate());
@@ -71,6 +71,7 @@
                 foreach($values as $value) {
                     // разбиваем a=1
                     list($var_name, $var_val) = explode('=', $value);
+
                     // если $var_val – это переменная
                     if ($var_val[0] == self::START_VAR) {
                         // заменяем на значение переменной, если таковая найдена

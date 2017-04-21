@@ -16,16 +16,31 @@
     border-spacing: 0;
     table-layout: fixed;
     width: 100%;
-
-    td {
-      padding: 0 0 10px 0;
-
-      &:nth-child(1) {
-        width: 400px;
-      }
-      &:nth-child(2) {
-        width: 350px;
-      }
+    thead {
+        background: #e8e8e8;
+        border-radius: 3px;
+        font-family: 'helveticaneuecyrmedium';
+        & td {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            vertical-align: top;
+            line-height: $line-height-main + px;
+            &:first-child {
+                padding-left: 3px;
+                border-radius: 4px 0 0 4px;
+            }
+            &:last-child {
+                border-radius: 0 4px 4px 0;
+            }
+        }
+    }
+    tbody {
+        & td {
+          padding: 0 0 10px 0;
+        }
+        & tr:first-child td {
+           padding-top: 10px;
+        }
     }
   }
 }
