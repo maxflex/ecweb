@@ -4016,9 +4016,9 @@ a[href^="https://www.google.com/maps"] {
       background: #3a6699;
       position: relative; }
       .header-menu-wrap__img {
-        background: url("../img/header-new.jpg") no-repeat 50% 0;
+        background: url("https://cms.ege-centr.ru/storage/images/58f5e3df2a291.jpeg") no-repeat 50% 50%;
         height: 470px;
-        background-size: auto 100%; }
+        background-size: center; }
         .header-menu-wrap__img:before {
           content: '';
           display: block;
@@ -4027,7 +4027,7 @@ a[href^="https://www.google.com/maps"] {
           top: 0;
           height: 44px;
           width: 100%;
-          background: rgba(0, 0, 0, 0.1); }
+          background: rgba(0, 0, 0, 0.4); }
         .header-menu-wrap__img:after {
           content: '';
           display: block;
@@ -4047,7 +4047,7 @@ a[href^="https://www.google.com/maps"] {
       .header-menu-item__active {
         background: #6185ad; }
       .header-menu-item:hover {
-        background: rgba(0, 0, 0, 0.5); }
+        background: rgba(0, 0, 0, 0.6); }
       .header-menu-item a {
         display: block;
         height: 32px;
