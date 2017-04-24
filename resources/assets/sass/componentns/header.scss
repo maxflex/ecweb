@@ -165,11 +165,12 @@
     right: 0;
     top: 6px;
     & img {
-        height: 15px;
+        height: 12px;
         top: 2px;
         position: relative;
     }
     & a {
+        font-size: 12px;
         font-family: $font-light;
         // text-decoration: none;
     }

@@ -15,10 +15,6 @@ angular
         $timeout ->
             initYoutube()
             if not $scope.profilePage()
-                if $.cookie('search') isnt undefined
-                    id = $scope.search.id
-                    $scope.search = JSON.parse($.cookie('search'))
-                    $scope.search.id = id
                 # SubjectService.init($scope.search.subjects)
                 # StreamService.run('landing', 'serp')
                 $scope.filter()
@@ -73,14 +69,14 @@ angular
             search()
             # деселект hidden_filter при смене параметров
             # delete $scope.search.hidden_filter if $scope.search.hidden_filter and search_count
-            $.cookie('search', JSON.stringify($scope.search))
+            # $.cookie('search', JSON.stringify($scope.search))
 
         $scope.nextPage = ->
             $scope.page++
             # StreamService.run('load_more_tutors', null, {page: $scope.page})
             search()
 
-        $scope.$watch 'page', (newVal, oldVal) -> $.cookie('page', $scope.page) if newVal isnt undefined
+        # $scope.$watch 'page', (newVal, oldVal) -> $.cookie('page', $scope.page) if newVal isnt undefined
 
         search = ->
             $scope.searching = true

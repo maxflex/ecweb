@@ -251,5 +251,16 @@ h3.padding-top {
     display: flex;
     align-items: center;
     font-family: $font-regular;
-    margin-bottom: 25px;
+    margin-bottom: 11px;
+}
+
+.subject-list-flex {
+    display: flex;
+    & > div {
+        flex: 1;
+    }
+}
+
+ol, ul {
+    line-height: $line-height-main + px;
 }
