@@ -3935,6 +3935,9 @@ a[href^="https://www.google.com/maps"] {
 .medium {
   font-family: "helveticaneuecyrmedium"; }
 
+.inline {
+  display: inline-block; }
+
 /* Components */
 .top-message {
   background: #fef9de;
@@ -3944,9 +3947,9 @@ a[href^="https://www.google.com/maps"] {
     margin: 0 auto;
     padding: 7px 0;
     font-size: 16px;
-    font-family: 'helveticaneuecyrregular';
     color: #af0000;
-    text-align: center; }
+    text-align: center;
+    position: relative; }
 
 .licence-list {
   padding: 0 0 30px 0;
@@ -4067,6 +4070,17 @@ a[href^="https://www.google.com/maps"] {
     font-weight: 100;
     top: 32px;
     left: 450px; }
+
+.lk-wrapper {
+  position: absolute;
+  right: 0;
+  top: 6px; }
+  .lk-wrapper img {
+    height: 15px;
+    top: 2px;
+    position: relative; }
+  .lk-wrapper a {
+    font-family: "helveticaneuecyrlight"; }
 
 .footer {
   background: #3b3b3b;
@@ -4233,13 +4247,13 @@ a[href^="https://www.google.com/maps"] {
   font-family: 'helveticaneuecyrmedium'; }
 
 .price {
-  padding: 0 0 15px 0; }
+  padding: 0 0 30px 0; }
   .price:first-of-type {
     padding-top: 15px; }
   .price-title {
     font-family: 'helveticaneuecyrmedium';
-    background: #e8e8e8;
-    border-radius: 3px;
+    background: #767676;
+    color: white;
     padding: 10px;
     margin: 0 0 20px 0; }
   .price-list {
@@ -4254,16 +4268,21 @@ a[href^="https://www.google.com/maps"] {
       .price-list thead td {
         padding-top: 5px;
         padding-bottom: 5px;
-        vertical-align: top;
-        line-height: 21px; }
+        vertical-align: top; }
         .price-list thead td:first-child {
           padding-left: 3px;
           border-radius: 4px 0 0 4px; }
         .price-list thead td:last-child {
           border-radius: 0 4px 4px 0; }
     .price-list tbody td {
-      padding: 0 0 10px 0; }
-    .price-list tbody tr:first-child td {
+      padding: 0 0 10px 10px;
+      line-height: 21px; }
+    .price-list tbody tr.line-separated {
+      border-top: 1px solid #acacac;
+      border-bottom: 1px solid #acacac; }
+      .price-list tbody tr.line-separated td {
+        padding: 8px 10px; }
+    .price-list tbody tr.after-line-separated td {
       padding-top: 10px; }
 
 .enrollment .form-row-inner {
@@ -4349,6 +4368,8 @@ a[href^="https://www.google.com/maps"] {
       width: 200px; }
       .tutors-small-item-info li {
         padding: 0 0 5px 0; }
+        .tutors-small-item-info li > b {
+          font-family: "helveticaneuecyrmedium"; }
 
 .landing-body {
   position: relative; }
@@ -5405,5 +5426,17 @@ h3.padding-top {
 
 .btn {
   padding: 6px 10px; }
+
+.back-arrow {
+  text-decoration: none;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-family: "helveticaneuecyrregular";
+  margin-bottom: 25px; }
+  .back-arrow img {
+    height: 14px;
+    margin-right: 5px; }
 
 /*# sourceMappingURL=main.css.map */

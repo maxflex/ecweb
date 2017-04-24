@@ -1,12 +1,13 @@
 .price {
-  padding: 0 0 15px 0;
+  padding: 0 0 30px 0;
   &:first-of-type {
       padding-top: 15px;
   }
   &-title {
     font-family: 'helveticaneuecyrmedium';
-    background: #e8e8e8;
-    border-radius: 3px;
+    background: #767676;
+    color: white;
+    // border-radius: 3px;
     padding: 10px;
     margin: 0 0 20px 0;
   }
@@ -24,7 +25,6 @@
             padding-top: 5px;
             padding-bottom: 5px;
             vertical-align: top;
-            line-height: $line-height-main + px;
             &:first-child {
                 padding-left: 3px;
                 border-radius: 4px 0 0 4px;
@@ -36,10 +36,20 @@
     }
     tbody {
         & td {
-          padding: 0 0 10px 0;
+          padding: 0 0 10px 10px;
+          line-height: $line-height-main + px;
         }
-        & tr:first-child td {
-           padding-top: 10px;
+        & tr.line-separated {
+            border-top: 1px solid $text-grey-light;
+            border-bottom: 1px solid $text-grey-light;
+            & td {
+                padding: 8px 10px;
+            }
+        }
+        & tr.after-line-separated {
+            & td {
+                padding-top: 10px;
+            }
         }
     }
   }

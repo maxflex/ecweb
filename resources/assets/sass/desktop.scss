@@ -241,3 +241,15 @@ h3.padding-top {
 .btn {
     padding: 6px 10px;
 }
+
+.back-arrow {
+    & img {
+        height: 14px;
+        margin-right: 5px;
+    }
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-family: $font-regular;
+    margin-bottom: 25px;
+}

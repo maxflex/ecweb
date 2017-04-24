@@ -159,3 +159,18 @@
     left: 450px;
   }
 }
+
+.lk-wrapper {
+    position: absolute;
+    right: 0;
+    top: 6px;
+    & img {
+        height: 15px;
+        top: 2px;
+        position: relative;
+    }
+    & a {
+        font-family: $font-light;
+        // text-decoration: none;
+    }
+}

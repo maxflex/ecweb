@@ -35,6 +35,9 @@
 
       li {
         padding: 0 0 5px 0;
+        & > b {
+            font-family: $font-medium;
+        }
       }
     }
   }

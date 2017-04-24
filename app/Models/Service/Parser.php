@@ -23,7 +23,7 @@
 
         public static function compileVars($html)
         {
-            preg_match_all('#\\' . static::interpolate('(.)+\\') . '#', $html, $matches);
+            preg_match_all('#\\' . static::interpolate('[\S\s]+\\') . '#U', $html, $matches);
             $vars = $matches[0];
             foreach ($vars as $var) {
                 $var = trim($var, static::interpolate());
@@ -38,7 +38,7 @@
                 }
             }
             // preg_match_all('#\\' . static::interpolate('[\S]+\\', self::START_VAR_CALC, self::END_VAR_CALC) . '#', $html, $matches);
-            
+
             // compile functions after values & vars
             preg_match_all('#\\' . static::interpolate('[\S]+\\') . '#', $html, $matches);
             $vars = $matches[0];
