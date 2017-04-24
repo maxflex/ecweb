@@ -254,6 +254,17 @@ h3.padding-top {
     margin-bottom: 11px;
 }
 
+.pdf-download {
+    justify-content: flex-end;
+    font-size: 12px;
+    & a {
+        text-decoration: none;
+    }
+    & span {
+        margin-left: 5px;
+    }
+}
+
 .subject-list-flex {
     display: flex;
     & > div {

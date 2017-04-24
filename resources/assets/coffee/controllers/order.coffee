@@ -1,8 +1,7 @@
 angular
     .module 'App'
-    .controller 'Order', ($scope, $timeout, $http, Grades, Branches, Request) ->
+    .controller 'Order', ($scope, $timeout, $http, Grades, Request) ->
         bindArguments($scope, arguments)
-
         $timeout ->
             # @todo: client_id, referer, referer_url, user agent
             $scope.order = {}

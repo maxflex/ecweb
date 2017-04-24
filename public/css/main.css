@@ -4010,7 +4010,8 @@ a[href^="https://www.google.com/maps"] {
     position: relative;
     z-index: 1;
     overflow: hidden;
-    left: -14px; }
+    left: -14px;
+    line-height: inherit; }
     .header-menu-wrap {
       background: #3a6699;
       position: relative; }
@@ -5447,6 +5448,15 @@ h3.padding-top {
   .back-arrow img {
     height: 14px;
     margin-right: 5px; }
+
+.pdf-download {
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  font-size: 12px; }
+  .pdf-download a {
+    text-decoration: none; }
+  .pdf-download span {
+    margin-left: 5px; }
 
 .subject-list-flex {
   display: -webkit-box;

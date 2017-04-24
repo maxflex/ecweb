@@ -11,6 +11,7 @@ angular.module('App')
         9: '9 класс'
         10: '10 класс'
         11: '11 класс'
+        14: 'экстернат'
 
     .value 'Subjects',
         all:

@@ -16267,7 +16267,7 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
 }).call(this);
 
 (function() {
-  angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Branches, Request) {
+  angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Request) {
     bindArguments($scope, arguments);
     $timeout(function() {
       return $scope.order = {};
@@ -16659,7 +16659,8 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
     8: '8 класс',
     9: '9 класс',
     10: '10 класс',
-    11: '11 класс'
+    11: '11 класс',
+    14: 'экстернат'
   }).value('Subjects', {
     all: {
       1: 'математика',
