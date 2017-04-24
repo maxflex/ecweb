@@ -21,7 +21,7 @@ class Photo extends Model
     public static function parse($ids)
     {
         return view('gallery.index')->with([
-            'urls' => Photo::whereIn('id', $ids)->get()
+            'urls' => Photo::whereIn('id', $ids)->orderBy('position')->get()
         ]);
     }
 }
