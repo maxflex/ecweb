@@ -5485,6 +5485,7 @@ ol, ul {
   .page-not-found-wrapper .page-not-found {
     text-align: center; }
     .page-not-found-wrapper .page-not-found ul {
-      list-style: none; }
+      list-style: none;
+      padding: 0; }
 
 /*# sourceMappingURL=main.css.map */
