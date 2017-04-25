@@ -30,9 +30,10 @@ function closeModal() {
     $('body').removeClass('modal-open')
 	$("body").addClass('open-modal-' + active_modal); active_modal = false
     $('.container').off('touchmove');
-    if(window.location.hash == "#modal") {
-        window.history.back()
-    }
+    // @todo: почему-то эта строчка ломает повторное воспроизведение видео видео
+    // if(window.location.hash == "#modal") {
+    //     window.history.back()
+    // }
     if (typeof(onCloseModal) == 'function') {
         onCloseModal()
     }

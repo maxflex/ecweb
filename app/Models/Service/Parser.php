@@ -209,16 +209,6 @@
             return $html;
         }
 
-        /**
-         * Компилировать страницу препода
-         */
-        public static function compileProgram($id, &$html)
-        {
-            if ($program = Program::find($id)) {
-                static::replace($html, 'current_program', $program->toJson());
-            }
-        }
-
         public static function compileFaq(&$html) {
             static::replace($html, 'faq', view('pages.faq'));
         }

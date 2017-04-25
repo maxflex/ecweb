@@ -275,3 +275,16 @@ h3.padding-top {
 ol, ul {
     line-height: $line-height-main + px;
 }
+
+.page-not-found-wrapper {
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & .page-not-found {
+        text-align: center;
+        & ul {
+            list-style: none;
+        }
+    }
+}

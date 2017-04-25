@@ -16401,7 +16401,10 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
       });
     };
     $scope.video = function(tutor) {
-      $scope.video_link = tutor.video_link;
+      if ($scope.video_link !== tutor.video_link) {
+        console.log('Setting url to ' + tutor.video);
+        $scope.video_link = tutor.video_link;
+      }
       return openModal('video');
     };
     $scope.videoLink = function() {
@@ -16721,59 +16724,6 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
 }).call(this);
 
 (function() {
-  var apiPath, countable, updatable;
-
-  angular.module('App').factory('Tutor', function($resource) {
-    return $resource(apiPath('tutors'), {
-      id: '@id',
-      type: '@type'
-    }, {
-      search: {
-        method: 'POST',
-        url: apiPath('tutors', 'search')
-      },
-      reviews: {
-        method: 'GET',
-        isArray: true,
-        url: apiPath('reviews')
-      }
-    });
-  }).factory('Request', function($resource) {
-    return $resource(apiPath('requests'), {
-      id: '@id'
-    }, updatable());
-  }).factory('Cv', function($resource) {
-    return $resource(apiPath('cv'), {
-      id: '@id'
-    }, updatable());
-  });
-
-  apiPath = function(entity, additional) {
-    if (additional == null) {
-      additional = '';
-    }
-    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
-  };
-
-  updatable = function() {
-    return {
-      update: {
-        method: 'PUT'
-      }
-    };
-  };
-
-  countable = function() {
-    return {
-      count: {
-        method: 'GET'
-      }
-    };
-  };
-
-}).call(this);
-
-(function() {
   angular.module('App').service('PhoneService', function() {
     var isFull;
     this.checkForm = function(element) {
@@ -16953,6 +16903,59 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
 
 }).call(this);
 
+(function() {
+  var apiPath, countable, updatable;
+
+  angular.module('App').factory('Tutor', function($resource) {
+    return $resource(apiPath('tutors'), {
+      id: '@id',
+      type: '@type'
+    }, {
+      search: {
+        method: 'POST',
+        url: apiPath('tutors', 'search')
+      },
+      reviews: {
+        method: 'GET',
+        isArray: true,
+        url: apiPath('reviews')
+      }
+    });
+  }).factory('Request', function($resource) {
+    return $resource(apiPath('requests'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Cv', function($resource) {
+    return $resource(apiPath('cv'), {
+      id: '@id'
+    }, updatable());
+  });
+
+  apiPath = function(entity, additional) {
+    if (additional == null) {
+      additional = '';
+    }
+    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
+  };
+
+  updatable = function() {
+    return {
+      update: {
+        method: 'PUT'
+      }
+    };
+  };
+
+  countable = function() {
+    return {
+      count: {
+        method: 'GET'
+      }
+    };
+  };
+
+}).call(this);
+
 //# sourceMappingURL=app.js.map
 
 var scope = null
@@ -16987,9 +16990,10 @@ function closeModal() {
     $('body').removeClass('modal-open')
 	$("body").addClass('open-modal-' + active_modal); active_modal = false
     $('.container').off('touchmove');
-    if(window.location.hash == "#modal") {
-        window.history.back()
-    }
+    // @todo: почему-то эта строчка ломает повторное воспроизведение видео видео
+    // if(window.location.hash == "#modal") {
+    //     window.history.back()
+    // }
     if (typeof(onCloseModal) == 'function') {
         onCloseModal()
     }
