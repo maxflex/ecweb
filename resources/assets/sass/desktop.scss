@@ -283,6 +283,9 @@ ol, ul {
     align-items: center;
     & .page-not-found {
         text-align: center;
+        & h1 {
+            font-family: $font-light;
+        }
         & ul {
             list-style: none;
             padding: 0;

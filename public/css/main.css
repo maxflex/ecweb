@@ -5484,6 +5484,8 @@ ol, ul {
   align-items: center; }
   .page-not-found-wrapper .page-not-found {
     text-align: center; }
+    .page-not-found-wrapper .page-not-found h1 {
+      font-family: "helveticaneuecyrlight"; }
     .page-not-found-wrapper .page-not-found ul {
       list-style: none;
       padding: 0; }
