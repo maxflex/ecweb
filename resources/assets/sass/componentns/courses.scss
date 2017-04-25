@@ -42,5 +42,12 @@
       width: 715px;
       padding-right: 70px !important;
     }
+    &-inner {
+        width: 800px;
+        td {
+            padding: 0;
+            vertical-align: bottom;
+        }
+    }
   }
 }

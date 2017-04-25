@@ -4451,6 +4451,11 @@ a[href^="https://www.google.com/maps"] {
     .courses-list-text {
       width: 715px;
       padding-right: 70px !important; }
+    .courses-list-inner {
+      width: 800px; }
+      .courses-list-inner td {
+        padding: 0;
+        vertical-align: bottom; }
 
 .popup {
   display: none;
