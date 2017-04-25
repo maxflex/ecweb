@@ -4266,7 +4266,7 @@ a[href^="https://www.google.com/maps"] {
     background: #767676;
     color: white;
     padding: 10px;
-    margin: 0 0 20px 0; }
+    margin: 0 0 12px 0; }
   .price-list {
     border-collapse: collapse;
     border-spacing: 0;
@@ -4353,8 +4353,7 @@ a[href^="https://www.google.com/maps"] {
     height: 200px;
     background-size: cover; }
   .right-img-price {
-    font-size: 20px;
-    font-family: 'helveticaneuecyrbold'; }
+    font-size: 24px; }
 
 .tutors-small {
   margin: 0;
@@ -4438,18 +4437,18 @@ a[href^="https://www.google.com/maps"] {
     margin-bottom: 20px;
     font-size: 14px; }
     .courses-list td {
-      padding: 0 0 10px 0;
-      vertical-align: middle; }
+      padding: 0 0 17px 0;
+      vertical-align: center;
+      line-height: 21px; }
     .courses-list-name {
-      width: 140px; }
+      width: 180px; }
     .courses-list-number {
-      width: 160px; }
+      width: 110px; }
     .courses-list-icon {
       width: 60px; }
       .courses-list-icon img {
-        width: 32px; }
+        height: 34px; }
     .courses-list-text {
-      line-height: 21px;
       width: 715px;
       padding-right: 70px !important; }
 
