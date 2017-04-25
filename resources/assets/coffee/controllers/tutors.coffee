@@ -92,7 +92,9 @@ angular
                 # if $scope.mobile then $timeout -> bindToggle()
 
         $scope.video = (tutor) ->
-            $scope.video_link = tutor.video_link
+            if $scope.video_link isnt tutor.video_link
+                console.log('Setting url to ' + tutor.video)
+                $scope.video_link = tutor.video_link
             openModal('video')
 
         # ссылка на видео

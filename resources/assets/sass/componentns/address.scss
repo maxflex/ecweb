@@ -16,7 +16,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-
+    line-height: initial;
     &-item {
       padding: 0 0 10px 15px;
       position: relative;
@@ -52,7 +52,14 @@
     &-item {
       padding: 0 0 0 0;
       margin: 0 0 10px 0;
-
+      &:first-of-type {
+          & > .address-more-item-left {
+              width: 42px;
+          }
+          & > .address-more-item-right {
+              width: calc(100% - 42px);
+          }
+      }
       &:after {
         content: '';
         display: block;

@@ -4155,7 +4155,8 @@ a[href^="https://www.google.com/maps"] {
 .address-list {
   margin: 0;
   padding: 0;
-  list-style: none; }
+  list-style: none;
+  line-height: initial; }
   .address-list-item {
     padding: 0 0 10px 15px;
     position: relative; }
@@ -4180,6 +4181,10 @@ a[href^="https://www.google.com/maps"] {
   .address-more-item {
     padding: 0 0 0 0;
     margin: 0 0 10px 0; }
+    .address-more-item:first-of-type > .address-more-item-left {
+      width: 42px; }
+    .address-more-item:first-of-type > .address-more-item-right {
+      width: calc(100% - 42px); }
     .address-more-item:after {
       content: '';
       display: block;
@@ -4375,7 +4380,8 @@ a[href^="https://www.google.com/maps"] {
       padding: 0;
       list-style: none;
       float: left;
-      width: 200px; }
+      width: 200px;
+      line-height: initial; }
       .tutors-small-item-info li {
         padding: 0 0 5px 0; }
         .tutors-small-item-info li > b {
@@ -5467,5 +5473,21 @@ h3.padding-top {
 
 ol, ul {
   line-height: 21px; }
+
+.page-not-found-wrapper {
+  min-height: 400px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center; }
+  .page-not-found-wrapper .page-not-found {
+    text-align: center; }
+    .page-not-found-wrapper .page-not-found h1 {
+      font-family: "helveticaneuecyrlight"; }
+    .page-not-found-wrapper .page-not-found ul {
+      list-style: none;
+      padding: 0; }
 
 /*# sourceMappingURL=main.css.map */

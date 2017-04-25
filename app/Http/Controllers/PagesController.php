@@ -21,7 +21,7 @@ class PagesController extends Controller
     {
         $page = Page::whereUrl($url);
         if (! $page->exists()) {
-            $html = Variable::display('page-404');
+            $html = Page::withoutGlobalScopes()->whereUrl('404')->first()->html;
         } else {
             $html = $page->first()->html;
         }
@@ -38,22 +38,11 @@ class PagesController extends Controller
             Parser::compileTutor($id, $html);
             $status = 200;
         } else {
-            $html = Variable::display('page-404');
+            $html = Page::withoutGlobalScopes()->whereUrl('404')->first()->html;
             $status = 404;
         }
         $_SESSION['action'] = 'profile';
         return response()->view('pages.index', compact('html'), $status);
-    }
-
-    public function program($id)
-    {
-        if (Program::whereId($id)->exists()) {
-            $html = Page::whereUrl(Program::URL)->first()->html;
-            Parser::compileProgram($id, $html);
-        } else {
-            $html = Variable::display('page-404');
-        }
-        return view('pages.index')->with(compact('html'));
     }
 
     public function about()

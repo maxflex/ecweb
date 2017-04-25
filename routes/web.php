@@ -7,16 +7,6 @@
 
     Route::get('sitemap.xml', 'SitemapController@index');
 
-    Route::get('/request', function() {
-        $html = Variable::display('page-tutor-request');
-        return $html;
-    });
-
-    Route::get('/login', function() {
-        $html = Variable::display('page-login');
-        return $html;
-    });
-
     Route::get('/full', function() {
         unset($_SESSION['force_mobile']);
         $_SESSION['force_full'] = true;
@@ -36,12 +26,8 @@
         return view("directives.{$directive}");
     });
 
-    # Tutor auto login
-    Route::get('login/{hash}', 'PagesController@login');
-
     # Tutor profile page
     Route::get(Tutor::URL . '/{id}', 'PagesController@tutor')->where('id', '[0-9]+');
-    Route::get('program/{id}', 'PagesController@program')->where('id', '[0-9]+');
 
     Route::get('about', 'PagesController@about');
 
