@@ -1,0 +1,92 @@
+.input-text,
+.textarea,
+.select {
+  border: 1px solid $text-grey-light;
+  border-radius: $border-radius-element-form + em;
+  font-family: 'helveticaneuecyrlight';
+  font-size: 1em;
+  line-height: $height-element-form + em;
+  height: $height-element-form + em;
+  box-sizing: border-box;
+  padding: 0 0 0 0.625em;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.textarea {
+  line-height: normal;
+  padding-top: 0.625em;
+  overflow: auto;
+  height: 6.250em;
+}
+
+.form-row {
+  padding: 0 0 1em 0;
+}
+
+.select {
+  &__arrow {
+    position: relative;
+    cursor: pointer;
+    padding-right: 2em;
+
+    &:before {
+      content: '';
+      position: absolute;
+      background: #ccc;
+      right: 1em;
+      top: 50%;
+      margin-top:  -0.35 + em;
+
+      width: 0.535em;
+      height: 0.95em;
+      background: url('../img/icons/arrow-right.png') no-repeat;
+      background-size: contain;
+
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.multiselect {
+  &-popup {
+    padding: 0 0 20px 0;
+  }
+
+  &-list {
+    margin: 0;
+    padding: 0 0 3em 0;
+    list-style: none;
+    cursor: pointer;
+
+    &-item {
+      position: relative;
+      text-align: left;
+      padding: 0.8em 4em 0.8em 1.2em;
+      border-bottom: 0.063em solid $color-grey-border;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 1.1em;
+        width: 1.750em;
+        height: 1.375em;
+        margin-top: -1.375/2 + em;
+        background: url('../img/icons/bullet.png') no-repeat;
+        background-size: contain;
+        opacity: 0.2;
+      }
+
+      &__active {
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

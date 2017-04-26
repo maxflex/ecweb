@@ -1,0 +1,23 @@
+.questions {
+  margin: 0;
+  padding: 0 0 0 0;
+  list-style: none;
+
+  &-item {
+    padding: 0 0 1em 0;
+
+    &-title {
+      color: $main-link-color;
+      display: inline;
+      text-decoration: underline;
+      padding: 0 0 0.063em 0;
+      cursor: pointer;
+    }
+
+    &-answer {
+      display: none;
+      color: $text-grey;
+      padding: 1.250em 0 0.313em;
+    }
+  }
+}

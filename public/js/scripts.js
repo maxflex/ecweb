@@ -16402,7 +16402,7 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
     };
     $scope.video = function(tutor) {
       if ($scope.video_link !== tutor.video_link) {
-        console.log('Setting url to ' + tutor.video);
+        console.log('Setting url to ' + tutor.video_link);
         $scope.video_link = tutor.video_link;
       }
       return openModal('video');
@@ -16416,7 +16416,7 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
       format = duration >= 60 ? 'm мин s сек' : 's сек';
       return moment.utc(duration * 1000).format(format);
     };
-    return $scope.toggleShow = function(tutor, prop, iteraction_type, index) {
+    $scope.toggleShow = function(tutor, prop, iteraction_type, index) {
       if (index == null) {
         index = null;
       }
@@ -16426,6 +16426,26 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
         }, $scope.mobile ? 400 : 0);
       } else {
         return tutor[prop] = true;
+      }
+    };
+    return $scope.popup = function(id, tutor, fn, index) {
+      if (tutor == null) {
+        tutor = null;
+      }
+      if (fn == null) {
+        fn = null;
+      }
+      if (index == null) {
+        index = null;
+      }
+      openModal(id);
+      if (tutor !== null) {
+        $scope.popup_tutor = tutor;
+      }
+      if (fn !== null) {
+        return $timeout(function() {
+          return $scope[fn](tutor, index);
+        });
       }
     };
   });
@@ -16978,6 +16998,12 @@ $(document).ready(function() {
         }
     })
 
+    // $('body').on('click', function(event) {
+    //     if ($(this).hasClass('modal-open')) {
+    //         closeModal()
+    //     }
+    // })
+
     angular.element(document).ready(function() {
 		setTimeout(function() {
 			scope = angular.element('[ng-app=App]').scope()
@@ -16988,7 +17014,7 @@ $(document).ready(function() {
 function closeModal() {
     $('.modal').removeClass('active')
     $('body').removeClass('modal-open')
-	$("body").addClass('open-modal-' + active_modal); active_modal = false
+	// $("body").addClass('open-modal-' + active_modal); active_modal = false
     $('.container').off('touchmove');
     // @todo: почему-то эта строчка ломает повторное воспроизведение видео видео
     // if(window.location.hash == "#modal") {
@@ -17002,7 +17028,8 @@ function closeModal() {
 function openModal(id) {
     $(".modal#modal-" + id).addClass('active')
     $('#menu-overlay').height('95%').scrollTop(); // iphone5-safari fix
-    $("body").addClass('modal-open open-modal-' + id); active_modal = id
+    $("body").addClass('modal-open open-modal-' + id);
+    // active_modal = id
     $('.container').on('touchmove', function(e){e.preventDefault();});
     window.location.hash = '#modal'
     if (typeof(onOpenModal) == 'function') {

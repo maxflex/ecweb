@@ -1,11 +1,11 @@
-@import "../bower/bootstrap-select/dist/css/bootstrap-select";
-@import "../bower/bootstrap/css/bootstrap";
-@import "../bower/font-awesome/css/font-awesome.min";
+@import "../../bower/bootstrap-select/dist/css/bootstrap-select";
+@import "../../bower/bootstrap/css/bootstrap";
+@import "../../bower/font-awesome/css/font-awesome.min";
 
 /* Common */
 @import "variable";
 @import "reload";
-@import "fonts";
+@import "../fonts";
 @import "common";
 
 /* Components */
@@ -33,4 +33,5 @@
 @import "elements/button-white-large";
 @import "elements/form";
 
-@import "desktop";
+@import "main";
+@import "ng-image-gallery";

@@ -15,30 +15,39 @@
     margin-bottom: 20px;
     font-size: 14px;
     td {
-      padding: 0 0 10px 0;
-      vertical-align: middle;
+      padding: 0 0 17px 0;
+      vertical-align: center;
+      line-height: $line-height-main + px;
     }
 
     &-name {
-      width: 140px;
+      width: 180px;
     }
 
     &-number {
-      width: 160px;
+      width: 110px;
     }
 
     &-icon {
       width: 60px;
 
       img {
-        width: 32px;
+          height: 34px;
+        //   top: 12px;
+        //   position: relative;
       }
     }
 
     &-text {
-        line-height: 21px;
       width: 715px;
       padding-right: 70px !important;
+    }
+    &-inner {
+        width: 800px;
+        td {
+            padding: 0;
+            vertical-align: bottom;
+        }
     }
   }
 }

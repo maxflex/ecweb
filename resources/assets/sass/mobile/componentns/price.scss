@@ -1,0 +1,96 @@
+$indent-top-bottom: 0.938;
+
+.price {
+  &-list {
+    margin: 0 (-$common-side-indent + em);
+    padding: 0;
+    list-style: none;
+    border-top: 0.063em solid $color-grey-border;
+
+    &-item {
+      border-bottom: 0.063em solid $color-grey-border;
+
+      &__active {
+        .price-list-item-title {
+          background: $text-grey-active;
+        }
+
+        .price-list-item-title {
+          &:after {
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+          }
+        }
+
+        .price-list-inner {
+//          display: block;
+        }
+      }
+
+      &-title {
+        position: relative;
+        font-size: 1.2em;
+        font-family: 'helveticaneuecyrmedium';
+        padding: $indent-top-bottom + em ($common-side-indent*2 + em) $indent-top-bottom + em ($common-side-indent + em);
+        cursor: pointer;
+
+        &:after {
+          content: '';
+          position: absolute;
+          right: $common-side-indent + em;
+          top: $indent-top-bottom + em;
+
+          width: 0.625em;
+          height: $height-right-arrow + em;
+          background: url('../img/icons/arrow-right.png') no-repeat;
+
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -o-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    &-inner {
+      display: none;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 0.063em solid $color-grey-border;
+
+      &-item {
+        padding: $indent-top-bottom + em ($common-side-indent + 0.3) + em;
+        border-bottom: 0.063em solid $color-grey-border;
+
+        &:last-child {
+          border: 0;
+        }
+
+        &:after {
+          content: '';
+          display: block;
+          height: 1px;
+          line-height: 1px;
+          clear: both;
+        }
+
+        &-title {
+          font-family: 'helveticaneuecyrmedium';
+          font-size: 1.1em;
+        }
+
+        &-info {
+          float: right;
+          text-align: right;
+          line-height: 1.8em;
+          color: $text-grey;
+        }
+      }
+    }
+  }
+}
