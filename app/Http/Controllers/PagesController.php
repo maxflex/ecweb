@@ -48,7 +48,6 @@ class PagesController extends Controller
     public function about()
     {
         $html = Page::whereUrl(Faq::URL)->first()->html;
-        Parser::compileFaq($html);
         return view('pages.index')->with(compact('html'));
     }
 }

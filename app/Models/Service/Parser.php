@@ -160,6 +160,9 @@
                     case 'price':
                         $replacement = \App\Service\Price::parse(...$args);
                         break;
+                    case 'faq':
+                        $replacement = \App\Models\FaqGroup::getAll()->toJson();
+                        break;
                     case 'count':
                         $type = array_shift($args);
                         switch($type) {
@@ -209,9 +212,6 @@
             return $html;
         }
 
-        public static function compileFaq(&$html) {
-            static::replace($html, 'faq', view('pages.faq'));
-        }
         /**
          * Компилировать страницу препода
          */
