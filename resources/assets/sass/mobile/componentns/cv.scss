@@ -1,0 +1,34 @@
+.cv-form {
+  position: relative;
+  input, textarea, button, select {
+    outline: none;
+  }
+  .absolute-message {
+    margin: 6em 0;
+    @extend .text-center
+  }
+  .caret {
+    background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 70%;
+    background-size: 14px;
+    height: 15px;
+    width: 27px;
+    right: 0 !important;
+    top: 17px;
+    border: 0 !important;
+  }
+
+  .bootstrap-select {
+    width: 100% !important;
+    outline: none !important;
+    & button {
+      line-height: 1.5em;
+      padding-left: 0.625em;
+      font-size: inherit;
+      border: 1px solid $text-grey-light;
+      outline: none !important;
+    }
+    .filter-option {
+      color: $text-grey!important;
+    }
+  }
+}

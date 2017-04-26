@@ -105,3 +105,10 @@ function getArguments(func) {
 function googleClientId() {
     return ga.getAll()[0].get('clientId')
 }
+
+window.notify_options = {
+    hideAnimation: 'fadeOut',
+    showDuration: 0,
+    hideDuration: 400,
+    autoHideDelay: 3000
+}

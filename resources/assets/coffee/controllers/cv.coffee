@@ -18,4 +18,6 @@ angular
                 angular.forEach response.data, (errors, field) ->
                     $scope.errors[field] = errors
                     selector = "[ng-model$='#{field}']"
-                    $("input#{selector}, textarea#{selector}").focus()
+                    input = $("input#{selector}, textarea#{selector}")
+                    input.focus()
+                    input.notify errors[0], notify_options if isMobile

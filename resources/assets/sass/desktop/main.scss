@@ -92,11 +92,6 @@ body {
     }
 }
 
-.check-mark {
-    @extend .fa;
-    @extend .fa-check;
-}
-
 .caret {
     background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 70%;
     background-size: 14px;

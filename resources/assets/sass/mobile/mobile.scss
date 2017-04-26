@@ -1,3 +1,7 @@
+@import "../../bower/bootstrap-select/dist/css/bootstrap-select";
+@import "../../bower/bootstrap/dist/css/bootstrap";
+@import "../../bower/font-awesome/css/font-awesome.min";
+
 /* Common */
 @import "variable";
 @import "reload";
@@ -18,6 +22,7 @@
 @import "componentns/reviews";
 @import "componentns/landing";
 @import "componentns/catalog";
+@import "componentns/cv";
 
 /* Elements */
 @import "elements/button-green-large";
