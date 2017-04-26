@@ -466,7 +466,7 @@
     };
     $scope.video = function(tutor) {
       if ($scope.video_link !== tutor.video_link) {
-        console.log('Setting url to ' + tutor.video);
+        console.log('Setting url to ' + tutor.video_link);
         $scope.video_link = tutor.video_link;
       }
       return openModal('video');
@@ -480,7 +480,7 @@
       format = duration >= 60 ? 'm мин s сек' : 's сек';
       return moment.utc(duration * 1000).format(format);
     };
-    return $scope.toggleShow = function(tutor, prop, iteraction_type, index) {
+    $scope.toggleShow = function(tutor, prop, iteraction_type, index) {
       if (index == null) {
         index = null;
       }
@@ -490,6 +490,26 @@
         }, $scope.mobile ? 400 : 0);
       } else {
         return tutor[prop] = true;
+      }
+    };
+    return $scope.popup = function(id, tutor, fn, index) {
+      if (tutor == null) {
+        tutor = null;
+      }
+      if (fn == null) {
+        fn = null;
+      }
+      if (index == null) {
+        index = null;
+      }
+      openModal(id);
+      if (tutor !== null) {
+        $scope.popup_tutor = tutor;
+      }
+      if (fn !== null) {
+        return $timeout(function() {
+          return $scope[fn](tutor, index);
+        });
       }
     };
   });

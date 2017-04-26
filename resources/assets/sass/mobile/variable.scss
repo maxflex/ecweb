@@ -1,0 +1,37 @@
+/* color */
+$main-link-color: #0c4e69;
+$text-grey: #818181;
+$text-grey-light: #acacac;
+$text-grey-active: #e8e8e8;
+$text-red: #a30000;
+$color-green: #35a45b;
+$color-grey-border: #dcdcdc;
+$color-gold: #c8ca00;
+
+/* font size */
+$font-size-h1: 1.8;
+$font-size-h2: 1.4;
+$font-size-h3: 1;
+
+/* size */
+$border-radius-element-form: 0.313;
+$border-radius-button: 1;
+
+$common-side-indent: 1.357;
+$height-element-form: 2.7;
+$min-width-button: 17.000;
+$footer-height: 43;
+$border-radius-main: 4px;
+
+$width-320: 320px;
+$width-480: 480px;
+$width-1024: 1024px;
+
+@mixin respond-to($media) {
+  @if $media == 320 {
+    @media only screen and (max-width: $width-480) { @content; }
+  }
+  @else if $media == 480 {
+    @media only screen and (min-width: 480px) and (max-width: 960px) { @content; }
+  }
+}

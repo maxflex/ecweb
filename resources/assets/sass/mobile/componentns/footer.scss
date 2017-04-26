@@ -1,0 +1,48 @@
+.footer {
+  background: #3b3b3b;
+  color: #fff;
+  text-align: center;
+  font-family: 'helveticaneuecyrlight';
+  font-weight: normal;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: $footer-height + em;
+  padding: 1.450em 0 0 0;
+  box-sizing: content-box;
+
+  &-message {
+    padding: 0 0 0.625em 0;
+  }
+
+  &-title {
+    color: #b6b6b6;
+    font-size: 1.250em;
+    font-family: 'helveticaneuecyrmedium';
+    padding: 0 0 1.763em 0;
+  }
+
+  &-fix {
+    clear: both;
+    height: $footer-height + 3.750 + em;
+  }
+
+  a {
+    color: #fff;
+  }
+
+  &-menu {
+    margin: 0;
+    padding: 0 0 1.70em 0;
+    list-style: none;
+
+    li {
+      padding: 0 0 0.725em 0;
+    }
+  }
+
+  .button-green-large {
+    margin: 0 0 1.750em 0;
+  }
+}

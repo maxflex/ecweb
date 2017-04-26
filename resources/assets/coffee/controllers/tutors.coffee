@@ -93,7 +93,7 @@ angular
 
         $scope.video = (tutor) ->
             if $scope.video_link isnt tutor.video_link
-                console.log('Setting url to ' + tutor.video)
+                console.log('Setting url to ' + tutor.video_link)
                 $scope.video_link = tutor.video_link
             openModal('video')
 
@@ -118,3 +118,12 @@ angular
                 # if index isnt false then StreamService.run iteraction_type, StreamService.identifySource(tutor),
                 #     position: $scope.getIndex(index)
                 #     tutor_id: tutor.id
+
+        #
+        # MOBILE
+        #
+        $scope.popup = (id, tutor = null, fn = null, index = null) ->
+            openModal(id)
+            if tutor isnt null then $scope.popup_tutor = tutor
+            if fn isnt null then $timeout -> $scope[fn](tutor, index)
+            # $scope.index = $scope.getIndex(index)
