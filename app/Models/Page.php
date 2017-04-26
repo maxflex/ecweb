@@ -65,6 +65,7 @@ class Page extends Model
 
     public function getHtmlAttribute($value)
     {
+        $value = isMobile() ? $this->attributes['html_mobile'] : $this->attributes['html'];
         $value = Parser::compileVars($value);
         return Parser::compilePage($this, $value);
     }
