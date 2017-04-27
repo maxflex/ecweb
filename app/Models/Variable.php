@@ -4,9 +4,14 @@ namespace App\Models;
 
 use Shared\Model;
 use App\Models\Service\Parser;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Variable extends Model
 {
+    use SoftDeletes;
+    
+    protected $dates = ['deleted_at'];
+
     protected $attributes = [
         'name' => 'новая переменная'
     ];

@@ -162,17 +162,16 @@ a {
     & .modal-button {
       background: #dcdcdc;
       border-radius: $border-radius-main $border-radius-main 0 0;
-      height: 2em;
-      padding: 0.35em 0 0 0;
+      height: 42px;
+      padding: 10px 0 0 0;
       cursor: pointer;
       box-sizing: border-box;
       text-align: center;
       &:after {
         content: '';
         display: inline-block;
-
-        width: 1.3em;
-        height: 1.3em;
+        width: 24px;
+        height: 24px;
         background: url('../img/icons/cross.svg') no-repeat;
         background-size: cover;
       }
@@ -182,6 +181,12 @@ a {
         overflow-y: scroll;
         box-sizing: border-box;
         height: 100%;
+        &.menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 92%;
+        }
     }
     & .loading {
         font-size: 1.1em;

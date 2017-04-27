@@ -7,9 +7,14 @@ use App\Models\Variable;
 use App\Models\Service\Parser;
 use App\Scopes\PageScope;
 use App\Models\Service\Factory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Page extends Model
 {
+    use SoftDeletes;
+    
+    protected $dates = ['deleted_at'];
+
     // Соответствия между разделами и ID предмета
     static $subject_page_id = [
         '1'   => 194,
@@ -106,6 +111,7 @@ class Page extends Model
 
     public static function boot()
     {
+        parent::boot();
         static::addGlobalScope(new PageScope);
     }
 
