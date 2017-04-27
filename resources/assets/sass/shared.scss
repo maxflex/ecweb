@@ -22,10 +22,28 @@
   }
 }
 
+$font-light: 'helveticaneuecyrlight';
+$font-roman: 'helveticaneuecyrroman';
+$font-medium: 'helveticaneuecyrmedium';
+$font-regular: 'helveticaneuecyrregular';
+
+.b-like {
+    display: block;
+    font-family: $font-medium;
+}
+
 .loading-inside-button {
+    padding: 0;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+.invisible {
+    visibility: hidden;
 }

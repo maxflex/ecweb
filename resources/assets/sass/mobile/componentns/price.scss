@@ -9,19 +9,20 @@ $indent-top-bottom: 0.938;
 
     &-item {
       border-bottom: 0.063em solid $color-grey-border;
-
+      background: $color-footer;
+      color: white;
       &__active {
-        .price-list-item-title {
-          background: $text-grey-active;
-        }
+        // .price-list-item-title {
+        //   background: $text-grey-active;
+        // }
 
         .price-list-item-title {
           &:after {
-            -webkit-transform: rotate(-90deg);
-            -moz-transform: rotate(-90deg);
-            -o-transform: rotate(-90deg);
-            -ms-transform: rotate(-90deg);
-            transform: rotate(-90deg);
+            -webkit-transform: rotate(-180deg);
+            -moz-transform: rotate(-180deg);
+            -o-transform: rotate(-180deg);
+            -ms-transform: rotate(-180deg);
+            transform: rotate(-180deg);
           }
         }
 
@@ -41,17 +42,12 @@ $indent-top-bottom: 0.938;
           content: '';
           position: absolute;
           right: $common-side-indent + em;
-          top: $indent-top-bottom + em;
-
-          width: 0.625em;
-          height: $height-right-arrow + em;
-          background: url('../img/icons/arrow-right.png') no-repeat;
-
-          -webkit-transform: rotate(90deg);
-          -moz-transform: rotate(90deg);
-          -o-transform: rotate(90deg);
-          -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
+          top: 1.1em;
+          width: 1em;
+          height: 0.8em;
+          background: transparent url(../img/svg/dropdown-white.svg) no-repeat;
+          background-size: 1em;
+          box-sizing: border-box;
         }
       }
     }
@@ -64,11 +60,36 @@ $indent-top-bottom: 0.938;
       border-top: 0.063em solid $color-grey-border;
 
       &-item {
+          background: white;
+          color: black;
         padding: $indent-top-bottom + em ($common-side-indent + 0.3) + em;
         border-bottom: 0.063em solid $color-grey-border;
-
+        & b {
+            font-family: $font-medium;
+            &.price-title {
+                margin-bottom: 1.6em;
+                display: block;
+            }
+        }
         &:last-child {
           border: 0;
+        }
+
+        &-info {
+            display: flex;
+            &:not(:last-child) {
+                margin-bottom: 2.4em;
+            }
+            & > div {
+                flex: 1;
+                line-height: 1.6em;
+                &:first-child {
+                    text-align: left;
+                }
+                &:last-child {
+                    text-align: right;
+                }
+            }
         }
 
         &:after {
@@ -77,18 +98,6 @@ $indent-top-bottom: 0.938;
           height: 1px;
           line-height: 1px;
           clear: both;
-        }
-
-        &-title {
-          font-family: 'helveticaneuecyrmedium';
-          font-size: 1.1em;
-        }
-
-        &-info {
-          float: right;
-          text-align: right;
-          line-height: 1.8em;
-          color: $text-grey;
         }
       }
     }

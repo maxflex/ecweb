@@ -28,9 +28,4 @@ $form-input-width: 320px;
 $screen-width: 960px;   // свойства responsive теряются при $screen-width + ($screen-padding * 2)
 $screen-padding: 20px;  // отступ слева и справа по $screen-padding при максимальном сжатии по ширине
 
-$font-light: 'helveticaneuecyrlight';
-$font-roman: 'helveticaneuecyrroman';
-$font-medium: 'helveticaneuecyrmedium';
-$font-regular: 'helveticaneuecyrregular';
-
 $img-path: '../img/';

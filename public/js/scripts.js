@@ -16980,6 +16980,7 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
 
 var scope = null
 var player = null
+var isMobile = false
 
 $(document).ready(function() {
     //Custom select
@@ -16998,11 +16999,11 @@ $(document).ready(function() {
         }
     })
 
-    // $('body').on('click', function(event) {
-    //     if ($(this).hasClass('modal-open')) {
-    //         closeModal()
-    //     }
-    // })
+    $('body').on('click', function(event) {
+        if ($(this).hasClass('open-modal-video')) {
+            closeModal()
+        }
+    })
 
     angular.element(document).ready(function() {
 		setTimeout(function() {
@@ -17013,7 +17014,7 @@ $(document).ready(function() {
 
 function closeModal() {
     $('.modal').removeClass('active')
-    $('body').removeClass('modal-open')
+    $('body').removeClass()
 	// $("body").addClass('open-modal-' + active_modal); active_modal = false
     $('.container').off('touchmove');
     // @todo: почему-то эта строчка ломает повторное воспроизведение видео видео

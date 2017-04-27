@@ -46,8 +46,6 @@ b {
 }
 
 .b-like {
-    display: block;
-    font-family: $font-medium;
     @extend .half-spacing-top;
 }
 
@@ -187,22 +185,6 @@ a {
   content: "\2026"; /* ascii code for the ellipsis character */
   width: 0px;
   position: absolute;
-}
-
-.loading-inside-button {
-    padding: 0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-.invisible {
-    visibility: hidden;
 }
 
 @keyframes ellipsis {

@@ -6,6 +6,7 @@
 @import "variable";
 @import "reload";
 @import "../fonts";
+@import "../shared";
 @import "common";
 
 /* Components */
@@ -34,4 +35,4 @@
 @import "elements/form";
 
 @import "main";
-@import "ng-image-gallery";
+@import "../ng-image-gallery";
