@@ -1308,7 +1308,7 @@ input[type="button"].btn-block {
   font-style: normal;
 }
 
-.fa {
+.fa, .check-mark {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -1380,11 +1380,11 @@ input[type="button"].btn-block {
   float: right;
 }
 
-.fa.fa-pull-left {
+.fa.fa-pull-left, .fa-pull-left.check-mark {
   margin-right: .3em;
 }
 
-.fa.fa-pull-right {
+.fa.fa-pull-right, .fa-pull-right.check-mark {
   margin-left: .3em;
 }
 
@@ -1396,11 +1396,11 @@ input[type="button"].btn-block {
   float: left;
 }
 
-.fa.pull-left {
+.fa.pull-left, .pull-left.check-mark {
   margin-right: .3em;
 }
 
-.fa.pull-right {
+.fa.pull-right, .pull-right.check-mark {
   margin-left: .3em;
 }
 
@@ -1547,7 +1547,7 @@ input[type="button"].btn-block {
   content: "\f00b";
 }
 
-.fa-check:before {
+.fa-check:before, .check-mark:before {
   content: "\f00c";
 }
 
@@ -4695,6 +4695,38 @@ th {
   src: url("../fonts/HelveticaNeueRegular.eot") format("eot"), url("../fonts/HelveticaNeueRegular.ttf") format("ttf"), url("../fonts/HelveticaNeueRegular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+}
+
+.loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+  animation: ellipsis steps(4, end) 900ms infinite;
+  content: "\2026";
+  /* ascii code for the ellipsis character */
+  width: 0px;
+  position: absolute;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+.loading-inside-button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 html, body {

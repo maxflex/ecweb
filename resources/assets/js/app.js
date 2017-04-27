@@ -349,10 +349,14 @@
       }, function(response) {
         $scope.sending = false;
         return angular.forEach(response.data, function(errors, field) {
-          var selector;
+          var input, selector;
           $scope.errors[field] = errors;
           selector = "[ng-model$='" + field + "']";
-          return $("input" + selector + ", textarea" + selector).focus();
+          input = $("input" + selector + ", textarea" + selector);
+          input.focus();
+          if (isMobile) {
+            return input.notify(errors[0], notify_options);
+          }
         });
       });
     };
@@ -803,6 +807,93 @@
                 ]
               }
             }
+          });
+        };
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('popupSelect', function() {
+    return {
+      replace: true,
+      scope: {
+        noneText: '@',
+        items: '=',
+        model: '=',
+        label: '@',
+        filter: '@',
+        key: '@'
+      },
+      templateUrl: 'directives/popup-select',
+      controller: function($scope, $attrs) {
+        var itemId;
+        $scope.multiple = $attrs.hasOwnProperty('multiple');
+        $scope.show_popup = false;
+        if ($scope.multiple) {
+          if (!$scope.model) {
+            $scope.model = [];
+          }
+        }
+        $scope.selectItem = function(item) {
+          var item_id;
+          item_id = itemId(item);
+          if ($scope.isSelected(item)) {
+            return $scope.model = _.without($scope.model, item_id);
+          } else {
+            if ($scope.multiple) {
+              return $scope.model.push(item_id);
+            } else {
+              return $scope.model = item_id;
+            }
+          }
+        };
+        $scope.isSelected = function(item) {
+          var item_id;
+          item_id = itemId(item);
+          if ($scope.multiple) {
+            return $scope.model.indexOf(item_id) !== -1;
+          } else {
+            return $scope.model === item_id;
+          }
+        };
+        itemId = function(item) {
+          if (_.isObject(item)) {
+            return item.id;
+          } else {
+            if (_.isArray($scope.items)) {
+              return $scope.items.indexOf(item);
+            }
+            return (_.invert($scope.items))[item];
+          }
+        };
+        $scope.getSelected = function() {
+          var i, item, item_id, key, label, len, ref, selected_items;
+          if (!$scope.model) {
+            return false;
+          }
+          selected_items = [];
+          ref = ($scope.multiple ? $scope.model : [$scope.model]);
+          for (i = 0, len = ref.length; i < len; i++) {
+            item_id = ref[i];
+            if ($scope.key) {
+              key = _.findKey($scope.items, {
+                id: $scope.model
+              });
+            }
+            label = _.isObject(item = $scope.items[key || item_id]) ? item[$scope.label] : item;
+            selected_items.push(label);
+          }
+          return selected_items.join(', ');
+        };
+        return $scope.filterItems = function(items) {
+          if (!$scope.filter) {
+            return items;
+          }
+          return _.filter(items, function(item, item_id) {
+            return eval($scope.filter);
           });
         };
       }

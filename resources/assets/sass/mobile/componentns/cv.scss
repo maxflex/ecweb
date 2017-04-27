@@ -1,8 +1,11 @@
-.cv-form {
+.cv-form, .order-form {
   position: relative;
+
+  .bootstrap-select .dropdown-toggle:focus,
   input, textarea, button, select {
-    outline: none;
+    outline: none!important;
   }
+
   .absolute-message {
     margin: 6em 0;
     @extend .text-center

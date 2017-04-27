@@ -1988,7 +1988,7 @@ mark,
   text-align: right;
 }
 
-.text-center, .cv-form .absolute-message {
+.text-center, .cv-form .absolute-message, .order-form .absolute-message {
   text-align: center;
 }
 
@@ -11778,7 +11778,7 @@ a:hover {
   font-size: 150%;
 }
 
-.text-center, .cv-form .absolute-message {
+.text-center, .cv-form .absolute-message, .order-form .absolute-message {
   text-align: center;
 }
 
@@ -12141,6 +12141,10 @@ a:hover {
   height: 1.3em;
   background: url("../img/icons/cross.svg") no-repeat;
   background-size: cover;
+}
+
+.popup.active {
+  display: block !important;
 }
 
 .popup:before {
@@ -12555,19 +12559,21 @@ a:hover {
   color: #818181;
 }
 
-.cv-form {
+.cv-form, .order-form {
   position: relative;
 }
 
-.cv-form input, .cv-form textarea, .cv-form button, .cv-form select {
-  outline: none;
+.cv-form .bootstrap-select .dropdown-toggle:focus,
+.cv-form input, .cv-form textarea, .cv-form button, .cv-form select, .order-form .bootstrap-select .dropdown-toggle:focus,
+.order-form input, .order-form textarea, .order-form button, .order-form select {
+  outline: none !important;
 }
 
-.cv-form .absolute-message {
+.cv-form .absolute-message, .order-form .absolute-message {
   margin: 6em 0;
 }
 
-.cv-form .caret {
+.cv-form .caret, .order-form .caret {
   background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 70%;
   background-size: 14px;
   height: 15px;
@@ -12577,12 +12583,12 @@ a:hover {
   border: 0 !important;
 }
 
-.cv-form .bootstrap-select {
+.cv-form .bootstrap-select, .order-form .bootstrap-select {
   width: 100% !important;
   outline: none !important;
 }
 
-.cv-form .bootstrap-select button {
+.cv-form .bootstrap-select button, .order-form .bootstrap-select button {
   line-height: 1.5em;
   padding-left: 0.625em;
   font-size: inherit;
@@ -12590,7 +12596,7 @@ a:hover {
   outline: none !important;
 }
 
-.cv-form .bootstrap-select .filter-option {
+.cv-form .bootstrap-select .filter-option, .order-form .bootstrap-select .filter-option {
   color: #818181 !important;
 }
 
@@ -12674,6 +12680,13 @@ a:hover {
   background-size: contain;
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
+}
+
+.select .selected-items {
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .multiselect-popup {
