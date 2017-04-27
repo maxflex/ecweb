@@ -50,6 +50,9 @@
       width: $screen-width;
   }
   &-col {
+      & li {
+          white-space: nowrap;
+      }
     width: 350px;
 
     // padding: 0 20px;

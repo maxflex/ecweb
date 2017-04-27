@@ -4442,6 +4442,8 @@ a[href^="https://www.google.com/maps"] {
 
 .landing-col {
   width: 350px; }
+  .landing-col li {
+    white-space: nowrap; }
   .landing-col .list-main {
     min-height: 110px; }
 
@@ -4468,7 +4470,7 @@ a[href^="https://www.google.com/maps"] {
       .courses-list-icon img {
         height: 34px; }
     .courses-list-text {
-      width: 715px;
+      width: 512px;
       padding-right: 70px !important; }
     .courses-list-inner {
       width: 800px; }
