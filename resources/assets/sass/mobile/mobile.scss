@@ -1,3 +1,5 @@
+@import "../../bower/font-awesome/css/font-awesome.min";
+
 /* Common */
 @import "variable";
 @import "reload";
@@ -20,6 +22,7 @@
 @import "componentns/reviews";
 @import "componentns/landing";
 @import "componentns/catalog";
+@import "componentns/cv";
 
 /* Elements */
 @import "elements/button-green-large";

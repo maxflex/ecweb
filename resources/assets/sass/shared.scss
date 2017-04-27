@@ -47,3 +47,7 @@ $font-regular: 'helveticaneuecyrregular';
 .invisible {
     visibility: hidden;
 }
+.check-mark {
+  @extend .fa;
+  @extend .fa-check;
+}

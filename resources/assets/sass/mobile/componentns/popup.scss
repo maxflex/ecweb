@@ -63,6 +63,10 @@
     border-radius: $border-radius-main;
   }
 
+  &.active {
+    display: block!important;
+  }
+
   &:before {
     content: '';
     display: inline-block;
