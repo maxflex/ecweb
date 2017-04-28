@@ -1,6 +1,6 @@
 angular
     .module 'App'
-    .controller 'Cv', ($scope, $timeout, $http, Cv) ->
+    .controller 'Cv', ($scope, $timeout, $http, Subjects, Cv) ->
         bindArguments($scope, arguments)
 
         $timeout ->
@@ -13,6 +13,7 @@ angular
             Cv.save $scope.cv, ->
                 $scope.sending = false
                 $scope.sent = true
+                $('body').animate scrollTop: $('.header').offset().top
             , (response) ->
                 $scope.sending = false
                 angular.forEach response.data, (errors, field) ->
@@ -21,3 +22,23 @@ angular
                     input = $("input#{selector}, textarea#{selector}")
                     input.focus()
                     input.notify errors[0], notify_options if isMobile
+
+        $scope.isSelected = (subject_id) ->
+                return false if not ($scope.cv and $scope.cv.subjects)
+                $scope.cv.subjects.indexOf(subject_id) isnt -1
+
+        $scope.selectSubject = (subject_id) ->
+            $scope.cv.subjects = [] if not $scope.cv.subjects
+            if $scope.isSelected subject_id
+                $scope.cv.subjects = _.without $scope.cv.subjects, subject_id
+            else
+                $scope.cv.subjects.push subject_id
+
+        $scope.selectedSubjectsList = ->
+            return false if not $scope.cv?.subjects?.length
+
+            subjects = []
+            for subject_id in $scope.cv.subjects
+                subjects.push $scope.Subjects[subject_id].name
+
+            subjects.join ', '
