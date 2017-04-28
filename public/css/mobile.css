@@ -3370,7 +3370,7 @@ body {
       width: 100%;
       background-color: rgba(0, 0, 0, 0.5);
       position: fixed;
-      z-index: 50; }
+      z-index: 99; }
   @media only screen and (max-width: 480px) {
     body {
       font-size: 14px; } }
@@ -3568,6 +3568,17 @@ a {
 .gmnoprint {
   display: none !important; }
 
+.video-close-fix {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 104; }
+
+#youtube-video {
+  z-index: 105; }
+
 /* Components */
 .header {
   background: #0c4e69;
@@ -3584,7 +3595,7 @@ a {
     position: absolute;
     cursor: pointer;
     top: 2.20em;
-    right: 2.5em;
+    right: 1.357em;
     width: 2.000em;
     height: 2.375em;
     background: url("../img/svg/burger.svg") no-repeat;
@@ -3592,7 +3603,7 @@ a {
   .header .button-phone {
     position: absolute;
     top: 1.250em;
-    right: 6.563em; }
+    right: 4.5em; }
   .header-title {
     position: relative;
     z-index: 1;
@@ -4153,16 +4164,13 @@ a {
   .select__arrow:before {
     content: '';
     position: absolute;
-    background: #ccc;
     right: 1em;
-    top: 50%;
-    margin-top: -0.35em;
-    width: 0.535em;
-    height: 0.95em;
-    background: url("../img/icons/arrow-right.png") no-repeat;
-    background-size: contain;
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg); }
+    top: 1em;
+    width: 1em;
+    height: 0.8em;
+    background: transparent url(../img/svg/dropdown-gray.svg) no-repeat;
+    background-size: 1em;
+    box-sizing: border-box; }
 
 .select .selected-items {
   width: 100%;

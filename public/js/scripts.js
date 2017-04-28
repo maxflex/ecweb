@@ -17094,11 +17094,11 @@ $(document).ready(function() {
         }
     })
 
-    $('body').on('click', function(event) {
-        if ($(this).hasClass('open-modal-video')) {
-            closeModal()
-        }
-    })
+    // $('body').on('click', function(event) {
+    //     if ($(this).hasClass('modal-open')) {
+    //         closeModal()
+    //     }
+    // })
 
     angular.element(document).ready(function() {
 		setTimeout(function() {
