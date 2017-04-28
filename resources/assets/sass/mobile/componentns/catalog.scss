@@ -69,7 +69,10 @@ $icon-width: 2.450;
         position: relative;
         padding: $indent-top-bottom + em ($common-side-indent*2) + em $indent-top-bottom - 0.3 + em ($icon-width + $common-side-indent) + em;
         border-bottom: 0.063em solid $color-grey-border;
-
+        & a {
+            text-decoration: none;
+            color: black;
+        }
         &:last-child {
           border: 0;
         }

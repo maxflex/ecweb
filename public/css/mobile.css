@@ -3645,7 +3645,7 @@ a {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 43em;
+  height: 49em;
   padding: 1.450em 0 0 0;
   box-sizing: content-box; }
   .footer-message {
@@ -3657,7 +3657,7 @@ a {
     padding: 0 0 1.763em 0; }
   .footer-fix {
     clear: both;
-    height: 46.75em; }
+    height: 52.75em; }
   .footer a {
     color: #fff; }
   .footer-menu {
@@ -4026,6 +4026,9 @@ a {
       position: relative;
       padding: 0.938em 2.714em 0.638em 3.807em;
       border-bottom: 0.063em solid #dcdcdc; }
+      .catalog-list-inner-item a {
+        text-decoration: none;
+        color: black; }
       .catalog-list-inner-item:last-child {
         border: 0; }
       .catalog-list-inner-item:before {

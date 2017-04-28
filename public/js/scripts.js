@@ -16461,239 +16461,6 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
 }).call(this);
 
 (function() {
-  var apiPath, countable, updatable;
-
-  angular.module('App').factory('Tutor', function($resource) {
-    return $resource(apiPath('tutors'), {
-      id: '@id',
-      type: '@type'
-    }, {
-      search: {
-        method: 'POST',
-        url: apiPath('tutors', 'search')
-      },
-      reviews: {
-        method: 'GET',
-        isArray: true,
-        url: apiPath('reviews')
-      }
-    });
-  }).factory('Request', function($resource) {
-    return $resource(apiPath('requests'), {
-      id: '@id'
-    }, updatable());
-  }).factory('Cv', function($resource) {
-    return $resource(apiPath('cv'), {
-      id: '@id'
-    }, updatable());
-  });
-
-  apiPath = function(entity, additional) {
-    if (additional == null) {
-      additional = '';
-    }
-    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
-  };
-
-  updatable = function() {
-    return {
-      update: {
-        method: 'PUT'
-      }
-    };
-  };
-
-  countable = function() {
-    return {
-      count: {
-        method: 'GET'
-      }
-    };
-  };
-
-}).call(this);
-
-(function() {
-  angular.module('App').service('PhoneService', function() {
-    var isFull;
-    this.checkForm = function(element) {
-      var phone_element, phone_number;
-      phone_element = $(element).find('.phone-field');
-      if (!isFull(phone_element.val())) {
-        phone_element.focus().notify('номер телефона не заполнен полностью', notify_options);
-        return false;
-      }
-      phone_number = phone_element.val().match(/\d/g).join('');
-      if (phone_number[1] !== '4' && phone_number[1] !== '9') {
-        phone_element.focus().notify('номер должен начинаться с 9 или 4', notify_options);
-        return false;
-      }
-      return true;
-    };
-    isFull = function(number) {
-      if (number === void 0 || number === "") {
-        return false;
-      }
-      return !number.match(/_/);
-    };
-    return this;
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').service('StreamService', function($http, $timeout, Stream, SubjectService, Sources) {
-    this.identifySource = function(tutor) {
-      if (tutor == null) {
-        tutor = void 0;
-      }
-      if (tutor !== void 0 && tutor.is_similar) {
-        return 'similar';
-      }
-      if (RegExp(/^\/[\d]+$/).test(window.location.pathname)) {
-        return 'tutor';
-      }
-      if (window.location.pathname === '/request') {
-        return 'help';
-      }
-      if (window.location.pathname === '/') {
-        return 'main';
-      }
-      return 'serp';
-    };
-    this.generateEventString = function(params) {
-      var parts, search;
-      search = $.cookie('search');
-      if (search !== void 0) {
-        $.each(JSON.parse(search), function(key, value) {
-          return params[key] = value;
-        });
-      }
-      parts = [];
-      $.each(params, function(key, value) {
-        var where;
-        switch (key) {
-          case 'sort':
-            switch (parseInt(value)) {
-              case 2:
-                value = 'maxprice';
-                break;
-              case 3:
-                value = 'minprice';
-                break;
-              case 4:
-                value = 'rating';
-                break;
-              case 5:
-                value = 'bymetro';
-                break;
-              default:
-                value = 'pop';
-            }
-            break;
-          case 'place':
-            switch (parseInt(params.place)) {
-              case 1:
-                where = 'tutor';
-                break;
-              case 2:
-                where = 'client';
-                break;
-              default:
-                where = 'any';
-            }
-            break;
-          case 'subjects':
-            value = SubjectService.getSelected(value).join(',');
-        }
-        if ((key === 'action' || key === 'type' || key === 'google_id' || key === 'yandex_id' || key === 'id' || key === 'hidden_filter') || !value) {
-          return;
-        }
-        return parts.push(key + '=' + value);
-      });
-      return parts.join('_');
-    };
-    this.updateCookie = function(params) {
-      if (this.cookie === void 0) {
-        this.cookie = {};
-      }
-      $.each(params, (function(_this) {
-        return function(key, value) {
-          return _this.cookie[key] = value;
-        };
-      })(this));
-      return $.cookie('stream', JSON.stringify(this.cookie), {
-        expires: 365,
-        path: '/'
-      });
-    };
-    this.initCookie = function() {
-      if ($.cookie('stream') !== void 0) {
-        return this.cookie = JSON.parse($.cookie('stream'));
-      } else {
-        return this.updateCookie({
-          step: 0,
-          search: 0
-        });
-      }
-    };
-    this.run = function(action, type, additional) {
-      if (additional == null) {
-        additional = {};
-      }
-      if (this.cookie === void 0) {
-        this.initCookie();
-      }
-      if (!this.initialized) {
-        return $timeout((function(_this) {
-          return function() {
-            return _this._run(action, type, additional);
-          };
-        })(this), 1000);
-      } else {
-        return this._run(action, type, additional);
-      }
-    };
-    this._run = function(action, type, additional) {
-      var params;
-      if (additional == null) {
-        additional = {};
-      }
-      this.updateCookie({
-        step: this.cookie.step + 1
-      });
-      params = {
-        action: action,
-        type: type,
-        step: this.cookie.step,
-        google_id: googleClientId(),
-        yandex_id: yaCounter1411783.getClientID(),
-        mobile: typeof isMobile === 'undefined' ? '0' : '1'
-      };
-      $.each(additional, (function(_this) {
-        return function(key, value) {
-          return params[key] = value;
-        };
-      })(this));
-      console.log(action, type, params);
-      if (action !== 'view') {
-        console.log(this.generateEventString(angular.copy(params)));
-      }
-      if (action !== 'view') {
-        dataLayerPush({
-          event: 'configuration',
-          eventCategory: ("action=" + action) + (type ? "_type=" + type : ""),
-          eventAction: this.generateEventString(angular.copy(params))
-        });
-      }
-      return Stream.save(params).$promise;
-    };
-    return this;
-  });
-
-}).call(this);
-
-(function() {
   angular.module('App').directive('academic', function() {
     return {
       restrict: 'E',
@@ -17067,6 +16834,239 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
       11: 'ГЕО'
     },
     short_eng: ['math', 'phys', 'rus', 'lit', 'eng', 'his', 'soc', 'chem', 'bio', 'inf', 'geo']
+  });
+
+}).call(this);
+
+(function() {
+  var apiPath, countable, updatable;
+
+  angular.module('App').factory('Tutor', function($resource) {
+    return $resource(apiPath('tutors'), {
+      id: '@id',
+      type: '@type'
+    }, {
+      search: {
+        method: 'POST',
+        url: apiPath('tutors', 'search')
+      },
+      reviews: {
+        method: 'GET',
+        isArray: true,
+        url: apiPath('reviews')
+      }
+    });
+  }).factory('Request', function($resource) {
+    return $resource(apiPath('requests'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Cv', function($resource) {
+    return $resource(apiPath('cv'), {
+      id: '@id'
+    }, updatable());
+  });
+
+  apiPath = function(entity, additional) {
+    if (additional == null) {
+      additional = '';
+    }
+    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
+  };
+
+  updatable = function() {
+    return {
+      update: {
+        method: 'PUT'
+      }
+    };
+  };
+
+  countable = function() {
+    return {
+      count: {
+        method: 'GET'
+      }
+    };
+  };
+
+}).call(this);
+
+(function() {
+  angular.module('App').service('PhoneService', function() {
+    var isFull;
+    this.checkForm = function(element) {
+      var phone_element, phone_number;
+      phone_element = $(element).find('.phone-field');
+      if (!isFull(phone_element.val())) {
+        phone_element.focus().notify('номер телефона не заполнен полностью', notify_options);
+        return false;
+      }
+      phone_number = phone_element.val().match(/\d/g).join('');
+      if (phone_number[1] !== '4' && phone_number[1] !== '9') {
+        phone_element.focus().notify('номер должен начинаться с 9 или 4', notify_options);
+        return false;
+      }
+      return true;
+    };
+    isFull = function(number) {
+      if (number === void 0 || number === "") {
+        return false;
+      }
+      return !number.match(/_/);
+    };
+    return this;
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').service('StreamService', function($http, $timeout, Stream, SubjectService, Sources) {
+    this.identifySource = function(tutor) {
+      if (tutor == null) {
+        tutor = void 0;
+      }
+      if (tutor !== void 0 && tutor.is_similar) {
+        return 'similar';
+      }
+      if (RegExp(/^\/[\d]+$/).test(window.location.pathname)) {
+        return 'tutor';
+      }
+      if (window.location.pathname === '/request') {
+        return 'help';
+      }
+      if (window.location.pathname === '/') {
+        return 'main';
+      }
+      return 'serp';
+    };
+    this.generateEventString = function(params) {
+      var parts, search;
+      search = $.cookie('search');
+      if (search !== void 0) {
+        $.each(JSON.parse(search), function(key, value) {
+          return params[key] = value;
+        });
+      }
+      parts = [];
+      $.each(params, function(key, value) {
+        var where;
+        switch (key) {
+          case 'sort':
+            switch (parseInt(value)) {
+              case 2:
+                value = 'maxprice';
+                break;
+              case 3:
+                value = 'minprice';
+                break;
+              case 4:
+                value = 'rating';
+                break;
+              case 5:
+                value = 'bymetro';
+                break;
+              default:
+                value = 'pop';
+            }
+            break;
+          case 'place':
+            switch (parseInt(params.place)) {
+              case 1:
+                where = 'tutor';
+                break;
+              case 2:
+                where = 'client';
+                break;
+              default:
+                where = 'any';
+            }
+            break;
+          case 'subjects':
+            value = SubjectService.getSelected(value).join(',');
+        }
+        if ((key === 'action' || key === 'type' || key === 'google_id' || key === 'yandex_id' || key === 'id' || key === 'hidden_filter') || !value) {
+          return;
+        }
+        return parts.push(key + '=' + value);
+      });
+      return parts.join('_');
+    };
+    this.updateCookie = function(params) {
+      if (this.cookie === void 0) {
+        this.cookie = {};
+      }
+      $.each(params, (function(_this) {
+        return function(key, value) {
+          return _this.cookie[key] = value;
+        };
+      })(this));
+      return $.cookie('stream', JSON.stringify(this.cookie), {
+        expires: 365,
+        path: '/'
+      });
+    };
+    this.initCookie = function() {
+      if ($.cookie('stream') !== void 0) {
+        return this.cookie = JSON.parse($.cookie('stream'));
+      } else {
+        return this.updateCookie({
+          step: 0,
+          search: 0
+        });
+      }
+    };
+    this.run = function(action, type, additional) {
+      if (additional == null) {
+        additional = {};
+      }
+      if (this.cookie === void 0) {
+        this.initCookie();
+      }
+      if (!this.initialized) {
+        return $timeout((function(_this) {
+          return function() {
+            return _this._run(action, type, additional);
+          };
+        })(this), 1000);
+      } else {
+        return this._run(action, type, additional);
+      }
+    };
+    this._run = function(action, type, additional) {
+      var params;
+      if (additional == null) {
+        additional = {};
+      }
+      this.updateCookie({
+        step: this.cookie.step + 1
+      });
+      params = {
+        action: action,
+        type: type,
+        step: this.cookie.step,
+        google_id: googleClientId(),
+        yandex_id: yaCounter1411783.getClientID(),
+        mobile: typeof isMobile === 'undefined' ? '0' : '1'
+      };
+      $.each(additional, (function(_this) {
+        return function(key, value) {
+          return params[key] = value;
+        };
+      })(this));
+      console.log(action, type, params);
+      if (action !== 'view') {
+        console.log(this.generateEventString(angular.copy(params)));
+      }
+      if (action !== 'view') {
+        dataLayerPush({
+          event: 'configuration',
+          eventCategory: ("action=" + action) + (type ? "_type=" + type : ""),
+          eventAction: this.generateEventString(angular.copy(params))
+        });
+      }
+      return Stream.save(params).$promise;
+    };
+    return this;
   });
 
 }).call(this);
