@@ -20,18 +20,15 @@
     border: 0 !important;
   }
 
-  .bootstrap-select {
-    width: 100% !important;
-    outline: none !important;
-    & button {
-      line-height: 1.5em;
-      padding-left: 0.625em;
-      font-size: inherit;
-      border: 1px solid $text-grey-light;
-      outline: none !important;
-    }
-    .filter-option {
-      color: $text-grey!important;
-    }
+  select {
+    background-color: white;
+  }
+
+  .form-row-inner > select.select {
+    padding-right: 0.4em;
+  }
+
+  .placeholder-select {
+      color: $text-grey !important;
   }
 }

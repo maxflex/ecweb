@@ -16232,18 +16232,21 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
 }).call(this);
 
 (function() {
-  angular.module('App').controller('Cv', function($scope, $timeout, $http, Cv) {
+  angular.module('App').controller('Cv', function($scope, $timeout, $http, Subjects, Cv) {
     bindArguments($scope, arguments);
     $timeout(function() {
       $scope.cv = {};
       return $scope.sent = false;
     });
-    return $scope.send = function() {
+    $scope.send = function() {
       $scope.sending = true;
       $scope.errors = {};
       return Cv.save($scope.cv, function() {
         $scope.sending = false;
-        return $scope.sent = true;
+        $scope.sent = true;
+        return $('body').animate({
+          scrollTop: $('.header').offset().top
+        });
       }, function(response) {
         $scope.sending = false;
         return angular.forEach(response.data, function(errors, field) {
@@ -16258,6 +16261,35 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
         });
       });
     };
+    $scope.isSelected = function(subject_id) {
+      if (!($scope.cv && $scope.cv.subjects)) {
+        return false;
+      }
+      return $scope.cv.subjects.indexOf(subject_id) !== -1;
+    };
+    $scope.selectSubject = function(subject_id) {
+      if (!$scope.cv.subjects) {
+        $scope.cv.subjects = [];
+      }
+      if ($scope.isSelected(subject_id)) {
+        return $scope.cv.subjects = _.without($scope.cv.subjects, subject_id);
+      } else {
+        return $scope.cv.subjects.push(subject_id);
+      }
+    };
+    return $scope.selectedSubjectsList = function() {
+      var i, len, ref, ref1, ref2, subject_id, subjects;
+      if (!((ref = $scope.cv) != null ? (ref1 = ref.subjects) != null ? ref1.length : void 0 : void 0)) {
+        return false;
+      }
+      subjects = [];
+      ref2 = $scope.cv.subjects;
+      for (i = 0, len = ref2.length; i < len; i++) {
+        subject_id = ref2[i];
+        subjects.push($scope.Subjects[subject_id].name);
+      }
+      return subjects.join(', ');
+    };
   });
 
 }).call(this);
@@ -16271,17 +16303,20 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
 }).call(this);
 
 (function() {
-  angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Request) {
+  angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Subjects, Request) {
     bindArguments($scope, arguments);
     $timeout(function() {
       return $scope.order = {};
     });
-    return $scope.request = function() {
+    $scope.request = function() {
       $scope.sending = true;
       $scope.errors = {};
       return Request.save($scope.order, function() {
         $scope.sending = false;
-        return $scope.sent = true;
+        $scope.sent = true;
+        return $('body').animate({
+          scrollTop: $('.header').offset().top
+        });
       }, function(response) {
         $scope.sending = false;
         return angular.forEach(response.data, function(errors, field) {
@@ -16295,6 +16330,35 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
           }
         });
       });
+    };
+    $scope.isSelected = function(subject_id) {
+      if (!($scope.order && $scope.order.subjects)) {
+        return false;
+      }
+      return $scope.order.subjects.indexOf(subject_id) !== -1;
+    };
+    $scope.selectSubject = function(subject_id) {
+      if (!$scope.order.subjects) {
+        $scope.order.subjects = [];
+      }
+      if ($scope.isSelected(subject_id)) {
+        return $scope.order.subjects = _.without($scope.order.subjects, subject_id);
+      } else {
+        return $scope.order.subjects.push(subject_id);
+      }
+    };
+    return $scope.selectedSubjectsList = function() {
+      var i, len, ref, ref1, ref2, subject_id, subjects;
+      if (!((ref = $scope.order) != null ? (ref1 = ref.subjects) != null ? ref1.length : void 0 : void 0)) {
+        return false;
+      }
+      subjects = [];
+      ref2 = $scope.order.subjects;
+      for (i = 0, len = ref2.length; i < len; i++) {
+        subject_id = ref2[i];
+        subjects.push($scope.Subjects[subject_id].name);
+      }
+      return subjects.join(', ');
     };
   });
 
@@ -16670,93 +16734,6 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
                 ]
               }
             }
-          });
-        };
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').directive('popupSelect', function() {
-    return {
-      replace: true,
-      scope: {
-        noneText: '@',
-        items: '=',
-        model: '=',
-        label: '@',
-        filter: '@',
-        key: '@'
-      },
-      templateUrl: 'directives/popup-select',
-      controller: function($scope, $attrs) {
-        var itemId;
-        $scope.multiple = $attrs.hasOwnProperty('multiple');
-        $scope.show_popup = false;
-        if ($scope.multiple) {
-          if (!$scope.model) {
-            $scope.model = [];
-          }
-        }
-        $scope.selectItem = function(item) {
-          var item_id;
-          item_id = itemId(item);
-          if ($scope.isSelected(item)) {
-            return $scope.model = _.without($scope.model, item_id);
-          } else {
-            if ($scope.multiple) {
-              return $scope.model.push(item_id);
-            } else {
-              return $scope.model = item_id;
-            }
-          }
-        };
-        $scope.isSelected = function(item) {
-          var item_id;
-          item_id = itemId(item);
-          if ($scope.multiple) {
-            return $scope.model.indexOf(item_id) !== -1;
-          } else {
-            return $scope.model === item_id;
-          }
-        };
-        itemId = function(item) {
-          if (_.isObject(item)) {
-            return item.id;
-          } else {
-            if (_.isArray($scope.items)) {
-              return $scope.items.indexOf(item);
-            }
-            return (_.invert($scope.items))[item];
-          }
-        };
-        $scope.getSelected = function() {
-          var i, item, item_id, key, label, len, ref, selected_items;
-          if (!$scope.model) {
-            return false;
-          }
-          selected_items = [];
-          ref = ($scope.multiple ? $scope.model : [$scope.model]);
-          for (i = 0, len = ref.length; i < len; i++) {
-            item_id = ref[i];
-            if ($scope.key) {
-              key = _.findKey($scope.items, {
-                id: $scope.model
-              });
-            }
-            label = _.isObject(item = $scope.items[key || item_id]) ? item[$scope.label] : item;
-            selected_items.push(label);
-          }
-          return selected_items.join(', ');
-        };
-        return $scope.filterItems = function(items) {
-          if (!$scope.filter) {
-            return items;
-          }
-          return _.filter(items, function(item, item_id) {
-            return eval($scope.filter);
           });
         };
       }

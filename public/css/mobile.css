@@ -4090,17 +4090,12 @@ a {
     right: 0 !important;
     top: 17px;
     border: 0 !important; }
-  .cv-form .bootstrap-select, .order-form .bootstrap-select {
-    width: 100% !important;
-    outline: none !important; }
-    .cv-form .bootstrap-select button, .order-form .bootstrap-select button {
-      line-height: 1.5em;
-      padding-left: 0.625em;
-      font-size: inherit;
-      border: 1px solid #acacac;
-      outline: none !important; }
-    .cv-form .bootstrap-select .filter-option, .order-form .bootstrap-select .filter-option {
-      color: #818181 !important; }
+  .cv-form select, .order-form select {
+    background-color: white; }
+  .cv-form .form-row-inner > select.select, .order-form .form-row-inner > select.select {
+    padding-right: 0.4em; }
+  .cv-form .placeholder-select, .order-form .placeholder-select {
+    color: #818181 !important; }
 
 /* Elements */
 .button-green-large, .button-green-small, .button-blue-large, .button-white-large {
