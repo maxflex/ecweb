@@ -53,7 +53,7 @@ body {
         right: 1em;
         width: 1.1em;
         height: 1.1em;
-        background: url(../img/svg/cross.svg) no-repeat;
+        background: url(../img/svg/cross-out.svg) no-repeat;
         cursor: pointer;
         z-index: 3;
     }
@@ -93,7 +93,7 @@ body {
 }
 
 .caret {
-    background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 70%;
+    background: transparent url(../img/svg/dropdown-gray.svg) no-repeat calc(100% - 13px) 0;
     background-size: 14px;
     height: 15px;
     width: 27px;
@@ -128,7 +128,7 @@ body {
 
 span.customSelect {
     font-family: inherit;
-    background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 65%;
+    background: transparent url(../img/svg/dropdown-gray.svg) no-repeat calc(100% - 13px) 55%;
     background-size: 14px;
     box-sizing: border-box;
 }
@@ -284,4 +284,8 @@ ol, ul {
             padding: 0;
         }
     }
+}
+
+.bootstrap-select.btn-group .dropdown-toggle .caret {
+    top: 40%;
 }

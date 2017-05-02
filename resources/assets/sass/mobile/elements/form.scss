@@ -31,23 +31,15 @@
     padding-right: 2em;
 
     &:before {
-      content: '';
+        content: '';
       position: absolute;
-      background: #ccc;
       right: 1em;
-      top: 50%;
-      margin-top:  -0.35 + em;
-
-      width: 0.535em;
-      height: 0.95em;
-      background: url('../img/icons/arrow-right.png') no-repeat;
-      background-size: contain;
-
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      transform: rotate(90deg);
+      top: 1em;
+      width: 1em;
+      height: 0.8em;
+      background: transparent url(../img/svg/dropdown-gray.svg) no-repeat;
+      background-size: 1em;
+      box-sizing: border-box;
     }
   }
   & .selected-items {

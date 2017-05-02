@@ -10,7 +10,9 @@ $icon-width: 2.450;
 
     &-item {
       border-bottom: 0.063em solid $color-grey-border;
-
+      &:last-of-type {
+          border-bottom: none;
+      }
       &__active {
         .catalog-list-item-title {
           background: $text-grey-active;
@@ -29,7 +31,6 @@ $icon-width: 2.450;
 
       &-title {
         position: relative;
-        font-size: 1.2em;
         font-family: 'helveticaneuecyrmedium';
         padding: $indent-top-bottom + em ($common-side-indent*2 + em) $indent-top-bottom + em ($common-side-indent + em);
         cursor: pointer;
@@ -98,8 +99,7 @@ $icon-width: 2.450;
         }
 
         &-title {
-          font-family: 'helveticaneuecyrmedium';
-          font-size: 1.1em;
+          font-family: 'helveticaneuecyrregular';
           padding-top: 0.25em;
         }
 

@@ -227,10 +227,11 @@ a[href^="https://www.google.com/maps"] {
     font-family: $font-medium;
 }
 
-.inline {
-    display: inline-block;
-}
-
 p.last {
 
+}
+
+.b-like {
+    display: block;
+    font-family: $font-medium;
 }

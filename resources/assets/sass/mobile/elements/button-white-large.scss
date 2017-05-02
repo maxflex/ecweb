@@ -3,8 +3,9 @@
 
   background: transparent;
   color: $text-grey;
-  font-family: 'helveticaneuecyrlight';
+  font-family: 'helveticaneuecyrmedium';
   line-height: ($height-element-form - 0.1)+ em;
   border: 0.063em solid $text-grey-light;
   position: relative;
+  text-transform: none;
 }

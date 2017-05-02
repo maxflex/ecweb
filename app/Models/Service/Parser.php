@@ -115,13 +115,12 @@
                         $replacement = Tutor::find($args[0])->toJson();
                         break;
                     case 'tutors':
-                        //id-преподов
-                        if (strpos($args[0], ',') !== false && is_numeric($args[0][0])) {
+                        // поиск по ID
+                        if (strpos($args[0], ',') !== false) {
                             $replacement = Tutor::whereIn('id', explode(',', $args[0]))->get()->toJson();
                         } else {
                             $replacement = Tutor::bySubject(...$args)->toJson();
                         }
-
                         break;
                     case 'reviews':
                         if ($args[0] === 'random') {
@@ -223,7 +222,9 @@
          */
         public static function compileTutor($id, &$html)
         {
-            static::replace($html, 'current_tutor', Tutor::selectDefault()->whereId($id)->first()->toJson());
+            $tutor = Tutor::selectDefault()->whereId($id)->first();
+            static::replace($html, 'tutor-name', implode(' ', [$tutor->last_name, $tutor->first_name, $tutor->middle_name]));
+            static::replace($html, 'current_tutor', $tutor->toJson());
         }
 
         /**
