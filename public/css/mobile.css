@@ -3390,7 +3390,7 @@ h1 {
 h2 {
   margin: 0;
   padding: 0 0 0.938em 0;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: normal;
   font-family: 'helveticaneuecyrmedium'; }
 
@@ -3486,8 +3486,8 @@ a {
   .modal .modal-button {
     background: #dcdcdc;
     border-radius: 4px 4px 0 0;
-    height: 42px;
-    padding: 10px 0 0 0;
+    height: 47px;
+    padding: 12px 0 0 0;
     cursor: pointer;
     box-sizing: border-box;
     text-align: center; }
@@ -3596,6 +3596,9 @@ a {
 .b-like {
   display: block;
   font-family: "helveticaneuecyrbold"; }
+
+.right-img-price {
+  font-size: 1.5em; }
 
 /* Components */
 .header {
@@ -4090,12 +4093,21 @@ a {
     right: 0 !important;
     top: 17px;
     border: 0 !important; }
-  .cv-form select, .order-form select {
-    background-color: white; }
+  .cv-form select, .cv-form input, .cv-form textarea, .order-form select, .order-form input, .order-form textarea {
+    background-color: white;
+    -webkit-appearance: none; }
+  .cv-form ::-webkit-input-placeholder, .order-form ::-webkit-input-placeholder {
+    color: #acacac; }
   .cv-form .form-row-inner > select.select, .order-form .form-row-inner > select.select {
     padding-right: 0.4em; }
   .cv-form .placeholder-select, .order-form .placeholder-select {
-    color: #818181 !important; }
+    color: #acacac !important; }
+  .cv-form .multiselect-popup, .order-form .multiselect-popup {
+    overflow-y: scroll;
+    box-sizing: border-box;
+    height: 100%; }
+    .cv-form .multiselect-popup .scroll-fix, .order-form .multiselect-popup .scroll-fix {
+      height: 70px; }
 
 /* Elements */
 .button-green-large, .button-green-small, .button-blue-large, .button-white-large {

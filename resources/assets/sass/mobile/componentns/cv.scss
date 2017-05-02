@@ -20,8 +20,12 @@
     border: 0 !important;
   }
 
-  select {
+  select, input, textarea {
     background-color: white;
+    -webkit-appearance:none;
+  }
+  ::-webkit-input-placeholder {
+    color: $text-grey-light;
   }
 
   .form-row-inner > select.select {
@@ -29,6 +33,15 @@
   }
 
   .placeholder-select {
-      color: $text-grey !important;
+      color: $text-grey-light !important;
+  }
+
+  .multiselect-popup {
+      overflow-y: scroll;
+      box-sizing: border-box;
+      height: 100%;
+     & .scroll-fix {
+       height:70px;
+     }
   }
 }

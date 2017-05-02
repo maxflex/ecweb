@@ -162,8 +162,8 @@ a {
     & .modal-button {
       background: #dcdcdc;
       border-radius: $border-radius-main $border-radius-main 0 0;
-      height: 42px;
-      padding: 10px 0 0 0;
+      height: 47px;
+      padding: 12px 0 0 0;
       cursor: pointer;
       box-sizing: border-box;
       text-align: center;
@@ -281,4 +281,8 @@ a {
 .b-like {
     display: block;
     font-family: $font-bold;
+}
+
+.right-img-price {
+    font-size: 1.5em;
 }
