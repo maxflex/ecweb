@@ -51,3 +51,7 @@ $font-regular: 'helveticaneuecyrregular';
   @extend .fa;
   @extend .fa-check;
 }
+
+.inline {
+    display: inline-block;
+}

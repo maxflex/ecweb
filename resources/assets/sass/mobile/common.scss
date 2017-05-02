@@ -265,3 +265,15 @@ a {
         margin-bottom: 1.8em;
     }
 }
+
+.back-arrow {
+    & img {
+        height: 14px;
+        margin-right: 5px;
+    }
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-family: $font-regular;
+    margin-bottom: 11px;
+}
