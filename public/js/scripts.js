@@ -16743,6 +16743,59 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
 }).call(this);
 
 (function() {
+  var apiPath, countable, updatable;
+
+  angular.module('App').factory('Tutor', function($resource) {
+    return $resource(apiPath('tutors'), {
+      id: '@id',
+      type: '@type'
+    }, {
+      search: {
+        method: 'POST',
+        url: apiPath('tutors', 'search')
+      },
+      reviews: {
+        method: 'GET',
+        isArray: true,
+        url: apiPath('reviews')
+      }
+    });
+  }).factory('Request', function($resource) {
+    return $resource(apiPath('requests'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Cv', function($resource) {
+    return $resource(apiPath('cv'), {
+      id: '@id'
+    }, updatable());
+  });
+
+  apiPath = function(entity, additional) {
+    if (additional == null) {
+      additional = '';
+    }
+    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
+  };
+
+  updatable = function() {
+    return {
+      update: {
+        method: 'PUT'
+      }
+    };
+  };
+
+  countable = function() {
+    return {
+      count: {
+        method: 'GET'
+      }
+    };
+  };
+
+}).call(this);
+
+(function() {
   angular.module('App').value('Grades', {
     1: '1 класс',
     2: '2 класс',
@@ -16812,59 +16865,6 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
     },
     short_eng: ['math', 'phys', 'rus', 'lit', 'eng', 'his', 'soc', 'chem', 'bio', 'inf', 'geo']
   });
-
-}).call(this);
-
-(function() {
-  var apiPath, countable, updatable;
-
-  angular.module('App').factory('Tutor', function($resource) {
-    return $resource(apiPath('tutors'), {
-      id: '@id',
-      type: '@type'
-    }, {
-      search: {
-        method: 'POST',
-        url: apiPath('tutors', 'search')
-      },
-      reviews: {
-        method: 'GET',
-        isArray: true,
-        url: apiPath('reviews')
-      }
-    });
-  }).factory('Request', function($resource) {
-    return $resource(apiPath('requests'), {
-      id: '@id'
-    }, updatable());
-  }).factory('Cv', function($resource) {
-    return $resource(apiPath('cv'), {
-      id: '@id'
-    }, updatable());
-  });
-
-  apiPath = function(entity, additional) {
-    if (additional == null) {
-      additional = '';
-    }
-    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
-  };
-
-  updatable = function() {
-    return {
-      update: {
-        method: 'PUT'
-      }
-    };
-  };
-
-  countable = function() {
-    return {
-      count: {
-        method: 'GET'
-      }
-    };
-  };
 
 }).call(this);
 
@@ -17570,7 +17570,7 @@ addMarker = function(map, latLng) {
                onClose 		: 	'&?',		// function,
                onDelete		: 	'&?'
            },
-           template : 	'<div class="ng-image-gallery img-move-dir-{{_imgMoveDirection}}" ng-class="{inline:inline}" ng-hide="images.length == 0">'+
+           template : 	'<div class="ng-image-gallery ' + (isMobile ? 'mobile-gallery' : '') + ' img-move-dir-{{_imgMoveDirection}}" ng-class="{inline:inline}" ng-hide="images.length == 0">'+
 
                            // Thumbnails container
                            //  Hide for inline gallery
@@ -17609,16 +17609,30 @@ addMarker = function(map, latLng) {
 
                                    // Prev-Next Icons
                                    // Add `bubbles-on` class when bubbles are enabled (for offset)
-                                   '<div class="prev-wrapper" ng-click="methods.prev();">' +
-                                    '<div class="prev" ng-class="{\'bubbles-on\':bubbles}" ng-hide="images.length == 1"></div>'+
-                                    '</div>' +
 
-                                   '<div class="next-wrapper" ng-click="methods.next();">' +
-                                    '<div class="next" ng-class="{\'bubbles-on\':bubbles}" ng-hide="images.length == 1"></div>'+
-                                    '</div>' +
+                                    (
+                                        isMobile
+                                        ? ''
+                                        : '<div class="prev-wrapper" ng-click="methods.prev();">' +
+                                          '<div class="prev" ng-class="{\'bubbles-on\':bubbles}" ng-hide="images.length == 1"></div>'+
+                                          '</div>'
+                                    ) +
+
+                                    (
+                                        isMobile
+                                        ? ''
+                                        : '<div class="next-wrapper" ng-click="methods.next();">' +
+                                          '<div class="next" ng-class="{\'bubbles-on\':bubbles}" ng-hide="images.length == 1"></div>' +
+                                          '</div>'
+                                    ) +
 
                                    '<div ng-repeat="image in images track by image.id" ng-if="(image.title || image.desc) && (_activeImg == image)">'+
-                                       '<div class="title" ng-if="image.title" ng-bind-html="\'Изображение \' + ($index + 1) + \' из \' + (images.length) + \': \' + image.title | ngImageGalleryTrust"></div>'+
+                                       (
+                                           isMobile
+                                           ? '<div class="title" ng-if="image.title" ng-bind-html="($index + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></div>'
+                                           : '<div class="title" ng-if="image.title" ng-bind-html="\'Изображение \' + ($index + 1) + \' из \' + (images.length) + \': \' + image.title | ngImageGalleryTrust"></div>'
+                                       ) +
+
                                        '<div class="desc" ng-if="image.desc" ng-bind-html="image.desc | ngImageGalleryTrust"></div>'+
                                    '</div>'+
 
