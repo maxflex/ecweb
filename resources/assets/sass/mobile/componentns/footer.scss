@@ -11,7 +11,9 @@
   height: $footer-height + em;
   padding: 1.450em 0 0 0;
   box-sizing: content-box;
-
+  &.light {
+      height: 41em;
+  }
   &-message {
     padding: 0 0 0.625em 0;
   }
@@ -28,9 +30,9 @@
     height: $footer-height + 3.750 + em;
   }
 
-  &-fix-main {
+  &-fix-light {
       clear: both;
-      height: 50.45em;
+      height: 42.45em;
   }
 
   a {

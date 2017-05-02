@@ -3678,6 +3678,8 @@ a {
   height: 49em;
   padding: 1.450em 0 0 0;
   box-sizing: content-box; }
+  .footer.light {
+    height: 41em; }
   .footer-message {
     padding: 0 0 0.625em 0; }
   .footer-title {
@@ -3688,9 +3690,9 @@ a {
   .footer-fix {
     clear: both;
     height: 52.75em; }
-  .footer-fix-main {
+  .footer-fix-light {
     clear: both;
-    height: 50.45em; }
+    height: 42.45em; }
   .footer a {
     color: #fff; }
   .footer-menu {
@@ -3987,6 +3989,8 @@ a {
 
 .landing-container {
   padding: 1.5em 0 3.5em; }
+  .landing-container:first-of-type {
+    padding-top: 0; }
   .landing-container h2 {
     padding-bottom: 1.5em; }
   .landing-container .list-main {
