@@ -3387,7 +3387,7 @@ body {
 h1 {
   margin: 0;
   padding: 0 0 .9em 0;
-  font-size: 1.8em;
+  font-size: 1.5em;
   font-weight: normal;
   font-family: 'helveticaneuecyrmedium'; }
 
@@ -3606,7 +3606,7 @@ a {
     display: block;
     background: url("../img/svg/logo_yellow_mobile.svg") no-repeat;
     width: 15.214em;
-    height: 4.500em;
+    height: 3.500em;
     overflow: hidden;
     text-indent: -3000px; }
   .header-menu-button {
@@ -3614,8 +3614,8 @@ a {
     cursor: pointer;
     top: 2.20em;
     right: 1.357em;
-    width: 2.000em;
-    height: 2.375em;
+    width: 1.6em;
+    height: 1.6em;
     background: url("../img/svg/burger.svg") no-repeat;
     background-size: cover; }
   .header .button-phone {
@@ -3813,7 +3813,7 @@ a {
   position: relative;
   background: #fef9de;
   border-bottom: 0.063em solid #ffe65c;
-  padding: 0.625em 0.3em;
+  padding: 0.5em 0.3em;
   color: #af0000;
   text-align: center; }
 
@@ -4216,9 +4216,9 @@ a {
   background: #35a45b;
   border-radius: 100%;
   box-sizing: border-box;
-  width: 3.8em;
-  height: 3.8em;
-  padding: .7em;
+  width: 3.2em;
+  height: 3.2em;
+  padding: .6em;
   display: inline-block; }
   .button-phone:after {
     content: '';
