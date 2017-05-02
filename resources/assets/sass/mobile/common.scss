@@ -1,10 +1,10 @@
 html, body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
   font-family: $font-regular;
-  overflow-x: hidden;
   font-size: 16px;
   -webkit-overflow-scrolling: touch !important;
   &.modal-open {
