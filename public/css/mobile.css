@@ -3554,7 +3554,7 @@ a {
   height: 0.500em;
   border-radius: 100%;
   position: absolute;
-  top: 1.45em;
+  top: 1.1em;
   left: 1.357em;
   background: #293694; }
 
@@ -3578,6 +3578,9 @@ a {
 
 #youtube-video {
   z-index: 105; }
+
+.faq-page ul {
+  margin-bottom: 1.8em; }
 
 /* Components */
 .header {
@@ -3803,7 +3806,7 @@ a {
   list-style: none;
   border-top: 0.063em solid #dcdcdc; }
   .address-list-item {
-    padding: 1.1em 1.357em 1.1em 2.714em;
+    padding: 0.8em 1.357em 0.8em 2.714em;
     position: relative;
     border-bottom: 0.063em solid #dcdcdc; }
     .address-list-item:after {
@@ -3838,7 +3841,7 @@ a {
     height: 0.500em;
     border-radius: 100%;
     position: absolute;
-    top: 1.45em;
+    top: 1.15em;
     left: 1.357em; }
   .address-list-metro__orange:before {
     background: #de823a; }

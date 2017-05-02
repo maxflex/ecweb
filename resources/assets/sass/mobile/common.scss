@@ -229,7 +229,7 @@ a {
     height: 0.500em;
     border-radius: 100%;
     position: absolute;
-    top: 1.45em;
+    top: 1.1em;
     left: 1.357em;
     background: #293694;
 }
@@ -258,4 +258,10 @@ a {
 
 #youtube-video {
     z-index: 105;
+}
+
+.faq-page {
+    & ul {
+        margin-bottom: 1.8em;
+    }
 }
