@@ -5252,12 +5252,16 @@ a:hover {
   -webkit-appearance: none;
 }
 
+.cv-form ::-webkit-input-placeholder, .order-form ::-webkit-input-placeholder {
+  color: #acacac;
+}
+
 .cv-form .form-row-inner > select.select, .order-form .form-row-inner > select.select {
   padding-right: 0.4em;
 }
 
 .cv-form .placeholder-select, .order-form .placeholder-select {
-  color: #818181 !important;
+  color: #acacac !important;
 }
 
 .cv-form .multiselect-popup, .order-form .multiselect-popup {

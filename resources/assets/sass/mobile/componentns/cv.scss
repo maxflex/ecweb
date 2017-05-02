@@ -25,7 +25,7 @@
     -webkit-appearance:none;
   }
   ::-webkit-input-placeholder {
-    color: $gray-light;
+    color: $text-grey-light;
   }
 
   .form-row-inner > select.select {
@@ -33,7 +33,7 @@
   }
 
   .placeholder-select {
-      color: $text-grey !important;
+      color: $text-grey-light !important;
   }
 
   .multiselect-popup {
