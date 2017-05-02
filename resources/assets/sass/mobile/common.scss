@@ -33,12 +33,12 @@ body {
 }
 
 .common {
-  padding: 1.563em $common-side-indent + em 0 $common-side-indent + em;
+  padding: $common-indent $common-indent 0;
 }
 
 h1 {
   margin: 0;
-  padding: 0 0 1.475em 0;
+  padding: 0 0 .9em 0;
   font-size: $font-size-h1 + em;
   font-weight: normal;
   font-family: 'helveticaneuecyrmedium';
@@ -172,7 +172,7 @@ a {
         display: inline-block;
         width: 24px;
         height: 24px;
-        background: url('../img/icons/cross.svg') no-repeat;
+        background: url('../img/svg/cross-gray.svg') no-repeat;
         background-size: cover;
       }
     }

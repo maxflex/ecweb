@@ -222,7 +222,9 @@
          */
         public static function compileTutor($id, &$html)
         {
-            static::replace($html, 'current_tutor', Tutor::selectDefault()->whereId($id)->first()->toJson());
+            $tutor = Tutor::selectDefault()->whereId($id)->first();
+            static::replace($html, 'tutor-name', implode(' ', [$tutor->last_name, $tutor->first_name, $tutor->middle_name]));
+            static::replace($html, 'current_tutor', $tutor->toJson());
         }
 
         /**

@@ -28,6 +28,11 @@
     height: $footer-height + 3.750 + em;
   }
 
+  &-fix-main {
+      clear: both;
+      height: 50.45em;
+  }
+
   a {
     color: #fff;
   }

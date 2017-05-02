@@ -2890,8 +2890,8 @@ th {
   position: relative;
   z-index: 99;
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   overflow: hidden;
   cursor: pointer;
   text-decoration: none;
@@ -2926,8 +2926,8 @@ th {
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .next {
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  width: 30px;
-  height: 30px; }
+  width: 25px;
+  height: 25px; }
 
 .ng-image-gallery .next-wrapper, .ng-image-gallery .prev-wrapper {
   z-index: 99999999;
@@ -3379,11 +3379,11 @@ body {
       font-size: 16px; } }
 
 .common {
-  padding: 1.563em 1.357em 0 1.357em; }
+  padding: 1.2em 1.2em 0; }
 
 h1 {
   margin: 0;
-  padding: 0 0 1.475em 0;
+  padding: 0 0 .9em 0;
   font-size: 1.8em;
   font-weight: normal;
   font-family: 'helveticaneuecyrmedium'; }
@@ -3497,7 +3497,7 @@ a {
       display: inline-block;
       width: 24px;
       height: 24px;
-      background: url("../img/icons/cross.svg") no-repeat;
+      background: url("../img/svg/cross-gray.svg") no-repeat;
       background-size: cover; }
   .modal .modal-content {
     padding: 0.938em;
@@ -3612,7 +3612,8 @@ a {
     background: #23647f;
     padding: 0.525em 0.3em; }
     .header-title a {
-      color: #fff; }
+      color: #fff;
+      display: inline-block; }
   .header__university-img {
     background-position: 50% 50%;
     height: 18.750em;
@@ -3623,7 +3624,7 @@ a {
     font-family: 'helveticaneuecyrthin';
     padding: 3.5em 0 0 0; }
     .header-image-container {
-      font-size: 3.6em;
+      font-size: 3em;
       padding-bottom: 1.300em; }
     .header-image-title {
       font-size: 2em; }
@@ -3631,7 +3632,7 @@ a {
     position: relative;
     background: url("../img/wrap-header.jpg") no-repeat 50% 0;
     background-size: cover;
-    height: 38em; }
+    height: 36em; }
     .header__wrap-img .header {
       background: none; }
     .header__wrap-img .header-title {
@@ -3669,6 +3670,9 @@ a {
   .footer-fix {
     clear: both;
     height: 52.75em; }
+  .footer-fix-main {
+    clear: both;
+    height: 50.45em; }
   .footer a {
     color: #fff; }
   .footer-menu {
@@ -3759,7 +3763,7 @@ a {
         display: inline-block;
         width: 1.3em;
         height: 1.3em;
-        background: url("../img/icons/cross.svg") no-repeat;
+        background: url("../img/icons/cross-out.svg") no-repeat;
         background-size: cover; }
   .popup.active {
     display: block !important; }
@@ -4003,6 +4007,8 @@ a {
   border-top: 0.063em solid #dcdcdc; }
   .catalog-list-item {
     border-bottom: 0.063em solid #dcdcdc; }
+    .catalog-list-item:last-of-type {
+      border-bottom: none; }
     .catalog-list-item__active .catalog-list-item-title {
       background: #e8e8e8; }
     .catalog-list-item__active .catalog-list-item-title:after {
@@ -4010,7 +4016,6 @@ a {
       transform: rotate(-90deg); }
     .catalog-list-item-title {
       position: relative;
-      font-size: 1.2em;
       font-family: 'helveticaneuecyrmedium';
       padding: 0.938em 2.714em 0.938em 1.357em;
       cursor: pointer; }
@@ -4058,8 +4063,7 @@ a {
         line-height: 1px;
         clear: both; }
       .catalog-list-inner-item-title {
-        font-family: 'helveticaneuecyrmedium';
-        font-size: 1.1em;
+        font-family: 'helveticaneuecyrregular';
         padding-top: 0.25em; }
       .catalog-list-inner-item-icon {
         position: absolute;
@@ -4083,7 +4087,7 @@ a {
   .cv-form .absolute-message, .order-form .absolute-message {
     margin: 6em 0; }
   .cv-form .caret, .order-form .caret {
-    background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 70%;
+    background: transparent url(../img/svg/dropdown-gray.svg) no-repeat calc(100% - 13px) 0;
     background-size: 14px;
     height: 15px;
     width: 27px;
@@ -4112,7 +4116,7 @@ a {
   padding: 0 0.625em;
   border-radius: 2.7em;
   border: 0;
-  min-width: 17em; }
+  padding: 0 1.5em; }
 
 .button-green-small {
   height: auto;
@@ -4124,10 +4128,11 @@ a {
 .button-white-large {
   background: transparent;
   color: #818181;
-  font-family: 'helveticaneuecyrlight';
+  font-family: 'helveticaneuecyrmedium';
   line-height: 2.6em;
   border: 0.063em solid #acacac;
-  position: relative; }
+  position: relative;
+  text-transform: none; }
 
 .input-text,
 .textarea,
@@ -4215,9 +4220,9 @@ a {
   background: #35a45b;
   border-radius: 100%;
   box-sizing: border-box;
-  width: 4.500em;
-  height: 4.500em;
-  padding: 1.05em;
+  width: 3.8em;
+  height: 3.8em;
+  padding: .7em;
   display: inline-block; }
   .button-phone:after {
     content: '';

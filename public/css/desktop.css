@@ -4665,7 +4665,7 @@ body {
     right: 1em;
     width: 1.1em;
     height: 1.1em;
-    background: url(../img/svg/cross.svg) no-repeat;
+    background: url(../img/svg/cross-out.svg) no-repeat;
     cursor: pointer;
     z-index: 3; }
   .modal .modal-content {
@@ -4689,7 +4689,7 @@ body {
     height: 100%; }
 
 .caret {
-  background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 70%;
+  background: transparent url(../img/svg/dropdown-gray.svg) no-repeat calc(100% - 13px) 0;
   background-size: 14px;
   height: 15px;
   width: 27px;
@@ -4717,7 +4717,7 @@ body {
 
 span.customSelect {
   font-family: inherit;
-  background: transparent url(../img/svg/dropdown.svg) no-repeat calc(100% - 13px) 65%;
+  background: transparent url(../img/svg/dropdown-gray.svg) no-repeat calc(100% - 13px) 55%;
   background-size: 14px;
   box-sizing: border-box; }
 
@@ -4854,6 +4854,9 @@ ol, ul {
     .page-not-found-wrapper .page-not-found ul {
       list-style: none;
       padding: 0; }
+
+.bootstrap-select.btn-group .dropdown-toggle .caret {
+  top: 40%; }
 
 @-webkit-keyframes sk-stretchdelay {
   0%, 40%, 100% {
@@ -5053,8 +5056,8 @@ ol, ul {
   position: relative;
   z-index: 99;
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   overflow: hidden;
   cursor: pointer;
   text-decoration: none;
@@ -5089,8 +5092,8 @@ ol, ul {
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .next {
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  width: 30px;
-  height: 30px; }
+  width: 25px;
+  height: 25px; }
 
 .ng-image-gallery .next-wrapper, .ng-image-gallery .prev-wrapper {
   z-index: 99999999;
