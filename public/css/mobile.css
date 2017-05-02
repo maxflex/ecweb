@@ -5247,8 +5247,9 @@ a:hover {
   border: 0 !important;
 }
 
-.cv-form select, .order-form select {
+.cv-form select, .cv-form input, .cv-form textarea, .order-form select, .order-form input, .order-form textarea {
   background-color: white;
+  -webkit-appearance: none;
 }
 
 .cv-form .form-row-inner > select.select, .order-form .form-row-inner > select.select {
@@ -5257,6 +5258,16 @@ a:hover {
 
 .cv-form .placeholder-select, .order-form .placeholder-select {
   color: #818181 !important;
+}
+
+.cv-form .multiselect-popup, .order-form .multiselect-popup {
+  overflow-y: scroll;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.cv-form .multiselect-popup .scroll-fix, .order-form .multiselect-popup .scroll-fix {
+  height: 70px;
 }
 
 /* Elements */
