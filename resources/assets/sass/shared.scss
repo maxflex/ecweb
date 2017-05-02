@@ -26,11 +26,7 @@ $font-light: 'helveticaneuecyrlight';
 $font-roman: 'helveticaneuecyrroman';
 $font-medium: 'helveticaneuecyrmedium';
 $font-regular: 'helveticaneuecyrregular';
-
-.b-like {
-    display: block;
-    font-family: $font-medium;
-}
+$font-bold: 'helveticaneuecyrbold';
 
 .loading-inside-button {
     padding: 0;

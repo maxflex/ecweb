@@ -2674,10 +2674,6 @@ th {
   to {
     width: 1.25em; } }
 
-.b-like {
-  display: block;
-  font-family: "helveticaneuecyrmedium"; }
-
 .loading-inside-button {
   padding: 0;
   position: absolute;
@@ -3596,6 +3592,10 @@ a {
   .back-arrow img {
     height: 14px;
     margin-right: 5px; }
+
+.b-like {
+  display: block;
+  font-family: "helveticaneuecyrbold"; }
 
 /* Components */
 .header {
