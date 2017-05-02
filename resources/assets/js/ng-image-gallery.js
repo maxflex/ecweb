@@ -190,7 +190,7 @@
                onClose 		: 	'&?',		// function,
                onDelete		: 	'&?'
            },
-           template : 	'<div class="ng-image-gallery img-move-dir-{{_imgMoveDirection}}" ng-class="{inline:inline}" ng-hide="images.length == 0">'+
+           template : 	'<div class="ng-image-gallery ' + (isMobile ? 'mobile-gallery' : '') + ' img-move-dir-{{_imgMoveDirection}}" ng-class="{inline:inline}" ng-hide="images.length == 0">'+
 
                            // Thumbnails container
                            //  Hide for inline gallery
@@ -229,16 +229,30 @@
 
                                    // Prev-Next Icons
                                    // Add `bubbles-on` class when bubbles are enabled (for offset)
-                                   '<div class="prev-wrapper" ng-click="methods.prev();">' +
-                                    '<div class="prev" ng-class="{\'bubbles-on\':bubbles}" ng-hide="images.length == 1"></div>'+
-                                    '</div>' +
 
-                                   '<div class="next-wrapper" ng-click="methods.next();">' +
-                                    '<div class="next" ng-class="{\'bubbles-on\':bubbles}" ng-hide="images.length == 1"></div>'+
-                                    '</div>' +
+                                    (
+                                        isMobile
+                                        ? ''
+                                        : '<div class="prev-wrapper" ng-click="methods.prev();">' +
+                                          '<div class="prev" ng-class="{\'bubbles-on\':bubbles}" ng-hide="images.length == 1"></div>'+
+                                          '</div>'
+                                    ) +
+
+                                    (
+                                        isMobile
+                                        ? ''
+                                        : '<div class="next-wrapper" ng-click="methods.next();">' +
+                                          '<div class="next" ng-class="{\'bubbles-on\':bubbles}" ng-hide="images.length == 1"></div>' +
+                                          '</div>'
+                                    ) +
 
                                    '<div ng-repeat="image in images track by image.id" ng-if="(image.title || image.desc) && (_activeImg == image)">'+
-                                       '<div class="title" ng-if="image.title" ng-bind-html="\'Изображение \' + ($index + 1) + \' из \' + (images.length) + \': \' + image.title | ngImageGalleryTrust"></div>'+
+                                       (
+                                           isMobile
+                                           ? '<div class="title" ng-if="image.title" ng-bind-html="($index + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></div>'
+                                           : '<div class="title" ng-if="image.title" ng-bind-html="\'Изображение \' + ($index + 1) + \' из \' + (images.length) + \': \' + image.title | ngImageGalleryTrust"></div>'
+                                       ) +
+
                                        '<div class="desc" ng-if="image.desc" ng-bind-html="image.desc | ngImageGalleryTrust"></div>'+
                                    '</div>'+
 

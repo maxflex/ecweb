@@ -3820,6 +3820,10 @@ th {
   box-sizing: border-box;
 }
 
+.mobile-gallery .ng-image-gallery-content .galleria {
+  padding: 60px 0 !important;
+}
+
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images {
   position: relative;
   width: 100%;
