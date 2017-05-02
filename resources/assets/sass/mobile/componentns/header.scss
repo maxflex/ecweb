@@ -2,20 +2,30 @@
   background: #0c4e69;
   padding: 1.429em 1.357em 1.429em 1.357em;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   &-logo {
     display: block;
     background: url('../img/svg/logo_yellow_mobile.svg') no-repeat;
-    width: 15.214em;
-    height: 3.500em;
+    width: 9em;
+    height: 3.5em;
     overflow: hidden;
     text-indent: -3000px;
   }
 
+  &-controls {
+      display: flex;
+      align-items: center;
+      & a {
+          display: inherit;
+          margin-right: 1em;
+      }
+  }
+
   &-menu-button {
-    position: absolute;
     cursor: pointer;
-    top: 2.20em;
     right: 1.357em;
     width: 1.6em;
     height: 1.6em;
@@ -24,8 +34,6 @@
   }
 
   .button-phone {
-    position: absolute;
-    top: 1.250em;
     right: 4.5em;
   }
 
@@ -56,7 +64,8 @@
     color: #fff;
     font-family: 'helveticaneuecyrthin';
     padding: 3.5em 0 0 0;
-
+    position: relative;
+    
     &-container {
       font-size: 3em;
       padding-bottom: 1.300em;

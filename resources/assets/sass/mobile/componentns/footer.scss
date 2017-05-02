@@ -12,7 +12,7 @@
   padding: 1.450em 0 0 0;
   box-sizing: content-box;
   &.light {
-      height: 41em;
+      height: $footer-light-height;
   }
   &-message {
     padding: 0 0 0.625em 0;
@@ -32,7 +32,7 @@
 
   &-fix-light {
       clear: both;
-      height: 42.45em;
+      height: $footer-light-height + 3.75em;
   }
 
   a {
@@ -42,6 +42,9 @@
   &-menu {
     margin: 0;
     padding: 0 0 1.70em 0;
+    &:last-of-type {
+        padding: 0;
+    }
     list-style: none;
 
     li {
@@ -52,4 +55,10 @@
   .button-green-large {
     margin: 0 0 1.750em 0;
   }
+}
+
+.main-page {
+    & .footer-fix-light {
+        height: $footer-light-height + 1.45em;
+    }
 }

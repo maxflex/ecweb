@@ -1,12 +1,12 @@
 html, body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
   font-family: $font-regular;
-
   font-size: 16px;
-
+  -webkit-overflow-scrolling: touch !important;
   &.modal-open {
         overflow: hidden !important;
         position: fixed;
@@ -285,4 +285,16 @@ a {
 
 .right-img-price {
     font-size: 1.5em;
+}
+
+.select-dropdown {
+    background: url('../img/svg/dropdown-gray.svg');
+    width: 1.2em;
+    height: 1.2em;
+    background-size: 1.2em;
+    border: 0;
+    position: absolute;
+    z-index: 19;
+    right: .7em;
+    top: .9em;
 }
