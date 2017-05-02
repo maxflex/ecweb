@@ -100,14 +100,16 @@ $height-right-arrow: 1.188;
 
   &-more {
     margin: 0;
-    padding: 0 0 1em 0;
+    padding: 0;
     list-style: none;
 
     &-item {
       padding: 0 0 0 0;
       margin: 0 0 1.500em 0;
       position: relative;
-
+      &:last-of-type {
+          margin: 0;
+      }
       &-left {
         font-family: $font-regular;
       }
