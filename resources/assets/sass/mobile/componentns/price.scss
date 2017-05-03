@@ -24,7 +24,7 @@ $indent-top-bottom: 0.938;
               border: none;
               & .price-list-item-title {
                   border-top: 1px solid lighten($color-footer, 50);
-                  background: rgba(0, 0, 0, .05);
+                  background: rgba(0, 0, 0, .07);
                   color: black !important;
                   &:after {
                       background-image: url(../img/svg/dropdown-gray-thick.svg) !important;
@@ -88,13 +88,10 @@ $indent-top-bottom: 0.938;
       padding: 0;
       list-style: none;
       border-top: 0.063em solid $color-grey-border;
-      & .price-list-item-title {
-          padding-left: 1.357em * 2;
-      }
       &-item {
           background: white;
           color: black;
-        padding: $indent-top-bottom + em ($common-side-indent + 0.3) + em;
+        padding: $indent-top-bottom + em 1.357em;
         border-bottom: 0.063em solid $color-grey-border;
         & b {
             font-family: $font-medium;

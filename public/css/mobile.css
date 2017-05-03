@@ -3999,7 +3999,7 @@ a {
         border: none; }
         .price-list-item__open > .price-list-inner .price-list-item-title {
           border-top: 1px solid #bbbbbb;
-          background: rgba(0, 0, 0, 0.05);
+          background: rgba(0, 0, 0, 0.07);
           color: black !important; }
           .price-list-item__open > .price-list-inner .price-list-item-title:after {
             background-image: url(../img/svg/dropdown-gray-thick.svg) !important; }
@@ -4039,12 +4039,10 @@ a {
     padding: 0;
     list-style: none;
     border-top: 0.063em solid #dcdcdc; }
-    .price-list-inner .price-list-item-title {
-      padding-left: 2.714em; }
     .price-list-inner-item {
       background: white;
       color: black;
-      padding: 0.938em 1.657em;
+      padding: 0.938em 1.357em;
       border-bottom: 0.063em solid #dcdcdc; }
       .price-list-inner-item b {
         font-family: "helveticaneuecyrmedium"; }
