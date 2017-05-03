@@ -5,6 +5,7 @@ angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angu
             ngImageGalleryOptsProvider.setOpts
                 bubbles         :   false
                 bubbleSize      :   100
+                imgAnim         :   if isMobile then 'slide' else 'fadeup'
     ]
     .config [
         '$compileProvider'
