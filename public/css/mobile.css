@@ -3740,7 +3740,7 @@ a {
   padding: 1.450em 0 0 0;
   box-sizing: content-box; }
   .footer.light {
-    height: 41em; }
+    height: 42.5em; }
   .footer-message {
     padding: 0 0 0.625em 0; }
   .footer-title {
@@ -3753,7 +3753,7 @@ a {
     height: 52.75em; }
   .footer-fix-light {
     clear: both;
-    height: 44.75em; }
+    height: 46.25em; }
   .footer a {
     color: #fff; }
   .footer-menu {
@@ -3768,7 +3768,7 @@ a {
     margin: 0 0 1.750em 0; }
 
 .main-page .footer-fix-light {
-  height: 42.45em; }
+  height: 43.95em; }
 
 .tutors {
   margin: 0;
