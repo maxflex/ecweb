@@ -95,7 +95,8 @@ angular
             if $scope.video_link isnt tutor.video_link
                 console.log('Setting url to ' + tutor.video_link)
                 $scope.video_link = tutor.video_link
-            openModal('video')
+
+            openModal('video') if not $('body').hasClass 'modal-open'
 
         # ссылка на видео
         $scope.videoLink = ->
