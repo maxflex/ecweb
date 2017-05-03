@@ -13,28 +13,16 @@ $indent-top-bottom: 0.938;
       background: white;
       color: black;
       &__active {
-        .price-list-item-title {
+        & > .price-list-item-title {
           background: $color-footer;
           color: white;
-        }
-
-        .price-list-item-title {
           &:after {
+              background-image: url(../img/svg/dropdown-white-thick.svg) !important;
             -webkit-transform: rotate(-180deg);
             -moz-transform: rotate(-180deg);
             -o-transform: rotate(-180deg);
             -ms-transform: rotate(-180deg);
             transform: rotate(-180deg);
-          }
-        }
-
-        .price-list-inner {
-//          display: block;
-        }
-
-        & .price-list-item-title {
-          &:after {
-              background-image: url(../img/svg/dropdown-white.svg) !important;
           }
         }
       }
@@ -50,11 +38,11 @@ $indent-top-bottom: 0.938;
           position: absolute;
           right: $common-side-indent + em;
           top: 1.1em;
-          width: 1em;
-          height: 0.8em;
-          background: transparent url(../img/svg/dropdown-gray.svg) no-repeat;
-          background-size: 1em;
+          background: transparent url(../img/svg/dropdown-gray-thick.svg) no-repeat;
           box-sizing: border-box;
+          height: $dropdown-thick-size;
+          width: $dropdown-thick-size;
+          background-size: $dropdown-thick-size;
         }
       }
     }
@@ -101,4 +89,8 @@ $indent-top-bottom: 0.938;
       }
     }
   }
+}
+
+.price-list-item.price-list-inner-item {
+    padding: 0;
 }

@@ -2,6 +2,12 @@ $indent-top-bottom: 0.938;
 $icon-width: 2.450;
 
 .catalog {
+    &-dropdown {
+        background: url('/img/svg/dropdown-gray-thick.svg');
+        height: $dropdown-thick-size;
+        width: $dropdown-thick-size;
+        background-size: $dropdown-thick-size;
+    }
   &-list {
     margin: -1.3em -1.357em 0 -1.357em;
     padding: 0;
@@ -15,17 +21,17 @@ $icon-width: 2.450;
       }
       &__active {
         .catalog-list-item-title {
-          background: $text-grey-active;
+          background: $color-footer;
+          color: white;
         }
 
-        .catalog-list-item-title {
-          &:after {
-            -webkit-transform: rotate(-90deg);
-            -moz-transform: rotate(-90deg);
-            -o-transform: rotate(-90deg);
-            -ms-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-          }
+        & .catalog-dropdown {
+            background-image: url('/img/svg/dropdown-white-thick.svg');
+            -webkit-transform: rotate(-180deg);
+            -moz-transform: rotate(-180deg);
+            -o-transform: rotate(-180deg);
+            -ms-transform: rotate(-180deg);
+            transform: rotate(-180deg);
         }
       }
 
@@ -37,10 +43,13 @@ $icon-width: 2.450;
           display: flex;
           justify-content: space-between;
           align-items: center;
+          background: white;
+          color: black;
+          height: 1.3em;
         .badge {
           margin-right: .5em;
-          position: absolute;
-          left: -2.7em;
+        //   position: absolute;
+        //   left: -2.7em;
         }
       }
     }
@@ -54,7 +63,7 @@ $icon-width: 2.450;
 
       &-item {
         position: relative;
-        padding: 0.5em .8em 0.5em 1.357em;
+        padding: 0.7em .8em 0.7em 1.357em;
         border-bottom: 0.063em solid $color-grey-border;
         & a {
             text-decoration: none;

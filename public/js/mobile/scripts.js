@@ -11,7 +11,7 @@ $(document).ready(function() {
 })
 
 function togglePrice(){
-    var $parent = $(this).parent('.price-list-item');
+    var $parent = $(this).closest('.price-list-item');
 
     $parent.toggleClass('price-list-item__active');
     $parent.children('.price-list-inner').slideToggle();
