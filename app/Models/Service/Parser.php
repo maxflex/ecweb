@@ -213,9 +213,9 @@
             foreach ($vars as $var) {
                 $var = trim($var, static::interpolate());
                 $field = explode('.', $var)[1];
-                if ($page->{$field}) {
-                    static::replace($html, $var, $page->{$field});
-                }
+                // if ($page->{$field}) {
+                    static::replace($html, $var, @$page->{$field});
+                // }
             }
             return $html;
         }
