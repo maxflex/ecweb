@@ -1,6 +1,7 @@
 var scope = null
 var player = null
 var isMobile = false
+var modal_initing = false
 
 $(document).ready(function() {
     //Custom select
@@ -37,24 +38,38 @@ function closeModal() {
     $('body').removeClass()
 	// $("body").addClass('open-modal-' + active_modal); active_modal = false
     $('.container').off('touchmove');
+
     // @todo: почему-то эта строчка ломает повторное воспроизведение видео видео
     if(window.location.hash == "#modal") {
-        window.history.replaceState('', document.title, window.location.pathname);
+
     }
+    console.log('replace')
+    window.history.replaceState('', document.title, window.location.pathname);
+
     if (typeof(onCloseModal) == 'function') {
         onCloseModal()
     }
 }
 
 function openModal(id) {
+    if (modal_initing) {
+        console.log('already opened')
+        return
+    }
+
+    modal_initing = true
+
     $(".modal#modal-" + id).addClass('active')
     $('#menu-overlay').height('95%').scrollTop(); // iphone5-safari fix
     $("body").addClass('modal-open open-modal-' + id);
     // active_modal = id
     $('.container').on('touchmove', function(e){e.preventDefault();});
-    window.history.replaceState('', document.title, window.location.pathname + '#modal');
+
+    console.log('pushing')
+    window.location.hash = '#modal'
+
     if (typeof(onOpenModal) == 'function') {
-        onOpenModal()
+        onOpenModal(id)
     }
 }
 
@@ -62,6 +77,7 @@ function openModal(id) {
 $(window).on('hashchange', function() {
     if(window.location.hash != "#modal") {
         closeModal()
+        // window.history.back()
     }
 });
 
@@ -75,10 +91,12 @@ function initYoutube() {
         player.stopVideo()
     }
 
-    window.onOpenModal = function() {
-        setTimeout(function() {
-            player.playVideo()
-        }, 500)
+    window.onOpenModal = function(modal_id) {
+        if (modal_id == 'video') {
+            setTimeout(function() {
+                player.playVideo()
+            }, 500)
+        }
     }
 }
 
