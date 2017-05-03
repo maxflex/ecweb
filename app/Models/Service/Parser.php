@@ -226,6 +226,7 @@
         public static function compileTutor($id, &$html)
         {
             $tutor = Tutor::selectDefault()->whereId($id)->first();
+            static::replace($html, 'subject', $tutor->subjects_string);
             static::replace($html, 'tutor-name', implode(' ', [$tutor->last_name, $tutor->first_name, $tutor->middle_name]));
             static::replace($html, 'current_tutor', $tutor->toJson());
         }
