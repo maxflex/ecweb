@@ -1,7 +1,7 @@
 var scope = null
 var player = null
 var isMobile = false
-var modal_initing = false
+var modal_inited = false
 
 $(document).ready(function() {
     //Custom select
@@ -38,48 +38,26 @@ function closeModal() {
     $('body').removeClass()
 	// $("body").addClass('open-modal-' + active_modal); active_modal = false
     $('.container').off('touchmove');
-
     // @todo: почему-то эта строчка ломает повторное воспроизведение видео видео
-    if(window.location.hash == "#modal") {
-
-    }
-    console.log('replace')
-    window.history.replaceState('', document.title, window.location.pathname);
-
+    // if(window.location.hash == "#modal") {
+    //     window.history.back()
+    // }
     if (typeof(onCloseModal) == 'function') {
         onCloseModal()
     }
 }
 
 function openModal(id) {
-    if (modal_initing) {
-        console.log('already opened')
-        return
-    }
-
-    modal_initing = true
-
     $(".modal#modal-" + id).addClass('active')
     $('#menu-overlay').height('95%').scrollTop(); // iphone5-safari fix
     $("body").addClass('modal-open open-modal-' + id);
     // active_modal = id
     $('.container').on('touchmove', function(e){e.preventDefault();});
-
-    console.log('pushing')
     window.location.hash = '#modal'
-
     if (typeof(onOpenModal) == 'function') {
         onOpenModal(id)
     }
 }
-
-// close modal on «back» button
-$(window).on('hashchange', function() {
-    if(window.location.hash != "#modal") {
-        closeModal()
-        // window.history.back()
-    }
-});
 
 // Автовоспроизведение видео с открытием модального окна
 function initYoutube() {
