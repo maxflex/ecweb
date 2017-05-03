@@ -51,13 +51,6 @@
     }
   }
 
-  &__university-img {
-    background-position: 50% 50%;
-    height: 18.750em;
-    background-size: cover !important;
-  }
-
-
 
   &-image {
     text-align: center;
@@ -65,7 +58,7 @@
     font-family: 'helveticaneuecyrthin';
     padding: 3.5em 0 0 0;
     position: relative;
-    
+
     &-container {
       font-size: 3em;
       padding-bottom: 1.300em;
@@ -78,7 +71,7 @@
 
   &__wrap-img {
     position: relative;
-    background: url('../img/wrap-header.jpg') no-repeat 50% 0;
+    background: url('/img/background/main.jpeg') no-repeat 50% 0;
     background-size: cover;
     height: 36em;
 
@@ -87,7 +80,7 @@
     }
 
     .header-title {
-      background: rgba(0, 0, 0, 0.30);
+      background: rgba(0, 0, 0, 0.4);
     }
 
     &:before {
@@ -98,7 +91,13 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      background: rgba(0, 0, 0, 0.60);
+      background: rgba(0, 0, 0, 0.7);
+    }
+    &.university {
+        height: 19em;
+        &:before {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
     }
   }
 }

@@ -4066,7 +4066,7 @@ a[href^="https://www.google.com/maps"] {
       background: #3a6699;
       position: relative; }
       .header-menu-wrap__img {
-        background: url("https://cms.ege-centr.ru/storage/images/58f5e3df2a291.jpeg") no-repeat 50% 50%;
+        background: url("/img/background/main.jpeg") no-repeat 50% 50%;
         height: 470px;
         background-size: center; }
         .header-menu-wrap__img:before {

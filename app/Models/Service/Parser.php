@@ -230,28 +230,6 @@
             static::replace($html, 'current_tutor', $tutor->toJson());
         }
 
-        /**
-         * Компилировать сео-страницу
-         * [seo_text_top] или [seo_text_bottom] в зависимости от $page->seo_desktop
-         */
-        public static function compileSeo($page, &$html)
-        {
-            if ($page->seo_desktop) {
-                static::replace($html, 'seo_text_top', "<div class='seo-text-top'>" . $page->getClean('html') . "</div>");
-                static::replace($html, 'seo_text_bottom', '');
-            } else {
-                static::replace($html, 'seo_text_top', '');
-                static::replace($html, 'seo_text_bottom', "<div class='seo-text-bottom'>" . $page->getClean('html') . "</div>");
-            }
-            static::replace($html, 'useful', view('blocks.useful', compact('page')));
-            // detect page refresh
-
-            static::replace($html, 'page_was_refreshed', (int)(
-                (isset($_SESSION['page_was_refreshed']) || (isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0') || $page->isMainSerp())
-            ));
-            unset($_SESSION['page_was_refreshed']);
-        }
-
         public static function interpolate($text = '', $start = null, $end = null)
         {
             if (! $start) {
