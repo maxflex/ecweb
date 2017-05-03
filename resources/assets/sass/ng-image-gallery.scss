@@ -1,3 +1,5 @@
+$gallery-common-indent: 60px;
+
 @-webkit-keyframes sk-stretchdelay {
   0%, 40%, 100% {
     -webkit-transform: scaleY(0.4); }
@@ -268,11 +270,6 @@
         padding: 60px;
         box-sizing: border-box;
       }
-
-      .mobile-gallery .ng-image-gallery-content .galleria {
-        padding: 60px 0 !important;
-      }
-
         .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images {
           position: relative;
           width: 100%;
@@ -623,14 +620,48 @@
     text-align: center;
     margin: 19px 0px;
     font-size: 16px;
+}
+
+.mobile-gallery {
+  .ng-image-gallery-loader {
+    top: 2 * $gallery-common-indent!important;
+    bottom: 2 * $gallery-common-indent!important;
+  }
+
+  .ng-image-gallery-content .galleria {
+    padding: 60px 0 !important;
+  }
+
+  .title {
+    margin: 0;
+    position: absolute;
+    bottom: calc(((100vh - (2*100vw / 3)) / 2) - 3.5em);
+    .iphone4 & {
+      bottom: calc(((100vh - (2*100vw / 3)) / 2) - 5em);
+    }
+    width: 100%;
     span {
       position: relative;
       z-index: 99;
       display: inline-block;
-      margin: 0 5px;
+      margin: 10px 5px;
       cursor: pointer;
       &:nth-child(2) {
         min-width: 4em;
       }
+      &:first-child i {
+         background: url(../img/svg/left-arrow-angle.svg);
+      }
+      &:last-child i {
+        background: url(../img/svg/right-arrow-angle.svg);
+      }
+      & i {
+        background-size: contain!important;
+        vertical-align: middle;
+        display: inline-block;
+        padding: 0.4rem;
+        margin: 0.2rem;
+      }
     }
+  }
 }

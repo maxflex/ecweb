@@ -17061,7 +17061,7 @@ addMarker = function(map, latLng) {
 
                                // Gallery contents container
                                // (hide when image is loading)
-                               '<div class="ng-image-gallery-content" ng-show="!imgLoading" ng-click="backgroundClose($event);">'+
+                               '<div class="ng-image-gallery-content" ng-click="backgroundClose($event);">'+
 
                                    // actions icons container
                                    '<div class="actions-icons-container">'+
@@ -17101,9 +17101,9 @@ addMarker = function(map, latLng) {
                                        (
                                            isMobile
                                            ? '<div class="title">' +
-                                               '<span ng-click="methods.prev();" ng-hide="images.length == 1">предыдущий</span>' +
-                                                  '<span ng-if="image.title" ng-bind-html="($index < 9 ? \'&nbsp;\' : \'\') + ($index + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></span>' +
-                                               '<span ng-click="methods.next();" ng-hide="images.length == 1">следующий</span>' +
+                                               '<span ng-click="methods.prev();" ng-hide="images.length == 1"><i></i>пред.</span>' +
+                                                  '<span ng-if="image.title" ng-bind-html="($index < 9 ? \'&nbsp;\' : \'\') + (_activeImageIndex + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></span>' +
+                                               '<span ng-click="methods.next();" ng-hide="images.length == 1">след.<i></i></span>' +
                                              '</div>'
                                            : '<div class="title" ng-if="image.title" ng-bind-html="\'Изображение \' + ($index + 1) + \' из \' + (images.length) + \': \' + image.title | ngImageGalleryTrust"></div>'
                                        ) +
@@ -17116,7 +17116,7 @@ addMarker = function(map, latLng) {
 
                                        // Images container
                                        // @custom
-                                       '<div class="galleria-images img-anim-{{imgAnim}} img-move-dir-{{_imgMoveDirection}}">'+
+                                       '<div ng-show="!imgLoading" class="galleria-images img-anim-{{imgAnim}} img-move-dir-{{_imgMoveDirection}}">'+
                                            '<img class="galleria-image" ng-right-click ng-repeat="image in images track by image.id" ng-if="_activeImg == image" ng-src="{{image.url}}" ondragstart="return false;" ng-attr-alt="{{image.alt || undefined}}"/>'+
                                        '</div>'+
 
@@ -17363,6 +17363,7 @@ addMarker = function(map, latLng) {
 
                    // Change image to next
                    scope.methods.next = function(){
+                       console.log('ch')
                        if(scope._activeImageIndex == (scope.images.length - 1)){
                            scope._activeImageIndex = 0;
                        }
@@ -17373,6 +17374,7 @@ addMarker = function(map, latLng) {
 
                    // Change image to prev
                    scope.methods.prev = function(){
+                       console.log('ch')
                        if(scope._activeImageIndex == 0){
                            scope._activeImageIndex = scope.images.length - 1;
                        }
