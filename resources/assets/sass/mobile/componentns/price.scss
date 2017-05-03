@@ -23,8 +23,8 @@ $indent-top-bottom: 0.938;
               display: block !important;
               border: none;
               & .price-list-item-title {
-                  border-top: 1px solid $color-footer;
-                  background: rgba(0, 0, 0, .1);
+                  border-top: 1px solid lighten($color-footer, 50);
+                  background: rgba(0, 0, 0, .05);
                   color: black !important;
                   &:after {
                       background-image: url(../img/svg/dropdown-gray-thick.svg) !important;

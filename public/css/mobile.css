@@ -3998,8 +3998,8 @@ a {
         display: block !important;
         border: none; }
         .price-list-item__open > .price-list-inner .price-list-item-title {
-          border-top: 1px solid #3b3b3b;
-          background: rgba(0, 0, 0, 0.1);
+          border-top: 1px solid #bbbbbb;
+          background: rgba(0, 0, 0, 0.05);
           color: black !important; }
           .price-list-item__open > .price-list-inner .price-list-item-title:after {
             background-image: url(../img/svg/dropdown-gray-thick.svg) !important; }
