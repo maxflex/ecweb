@@ -17102,7 +17102,7 @@ addMarker = function(map, latLng) {
                                            isMobile
                                            ? '<div class="title">' +
                                                '<span ng-click="methods.prev();" ng-hide="images.length == 1"><i></i>пред.</span>' +
-                                                  '<span ng-if="image.title" ng-bind-html="($index < 9 ? \'&nbsp;\' : \'\') + (_activeImageIndex + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></span>' +
+                                                  '<span ng-if="image.title" ng-bind-html="(_activeImageIndex + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></span>' +
                                                '<span ng-click="methods.next();" ng-hide="images.length == 1">след.<i></i></span>' +
                                              '</div>'
                                            : '<div class="title" ng-if="image.title" ng-bind-html="\'Изображение \' + ($index + 1) + \' из \' + (images.length) + \': \' + image.title | ngImageGalleryTrust"></div>'
