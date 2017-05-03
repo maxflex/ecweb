@@ -3998,15 +3998,21 @@ a {
         display: block !important;
         border: none; }
         .price-list-item__open > .price-list-inner .price-list-item-title {
-          background: rgba(0, 0, 0, 0.1); }
+          border-top: 1px solid #3b3b3b;
+          background: rgba(0, 0, 0, 0.1);
+          color: black !important; }
+          .price-list-item__open > .price-list-inner .price-list-item-title:after {
+            background-image: url(../img/svg/dropdown-gray-thick.svg) !important; }
           .price-list-item__open > .price-list-inner .price-list-item-title__active {
             background: #3b3b3b; }
         .price-list-item__open > .price-list-inner .price-list-inner-item {
           border: none; }
+        .price-list-item__open > .price-list-inner .price-list-inner {
+          border: none; }
       .price-list-item__open > .price-list-item-title:after {
         display: none; }
     .price-list-item__active > .price-list-item-title {
-      background: #3b3b3b !important;
+      background: #3b3b3b;
       color: white; }
       .price-list-item__active > .price-list-item-title:after {
         background-image: url(../img/svg/dropdown-white-thick.svg) !important;
@@ -4108,6 +4114,8 @@ a {
   border-top: 0.063em solid #dcdcdc; }
   .catalog-list-item {
     border-bottom: 0.063em solid #dcdcdc; }
+    .catalog-list-item:first-of-type {
+      border-top: 1px solid white; }
     .catalog-list-item:last-of-type {
       border-bottom: none; }
     .catalog-list-item__active .catalog-list-item-title {
@@ -4141,7 +4149,7 @@ a {
     border-top: 0.063em solid #dcdcdc; }
     .catalog-list-inner-item {
       position: relative;
-      padding: 0.7em .8em 0.7em 1.357em;
+      padding: 0.7em .8em 0.7em 2em;
       border-bottom: 0.063em solid #dcdcdc; }
       .catalog-list-inner-item a {
         text-decoration: none;
@@ -4153,8 +4161,8 @@ a {
         -webkit-box-pack: justify;
         justify-content: space-between; }
         .catalog-list-inner-item a > img {
-          height: 1.2em;
-          width: 1.2em; }
+          height: 0.75em;
+          width: 0.75em; }
         .catalog-list-inner-item a > div {
           display: -webkit-box;
           display: flex;
