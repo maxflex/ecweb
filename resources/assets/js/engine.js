@@ -39,7 +39,7 @@ function closeModal() {
     $('.container').off('touchmove');
     // @todo: почему-то эта строчка ломает повторное воспроизведение видео видео
     if(window.location.hash == "#modal") {
-        window.history.pushState('', document.title, window.location.pathname);
+        window.history.replaceState('', document.title, window.location.pathname);
     }
     if (typeof(onCloseModal) == 'function') {
         onCloseModal()
@@ -52,7 +52,7 @@ function openModal(id) {
     $("body").addClass('modal-open open-modal-' + id);
     // active_modal = id
     $('.container').on('touchmove', function(e){e.preventDefault();});
-    window.location.hash = '#modal'
+    window.history.replaceState('', document.title, window.location.pathname + '#modal');
     if (typeof(onOpenModal) == 'function') {
         onOpenModal()
     }
