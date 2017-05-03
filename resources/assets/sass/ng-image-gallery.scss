@@ -617,8 +617,20 @@
 }
 
 .title {
+    position: relative;
+    z-index:99;
     color: white;
     text-align: center;
     margin: 19px 0px;
     font-size: 16px;
+    span {
+      position: relative;
+      z-index: 99;
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+      &:nth-child(2) {
+        min-width: 4em;
+      }
+    }
 }

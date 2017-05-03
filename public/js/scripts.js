@@ -15941,7 +15941,8 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
     'ngImageGalleryOptsProvider', function(ngImageGalleryOptsProvider) {
       return ngImageGalleryOptsProvider.setOpts({
         bubbles: false,
-        bubbleSize: 100
+        bubbleSize: 100,
+        imgAnim: isMobile ? 'slide' : 'fadeup'
       });
     }
   ]).config([
@@ -16220,6 +16221,224 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
         return (bytes / 1048576).toFixed(1) + ' MB';
       } else {
         return (bytes / 1073741824).toFixed(1) + ' GB';
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('academic', function() {
+    return {
+      restrict: 'E',
+      template: "{{ year }}–{{ +(year) + 1 }}",
+      scope: {
+        year: '='
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('digitsOnly', function() {
+    return {
+      restrics: 'A',
+      require: 'ngModel',
+      link: function($scope, $element, $attr, $ctrl) {
+        var filter, ref;
+        filter = function(value) {
+          var new_value;
+          if (!value) {
+            return void 0;
+          }
+          new_value = value.replace(/[^0-9]/g, '');
+          if (new_value !== value) {
+            $ctrl.$setViewValue(new_value);
+            $ctrl.$render();
+          }
+          return value;
+        };
+        return (ref = $ctrl.$parsers) != null ? ref.push(filter) : void 0;
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('errors', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'directives/errors',
+      scope: {
+        model: '@'
+      },
+      controller: function($scope, $element, $attrs) {
+        $scope.only_first = $attrs.hasOwnProperty('onlyFirst');
+        return $scope.getErrors = function() {
+          var errors;
+          if ($scope.$parent.errors === void 0) {
+            return;
+          }
+          errors = $scope.$parent.errors[$scope.model];
+          if ($scope.only_first) {
+            return [errors[0]];
+          } else {
+            return errors;
+          }
+        };
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('ngPhone', function() {
+    return {
+      restrict: 'A',
+      link: function($scope, element) {
+        return $(element).mask("+7 (999) 999-99-99", {
+          autoclear: false
+        });
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('plural', function() {
+    return {
+      restrict: 'E',
+      scope: {
+        count: '=',
+        type: '@',
+        noneText: '@'
+      },
+      templateUrl: '/directives/plural',
+      controller: function($scope, $element, $attrs, $timeout) {
+        $scope.textOnly = $attrs.hasOwnProperty('textOnly');
+        $scope.hideZero = $attrs.hasOwnProperty('hideZero');
+        return $scope.when = {
+          'age': ['год', 'года', 'лет'],
+          'student': ['ученик', 'ученика', 'учеников'],
+          'minute': ['минуту', 'минуты', 'минут'],
+          'hour': ['час', 'часа', 'часов'],
+          'day': ['день', 'дня', 'дней'],
+          'rubbles': ['рубль', 'рубля', 'рублей'],
+          'client': ['клиент', 'клиента', 'клиентов'],
+          'mark': ['оценки', 'оценок', 'оценок'],
+          'review': ['отзыв', 'отзыва', 'отзывов'],
+          'request': ['заявка', 'заявки', 'заявок'],
+          'profile': ['анкета', 'анкеты', 'анкет'],
+          'address': ['адрес', 'адреса', 'адресов'],
+          'person': ['человек', 'человека', 'человек'],
+          'ton': ['тонна', 'тонны', 'тонн'],
+          'yacht': ['яхта', 'яхты', 'яхт']
+        };
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('programItem', function() {
+    return {
+      templateUrl: '/directives/program',
+      scope: {
+        item: '=',
+        level: '=?',
+        levelstring: '='
+      },
+      controller: function($timeout, $element, $scope) {
+        if (!$scope.level) {
+          $scope.level = 0;
+        }
+        return $scope.getChildLevelString = function(child_index) {
+          var str;
+          str = $scope.levelstring ? $scope.levelstring : '';
+          return str + (child_index + 1) + '.';
+        };
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').directive('requestForm', function() {
+    return {
+      replace: true,
+      scope: {
+        tutor: '=',
+        sentIds: '=',
+        index: '='
+      },
+      templateUrl: function(elem, attrs) {
+        if (attrs.hasOwnProperty('mobile')) {
+          return 'directives/request-form-mobile';
+        } else {
+          return 'directives/request-form';
+        }
+      },
+      controller: function($scope, $element, $timeout, $rootScope, Request, Sources) {
+        var trackDataLayer;
+        $scope.request = function() {
+          if ($scope.tutor.request === void 0) {
+            $scope.tutor.request = {};
+          }
+          $scope.tutor.request.tutor_id = $scope.tutor.id;
+          return Request.save($scope.tutor.request, function() {
+            $scope.tutor.request_sent = true;
+            $scope.$parent.StreamService.run('request', $scope.$parent.StreamService.identifySource($scope.tutor), {
+              position: $scope.index || $scope.$parent.index,
+              tutor_id: $scope.tutor.id
+            });
+            return trackDataLayer();
+          }, function(response) {
+            if (response.status === 422) {
+              return angular.forEach(response.data, function(errors, field) {
+                var selector;
+                selector = "[ng-model$='" + field + "']";
+                return $($element).find("input" + selector + ", textarea" + selector).focus().notify(errors[0], notify_options);
+              });
+            } else {
+              return $scope.tutor.request_error = true;
+            }
+          });
+        };
+        return trackDataLayer = function() {
+          return dataLayerPush({
+            event: 'purchase',
+            ecommerce: {
+              currencyCode: 'RUR',
+              purchase: {
+                actionField: {
+                  id: googleClientId(),
+                  affiliation: $scope.$parent.StreamService.identifySource(),
+                  revenue: $scope.tutor.public_price
+                },
+                products: [
+                  {
+                    id: $scope.tutor.id,
+                    price: $scope.tutor.public_price,
+                    brand: $scope.tutor.subjects,
+                    category: $scope.tutor.gender + '_' + $rootScope.yearsPassed($scope.tutor.birth_year),
+                    quantity: 1
+                  }
+                ]
+              }
+            }
+          });
+        };
       }
     };
   });
@@ -16518,224 +16737,6 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
         return $timeout(function() {
           return $scope[fn](tutor, index);
         });
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').directive('academic', function() {
-    return {
-      restrict: 'E',
-      template: "{{ year }}–{{ +(year) + 1 }}",
-      scope: {
-        year: '='
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').directive('digitsOnly', function() {
-    return {
-      restrics: 'A',
-      require: 'ngModel',
-      link: function($scope, $element, $attr, $ctrl) {
-        var filter, ref;
-        filter = function(value) {
-          var new_value;
-          if (!value) {
-            return void 0;
-          }
-          new_value = value.replace(/[^0-9]/g, '');
-          if (new_value !== value) {
-            $ctrl.$setViewValue(new_value);
-            $ctrl.$render();
-          }
-          return value;
-        };
-        return (ref = $ctrl.$parsers) != null ? ref.push(filter) : void 0;
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').directive('errors', function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'directives/errors',
-      scope: {
-        model: '@'
-      },
-      controller: function($scope, $element, $attrs) {
-        $scope.only_first = $attrs.hasOwnProperty('onlyFirst');
-        return $scope.getErrors = function() {
-          var errors;
-          if ($scope.$parent.errors === void 0) {
-            return;
-          }
-          errors = $scope.$parent.errors[$scope.model];
-          if ($scope.only_first) {
-            return [errors[0]];
-          } else {
-            return errors;
-          }
-        };
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-
-
-}).call(this);
-
-(function() {
-  angular.module('App').directive('ngPhone', function() {
-    return {
-      restrict: 'A',
-      link: function($scope, element) {
-        return $(element).mask("+7 (999) 999-99-99", {
-          autoclear: false
-        });
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').directive('plural', function() {
-    return {
-      restrict: 'E',
-      scope: {
-        count: '=',
-        type: '@',
-        noneText: '@'
-      },
-      templateUrl: '/directives/plural',
-      controller: function($scope, $element, $attrs, $timeout) {
-        $scope.textOnly = $attrs.hasOwnProperty('textOnly');
-        $scope.hideZero = $attrs.hasOwnProperty('hideZero');
-        return $scope.when = {
-          'age': ['год', 'года', 'лет'],
-          'student': ['ученик', 'ученика', 'учеников'],
-          'minute': ['минуту', 'минуты', 'минут'],
-          'hour': ['час', 'часа', 'часов'],
-          'day': ['день', 'дня', 'дней'],
-          'rubbles': ['рубль', 'рубля', 'рублей'],
-          'client': ['клиент', 'клиента', 'клиентов'],
-          'mark': ['оценки', 'оценок', 'оценок'],
-          'review': ['отзыв', 'отзыва', 'отзывов'],
-          'request': ['заявка', 'заявки', 'заявок'],
-          'profile': ['анкета', 'анкеты', 'анкет'],
-          'address': ['адрес', 'адреса', 'адресов'],
-          'person': ['человек', 'человека', 'человек'],
-          'ton': ['тонна', 'тонны', 'тонн'],
-          'yacht': ['яхта', 'яхты', 'яхт']
-        };
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').directive('programItem', function() {
-    return {
-      templateUrl: '/directives/program',
-      scope: {
-        item: '=',
-        level: '=?',
-        levelstring: '='
-      },
-      controller: function($timeout, $element, $scope) {
-        if (!$scope.level) {
-          $scope.level = 0;
-        }
-        return $scope.getChildLevelString = function(child_index) {
-          var str;
-          str = $scope.levelstring ? $scope.levelstring : '';
-          return str + (child_index + 1) + '.';
-        };
-      }
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').directive('requestForm', function() {
-    return {
-      replace: true,
-      scope: {
-        tutor: '=',
-        sentIds: '=',
-        index: '='
-      },
-      templateUrl: function(elem, attrs) {
-        if (attrs.hasOwnProperty('mobile')) {
-          return 'directives/request-form-mobile';
-        } else {
-          return 'directives/request-form';
-        }
-      },
-      controller: function($scope, $element, $timeout, $rootScope, Request, Sources) {
-        var trackDataLayer;
-        $scope.request = function() {
-          if ($scope.tutor.request === void 0) {
-            $scope.tutor.request = {};
-          }
-          $scope.tutor.request.tutor_id = $scope.tutor.id;
-          return Request.save($scope.tutor.request, function() {
-            $scope.tutor.request_sent = true;
-            $scope.$parent.StreamService.run('request', $scope.$parent.StreamService.identifySource($scope.tutor), {
-              position: $scope.index || $scope.$parent.index,
-              tutor_id: $scope.tutor.id
-            });
-            return trackDataLayer();
-          }, function(response) {
-            if (response.status === 422) {
-              return angular.forEach(response.data, function(errors, field) {
-                var selector;
-                selector = "[ng-model$='" + field + "']";
-                return $($element).find("input" + selector + ", textarea" + selector).focus().notify(errors[0], notify_options);
-              });
-            } else {
-              return $scope.tutor.request_error = true;
-            }
-          });
-        };
-        return trackDataLayer = function() {
-          return dataLayerPush({
-            event: 'purchase',
-            ecommerce: {
-              currencyCode: 'RUR',
-              purchase: {
-                actionField: {
-                  id: googleClientId(),
-                  affiliation: $scope.$parent.StreamService.identifySource(),
-                  revenue: $scope.tutor.public_price
-                },
-                products: [
-                  {
-                    id: $scope.tutor.id,
-                    price: $scope.tutor.public_price,
-                    brand: $scope.tutor.subjects,
-                    category: $scope.tutor.gender + '_' + $rootScope.yearsPassed($scope.tutor.birth_year),
-                    quantity: 1
-                  }
-                ]
-              }
-            }
-          });
-        };
       }
     };
   });
@@ -17090,9 +17091,9 @@ function closeModal() {
 	// $("body").addClass('open-modal-' + active_modal); active_modal = false
     $('.container').off('touchmove');
     // @todo: почему-то эта строчка ломает повторное воспроизведение видео видео
-    // if(window.location.hash == "#modal") {
-    //     window.history.back()
-    // }
+    if(window.location.hash == "#modal") {
+        window.history.replaceState('', document.title, window.location.pathname);
+    }
     if (typeof(onCloseModal) == 'function') {
         onCloseModal()
     }
@@ -17104,11 +17105,18 @@ function openModal(id) {
     $("body").addClass('modal-open open-modal-' + id);
     // active_modal = id
     $('.container').on('touchmove', function(e){e.preventDefault();});
-    window.location.hash = '#modal'
+    window.history.replaceState('', document.title, window.location.pathname + '#modal');
     if (typeof(onOpenModal) == 'function') {
         onOpenModal()
     }
 }
+
+// close modal on «back» button
+$(window).on('hashchange', function() {
+    if(window.location.hash != "#modal") {
+        closeModal()
+    }
+});
 
 // Автовоспроизведение видео с открытием модального окна
 function initYoutube() {
@@ -17629,7 +17637,11 @@ addMarker = function(map, latLng) {
                                    '<div ng-repeat="image in images track by image.id" ng-if="(image.title || image.desc) && (_activeImg == image)">'+
                                        (
                                            isMobile
-                                           ? '<div class="title" ng-if="image.title" ng-bind-html="($index + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></div>'
+                                           ? '<div class="title">' +
+                                               '<span ng-click="methods.prev();" ng-hide="images.length == 1">предыдущий</span>' +
+                                                  '<span ng-if="image.title" ng-bind-html="($index < 9 ? \'&nbsp;\' : \'\') + ($index + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></span>' +
+                                               '<span ng-click="methods.next();" ng-hide="images.length == 1">следующий</span>' +
+                                             '</div>'
                                            : '<div class="title" ng-if="image.title" ng-bind-html="\'Изображение \' + ($index + 1) + \' из \' + (images.length) + \': \' + image.title | ngImageGalleryTrust"></div>'
                                        ) +
 

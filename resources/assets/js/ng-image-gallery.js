@@ -249,7 +249,11 @@
                                    '<div ng-repeat="image in images track by image.id" ng-if="(image.title || image.desc) && (_activeImg == image)">'+
                                        (
                                            isMobile
-                                           ? '<div class="title" ng-if="image.title" ng-bind-html="($index + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></div>'
+                                           ? '<div class="title">' +
+                                               '<span ng-click="methods.prev();" ng-hide="images.length == 1">предыдущий</span>' +
+                                                  '<span ng-if="image.title" ng-bind-html="($index < 9 ? \'&nbsp;\' : \'\') + ($index + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></span>' +
+                                               '<span ng-click="methods.next();" ng-hide="images.length == 1">следующий</span>' +
+                                             '</div>'
                                            : '<div class="title" ng-if="image.title" ng-bind-html="\'Изображение \' + ($index + 1) + \' из \' + (images.length) + \': \' + image.title | ngImageGalleryTrust"></div>'
                                        ) +
 

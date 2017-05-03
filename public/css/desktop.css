@@ -5519,9 +5519,19 @@ ol, ul {
   width: 110px !important; }
 
 .title {
+  position: relative;
+  z-index: 99;
   color: white;
   text-align: center;
   margin: 19px 0px;
   font-size: 16px; }
+  .title span {
+    position: relative;
+    z-index: 99;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer; }
+    .title span:nth-child(2) {
+      min-width: 4em; }
 
 /*# sourceMappingURL=desktop.css.map */
