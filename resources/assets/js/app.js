@@ -541,9 +541,7 @@
         console.log('Setting url to ' + tutor.video_link);
         $scope.video_link = tutor.video_link;
       }
-      if (!$('body').hasClass('modal-open')) {
-        return openModal('video');
-      }
+      return openModal('video');
     };
     $scope.videoLink = function() {
       return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + $scope.video_link + "?enablejsapi=1&rel=0&amp;showinfo=0");
