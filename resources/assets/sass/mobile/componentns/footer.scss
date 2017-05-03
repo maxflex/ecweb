@@ -4,16 +4,10 @@
   text-align: center;
   font-family: 'helveticaneuecyrlight';
   font-weight: normal;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: $footer-height + em;
-  padding: 1.450em 0 0 0;
+  padding: 1.450em 0;
   box-sizing: content-box;
-  &.light {
-      height: $footer-light-height;
-  }
+  margin-top: 2em;
   &-message {
     padding: 0 0 0.625em 0;
   }
@@ -23,16 +17,6 @@
     font-size: 1.250em;
     font-family: 'helveticaneuecyrmedium';
     padding: 0 0 1.763em 0;
-  }
-
-  &-fix {
-    clear: both;
-    height: $footer-height + 3.750 + em;
-  }
-
-  &-fix-light {
-      clear: both;
-      height: $footer-light-height + 3.75em;
   }
 
   a {
@@ -58,7 +42,7 @@
 }
 
 .main-page {
-    & .footer-fix-light {
-        height: $footer-light-height + 1.45em;
+    & .footer {
+        margin-top: 0;
     }
 }

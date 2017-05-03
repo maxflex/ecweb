@@ -3742,15 +3742,10 @@ a {
   text-align: center;
   font-family: 'helveticaneuecyrlight';
   font-weight: normal;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: 49em;
-  padding: 1.450em 0 0 0;
-  box-sizing: content-box; }
-  .footer.light {
-    height: 42.5em; }
+  padding: 1.450em 0;
+  box-sizing: content-box;
+  margin-top: 2em; }
   .footer-message {
     padding: 0 0 0.625em 0; }
   .footer-title {
@@ -3758,12 +3753,6 @@ a {
     font-size: 1.250em;
     font-family: 'helveticaneuecyrmedium';
     padding: 0 0 1.763em 0; }
-  .footer-fix {
-    clear: both;
-    height: 52.75em; }
-  .footer-fix-light {
-    clear: both;
-    height: 46.25em; }
   .footer a {
     color: #fff; }
   .footer-menu {
@@ -3777,8 +3766,8 @@ a {
   .footer .button-green-large, .footer .button-green-small, .footer .button-blue-large, .footer .button-white-large {
     margin: 0 0 1.750em 0; }
 
-.main-page .footer-fix-light {
-  height: 43.95em; }
+.main-page .footer {
+  margin-top: 0; }
 
 .tutors {
   margin: 0;
@@ -4093,7 +4082,9 @@ a {
       -webkit-box-align: center;
       align-items: center; }
       .catalog-list-item-title .badge {
-        margin-right: .5em; }
+        margin-right: .5em;
+        position: absolute;
+        left: -2.7em; }
   .catalog-list-inner {
     display: none;
     margin: 0;
@@ -4147,7 +4138,8 @@ a {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-  align-items: center; }
+  align-items: center;
+  position: relative; }
   .catalog-controls img {
     height: 1.2em; }
 

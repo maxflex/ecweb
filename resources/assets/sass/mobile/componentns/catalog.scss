@@ -39,6 +39,8 @@ $icon-width: 2.450;
           align-items: center;
         .badge {
           margin-right: .5em;
+          position: absolute;
+          left: -2.7em;
         }
       }
     }
@@ -108,6 +110,7 @@ $icon-width: 2.450;
 .catalog-controls {
     display: flex;
     align-items: center;
+    position: relative;
     & img {
         height: 1.2em;
     }
