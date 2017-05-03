@@ -13,13 +13,13 @@ $height-right-arrow: 1.188;
       padding: $address-item-indent + em ($common-side-indent + em) $address-item-indent + em ($common-side-indent*2 + em);
       position: relative;
       border-bottom: 0.063em solid $color-grey-border;
-
-      &:after {
-        content: '';
-        display: block;
-        clear: both;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      & > img {
+          height: 1.2em;
+          width: 1.2em;
       }
-
       &-info {
         float: right;
         color: $text-grey;
@@ -29,18 +29,6 @@ $height-right-arrow: 1.188;
         box-sizing: border-box;
         padding-right: $common-side-indent + em;
         position: relative;
-
-        &:after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          right: 0;
-          margin-top: - $height-right-arrow/2 + em;
-          width: 0.625em;
-          height: $height-right-arrow + em;
-          background: url('../img/icons/arrow-right.png') no-repeat;
-          background-size: cover;
-        }
       }
 
       &-more {
@@ -111,7 +99,7 @@ $height-right-arrow: 1.188;
           margin: 0;
       }
       &-left {
-        font-family: $font-regular;
+        font-family: $font-medium;
       }
     }
   }

@@ -33,7 +33,6 @@ $indent-top-bottom: 0.938;
 
       &-title {
         position: relative;
-        font-size: 1.2em;
         font-family: 'helveticaneuecyrmedium';
         padding: $indent-top-bottom + em ($common-side-indent*2 + em) $indent-top-bottom + em ($common-side-indent + em);
         cursor: pointer;
@@ -76,19 +75,11 @@ $indent-top-bottom: 0.938;
         }
 
         &-info {
-            display: flex;
             &:not(:last-child) {
                 margin-bottom: 2.4em;
             }
-            & > div {
-                flex: 1;
-                line-height: 1.6em;
-                &:first-child {
-                    text-align: left;
-                }
-                &:last-child {
-                    text-align: right;
-                }
+            & > span {
+                font-size: 1.5em;
             }
         }
 
