@@ -38,9 +38,9 @@ function closeModal() {
 	// $("body").addClass('open-modal-' + active_modal); active_modal = false
     $('.container').off('touchmove');
     // @todo: почему-то эта строчка ломает повторное воспроизведение видео видео
-    // if(window.location.hash == "#modal") {
-    //     window.history.back()
-    // }
+    if(window.location.hash == "#modal") {
+        window.history.pushState('', document.title, window.location.pathname);
+    }
     if (typeof(onCloseModal) == 'function') {
         onCloseModal()
     }
@@ -57,6 +57,13 @@ function openModal(id) {
         onOpenModal()
     }
 }
+
+// close modal on «back» button
+$(window).on('hashchange', function() {
+    if(window.location.hash != "#modal") {
+        closeModal()
+    }
+});
 
 // Автовоспроизведение видео с открытием модального окна
 function initYoutube() {
