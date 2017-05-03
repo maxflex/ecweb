@@ -48,7 +48,7 @@ $icon-width: 2.450;
           align-items: center;
           background: white;
           color: black;
-          height: 1.3em;
+          height: $arrow-expand-height;
         .badge {
           margin-right: .5em;
         //   position: absolute;
@@ -124,6 +124,6 @@ $icon-width: 2.450;
     align-items: center;
     position: relative;
     & img {
-        height: 1.2em;
+        height: 1.75em;
     }
 }
