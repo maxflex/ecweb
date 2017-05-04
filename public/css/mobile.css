@@ -4086,13 +4086,13 @@ a[href^="https://www.google.com/maps"] {
 
 .reviews {
   margin: 0;
-  padding: 0 0 1.250em 0;
+  padding: 0;
   list-style: none; }
-  .reviews-item {
+  .reviews-item:not(:last-of-type) {
     padding: 0 0 2.813em 0; }
-    .reviews-item-signature {
-      padding: 1.250em 0 0 0;
-      text-align: right; }
+  .reviews-item-signature {
+    padding: 1.250em 0 0 0;
+    text-align: right; }
   .reviews-popup-wrap {
     text-align: left;
     padding: 1.250em; }
