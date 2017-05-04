@@ -116,3 +116,11 @@ window.notify_options = {
     hideDuration: 400,
     autoHideDelay: 3000
 }
+
+function dataLayerPush(object) {
+    if ($.cookie('admin')) {
+        return;
+    }
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push(object)
+}

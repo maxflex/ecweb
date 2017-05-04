@@ -3924,16 +3924,20 @@ a[href^="https://www.google.com/maps"] {
   .address-list-item {
     padding: 0.8em 1.357em 0.8em 2.714em;
     position: relative;
-    border-bottom: 0.063em solid #dcdcdc;
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    justify-content: space-between; }
-    .address-list-item > img {
-      height: 1.2em;
-      width: 1.2em; }
+    border-bottom: 0.063em solid #dcdcdc; }
+    .address-list-item > a {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      text-decoration: none; }
+      .address-list-item > a > img {
+        height: 1.2em;
+        width: 1.2em; }
+      .address-list-item > a .address-branch-title {
+        text-decoration: underline; }
     .address-list-item-info {
       float: right;
       color: #818181;

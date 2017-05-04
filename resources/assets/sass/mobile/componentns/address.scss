@@ -13,12 +13,18 @@ $height-right-arrow: 1.188;
       padding: $address-item-indent + em ($common-side-indent + em) $address-item-indent + em ($common-side-indent*2 + em);
       position: relative;
       border-bottom: 0.063em solid $color-grey-border;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      & > img {
-          height: 1.2em;
-          width: 1.2em;
+      & > a {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          text-decoration: none;
+          & > img {
+              height: 1.2em;
+              width: 1.2em;
+          }
+          & .address-branch-title {
+              text-decoration: underline;
+          }
       }
       &-info {
         float: right;

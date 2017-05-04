@@ -3994,6 +3994,38 @@ a[href^="https://www.google.com/maps"] {
   display: block;
   font-family: "helveticaneuecyrmedium"; }
 
+.external-schedule {
+  width: 100%; }
+
+.external-schedule {
+  background: #fff;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left; }
+  .external-schedule td {
+    border-bottom: 1px solid #ccc;
+    padding: 6px 8px; }
+  .external-schedule tr:last-of-type td {
+    border: none; }
+  .external-schedule thead tr td {
+    padding: 10px 8px;
+    font-family: "helveticaneuecyrregular";
+    border: 0; }
+  .external-schedule thead tr:first-of-type td {
+    text-align: center; }
+  .external-schedule thead tr:last-of-type td {
+    border-bottom: 1px solid #ccc; }
+
+.external-schedule-notes {
+  margin-top: 10px;
+  border-left: 2px solid #818181;
+  padding-left: 10px;
+  color: #818181;
+  line-height: 21px;
+  font-size: 12px; }
+  .external-schedule-notes b {
+    font-family: "helveticaneuecyrregular"; }
+
 /* Components */
 .top-message {
   background: #fef9de;

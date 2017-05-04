@@ -10,6 +10,20 @@ angular
             $scope.sending = true
             $scope.errors = {}
             Request.save $scope.order, ->
+                dataLayerPush
+                    event: 'purchase'
+                    ecommerce:
+                        currencyCode: 'RUR'
+                        purchase:
+                            actionField:
+                                id: googleClientId()
+                            products: [
+                                # класс
+                                brand: $scope.order.grade
+                                # предметы_филиал
+                                category: (if $scope.order.subjects then $scope.order.subjects.sort().join(',') else '') + '_' + $scope.order.branch_id
+                                quantity: 1
+                            ]
                 $scope.sending = false
                 $scope.sent = true
                 $('body').animate scrollTop: $('.header').offset().top
