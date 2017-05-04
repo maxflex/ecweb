@@ -38,10 +38,10 @@ function closeModal() {
     $('body').removeClass()
 	// $("body").addClass('open-modal-' + active_modal); active_modal = false
     $('.container').off('touchmove');
-    // @todo: почему-то эта строчка ломает повторное воспроизведение видео видео
-    // if(window.location.hash == "#modal") {
-    //     window.history.back()
-    // }
+    // @todo: почему-то эта строчка ломает повторное воспроизведение видео
+    if(window.location.hash == "#modal") {
+        window.history.back()
+    }
     if (typeof(onCloseModal) == 'function') {
         onCloseModal()
     }

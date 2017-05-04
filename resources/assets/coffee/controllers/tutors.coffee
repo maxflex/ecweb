@@ -1,7 +1,7 @@
 angular
     .module 'App'
     .constant 'REVIEWS_PER_PAGE', 5
-    .controller 'Tutors', ($scope, $timeout, $http, $sce, Tutor, REVIEWS_PER_PAGE, Subjects) ->
+    .controller 'Tutors', ($scope, $timeout, $http, Tutor, REVIEWS_PER_PAGE, Subjects) ->
         bindArguments($scope, arguments)
 
         # сколько загрузок преподавателей было
@@ -92,14 +92,8 @@ angular
                 # if $scope.mobile then $timeout -> bindToggle()
 
         $scope.video = (tutor) ->
-            if $scope.video_link isnt tutor.video_link
-                console.log('Setting url to ' + tutor.video_link)
-                $scope.video_link = tutor.video_link
+            player.loadVideoById(tutor.video_link)
             openModal('video')
-
-        # ссылка на видео
-        $scope.videoLink = ->
-            $sce.trustAsResourceUrl("https://www.youtube.com/embed/#{$scope.video_link}?enablejsapi=1&rel=0&amp;showinfo=0")
 
         # длительность видео
         $scope.videoDuration = (tutor) ->

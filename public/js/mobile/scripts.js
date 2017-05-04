@@ -14,6 +14,15 @@ $(document).ready(function() {
 	// if (isMobile && isIphone4) $('body').addClass('iphone4fix');
 })
 
+//
+// close modal on «back» button
+// 
+$(window).on('hashchange', function() {
+    if(window.location.hash != "#modal") {
+        closeModal()
+    }
+});
+
 function togglePrice(){
     var $parent = $(this).closest('.price-list-item');
 

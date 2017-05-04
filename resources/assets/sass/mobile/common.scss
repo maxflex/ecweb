@@ -180,7 +180,7 @@ a {
         padding: 0.938em;
         overflow-y: scroll;
         box-sizing: border-box;
-        height: 100%;
+        height: calc(100% - 47px);
         &.menu {
             display: flex;
             justify-content: center;
@@ -245,7 +245,13 @@ a {
     }
 }
 
-.gmnoprint{display:none !important}
+a[href^="http://maps.google.com/maps"],
+a[href^="https://maps.google.com/maps"],
+a[href^="https://www.google.com/maps"] {
+    display: none !important;
+}
+
+.gmnoprint, .gm-style-cc {display:none !important}
 
 .video-close-fix {
     position: fixed;

@@ -3570,7 +3570,7 @@ a {
     padding: 0.938em;
     overflow-y: scroll;
     box-sizing: border-box;
-    height: 100%; }
+    height: calc(100% - 47px); }
     .modal .modal-content.menu {
       display: -webkit-box;
       display: flex;
@@ -3632,7 +3632,12 @@ a {
 #modal-map .modal-content {
   padding: 0; }
 
-.gmnoprint {
+a[href^="http://maps.google.com/maps"],
+a[href^="https://maps.google.com/maps"],
+a[href^="https://www.google.com/maps"] {
+  display: none !important; }
+
+.gmnoprint, .gm-style-cc {
   display: none !important; }
 
 .video-close-fix {
