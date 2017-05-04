@@ -650,16 +650,16 @@ $gallery-common-indent: 60px;
         min-width: 4em;
       }
       &:first-child i {
-         background: url(../img/svg/left-arrow-angle.svg);
+         background: url(../img/svg/gallery-prev.svg);
       }
       &:last-child i {
-        background: url(../img/svg/right-arrow-angle.svg);
+        background: url(../img/svg/gallery-next.svg);
       }
       & i {
         background-size: contain!important;
         vertical-align: middle;
         display: inline-block;
-        padding: 0.4rem;
+        padding: 0.5rem 0.45rem;
         margin: 0.2rem;
       }
     }

@@ -4320,18 +4320,18 @@ th {
 }
 
 .mobile-gallery .title span:first-child i {
-  background: url(../img/svg/left-arrow-angle.svg);
+  background: url(../img/svg/gallery-prev.svg);
 }
 
 .mobile-gallery .title span:last-child i {
-  background: url(../img/svg/right-arrow-angle.svg);
+  background: url(../img/svg/gallery-next.svg);
 }
 
 .mobile-gallery .title span i {
   background-size: contain !important;
   vertical-align: middle;
   display: inline-block;
-  padding: 0.4rem;
+  padding: 0.5rem 0.45rem;
   margin: 0.2rem;
 }
 
