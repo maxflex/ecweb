@@ -635,7 +635,7 @@ $gallery-common-indent: 60px;
   .title {
     margin: 0;
     position: absolute;
-    bottom: calc(((100vh - (2*100vw / 3)) / 2) - 3.5em);
+    bottom: calc(((100vh - (2*100vw / 3)) / 2) - 5em);
     .iphone4 & {
       bottom: calc(((100vh - (2*100vw / 3)) / 2) - 5em);
     }
