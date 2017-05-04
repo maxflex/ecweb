@@ -210,7 +210,7 @@
 
                                // Gallery contents container
                                // (hide when image is loading)
-                               '<div class="ng-image-gallery-content" ng-click="backgroundClose($event);">'+
+                               '<div class="ng-image-gallery-content">'+
 
                                    // actions icons container
                                    '<div class="actions-icons-container">'+
@@ -250,9 +250,9 @@
                                        (
                                            isMobile
                                            ? '<div class="title">' +
-                                               '<span ng-click="methods.prev();" ng-hide="images.length == 1"><i></i>пред.</span>' +
+                                               '<span ng-click="methods.prev();" ng-hide="images.length == 1"><i></i></span>' +
                                                   '<span ng-if="image.title" ng-bind-html="(_activeImageIndex + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></span>' +
-                                               '<span ng-click="methods.next();" ng-hide="images.length == 1">след.<i></i></span>' +
+                                               '<span ng-click="methods.next();" ng-hide="images.length == 1"><i></i></span>' +
                                              '</div>'
                                            : '<div class="title" ng-if="image.title" ng-bind-html="\'Изображение \' + ($index + 1) + \' из \' + (images.length) + \': \' + image.title | ngImageGalleryTrust"></div>'
                                        ) +
@@ -494,10 +494,23 @@
                        $timeout(function(){
                            scope.onOpen();
                        }, 300);
+
+                       scope.old_pop_state_handler = window.onpopstate
+
+                       console.log(scope.old_pop_state_handler, window.onpopstate)
+
+                       window.history.pushState(null, null, document.URL);
+                       window.onpopstate = function () {
+                            scope.methods.close()
+                            window.onpopstate = scope.old_pop_state_handler
+
+                            console.log(scope.old_pop_state_handler, window.onpopstate)
+                       }
                    }
 
                    // Close gallery modal
                    scope.methods.close = function(){
+                       console.log('close')
                        scope.opened = false; // Model closed
 
                        // set overflow hidden to body
@@ -603,13 +616,13 @@
                                scope.methods.next();
                            });
                        });
-                       hammerElem.on('doubletap', function(ev){
-                           if(scope.inline) return;
-
-                           $timeout(function(){
-                               scope.methods.close();
-                           });
-                       });
+                    //    hammerElem.on('doubletap', function(ev){
+                    //        if(scope.inline) return;
+                       //
+                    //        $timeout(function(){
+                    //            scope.methods.close();
+                    //        });
+                    //    });
                    };
 
 
