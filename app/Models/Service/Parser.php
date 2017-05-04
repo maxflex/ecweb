@@ -117,7 +117,7 @@
                     case 'tutors':
                         // поиск по ID
                         if (strpos($args[0], ',') !== false) {
-                            $replacement = Tutor::whereIn('id', explode(',', $args[0]))->get()->toJson();
+                            $replacement = Tutor::light()->whereIn('id', explode(',', $args[0]))->get()->toJson();
                         } else {
                             $replacement = Tutor::bySubject(...$args)->toJson();
                         }

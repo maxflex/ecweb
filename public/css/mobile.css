@@ -3478,7 +3478,7 @@ p {
   padding: 0 0 1.250em 0; }
 
 a {
-  color: #0c4e69;
+  color: #3a6699;
   text-decoration: underline; }
   a:hover {
     text-decoration: none; }
@@ -3493,7 +3493,7 @@ a {
   color: #a30000; }
 
 .color-blue {
-  color: #0c4e69; }
+  color: #3a6699; }
 
 .large-text {
   font-size: 150%; }
@@ -3686,6 +3686,25 @@ a[href^="https://www.google.com/maps"] {
 
 .text-gray {
   color: #818181; }
+
+.button-review-more {
+  margin-top: 2em; }
+
+.page-not-found-wrapper {
+  min-height: 400px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center; }
+  .page-not-found-wrapper .page-not-found {
+    text-align: center; }
+    .page-not-found-wrapper .page-not-found h1 {
+      font-family: "helveticaneuecyrlight"; }
+    .page-not-found-wrapper .page-not-found ul {
+      list-style: none;
+      padding: 0; }
 
 /* Components */
 .header {
@@ -4077,12 +4096,12 @@ a[href^="https://www.google.com/maps"] {
   .questions-item {
     padding: 0 0 1em 0; }
     .questions-item-title {
-      color: #0c4e69;
+      color: #3a6699;
       display: inline;
       text-decoration: none;
       padding: 0 0 0.063em 0;
       cursor: pointer;
-      border-bottom: 1px dashed #0c4e69; }
+      border-bottom: 1px dashed #3a6699; }
     .questions-item-answer {
       display: none;
       color: #818181;

@@ -246,11 +246,13 @@ p.last {
 	width: 100%;
 	border-collapse: collapse;
 	text-align: left;
+    font-size: 12px;
     & td {
         border-bottom: 1px solid lighten($text-grey-light, 20);
     	// color: #669;
     	padding: 6px 8px;
         background: #f4f4f4;
+        width: 10%;
     }
     & tr:last-of-type {
         & td {
@@ -262,6 +264,9 @@ p.last {
     	// border-bottom: 2px solid #6678b1;
         font-family: $font-regular;
         border: 0;
+        &:nth-child(2n) {
+            border-right: 1px solid lighten($text-grey-light, 20);
+        }
     }
     & thead tr {
         &:first-of-type {

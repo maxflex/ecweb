@@ -4001,17 +4001,21 @@ a[href^="https://www.google.com/maps"] {
   background: #fff;
   width: 100%;
   border-collapse: collapse;
-  text-align: left; }
+  text-align: left;
+  font-size: 12px; }
   .external-schedule td {
     border-bottom: 1px solid #dfdfdf;
     padding: 6px 8px;
-    background: #f4f4f4; }
+    background: #f4f4f4;
+    width: 10%; }
   .external-schedule tr:last-of-type td {
     border: none; }
   .external-schedule thead tr td {
     padding: 10px 8px;
     font-family: "helveticaneuecyrregular";
     border: 0; }
+    .external-schedule thead tr td:nth-child(2n) {
+      border-right: 1px solid #dfdfdf; }
   .external-schedule thead tr:first-of-type td {
     text-align: center; }
   .external-schedule thead tr:last-of-type td {

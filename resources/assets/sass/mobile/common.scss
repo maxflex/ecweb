@@ -308,3 +308,24 @@ a[href^="https://www.google.com/maps"] {
 .text-gray {
     color: $text-grey;
 }
+
+.button-review-more {
+    margin-top: $footer-margin;
+}
+
+.page-not-found-wrapper {
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & .page-not-found {
+        text-align: center;
+        & h1 {
+            font-family: $font-light;
+        }
+        & ul {
+            list-style: none;
+            padding: 0;
+        }
+    }
+}
