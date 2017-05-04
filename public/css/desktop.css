@@ -4003,8 +4003,9 @@ a[href^="https://www.google.com/maps"] {
   border-collapse: collapse;
   text-align: left; }
   .external-schedule td {
-    border-bottom: 1px solid #ccc;
-    padding: 6px 8px; }
+    border-bottom: 1px solid #dfdfdf;
+    padding: 6px 8px;
+    background: #f4f4f4; }
   .external-schedule tr:last-of-type td {
     border: none; }
   .external-schedule thead tr td {
@@ -4018,13 +4019,21 @@ a[href^="https://www.google.com/maps"] {
 
 .external-schedule-notes {
   margin-top: 10px;
-  border-left: 2px solid #818181;
-  padding-left: 10px;
+  margin-left: 8px;
   color: #818181;
   line-height: 21px;
   font-size: 12px; }
   .external-schedule-notes b {
     font-family: "helveticaneuecyrregular"; }
+
+.external-schedule-wrapper {
+  background: #f4f4f4;
+  padding: 3px;
+  border-radius: 4px;
+  display: inline-block; }
+
+.font-regular {
+  font-family: "helveticaneuecyrregular"; }
 
 /* Components */
 .top-message {

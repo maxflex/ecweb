@@ -247,17 +247,15 @@ p.last {
 	border-collapse: collapse;
 	text-align: left;
     & td {
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid lighten($text-grey-light, 20);
     	// color: #669;
     	padding: 6px 8px;
+        background: #f4f4f4;
     }
     & tr:last-of-type {
         & td {
             border: none;
         }
-    }
-    & tbody tr:hover td {
-    	// color: #009;
     }
     & thead tr td {
     	padding: 10px 8px;
@@ -281,12 +279,24 @@ p.last {
 
 .external-schedule-notes {
     margin-top: 10px;
-    border-left: 2px solid $text-grey;
-    padding-left: 10px;
+    // border-left: 2px solid $text-grey;
+    // padding-left: 10px;
+    margin-left: 8px;
     color: $text-grey;
     line-height: $line-height-main + px;
     font-size: 12px;
     & b {
         font-family: $font-regular;
     }
+}
+
+.external-schedule-wrapper {
+    background: #f4f4f4;
+    padding: 3px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.font-regular {
+    font-family: $font-regular;
 }
