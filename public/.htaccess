@@ -21,4 +21,13 @@
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+
+     Redirect 301 /licence/ https://ege-centr.ru/license/
+     RedirectMatch 301 ^/price/.*$ https://ege-centr.ru/pricing/
+     Redirect 301 /address/201/ https://ege-centr.ru/address/trg/
+
+     RedirectMatch 301 /courses/11/(.*) https://ege-centr.ru/courses/ege/$1
+     RedirectMatch 301 /courses/9/(.*) https://ege-centr.ru/courses/oge/$1
+     Redirect 301 /opinions/ https://ege-centr.ru/reviews/
 </IfModule>
