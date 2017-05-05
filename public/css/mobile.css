@@ -3649,7 +3649,12 @@ a[href^="https://www.google.com/maps"] {
   z-index: 104; }
 
 #youtube-video {
-  z-index: 105; }
+  height: 1px;
+  width: 1px;
+  opacity: 0;
+  position: fixed;
+  left: 50%;
+  top: 50%; }
 
 .faq-page ul {
   margin-bottom: 1.8em; }

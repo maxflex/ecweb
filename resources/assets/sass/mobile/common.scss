@@ -263,7 +263,12 @@ a[href^="https://www.google.com/maps"] {
 }
 
 #youtube-video {
-    z-index: 105;
+    height: 1px;
+    width: 1px;
+    opacity: 0;
+    position: fixed;
+    left: 50%;
+    top: 50%;
 }
 
 .faq-page {

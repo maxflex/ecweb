@@ -4039,6 +4039,9 @@ a[href^="https://www.google.com/maps"] {
 .font-regular {
   font-family: "helveticaneuecyrregular"; }
 
+.is-desktop {
+  visibility: hidden; }
+
 /* Components */
 .top-message {
   background: #fef9de;

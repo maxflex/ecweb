@@ -305,3 +305,7 @@ p.last {
 .font-regular {
     font-family: $font-regular;
 }
+
+.is-desktop {
+    visibility: hidden;
+}

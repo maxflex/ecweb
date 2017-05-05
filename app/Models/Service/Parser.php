@@ -106,7 +106,7 @@
                 array_shift($args);
                 switch ($function_name) {
                     case 'mobile':
-                        $replacement = isMobile($args[0] == 'raw');
+                        $replacement = isMobile(true) ? 'is-mobile' : 'is-desktop';
                         break;
                     case 'factory':
                         $replacement = fact(...$args);

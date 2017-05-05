@@ -94,7 +94,7 @@ angular
         $scope.video = (tutor) ->
             player.loadVideoById(tutor.video_link)
             player.playVideo()
-            # openModal('video')
+            openModal('video') if not isMobile
 
         # длительность видео
         $scope.videoDuration = (tutor) ->
