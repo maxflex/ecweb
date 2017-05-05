@@ -4258,8 +4258,6 @@ a[href^="https://www.google.com/maps"] {
     right: 0 !important;
     top: 17px;
     border: 0 !important; }
-  .cv-form select, .cv-form input, .cv-form textarea, .order-form select, .order-form input, .order-form textarea {
-    background-color: white; }
   .cv-form ::-webkit-input-placeholder, .order-form ::-webkit-input-placeholder {
     color: #acacac; }
   .cv-form .form-row-inner > select.select, .order-form .form-row-inner > select.select {
