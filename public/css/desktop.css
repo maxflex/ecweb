@@ -5105,7 +5105,7 @@ ol, ul {
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .control-icons-container .close,
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .destroy-icons-container .close {
   position: relative;
-  z-index: 99;
+  z-index: 10000;
   display: inline-block;
   width: 25px;
   height: 25px;

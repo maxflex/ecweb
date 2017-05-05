@@ -16836,6 +16836,59 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
 }).call(this);
 
 (function() {
+  var apiPath, countable, updatable;
+
+  angular.module('App').factory('Tutor', function($resource) {
+    return $resource(apiPath('tutors'), {
+      id: '@id',
+      type: '@type'
+    }, {
+      search: {
+        method: 'POST',
+        url: apiPath('tutors', 'search')
+      },
+      reviews: {
+        method: 'GET',
+        isArray: true,
+        url: apiPath('reviews')
+      }
+    });
+  }).factory('Request', function($resource) {
+    return $resource(apiPath('requests'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Cv', function($resource) {
+    return $resource(apiPath('cv'), {
+      id: '@id'
+    }, updatable());
+  });
+
+  apiPath = function(entity, additional) {
+    if (additional == null) {
+      additional = '';
+    }
+    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
+  };
+
+  updatable = function() {
+    return {
+      update: {
+        method: 'PUT'
+      }
+    };
+  };
+
+  countable = function() {
+    return {
+      count: {
+        method: 'GET'
+      }
+    };
+  };
+
+}).call(this);
+
+(function() {
   angular.module('App').service('PhoneService', function() {
     var isFull;
     this.checkForm = function(element) {
@@ -17012,59 +17065,6 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
     };
     return this;
   });
-
-}).call(this);
-
-(function() {
-  var apiPath, countable, updatable;
-
-  angular.module('App').factory('Tutor', function($resource) {
-    return $resource(apiPath('tutors'), {
-      id: '@id',
-      type: '@type'
-    }, {
-      search: {
-        method: 'POST',
-        url: apiPath('tutors', 'search')
-      },
-      reviews: {
-        method: 'GET',
-        isArray: true,
-        url: apiPath('reviews')
-      }
-    });
-  }).factory('Request', function($resource) {
-    return $resource(apiPath('requests'), {
-      id: '@id'
-    }, updatable());
-  }).factory('Cv', function($resource) {
-    return $resource(apiPath('cv'), {
-      id: '@id'
-    }, updatable());
-  });
-
-  apiPath = function(entity, additional) {
-    if (additional == null) {
-      additional = '';
-    }
-    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
-  };
-
-  updatable = function() {
-    return {
-      update: {
-        method: 'PUT'
-      }
-    };
-  };
-
-  countable = function() {
-    return {
-      count: {
-        method: 'GET'
-      }
-    };
-  };
 
 }).call(this);
 
@@ -17408,7 +17408,6 @@ addMarker = function(map, latLng) {
 
    // Key codes
    var keys = {
-       enter : 13,
        esc   : 27,
        left  : 37,
        right : 39
@@ -17659,7 +17658,7 @@ addMarker = function(map, latLng) {
                                                   '<span ng-if="image.title" ng-bind-html="(_activeImageIndex + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></span>' +
                                                '<span ng-click="methods.next();" ng-hide="images.length == 1"><i></i></span>' +
                                              '</div>'
-                                           : '<div class="title" ng-if="image.title" ng-bind-html="\'Изображение \' + ($index + 1) + \' из \' + (images.length) + \': \' + image.title | ngImageGalleryTrust"></div>'
+                                           : '<div class="title" ng-if="image.title" ng-bind-html="\'Фото \' + ($index + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></div>'
                                        ) +
 
                                        '<div class="desc" ng-if="image.desc" ng-bind-html="image.desc | ngImageGalleryTrust"></div>'+
