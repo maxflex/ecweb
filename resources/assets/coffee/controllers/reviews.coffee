@@ -20,7 +20,7 @@ angular
 
         search = ->
             $scope.searching = true
-            $http.get('api/reviews?page=' + $scope.page).then (response) ->
+            $http.get('/api/reviews?page=' + $scope.page).then (response) ->
                 console.log(response)
                 $scope.searching = false
                 $scope.reviews = $scope.reviews.concat(response.data.reviews)

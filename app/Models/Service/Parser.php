@@ -123,7 +123,7 @@
                         }
                         break;
                     case 'filesize':
-                        $replacement = getSize($args[0], 0);
+                        $replacement = getSize('/' . $args[0], 0);
                         break;
                     case 'reviews':
                         if ($args[0] === 'random') {
