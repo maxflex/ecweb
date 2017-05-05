@@ -65,17 +65,17 @@ function initYoutube() {
         player = new YT.Player('youtube-video', {})
     }
 
-    window.onCloseModal = function() {
-        player.stopVideo()
-    }
-
-    window.onOpenModal = function(modal_id) {
-        if (modal_id == 'video') {
-            setTimeout(function() {
-                player.playVideo()
-            }, 500)
-        }
-    }
+    // window.onCloseModal = function() {
+    //     player.stopVideo()
+    // }
+    //
+    // window.onOpenModal = function(modal_id) {
+    //     if (modal_id == 'video') {
+    //         setTimeout(function() {
+    //             player.playVideo()
+    //         }, 500)
+    //     }
+    // }
 }
 
 /**

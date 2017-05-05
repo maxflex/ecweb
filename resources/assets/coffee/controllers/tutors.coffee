@@ -93,7 +93,8 @@ angular
 
         $scope.video = (tutor) ->
             player.loadVideoById(tutor.video_link)
-            openModal('video')
+            player.playVideo()
+            # openModal('video')
 
         # длительность видео
         $scope.videoDuration = (tutor) ->

@@ -5586,7 +5586,7 @@ ol, ul {
     position: relative;
     z-index: 99;
     display: inline-block;
-    margin: 10px 5px;
+    margin: 10px 10px;
     cursor: pointer; }
     .mobile-gallery .title span:nth-child(2) {
       min-width: 4em; }
@@ -5598,7 +5598,7 @@ ol, ul {
       background-size: contain !important;
       vertical-align: middle;
       display: inline-block;
-      padding: 0.5rem 0.45rem;
-      margin: 0.2rem; }
+      padding: 0.65rem 0.6rem;
+      margin: 0.2rem 0.4rem; }
 
 /*# sourceMappingURL=desktop.css.map */
