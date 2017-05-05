@@ -3721,6 +3721,9 @@ a[href^="https://www.google.com/maps"] {
 .multiselect-popup .button-green-large, .multiselect-popup .button-green-small, .multiselect-popup .button-blue-large, .multiselect-popup .button-white-large {
   margin-top: 1em; }
 
+.hidden {
+  display: none; }
+
 /* Components */
 .header {
   background: #0c4e69;
