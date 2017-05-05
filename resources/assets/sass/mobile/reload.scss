@@ -475,15 +475,6 @@ input {
  *  Known issue: excess padding remains in IE 6.
  */
 
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-  @if $legacy_browser_support {
-    *height: 13px; /* 3 */
-    *width: 13px; /* 3 */
-  }
-}
 
 /**
  * Fix the cursor style for Chrome's increment/decrement buttons. For certain
