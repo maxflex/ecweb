@@ -1,6 +1,6 @@
 angular.module('App').directive 'errors', ->
     restrict: 'E'
-    templateUrl: 'directives/errors'
+    templateUrl: '/directives/errors'
     scope:
         model: '@'
     controller: ($scope, $element, $attrs) ->

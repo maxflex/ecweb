@@ -644,7 +644,7 @@
   angular.module('App').directive('errors', function() {
     return {
       restrict: 'E',
-      templateUrl: 'directives/errors',
+      templateUrl: '/directives/errors',
       scope: {
         model: '@'
       },
@@ -758,9 +758,9 @@
       },
       templateUrl: function(elem, attrs) {
         if (attrs.hasOwnProperty('mobile')) {
-          return 'directives/request-form-mobile';
+          return '/directives/request-form-mobile';
         } else {
-          return 'directives/request-form';
+          return '/directives/request-form';
         }
       },
       controller: function($scope, $element, $timeout, $rootScope, Request, Sources) {

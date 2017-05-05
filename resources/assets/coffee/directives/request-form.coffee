@@ -6,7 +6,7 @@ angular.module('App')
             sentIds: '='
             index: '='
         templateUrl: (elem, attrs) ->
-            if attrs.hasOwnProperty('mobile') then 'directives/request-form-mobile' else 'directives/request-form'
+            if attrs.hasOwnProperty('mobile') then '/directives/request-form-mobile' else '/directives/request-form'
         controller: ($scope, $element, $timeout, $rootScope, Request, Sources) ->
             # отправить заявку
             $scope.request = ->

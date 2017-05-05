@@ -16587,7 +16587,7 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
   angular.module('App').directive('errors', function() {
     return {
       restrict: 'E',
-      templateUrl: 'directives/errors',
+      templateUrl: '/directives/errors',
       scope: {
         model: '@'
       },
@@ -16701,9 +16701,9 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
       },
       templateUrl: function(elem, attrs) {
         if (attrs.hasOwnProperty('mobile')) {
-          return 'directives/request-form-mobile';
+          return '/directives/request-form-mobile';
         } else {
-          return 'directives/request-form';
+          return '/directives/request-form';
         }
       },
       controller: function($scope, $element, $timeout, $rootScope, Request, Sources) {
