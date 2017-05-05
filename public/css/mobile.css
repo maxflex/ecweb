@@ -2544,6 +2544,9 @@ input[type="search"] {
   box-sizing: content-box;
   /* 2 */ }
 
+input[type="checkbox"] {
+  -webkit-appearance: checkbox; }
+
 /**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.
  * Safari (but not Chrome) clips the cancel button when the search input has
@@ -3711,6 +3714,23 @@ a[href^="https://www.google.com/maps"] {
       list-style: none;
       padding: 0; }
 
+.text-success {
+  color: #35a45b; }
+
+.order-subjects-list {
+  padding: .8em 1em 0;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center; }
+  .order-subjects-list:first-child {
+    margin-top: 1.2em; }
+  .order-subjects-list input {
+    margin-right: .5em; }
+
+.multiselect-popup .button-green-large, .multiselect-popup .button-green-small, .multiselect-popup .button-blue-large, .multiselect-popup .button-white-large {
+  margin-top: 1em; }
+
 /* Components */
 .header {
   background: #0c4e69;
@@ -4249,8 +4269,7 @@ a[href^="https://www.google.com/maps"] {
     top: 17px;
     border: 0 !important; }
   .cv-form select, .cv-form input, .cv-form textarea, .order-form select, .order-form input, .order-form textarea {
-    background-color: white;
-    -webkit-appearance: none; }
+    background-color: white; }
   .cv-form ::-webkit-input-placeholder, .order-form ::-webkit-input-placeholder {
     color: #acacac; }
   .cv-form .form-row-inner > select.select, .order-form .form-row-inner > select.select {

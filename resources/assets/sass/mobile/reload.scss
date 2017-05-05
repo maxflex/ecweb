@@ -506,6 +506,10 @@ input[type="search"] {
   box-sizing: content-box; /* 2 */
 }
 
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+
 /**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.
  * Safari (but not Chrome) clips the cancel button when the search input has

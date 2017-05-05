@@ -334,3 +334,25 @@ a[href^="https://www.google.com/maps"] {
         }
     }
 }
+
+.text-success {
+    color: $color-green;
+}
+
+.order-subjects-list {
+    padding: .8em 1em 0;
+    display: flex;
+    align-items: center;
+    &:first-child {
+        margin-top: 1.2em;
+    }
+    & input {
+        margin-right: .5em;
+    }
+}
+
+.multiselect-popup {
+    & .button-green-large {
+        margin-top: 1em;
+    }
+}
