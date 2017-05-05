@@ -6452,7 +6452,7 @@ ol, ul {
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .control-icons-container .close,
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .destroy-icons-container .close {
   position: relative;
-  z-index: 99;
+  z-index: 10000;
   display: inline-block;
   width: 25px;
   height: 25px;
@@ -7005,7 +7005,7 @@ ol, ul {
 .mobile-gallery .title {
   margin: 0;
   position: absolute;
-  bottom: calc(((100vh - (2*100vw / 3)) / 2) - 3.5em);
+  bottom: calc(((100vh - (2*100vw / 3)) / 2) - 5em);
   width: 100%;
 }
 
@@ -7017,7 +7017,7 @@ ol, ul {
   position: relative;
   z-index: 99;
   display: inline-block;
-  margin: 10px 5px;
+  margin: 10px 10px;
   cursor: pointer;
 }
 
@@ -7026,19 +7026,19 @@ ol, ul {
 }
 
 .mobile-gallery .title span:first-child i {
-  background: url(../img/svg/left-arrow-angle.svg);
+  background: url(../img/svg/gallery-prev.svg);
 }
 
 .mobile-gallery .title span:last-child i {
-  background: url(../img/svg/right-arrow-angle.svg);
+  background: url(../img/svg/gallery-next.svg);
 }
 
 .mobile-gallery .title span i {
   background-size: contain !important;
   vertical-align: middle;
   display: inline-block;
-  padding: 0.4rem;
-  margin: 0.2rem;
+  padding: 0.65rem 0.6rem;
+  margin: 0.2rem 0.4rem;
 }
 
 /*# sourceMappingURL=desktop.css.map */

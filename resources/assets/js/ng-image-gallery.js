@@ -3,7 +3,6 @@
 
    // Key codes
    var keys = {
-       enter : 13,
        esc   : 27,
        left  : 37,
        right : 39
@@ -254,7 +253,7 @@
                                                   '<span ng-if="image.title" ng-bind-html="(_activeImageIndex + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></span>' +
                                                '<span ng-click="methods.next();" ng-hide="images.length == 1"><i></i></span>' +
                                              '</div>'
-                                           : '<div class="title" ng-if="image.title" ng-bind-html="\'Изображение \' + ($index + 1) + \' из \' + (images.length) + \': \' + image.title | ngImageGalleryTrust"></div>'
+                                           : '<div class="title" ng-if="image.title" ng-bind-html="\'Фото \' + ($index + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></div>'
                                        ) +
 
                                        '<div class="desc" ng-if="image.desc" ng-bind-html="image.desc | ngImageGalleryTrust"></div>'+
