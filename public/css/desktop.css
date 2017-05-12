@@ -5502,6 +5502,11 @@ a[href^="https://www.google.com/maps"] {
   line-height: 21px;
 }
 
+.questions-item .has-image {
+  display: block;
+  text-align: center;
+}
+
 .reviews {
   margin: 0;
   padding: 0;

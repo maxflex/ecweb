@@ -19,6 +19,18 @@
       display: none;
       color: $text-grey;
       padding: 1.250em 0 0.313em;
+
+      .has-image {
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+        padding: 0;
+        text-align: center;
+        img {
+          width: 50%;
+        }
+      }
+
     }
   }
 }
