@@ -29,6 +29,11 @@
         img {
           width: 50%;
         }
+        .zoom-hint {
+          display: block;
+          font-size: 0.8em;
+          margin-top: 5px;
+        }
       }
 
     }
@@ -36,6 +41,6 @@
 }
 #modal-faq-img {
   img {
-    width:100%
+    width:100%;
   }
 }
