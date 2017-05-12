@@ -5318,6 +5318,10 @@ a[href^="https://www.google.com/maps"] {
   width: 50%;
 }
 
+#modal-faq-img img {
+  width: 100%;
+}
+
 .reviews {
   margin: 0;
   padding: 0;
