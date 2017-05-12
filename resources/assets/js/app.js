@@ -1,7 +1,7 @@
 (function() {
   var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-  angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angular-toArrayFilter', 'thatisuday.ng-image-gallery']).config([
+  angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angular-toArrayFilter', 'thatisuday.ng-image-gallery', 'ngSanitize']).config([
     'ngImageGalleryOptsProvider', function(ngImageGalleryOptsProvider) {
       return ngImageGalleryOptsProvider.setOpts({
         bubbles: false,
