@@ -5318,6 +5318,12 @@ a[href^="https://www.google.com/maps"] {
   width: 50%;
 }
 
+.questions-item-answer .has-image .zoom-hint {
+  display: block;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
 #modal-faq-img img {
   width: 100%;
 }
