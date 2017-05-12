@@ -5507,6 +5507,10 @@ a[href^="https://www.google.com/maps"] {
   text-align: center;
 }
 
+.zoom-hint {
+  display: none;
+}
+
 .reviews {
   margin: 0;
   padding: 0;

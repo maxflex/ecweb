@@ -5315,7 +5315,8 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .questions-item-answer .has-image img {
-  width: 50%;
+  width: 70% !important;
+  height: auto !important;
 }
 
 .questions-item-answer .has-image .zoom-hint {
