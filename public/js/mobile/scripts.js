@@ -16,14 +16,22 @@ $(document).ready(function() {
     $('.questions-item-answer img.can-resize').click(function() {
         elem = $('#modal-faq-img img');
         elem.attr('src', $(this).attr('src'));
-        elem.panzoom('destroy');
-        elem.panzoom({
-                minScale: 1,
-                maxScale: 5,
-                increment: 1.2,
-                contain: 'automatic',
-                panOnlyWhenZoomed: false
-            });
+
+        margin_top = (elem.parent().actual('height') - elem.actual('height')) / 2;
+        elem.css({marginTop: margin_top + 'px'});
+
+        (function(target) {
+            setTimeout(function() {
+                target.panzoom({
+                    minScale: 1,
+                    maxScale: 5,
+                    increment: 1.2,
+                    contain: 'automatic',
+                    panOnlyWhenZoomed: false
+                });
+            }, 500);
+        })(elem);
+
         openModal('faq-img');
     });
 })
