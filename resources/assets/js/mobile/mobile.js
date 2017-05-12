@@ -14,10 +14,18 @@ $(document).ready(function() {
 	// if (isMobile && isIphone4) $('body').addClass('iphone4fix');
 
     $('.questions-item-answer img.can-resize').click(function() {
-        $('#modal-faq-img img').attr('src', $(this).attr('src'));
+        elem = $('#modal-faq-img img');
+        elem.attr('src', $(this).attr('src'));
+        elem.panzoom('destroy');
+        elem.panzoom({
+                minScale: 1,
+                maxScale: 5,
+                increment: 1.2,
+                contain: 'automatic',
+                panOnlyWhenZoomed: false
+            });
         openModal('faq-img');
     });
-    $('#modal-faq-img img').panzoom();
 })
 
 //
