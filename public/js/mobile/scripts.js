@@ -29,7 +29,8 @@ $(document).ready(function() {
                     maxScale: 3,
                     increment: 1.2,
                     contain: 'automatic',
-                    panOnlyWhenZoomed: true
+                    panOnlyWhenZoomed: true,
+                    disablePan: true
                 });
             }, 500);
         })(elem);

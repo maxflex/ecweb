@@ -4761,6 +4761,10 @@ a[href^="https://www.google.com/maps"] {
   display: none;
 }
 
+.external-schedule-wrapper img {
+  width: 100%;
+}
+
 /* Components */
 .header {
   background: #0c4e69;
