@@ -5599,18 +5599,14 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .photogallery ul li {
-  width: 33%;
-  padding: 3px;
+  width: calc((100% - (2 * 3px)) / 3);
+  margin-left: 3px;
   box-sizing: border-box;
   display: inline-block;
 }
 
 .photogallery ul li:nth-child(3n+1) {
-  padding-left: 0;
-}
-
-.photogallery ul li:nth-child(3n+3) {
-  padding-right: 0;
+  margin-left: 0;
 }
 
 .photogallery ul li img {

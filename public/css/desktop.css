@@ -5894,10 +5894,14 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .photogallery ul li {
-  width: 20%;
-  padding: 5px;
+  width: calc((100% - (4 * 5px)) / 5);
+  margin-left: 5px;
   box-sizing: border-box;
   display: inline-block;
+}
+
+.photogallery ul li:nth-child(5n+1) {
+  margin-left: 0;
 }
 
 .photogallery ul li img {

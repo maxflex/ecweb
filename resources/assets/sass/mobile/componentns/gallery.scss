@@ -1,3 +1,6 @@
+$mobile-photogallery-item-indent: 3px;
+$mobile-photogallery-items-in-row: 3;
+
 .photogallery {
   ul {
     margin: 0;
@@ -5,16 +8,14 @@
     list-style: none;
 
     li {
-      width: 33%;
-      padding: 3px;
+      width: calc((100% - (#{$mobile-photogallery-items-in-row - 1} * #{$mobile-photogallery-item-indent})) / #{$mobile-photogallery-items-in-row});
+      margin-left: #{$mobile-photogallery-item-indent};
       box-sizing: border-box;
       display: inline-block;
-      &:nth-child(3n+1) {
-        padding-left: 0;
+      &:nth-child(#{$mobile-photogallery-items-in-row}n+1) {
+        margin-left: 0;
       }
-      &:nth-child(3n+3) {
-        padding-right: 0;
-      }
+
       img {
         width: 100%;
       }
