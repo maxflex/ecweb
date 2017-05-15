@@ -5592,6 +5592,31 @@ a[href^="https://www.google.com/maps"] {
   height: 70px;
 }
 
+.photogallery ul {
+  margin: 0;
+  padding: 0 0 20px 0;
+  list-style: none;
+}
+
+.photogallery ul li {
+  width: 33%;
+  padding: 3px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.photogallery ul li:nth-child(3n+1) {
+  padding-left: 0;
+}
+
+.photogallery ul li:nth-child(3n+3) {
+  padding-right: 0;
+}
+
+.photogallery ul li img {
+  width: 100%;
+}
+
 /* Elements */
 .button-green-large, .button-green-small, .button-blue-large, .button-white-large {
   display: inline-block;

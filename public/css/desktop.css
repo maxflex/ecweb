@@ -5887,6 +5887,23 @@ a[href^="https://www.google.com/maps"] {
   padding: 9px 0 0 0;
 }
 
+.photogallery ul {
+  margin: 0;
+  padding: 0 0 20px 0;
+  list-style: none;
+}
+
+.photogallery ul li {
+  width: 20%;
+  padding: 5px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.photogallery ul li img {
+  width: 100%;
+}
+
 /* Elements */
 .button-green-large, .button-green-small, .button-blue-large, .button-white-large {
   display: inline-block;

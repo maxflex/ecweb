@@ -1,0 +1,23 @@
+.photogallery {
+  ul {
+    margin: 0;
+    padding: 0 0 20px 0;
+    list-style: none;
+
+    li {
+      width: 33%;
+      padding: 3px;
+      box-sizing: border-box;
+      display: inline-block;
+      &:nth-child(3n+1) {
+        padding-left: 0;
+      }
+      &:nth-child(3n+3) {
+        padding-right: 0;
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
