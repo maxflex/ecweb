@@ -1,4 +1,4 @@
-$photogallery-item-indent: 5px;
+$photogallery-item-indent: 10px;
 $photogallery-items-in-row: 5;
 
 .photogallery {
@@ -10,6 +10,7 @@ $photogallery-items-in-row: 5;
     li {
       width: calc((100% - (#{$photogallery-items-in-row - 1} * #{$photogallery-item-indent})) / #{$photogallery-items-in-row});
       margin-left: #{$photogallery-item-indent};
+      margin-bottom: 5px;
       box-sizing: border-box;
       display: inline-block;
       &:nth-child(#{$photogallery-items-in-row}n+1) {

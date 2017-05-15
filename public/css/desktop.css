@@ -5894,8 +5894,9 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .photogallery ul li {
-  width: calc((100% - (4 * 5px)) / 5);
-  margin-left: 5px;
+  width: calc((100% - (4 * 10px)) / 5);
+  margin-left: 10px;
+  margin-bottom: 5px;
   box-sizing: border-box;
   display: inline-block;
 }
