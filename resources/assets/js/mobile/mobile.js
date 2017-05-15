@@ -13,7 +13,7 @@ $(document).ready(function() {
     $('.catalog-list .catalog-list-item-title').click(toggleCatalog);
 	// if (isMobile && isIphone4) $('body').addClass('iphone4fix');
 
-    $('.questions-item-answer img.can-resize').click(function() {
+    $('.questions-item-answer img.can-resize, .questions-item-answer .zoom-hint').click(function() {
         elem = $('#modal-faq-img img');
         elem.attr('src', $(this).attr('src'));
         margin_top = (elem.parent().actual('height') - elem.actual('height')) / 2;
@@ -26,10 +26,10 @@ $(document).ready(function() {
             setTimeout(function() {
                 target.panzoom({
                     minScale: 1,
-                    maxScale: 5,
+                    maxScale: 3,
                     increment: 1.2,
                     contain: 'automatic',
-                    panOnlyWhenZoomed: false
+                    panOnlyWhenZoomed: true
                 });
             }, 500);
         })(elem);
