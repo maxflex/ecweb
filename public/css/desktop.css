@@ -5904,6 +5904,10 @@ a[href^="https://www.google.com/maps"] {
   width: 100%;
 }
 
+.photogallery button {
+  outline: none;
+}
+
 /* Elements */
 .button-green-large, .button-green-small, .button-blue-large, .button-white-large {
   display: inline-block;
