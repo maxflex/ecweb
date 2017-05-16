@@ -17685,15 +17685,15 @@ addMarker = function(map, latLng) {
                                           '</div>'
                                     ) +
 
-                                   '<div ng-repeat="image in images track by image.id" ng-if="(image.title || image.desc) && (_activeImg == image)">'+
+                                   '<div ng-repeat="image in images track by image.id" ng-if="_activeImg == image">'+
                                        (
                                            isMobile
                                            ? '<div class="title">' +
                                                '<span ng-click="methods.prev();" ng-hide="images.length == 1"><i></i></span>' +
-                                                  '<span ng-if="image.title" ng-bind-html="(_activeImageIndex + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></span>' +
+                                                  '<span ng-bind-html="(_activeImageIndex + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></span>' +
                                                '<span ng-click="methods.next();" ng-hide="images.length == 1"><i></i></span>' +
                                              '</div>'
-                                           : '<div class="title" ng-if="image.title" ng-bind-html="\'Фото \' + ($index + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></div>'
+                                           : '<div class="title" ng-bind-html="\'Фото \' + ($index + 1) + \' из \' + (images.length) | ngImageGalleryTrust"></div>'
                                        ) +
 
                                        '<div class="desc" ng-if="image.desc" ng-bind-html="image.desc | ngImageGalleryTrust"></div>'+
