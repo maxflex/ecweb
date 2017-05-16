@@ -2,7 +2,7 @@
 .textarea {
   border: 1px solid $text-grey-light;
   border-radius: $border-radius-element-form + px;
-  font-family: 'helveticaneuecyrlight';
+  font-family: $font-regular;
   font-size: $main-font-size;
   line-height: $height-element-form + px;
   height: $height-element-form + px;
@@ -50,7 +50,7 @@
 }
 
 span.customSelect {
-  font-family: 'helveticaneuecyrlight';
+  font-family: $font-regular;
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;

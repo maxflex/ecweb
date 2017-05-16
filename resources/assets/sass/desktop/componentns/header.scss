@@ -28,7 +28,7 @@
 
     font-size: 12px;
     line-height: 16px;
-    font-family: 'helveticaneuecyrlight';
+    font-family: $font-regular;
 //    font-family: 'helveticaneuecyrmedium';
     float: left;
     padding: 0 0 0 15px;
@@ -37,7 +37,7 @@
 
   &-contacts {
     float: right;
-    font-family: 'helveticaneuecyrlight';
+    font-family: $font-regular;
     padding: 5px 0 0 0;
 
     &-phone {
@@ -137,12 +137,12 @@
     margin: 0 auto;
 
     &-title {
-      font-family: 'helveticaneuecyrultralight';
+      font-family: $font-regular;
       font-size: 64px;
       padding: 0 0 20px 0;
 
       &__large {
-        font-family: 'helveticaneuecyrultralight';
+        font-family: $font-regular;
         font-size: 132px;
         line-height: 128px;
       }
@@ -172,7 +172,7 @@
     }
     & a {
         font-size: 12px;
-        font-family: $font-light;
+        font-family: $font-regular;
         // text-decoration: none;
     }
 }

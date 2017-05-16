@@ -3812,7 +3812,7 @@ html, body {
   height: 100%; }
 
 body {
-  font-family: 'helveticaneuecyrlight';
+  font-family: "helveticaneuecyrregular";
   font-size: 14px; }
 
 .common {
@@ -4087,13 +4087,13 @@ a[href^="https://www.google.com/maps"] {
     border-left: 1px solid #e5e5e5;
     font-size: 12px;
     line-height: 16px;
-    font-family: 'helveticaneuecyrlight';
+    font-family: "helveticaneuecyrregular";
     float: left;
     padding: 0 0 0 15px;
     margin: 5px 0 0 15px; }
   .header-contacts {
     float: right;
-    font-family: 'helveticaneuecyrlight';
+    font-family: "helveticaneuecyrregular";
     padding: 5px 0 0 0; }
     .header-contacts-phone {
       font-size: 24px; }
@@ -4163,11 +4163,11 @@ a[href^="https://www.google.com/maps"] {
     width: 960px;
     margin: 0 auto; }
     .header-img-title {
-      font-family: 'helveticaneuecyrultralight';
+      font-family: "helveticaneuecyrregular";
       font-size: 64px;
       padding: 0 0 20px 0; }
       .header-img-title__large {
-        font-family: 'helveticaneuecyrultralight';
+        font-family: "helveticaneuecyrregular";
         font-size: 132px;
         line-height: 128px; }
     .header-img .button-green-large, .header-img .button-green-small, .header-img .button-blue-large, .header-img .button-white-large {
@@ -4188,12 +4188,12 @@ a[href^="https://www.google.com/maps"] {
     position: relative; }
   .lk-wrapper a {
     font-size: 12px;
-    font-family: "helveticaneuecyrlight"; }
+    font-family: "helveticaneuecyrregular"; }
 
 .footer {
   background: #3b3b3b;
   color: #fff;
-  font-family: 'helveticaneuecyrlight';
+  font-family: "helveticaneuecyrregular";
   font-size: 14px;
   font-weight: normal;
   position: absolute;
@@ -4630,7 +4630,7 @@ a[href^="https://www.google.com/maps"] {
 .textarea {
   border: 1px solid #acacac;
   border-radius: 4px;
-  font-family: 'helveticaneuecyrlight';
+  font-family: "helveticaneuecyrregular";
   font-size: 14px;
   line-height: 40px;
   height: 40px;
@@ -4668,7 +4668,7 @@ a[href^="https://www.google.com/maps"] {
   text-align: left; }
 
 span.customSelect {
-  font-family: 'helveticaneuecyrlight';
+  font-family: "helveticaneuecyrregular";
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
@@ -4897,7 +4897,7 @@ ol, ul {
   .page-not-found-wrapper .page-not-found {
     text-align: center; }
     .page-not-found-wrapper .page-not-found h1 {
-      font-family: "helveticaneuecyrlight"; }
+      font-family: "helveticaneuecyrregular"; }
     .page-not-found-wrapper .page-not-found ul {
       list-style: none;
       padding: 0; }

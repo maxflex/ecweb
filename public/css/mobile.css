@@ -3783,7 +3783,7 @@ a[href^="https://www.google.com/maps"] {
     align-items: center; }
     .header-controls a {
       display: inherit;
-      margin-right: 1em; }
+      margin-right: 1.6em; }
   .header-menu-button {
     cursor: pointer;
     right: 1.357em;
