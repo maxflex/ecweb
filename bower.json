@@ -22,7 +22,7 @@
     "normalize-css": "normalize.css#~3.0.3",
     "Ionicons": "ionicons#~2.0.1",
     "font-awesome": "^4.7.0",
-    "angular": "~1.4.8",
+    "angular": "1.6.4",
     "jquery.inputmask": "^3.3.3",
     "jquery-ui": "^1.12.1",
     "angular-animate": "~1.4.8",
