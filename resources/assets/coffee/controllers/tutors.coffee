@@ -94,7 +94,10 @@ angular
         $scope.video = (tutor) ->
             player.loadVideoById(tutor.video_link)
             player.playVideo()
-            openModal('video') if not isMobile
+            if isMobile
+                $('.fullscreen-loading-black').css('display', 'flex')
+            else
+                openModal('video')
 
         # длительность видео
         $scope.videoDuration = (tutor) ->

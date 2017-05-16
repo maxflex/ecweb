@@ -68,6 +68,7 @@ function initYoutube() {
     if (! isMobile) {
         window.onCloseModal = function() {
             player.stopVideo()
+            $('.fullscreen-loading-black').css('display', 'none')
         }
     }
 }
