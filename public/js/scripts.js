@@ -16584,12 +16584,16 @@ function openModal(id) {
 function initYoutube() {
     window.onYouTubeIframeAPIReady = function() {
         player = new YT.Player('youtube-video', {})
+        player.addEventListener("onStateChange", function(state){
+            if(state === 0){
+                $('.fullscreen-loading-black').css('display', 'none')
+            }
+        })
     }
 
     if (! isMobile) {
         window.onCloseModal = function() {
             player.stopVideo()
-            $('.fullscreen-loading-black').css('display', 'none')
         }
     }
 }
