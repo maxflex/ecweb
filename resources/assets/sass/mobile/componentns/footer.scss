@@ -41,8 +41,6 @@
   }
 }
 
-.main-page {
-    & .footer {
-        margin-top: 0;
-    }
+.footer.no-margin {
+    margin-top: 0;
 }

@@ -3805,6 +3805,9 @@ th {
 .relative {
   position: relative; }
 
+.hidden {
+  display: none; }
+
 html, body {
   height: 100%; }
 
