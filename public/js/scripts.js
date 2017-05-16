@@ -16585,7 +16585,7 @@ function initYoutube() {
     window.onYouTubeIframeAPIReady = function() {
         player = new YT.Player('youtube-video', {})
         player.addEventListener("onStateChange", function(state){
-            if(state === 0){
+            if (state == 1){
                 $('.fullscreen-loading-black').css('display', 'none')
             }
         })
