@@ -74,7 +74,9 @@ elixir(mix => {
             'jquery.cookie/jquery.cookie',
             'jquery.panzoom/dist/jquery.panzoom',
             'angular-animate/angular-animate.min',
-            'hammerjs/hammer.min'
+            'hammerjs/hammer.min',
+            'angular-sanitize/angular-sanitize.min',
+            'jquery.actual/jquery.actual.min'
         ]).concat(['resources/assets/js/*.js']), 'public/js/scripts.js')
         .scripts('resources/assets/js/mobile/*.js', 'public/js/mobile/scripts.js')
 });

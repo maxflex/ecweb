@@ -20,5 +20,14 @@
       padding: 14px 0;
       line-height: $line-height-main + px;
     }
+
+    .has-image {
+      display: block;
+      text-align: center;
+    }
   }
+}
+
+.zoom-hint {
+  display: none;
 }

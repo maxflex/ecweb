@@ -18,9 +18,10 @@ class Photo extends Model
         return config('app.crm-url') . self::STORAGE_DIR . $this->filename;
     }
 
-    public static function parse($ids)
+    public static function parse($ids, $hide_link = false)
     {
         return view('gallery.index')->with([
+            'hide_link' => $hide_link,
             'urls' => Photo::whereIn('id', $ids)->orderBy('position')->get()
         ]);
     }

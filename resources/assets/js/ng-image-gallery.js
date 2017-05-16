@@ -398,7 +398,6 @@
                    scope._deleteImg = function(img){
                        var _deleteImgCallback = function(){
                            var index = scope.images.indexOf(img);
-                           console.log(index);
                            scope.images.splice(index, 1);
                            scope._activeImageIndex = 0;
 
@@ -496,20 +495,15 @@
 
                        scope.old_pop_state_handler = window.onpopstate
 
-                       console.log(scope.old_pop_state_handler, window.onpopstate)
-
                        window.history.pushState(null, null, document.URL);
                        window.onpopstate = function () {
                             scope.methods.close()
                             window.onpopstate = scope.old_pop_state_handler
-
-                            console.log(scope.old_pop_state_handler, window.onpopstate)
                        }
                    }
 
                    // Close gallery modal
                    scope.methods.close = function(){
-                       console.log('close')
                        scope.opened = false; // Model closed
 
                        // set overflow hidden to body
@@ -524,7 +518,6 @@
 
                    // Change image to next
                    scope.methods.next = function(){
-                       console.log('ch')
                        if(scope._activeImageIndex == (scope.images.length - 1)){
                            scope._activeImageIndex = 0;
                        }
@@ -535,7 +528,6 @@
 
                    // Change image to prev
                    scope.methods.prev = function(){
-                       console.log('ch')
                        if(scope._activeImageIndex == 0){
                            scope._activeImageIndex = scope.images.length - 1;
                        }

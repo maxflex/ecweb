@@ -296,10 +296,10 @@ p.last {
 }
 
 .external-schedule-wrapper {
-    background: #f4f4f4;
-    padding: 3px;
-    border-radius: 4px;
     display: inline-block;
+    img {
+      width: 100%;
+    }
 }
 
 .font-regular {

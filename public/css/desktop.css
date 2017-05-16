@@ -4034,10 +4034,9 @@ a[href^="https://www.google.com/maps"] {
     font-family: "helveticaneuecyrregular"; }
 
 .external-schedule-wrapper {
-  background: #f4f4f4;
-  padding: 3px;
-  border-radius: 4px;
   display: inline-block; }
+  .external-schedule-wrapper img {
+    width: 100%; }
 
 .font-regular {
   font-family: "helveticaneuecyrregular"; }
@@ -4177,7 +4176,7 @@ a[href^="https://www.google.com/maps"] {
     position: absolute;
     font-weight: 100;
     top: 32px;
-    left: 450px; }
+    left: calc(50% - 87px); }
 
 .lk-wrapper {
   position: absolute;
@@ -4345,6 +4344,12 @@ a[href^="https://www.google.com/maps"] {
       color: #818181;
       padding: 14px 0;
       line-height: 21px; }
+    .questions-item .has-image {
+      display: block;
+      text-align: center; }
+
+.zoom-hint {
+  display: none; }
 
 .reviews {
   margin: 0;
@@ -4599,6 +4604,24 @@ a[href^="https://www.google.com/maps"] {
   .top-filter-right {
     float: right;
     padding: 9px 0 0 0; }
+
+.photogallery ul {
+  margin: 0;
+  padding: 0 0 20px 0;
+  list-style: none; }
+  .photogallery ul li {
+    width: calc((100% - (4 * 10px)) / 5);
+    margin-left: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    display: inline-block; }
+    .photogallery ul li:nth-child(5n+1) {
+      margin-left: 0; }
+    .photogallery ul li img {
+      width: 100%; }
+
+.photogallery button {
+  outline: none; }
 
 /* Elements */
 .button-green-large, .button-green-small, .button-blue-large, .button-white-large {

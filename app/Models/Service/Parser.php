@@ -153,10 +153,10 @@
                         break;
                     case 'gallery':
                         if ($args[0] == 'all') {
-                            $replacement = Photo::parse(Photo::pluck('id'));
+                            $replacement = Photo::parse(Photo::pluck('id'), isset($args[1]));
                         } else {
                             $ids = explode(',', $args[0]);
-                            $replacement = Photo::parse($ids);
+                            $replacement = Photo::parse($ids, isset($args[1]));
                         }
                         break;
                     case 'photo':

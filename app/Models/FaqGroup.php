@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Faq;
+use App\Models\Service\Parser;
 
 class FaqGroup extends Model
 {
@@ -20,6 +21,12 @@ class FaqGroup extends Model
         $groups->add(new FaqGroup([
             'faq'   => Faq::whereNull('group_id')->orderBy('position', 'asc')->get()
         ]));
+
+        $groups->each(function($value) {
+            return $value->faq->each(function($faq) {
+                return $faq->answer = Parser::compileVars($faq->answer);
+            });
+        });
 
         return $groups;
     }

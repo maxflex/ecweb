@@ -1,7 +1,7 @@
 (function() {
   var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-  angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angular-toArrayFilter', 'thatisuday.ng-image-gallery']).config([
+  angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angular-toArrayFilter', 'thatisuday.ng-image-gallery', 'ngSanitize']).config([
     'ngImageGalleryOptsProvider', function(ngImageGalleryOptsProvider) {
       return ngImageGalleryOptsProvider.setOpts({
         bubbles: false,
@@ -367,6 +367,23 @@
 }).call(this);
 
 (function() {
+  angular.module('App').controller('Gallery', function($scope, $timeout) {
+    bindArguments($scope, arguments);
+    $scope.shown_images = [];
+    $scope.nextPage = function() {
+      var start;
+      start = 0;
+      $scope.shown_images = _.union($scope.shown_images, $scope.images.splice(start, Math.min(start + 30, $scope.images.length)));
+      return console.log($scope.shown_images.length, $scope.images.length);
+    };
+    return angular.element(document).ready(function() {
+      return $scope.nextPage();
+    });
+  });
+
+}).call(this);
+
+(function() {
   angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Subjects, Request) {
     bindArguments($scope, arguments);
     $timeout(function() {
@@ -715,7 +732,8 @@
           'address': ['адрес', 'адреса', 'адресов'],
           'person': ['человек', 'человека', 'человек'],
           'ton': ['тонна', 'тонны', 'тонн'],
-          'yacht': ['яхта', 'яхты', 'яхт']
+          'yacht': ['яхта', 'яхты', 'яхт'],
+          'photo': ['фото', 'фотографии', 'фотографий']
         };
       }
     };

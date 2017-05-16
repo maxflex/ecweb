@@ -1,4 +1,4 @@
-angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angular-toArrayFilter', 'thatisuday.ng-image-gallery'])
+angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angular-toArrayFilter', 'thatisuday.ng-image-gallery', 'ngSanitize'])
     .config [
         'ngImageGalleryOptsProvider',
         (ngImageGalleryOptsProvider) ->

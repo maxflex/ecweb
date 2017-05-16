@@ -15944,7 +15944,7 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
 (function() {
   var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-  angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angular-toArrayFilter', 'thatisuday.ng-image-gallery']).config([
+  angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angular-toArrayFilter', 'thatisuday.ng-image-gallery', 'ngSanitize']).config([
     'ngImageGalleryOptsProvider', function(ngImageGalleryOptsProvider) {
       return ngImageGalleryOptsProvider.setOpts({
         bubbles: false,
@@ -16310,6 +16310,23 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
 }).call(this);
 
 (function() {
+  angular.module('App').controller('Gallery', function($scope, $timeout) {
+    bindArguments($scope, arguments);
+    $scope.shown_images = [];
+    $scope.nextPage = function() {
+      var start;
+      start = 0;
+      $scope.shown_images = _.union($scope.shown_images, $scope.images.splice(start, Math.min(start + 30, $scope.images.length)));
+      return console.log($scope.shown_images.length, $scope.images.length);
+    };
+    return angular.element(document).ready(function() {
+      return $scope.nextPage();
+    });
+  });
+
+}).call(this);
+
+(function() {
   angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Subjects, Request) {
     bindArguments($scope, arguments);
     $timeout(function() {
@@ -16658,7 +16675,8 @@ return f}}}else return d(a)}}]}])})(window,window.angular);
           'address': ['адрес', 'адреса', 'адресов'],
           'person': ['человек', 'человека', 'человек'],
           'ton': ['тонна', 'тонны', 'тонн'],
-          'yacht': ['яхта', 'яхты', 'яхт']
+          'yacht': ['яхта', 'яхты', 'яхт'],
+          'photo': ['фото', 'фотографии', 'фотографий']
         };
       }
     };
@@ -17803,7 +17821,6 @@ addMarker = function(map, latLng) {
                    scope._deleteImg = function(img){
                        var _deleteImgCallback = function(){
                            var index = scope.images.indexOf(img);
-                           console.log(index);
                            scope.images.splice(index, 1);
                            scope._activeImageIndex = 0;
 
@@ -17901,20 +17918,15 @@ addMarker = function(map, latLng) {
 
                        scope.old_pop_state_handler = window.onpopstate
 
-                       console.log(scope.old_pop_state_handler, window.onpopstate)
-
                        window.history.pushState(null, null, document.URL);
                        window.onpopstate = function () {
                             scope.methods.close()
                             window.onpopstate = scope.old_pop_state_handler
-
-                            console.log(scope.old_pop_state_handler, window.onpopstate)
                        }
                    }
 
                    // Close gallery modal
                    scope.methods.close = function(){
-                       console.log('close')
                        scope.opened = false; // Model closed
 
                        // set overflow hidden to body
@@ -17929,7 +17941,6 @@ addMarker = function(map, latLng) {
 
                    // Change image to next
                    scope.methods.next = function(){
-                       console.log('ch')
                        if(scope._activeImageIndex == (scope.images.length - 1)){
                            scope._activeImageIndex = 0;
                        }
@@ -17940,7 +17951,6 @@ addMarker = function(map, latLng) {
 
                    // Change image to prev
                    scope.methods.prev = function(){
-                       console.log('ch')
                        if(scope._activeImageIndex == 0){
                            scope._activeImageIndex = scope.images.length - 1;
                        }

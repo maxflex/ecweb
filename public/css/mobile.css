@@ -3413,7 +3413,7 @@ th {
       padding: 0.65rem 0.6rem;
       margin: 0.2rem 0.4rem; }
 
-12 html, body {
+html, body {
   height: 100%;
   overflow-x: hidden; }
 
@@ -3586,6 +3586,37 @@ a {
     justify-content: center;
     color: #818181; }
 
+.faq-page .modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  left: 0;
+  top: 0;
+  display: none;
+  overflow: hidden;
+  z-index: 99;
+  border-radius: 0; }
+  .faq-page .modal .modal-button {
+    z-index: 100000;
+    position: absolute;
+    right: 0;
+    height: 55px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px 15px 0 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-align: right;
+    left: 0; }
+    .faq-page .modal .modal-button:after {
+      width: 25px;
+      height: 25px;
+      background: url("../img/svg/cross-out.svg") no-repeat;
+      background-size: cover; }
+  .faq-page .modal .modal-content {
+    padding: 0;
+    height: 100%; }
+
 #modal-video {
   width: 100%;
   height: calc(100vw*9/16);
@@ -3723,6 +3754,9 @@ a[href^="https://www.google.com/maps"] {
 
 .multiselect-popup .button-green-large, .multiselect-popup .button-green-small, .multiselect-popup .button-blue-large, .multiselect-popup .button-white-large {
   margin-top: 1em; }
+
+.external-schedule-wrapper img {
+  width: 100%; }
 
 /* Components */
 .header {
@@ -4124,6 +4158,22 @@ a[href^="https://www.google.com/maps"] {
       display: none;
       color: #818181;
       padding: 1.250em 0 0.313em; }
+      .questions-item-answer .has-image {
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+        padding: 0;
+        text-align: center; }
+        .questions-item-answer .has-image img {
+          width: 70% !important;
+          height: auto !important; }
+        .questions-item-answer .has-image .zoom-hint {
+          display: inline-block;
+          font-size: 0.8em;
+          margin-top: 5px; }
+
+#modal-faq-img img {
+  width: 100%; }
 
 .reviews {
   margin: 0;
@@ -4273,6 +4323,23 @@ a[href^="https://www.google.com/maps"] {
     height: 100%; }
     .cv-form .multiselect-popup .scroll-fix, .order-form .multiselect-popup .scroll-fix {
       height: 70px; }
+
+.photogallery ul {
+  margin: 0;
+  padding: 0 0 20px 0;
+  list-style: none; }
+  .photogallery ul li {
+    width: calc((100% - (2 * 3px)) / 3);
+    margin-left: 3px;
+    box-sizing: border-box;
+    display: inline-block; }
+    .photogallery ul li:nth-child(3n+1) {
+      margin-left: 0; }
+    .photogallery ul li img {
+      width: 100%; }
+
+.photogallery button {
+  outline: none; }
 
 /* Elements */
 .button-green-large, .button-green-small, .button-blue-large, .button-white-large {
