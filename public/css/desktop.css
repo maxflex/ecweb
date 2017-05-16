@@ -4163,11 +4163,11 @@ a[href^="https://www.google.com/maps"] {
     width: 960px;
     margin: 0 auto; }
     .header-img-title {
-      font-family: "helveticaneuecyrlight";
+      font-family: 'helveticaneuecyrultralight';
       font-size: 64px;
       padding: 0 0 20px 0; }
       .header-img-title__large {
-        font-family: "helveticaneuecyrlight";
+        font-family: 'helveticaneuecyrultralight';
         font-size: 132px;
         line-height: 128px; }
     .header-img .button-green-large, .header-img .button-green-small, .header-img .button-blue-large, .header-img .button-white-large {
