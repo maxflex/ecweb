@@ -4118,7 +4118,7 @@ a[href^="https://www.google.com/maps"] {
       .header-menu-wrap__img {
         background: url("/img/background/main.jpeg") no-repeat 50% 50%;
         height: 470px;
-        background-size: center; }
+        background-size: cover; }
         .header-menu-wrap__img:before {
           content: '';
           display: block;

@@ -68,7 +68,7 @@
       &__img {
         background: url('/img/background/main.jpeg') no-repeat 50% 50%;
         height: 470px;
-        background-size: center;
+        background-size: cover;
         &:before {
           content: '';
           display: block;
