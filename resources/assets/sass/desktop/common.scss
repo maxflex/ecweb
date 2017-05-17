@@ -309,3 +309,33 @@ p.last {
 .is-desktop {
     visibility: hidden;
 }
+
+.stats-table {
+    width: 110%;
+    margin-bottom: 28px;
+    & tr {
+        & td {
+            padding: 5px 5px;
+            &:first-of-type {
+                padding-left: 0;
+            }
+            & .review-popup {
+                position: absolute;
+                left: 200px;
+                background: white;
+                z-index: 2;
+                box-shadow: 0 0 20px rgba(black, .4);
+                padding: 10px;
+                border-radius: 5px;
+                width: 100%;
+                left: -5px;
+                top: -5px;
+                & img {
+                    height: 14px;
+                    float: right;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

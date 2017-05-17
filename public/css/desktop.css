@@ -4044,6 +4044,29 @@ a[href^="https://www.google.com/maps"] {
 .is-desktop {
   visibility: hidden; }
 
+.stats-table {
+  width: 110%;
+  margin-bottom: 28px; }
+  .stats-table tr td {
+    padding: 5px 5px; }
+    .stats-table tr td:first-of-type {
+      padding-left: 0; }
+    .stats-table tr td .review-popup {
+      position: absolute;
+      left: 200px;
+      background: white;
+      z-index: 2;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      padding: 10px;
+      border-radius: 5px;
+      width: 100%;
+      left: -5px;
+      top: -5px; }
+      .stats-table tr td .review-popup img {
+        height: 14px;
+        float: right;
+        cursor: pointer; }
+
 /* Components */
 .top-message {
   background: #fef9de;

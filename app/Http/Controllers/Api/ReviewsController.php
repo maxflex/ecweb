@@ -21,6 +21,7 @@ class ReviewsController extends Controller
         $paginator = Review::simplePaginate(20);
         $reviews = $paginator->getCollection()->map(function ($review) {
             $review->tutor = DB::connection('egerep')->table('tutors')->whereId($review->id_teacher)->select('id', 'first_name', 'last_name', 'middle_name')->first();
+            $review->student = DB::connection('egecrm')->table('students')->whereId($review->id_student)->select('first_name', 'last_name', 'middle_name')->first();
             return $review;
         });
         return [
