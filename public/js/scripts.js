@@ -15841,7 +15841,37 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 }).call(this);
 
 (function() {
-  angular.module('App').constant('REVIEWS_PER_PAGE', 5).filter('cut', function() {
+  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Reviews', function($scope, $timeout, $http, Subjects) {
+    var search;
+    bindArguments($scope, arguments);
+    $timeout(function() {
+      $scope.reviews = [];
+      $scope.page = 1;
+      $scope.has_more_pages = true;
+      return search();
+    });
+    $scope.popup = function(index) {
+      return $scope.show_review = index;
+    };
+    $scope.nextPage = function() {
+      $scope.page++;
+      return search();
+    };
+    return search = function() {
+      $scope.searching = true;
+      return $http.get('/api/reviews?page=' + $scope.page).then(function(response) {
+        console.log(response);
+        $scope.searching = false;
+        $scope.reviews = $scope.reviews.concat(response.data.reviews);
+        return $scope.has_more_pages = response.data.has_more_pages;
+      });
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').filter('cut', function() {
     return function(value, wordwise, max, tail) {
       var lastspace;
       if (tail == null) {
@@ -15869,14 +15899,14 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       }
       return value + tail;
     };
-  }).controller('Reviews', function($scope, $timeout, $http, Subjects) {
+  }).controller('Stats', function($scope, $timeout, $http, Subjects, Grades) {
     var search;
     bindArguments($scope, arguments);
     $timeout(function() {
-      $scope.reviews = [];
-      $scope.page = 1;
-      $scope.has_more_pages = true;
-      return search();
+      $scope.search = {
+        per_page: 500
+      };
+      return $scope.filter();
     });
     $scope.popup = function(index) {
       return $scope.show_review = index;
@@ -15885,11 +15915,20 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       $scope.page++;
       return search();
     };
+    $scope.filter = function() {
+      $scope.reviews = null;
+      $scope.page = 1;
+      $scope.has_more_pages = true;
+      return search();
+    };
     return search = function() {
       $scope.searching = true;
-      return $http.get('/api/reviews?page=' + $scope.page).then(function(response) {
+      return $http.get('/api/reviews?page=' + $scope.page + '&' + $.param($scope.search)).then(function(response) {
         console.log(response);
         $scope.searching = false;
+        if ($scope.page === 1) {
+          $scope.reviews = [];
+        }
         $scope.reviews = $scope.reviews.concat(response.data.reviews);
         return $scope.has_more_pages = response.data.has_more_pages;
       });
@@ -16019,79 +16058,6 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
         });
       }
     };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').value('Grades', {
-    1: '1 класс',
-    2: '2 класс',
-    3: '3 класс',
-    4: '4 класс',
-    5: '5 класс',
-    6: '6 класс',
-    7: '7 класс',
-    8: '8 класс',
-    9: '9 класс',
-    10: '10 класс',
-    11: '11 класс',
-    14: 'экстернат'
-  }).value('Subjects', {
-    all: {
-      1: 'математика',
-      2: 'физика',
-      3: 'химия',
-      4: 'биология',
-      5: 'информатика',
-      6: 'русский',
-      7: 'литература',
-      8: 'обществознание',
-      9: 'история',
-      10: 'английский',
-      11: 'география'
-    },
-    full: {
-      1: 'Математика',
-      2: 'Физика',
-      3: 'Химия',
-      4: 'Биология',
-      5: 'Информатика',
-      6: 'Русский язык',
-      7: 'Литература',
-      8: 'Обществознание',
-      9: 'История',
-      10: 'Английский язык',
-      11: 'География'
-    },
-    dative: {
-      1: 'математике',
-      2: 'физике',
-      3: 'химии',
-      4: 'биологии',
-      5: 'информатике',
-      6: 'русскому языку',
-      7: 'литературе',
-      8: 'обществознанию',
-      9: 'истории',
-      10: 'английскому языку',
-      11: 'географии'
-    },
-    short: ['М', 'Ф', 'Р', 'Л', 'А', 'Ис', 'О', 'Х', 'Б', 'Ин', 'Г'],
-    three_letters: {
-      1: 'МАТ',
-      2: 'ФИЗ',
-      3: 'ХИМ',
-      4: 'БИО',
-      5: 'ИНФ',
-      6: 'РУС',
-      7: 'ЛИТ',
-      8: 'ОБЩ',
-      9: 'ИСТ',
-      10: 'АНГ',
-      11: 'ГЕО'
-    },
-    short_eng: ['math', 'phys', 'rus', 'lit', 'eng', 'his', 'soc', 'chem', 'bio', 'inf', 'geo']
   });
 
 }).call(this);
@@ -16311,6 +16277,79 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
         };
       }
     };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').value('Grades', {
+    1: '1 класс',
+    2: '2 класс',
+    3: '3 класс',
+    4: '4 класс',
+    5: '5 класс',
+    6: '6 класс',
+    7: '7 класс',
+    8: '8 класс',
+    9: '9 класс',
+    10: '10 класс',
+    11: '11 класс',
+    14: 'экстернат'
+  }).value('Subjects', {
+    all: {
+      1: 'математика',
+      2: 'физика',
+      3: 'химия',
+      4: 'биология',
+      5: 'информатика',
+      6: 'русский',
+      7: 'литература',
+      8: 'обществознание',
+      9: 'история',
+      10: 'английский',
+      11: 'география'
+    },
+    full: {
+      1: 'Математика',
+      2: 'Физика',
+      3: 'Химия',
+      4: 'Биология',
+      5: 'Информатика',
+      6: 'Русский язык',
+      7: 'Литература',
+      8: 'Обществознание',
+      9: 'История',
+      10: 'Английский язык',
+      11: 'География'
+    },
+    dative: {
+      1: 'математике',
+      2: 'физике',
+      3: 'химии',
+      4: 'биологии',
+      5: 'информатике',
+      6: 'русскому языку',
+      7: 'литературе',
+      8: 'обществознанию',
+      9: 'истории',
+      10: 'английскому языку',
+      11: 'географии'
+    },
+    short: ['М', 'Ф', 'Р', 'Л', 'А', 'Ис', 'О', 'Х', 'Б', 'Ин', 'Г'],
+    three_letters: {
+      1: 'МАТ',
+      2: 'ФИЗ',
+      3: 'ХИМ',
+      4: 'БИО',
+      5: 'ИНФ',
+      6: 'РУС',
+      7: 'ЛИТ',
+      8: 'ОБЩ',
+      9: 'ИСТ',
+      10: 'АНГ',
+      11: 'ГЕО'
+    },
+    short_eng: ['math', 'phys', 'rus', 'lit', 'eng', 'his', 'soc', 'chem', 'bio', 'inf', 'geo']
   });
 
 }).call(this);

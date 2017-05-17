@@ -4047,6 +4047,8 @@ a[href^="https://www.google.com/maps"] {
 .stats-table {
   width: 110%;
   margin-bottom: 28px; }
+  .stats-table thead tr td {
+    font-family: "helveticaneuecyrmedium"; }
   .stats-table tr td {
     padding: 5px 5px; }
     .stats-table tr td:first-of-type {
@@ -4066,6 +4068,13 @@ a[href^="https://www.google.com/maps"] {
         height: 14px;
         float: right;
         cursor: pointer; }
+
+.stats-filter {
+  margin-bottom: 20px; }
+  .stats-filter > div {
+    width: 250px;
+    display: inline-block;
+    margin-right: 10px; }
 
 /* Components */
 .top-message {
