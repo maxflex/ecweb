@@ -33,6 +33,10 @@ class ReviewsController extends Controller
             $query->where('teacher_reviews.grade', $request->grade);
         }
 
+        if ($request->per_page) {
+            $query->orderBy('score', 'desc');
+        }
+
         $paginator = $query->simplePaginate(isset($request->per_page) ? $request->per_page : 20);
 
         $reviews = $paginator->getCollection()->map(function ($review) {

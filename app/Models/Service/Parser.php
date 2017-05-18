@@ -101,6 +101,7 @@
         public static function compileFunctions(&$html, $var)
         {
             $replacement = '';
+            \Log::info($var);
             $args = explode('|', $var);
             if (count($args) > 1) {
                 $function_name = $args[0];
@@ -117,6 +118,7 @@
                         break;
                     case 'tutors':
                         // поиск по ID
+                        \Log::info($args[0]);
                         if (strpos($args[0], ',') !== false) {
                             $replacement = Tutor::light()->whereIn('id', explode(',', $args[0]))->get()->toJson();
                         } else if ($args[0] == 'reviews') {
