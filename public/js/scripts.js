@@ -15765,24 +15765,6 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       $scope.sending = true;
       $scope.errors = {};
       return Request.save($scope.order, function() {
-        dataLayerPush({
-          event: 'purchase',
-          ecommerce: {
-            currencyCode: 'RUR',
-            purchase: {
-              actionField: {
-                id: googleClientId()
-              },
-              products: [
-                {
-                  brand: $scope.order.grade,
-                  category: ($scope.order.subjects ? $scope.order.subjects.sort().join(',') : '') + '_' + $scope.order.branch_id,
-                  quantity: 1
-                }
-              ]
-            }
-          }
-        });
         $scope.sending = false;
         $scope.sent = true;
         return $('body').animate({
