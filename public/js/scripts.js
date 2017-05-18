@@ -15741,16 +15741,17 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 (function() {
   angular.module('App').controller('Gallery', function($scope, $timeout) {
     bindArguments($scope, arguments);
-    $scope.shown_images = [];
-    $scope.nextPage = function() {
-      var start;
-      start = 0;
-      $scope.shown_images = _.union($scope.shown_images, $scope.images.splice(start, Math.min(start + 30, $scope.images.length)));
-      return console.log($scope.shown_images.length, $scope.images.length);
-    };
-    return angular.element(document).ready(function() {
-      return $scope.nextPage();
+    angular.element(document).ready(function() {
+      $scope.all_photos = [];
+      return _.each($scope.groups, function(group) {
+        return $scope.all_photos = $scope.all_photos.concat(group.photo);
+      });
     });
+    return $scope.getFlatIndex = function(photo_id) {
+      return _.findIndex($scope.all_photos, {
+        id: photo_id
+      });
+    };
   });
 
 }).call(this);

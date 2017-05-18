@@ -29,7 +29,7 @@ class Photo extends Model
     {
         return view('gallery.index')->with([
             'hide_link' => $hide_link,
-            'urls' => Photo::whereIn('id', $ids)->orderBy('position')->get()
+            'urls' => PhotoGroup::getAll($ids)
         ]);
     }
 }

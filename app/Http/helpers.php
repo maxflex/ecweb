@@ -254,3 +254,10 @@
         curl_close($ch);
         if( $httpCode == 200 ){return true;}
     }
+
+
+    function flatten($collection, $child) {
+        return $collection->flatMap(function($value) use ($child) {
+            return $value->$child;
+        });
+    }
