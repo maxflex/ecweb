@@ -432,3 +432,7 @@ a[href^="https://www.google.com/maps"] {
     font-family: $font-italic;
     margin-top: .5em;
 }
+
+select {
+    -webkit-appearance: none !important;
+}

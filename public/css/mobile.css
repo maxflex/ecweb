@@ -3781,6 +3781,9 @@ a[href^="https://www.google.com/maps"] {
   font-family: "helveticaneuecyrlight_italic";
   margin-top: .5em; }
 
+select {
+  -webkit-appearance: none !important; }
+
 /* Components */
 .header {
   background: #0c4e69;
