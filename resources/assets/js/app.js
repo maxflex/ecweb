@@ -533,10 +533,21 @@
     $timeout(function() {
       $scope.search = {};
       $scope.data = {};
-      return $scope.filter();
+      $scope.show_review = null;
+      $scope.filter();
+      return $(window).on('click', function(event) {
+        if ($scope.show_review !== null && !$(event.target).hasClass('expand-comment')) {
+          if (!$(event.target).hasClass('review-popup')) {
+            $scope.popup(null);
+          }
+          return $scope.$apply();
+        }
+      });
     });
     $scope.popup = function(index) {
-      return $scope.show_review = index;
+      return $timeout(function() {
+        return $scope.show_review = index;
+      });
     };
     $scope.filter = function() {
       $scope.data = null;

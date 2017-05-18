@@ -20,10 +20,16 @@ angular
         $timeout ->
             $scope.search = {}
             $scope.data = {}
+            $scope.show_review = null
             $scope.filter()
+            $(window).on 'click', (event) ->
+                if ($scope.show_review isnt null && not $(event.target).hasClass('expand-comment'))
+                    $scope.popup(null) if not $(event.target).hasClass 'review-popup'
+                    $scope.$apply()
 
         $scope.popup = (index) ->
-            $scope.show_review = index
+            # запускаем позже, чтобы успел отработать window.click
+            $timeout -> $scope.show_review = index
 
         $scope.filter = ->
             $scope.data = null
