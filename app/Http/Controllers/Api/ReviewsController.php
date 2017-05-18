@@ -30,7 +30,7 @@ class ReviewsController extends Controller
         }
 
         if ($request->grade) {
-            $query->where('grade', $request->grade);
+            $query->where('teacher_reviews.grade', $request->grade);
         }
 
         $paginator = $query->simplePaginate(isset($request->per_page) ? $request->per_page : 20);
