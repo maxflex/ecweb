@@ -4076,6 +4076,11 @@ a[href^="https://www.google.com/maps"] {
     display: inline-block;
     margin-right: 10px; }
 
+.stats-average {
+  margin-bottom: 20px; }
+  .stats-average b, .stats-average .address-more li > div:first-of-type, .address-more .stats-average li > div:first-of-type {
+    font-family: "helveticaneuecyrmedium"; }
+
 /* Components */
 .top-message {
   background: #fef9de;

@@ -351,3 +351,10 @@ p.last {
     }
     margin-bottom: 20px;
 }
+
+.stats-average {
+    margin-bottom: 20px;
+    & b {
+        font-family: $font-medium;
+    }
+}

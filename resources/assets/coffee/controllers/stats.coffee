@@ -18,31 +18,21 @@ angular
         bindArguments($scope, arguments)
 
         $timeout ->
-            $scope.search = {per_page: 1000}
+            $scope.search = {}
+            $scope.data = {}
             $scope.filter()
 
         $scope.popup = (index) ->
             $scope.show_review = index
 
-        $scope.nextPage = ->
-            $scope.page++
-            # StreamService.run('load_more_tutors', null, {page: $scope.page})
-            search()
-
-        # $scope.$watch 'page', (newVal, oldVal) -> $.cookie('page', $scope.page) if newVal isnt undefined
-
         $scope.filter = ->
-            $scope.reviews = null
-            $scope.page = 1
-            $scope.has_more_pages = true
+            $scope.data = null
             search()
 
         search = ->
             $scope.searching = true
-            $http.get('/api/reviews?page=' + $scope.page + '&' + $.param($scope.search)).then (response) ->
+            $http.get('/api/stats?' + $.param($scope.search)).then (response) ->
                 console.log(response)
                 $scope.searching = false
-                $scope.reviews = [] if $scope.page is 1
-                $scope.reviews = $scope.reviews.concat(response.data.reviews)
-                $scope.has_more_pages = response.data.has_more_pages
+                $scope.data = response.data
                 # if $scope.mobile then $timeout -> bindToggle()

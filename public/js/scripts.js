@@ -15903,34 +15903,23 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
     var search;
     bindArguments($scope, arguments);
     $timeout(function() {
-      $scope.search = {
-        per_page: 1000
-      };
+      $scope.search = {};
+      $scope.data = {};
       return $scope.filter();
     });
     $scope.popup = function(index) {
       return $scope.show_review = index;
     };
-    $scope.nextPage = function() {
-      $scope.page++;
-      return search();
-    };
     $scope.filter = function() {
-      $scope.reviews = null;
-      $scope.page = 1;
-      $scope.has_more_pages = true;
+      $scope.data = null;
       return search();
     };
     return search = function() {
       $scope.searching = true;
-      return $http.get('/api/reviews?page=' + $scope.page + '&' + $.param($scope.search)).then(function(response) {
+      return $http.get('/api/stats?' + $.param($scope.search)).then(function(response) {
         console.log(response);
         $scope.searching = false;
-        if ($scope.page === 1) {
-          $scope.reviews = [];
-        }
-        $scope.reviews = $scope.reviews.concat(response.data.reviews);
-        return $scope.has_more_pages = response.data.has_more_pages;
+        return $scope.data = response.data;
       });
     };
   });
