@@ -29,15 +29,7 @@ class ReviewsController extends Controller
         }
 
         if ($request->grade) {
-            $query->whereRaw("(
-                SELECT grade FROM visit_journal vj
-                WHERE vj.id_teacher = teacher_reviews.id_teacher
-                    AND vj.id_entity = teacher_reviews.id_student
-                    AND vj.id_subject = teacher_reviews.id_subject
-                    AND vj.year = teacher_reviews.year
-                    AND vj.type_entity = 'STUDENT'
-                LIMIT 1
-            ) = " . $request->grade);
+            $query->where('grade', $request->grade);
         }
 
         $paginator = $query->simplePaginate(isset($request->per_page) ? $request->per_page : 20);
