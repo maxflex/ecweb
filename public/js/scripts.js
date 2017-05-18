@@ -15930,7 +15930,12 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       return $http.get('/api/stats?' + $.param($scope.search)).then(function(response) {
         console.log(response);
         $scope.searching = false;
-        return $scope.data = response.data;
+        $scope.data = response.data;
+        if (isMobile) {
+          return $timeout(function() {
+            return bindToggle();
+          });
+        }
       });
     };
   });

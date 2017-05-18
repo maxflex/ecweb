@@ -41,4 +41,4 @@ angular
                 console.log(response)
                 $scope.searching = false
                 $scope.data = response.data
-                # if $scope.mobile then $timeout -> bindToggle()
+                if isMobile then $timeout -> bindToggle()

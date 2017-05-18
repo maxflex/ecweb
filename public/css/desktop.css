@@ -4073,7 +4073,8 @@ a[href^="https://www.google.com/maps"] {
         float: right;
         cursor: pointer; }
       .stats-table tr td .review-popup-signature {
-        font-family: "helveticaneuecyrlight_italic"; }
+        font-family: "helveticaneuecyrlight_italic";
+        margin-top: 5px; }
 
 .stats-filter {
   margin-bottom: 20px; }

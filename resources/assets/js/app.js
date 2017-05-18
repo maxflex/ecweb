@@ -558,7 +558,12 @@
       return $http.get('/api/stats?' + $.param($scope.search)).then(function(response) {
         console.log(response);
         $scope.searching = false;
-        return $scope.data = response.data;
+        $scope.data = response.data;
+        if (isMobile) {
+          return $timeout(function() {
+            return bindToggle();
+          });
+        }
       });
     };
   });
