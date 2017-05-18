@@ -18,7 +18,7 @@ angular
         bindArguments($scope, arguments)
 
         $timeout ->
-            $scope.search = {per_page: 50}
+            $scope.search = {per_page: 1000}
             $scope.filter()
 
         $scope.popup = (index) ->

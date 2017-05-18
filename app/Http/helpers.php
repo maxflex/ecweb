@@ -254,3 +254,8 @@
         curl_close($ch);
         if( $httpCode == 200 ){return true;}
     }
+
+    function cacheKey($key, $id = null)
+    {
+        return "ecweb:$key" . ($id ? ":$id" : '');
+    }

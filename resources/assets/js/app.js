@@ -291,6 +291,406 @@
 }).call(this);
 
 (function() {
+
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Cv', function($scope, $timeout, $http, Subjects, Cv) {
+    bindArguments($scope, arguments);
+    $timeout(function() {
+      $scope.cv = {};
+      return $scope.sent = false;
+    });
+    $scope.send = function() {
+      $scope.sending = true;
+      $scope.errors = {};
+      return Cv.save($scope.cv, function() {
+        $scope.sending = false;
+        $scope.sent = true;
+        return $('body').animate({
+          scrollTop: $('.header').offset().top
+        });
+      }, function(response) {
+        $scope.sending = false;
+        return angular.forEach(response.data, function(errors, field) {
+          var input, selector;
+          $scope.errors[field] = errors;
+          selector = "[ng-model$='" + field + "']";
+          input = $("input" + selector + ", textarea" + selector);
+          input.focus();
+          if (isMobile) {
+            return input.notify(errors[0], notify_options);
+          }
+        });
+      });
+    };
+    $scope.isSelected = function(subject_id) {
+      if (!($scope.cv && $scope.cv.subjects)) {
+        return false;
+      }
+      return $scope.cv.subjects.indexOf(subject_id) !== -1;
+    };
+    $scope.selectSubject = function(subject_id) {
+      if (!$scope.cv.subjects) {
+        $scope.cv.subjects = [];
+      }
+      if ($scope.isSelected(subject_id)) {
+        return $scope.cv.subjects = _.without($scope.cv.subjects, subject_id);
+      } else {
+        return $scope.cv.subjects.push(subject_id);
+      }
+    };
+    return $scope.selectedSubjectsList = function() {
+      var i, len, ref, ref1, ref2, subject_id, subjects;
+      if (!((ref = $scope.cv) != null ? (ref1 = ref.subjects) != null ? ref1.length : void 0 : void 0)) {
+        return false;
+      }
+      subjects = [];
+      ref2 = $scope.cv.subjects;
+      for (i = 0, len = ref2.length; i < len; i++) {
+        subject_id = ref2[i];
+        subjects.push($scope.Subjects[subject_id].name);
+      }
+      return subjects.join(', ');
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Empty', function($scope) {
+    bindArguments($scope, arguments);
+    return $scope.gallery = {};
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Gallery', function($scope, $timeout) {
+    bindArguments($scope, arguments);
+    $scope.shown_images = [];
+    $scope.nextPage = function() {
+      var start;
+      start = 0;
+      $scope.shown_images = _.union($scope.shown_images, $scope.images.splice(start, Math.min(start + 30, $scope.images.length)));
+      return console.log($scope.shown_images.length, $scope.images.length);
+    };
+    return angular.element(document).ready(function() {
+      return $scope.nextPage();
+    });
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Subjects, Request) {
+    bindArguments($scope, arguments);
+    $timeout(function() {
+      return $scope.order = {};
+    });
+    $scope.request = function() {
+      $scope.sending = true;
+      $scope.errors = {};
+      return Request.save($scope.order, function() {
+        dataLayerPush({
+          event: 'purchase',
+          ecommerce: {
+            currencyCode: 'RUR',
+            purchase: {
+              actionField: {
+                id: googleClientId()
+              },
+              products: [
+                {
+                  brand: $scope.order.grade,
+                  category: ($scope.order.subjects ? $scope.order.subjects.sort().join(',') : '') + '_' + $scope.order.branch_id,
+                  quantity: 1
+                }
+              ]
+            }
+          }
+        });
+        $scope.sending = false;
+        $scope.sent = true;
+        return $('body').animate({
+          scrollTop: $('.header').offset().top
+        });
+      }, function(response) {
+        $scope.sending = false;
+        return angular.forEach(response.data, function(errors, field) {
+          var input, selector;
+          $scope.errors[field] = errors;
+          selector = "[ng-model$='" + field + "']";
+          input = $("input" + selector + ", textarea" + selector);
+          input.focus();
+          if (isMobile) {
+            return input.notify(errors[0], notify_options);
+          }
+        });
+      });
+    };
+    $scope.isSelected = function(subject_id) {
+      if (!($scope.order && $scope.order.subjects)) {
+        return false;
+      }
+      return $scope.order.subjects.indexOf(subject_id) !== -1;
+    };
+    $scope.selectSubject = function(subject_id) {
+      if (!$scope.order.subjects) {
+        $scope.order.subjects = [];
+      }
+      if ($scope.isSelected(subject_id)) {
+        return $scope.order.subjects = _.without($scope.order.subjects, subject_id);
+      } else {
+        return $scope.order.subjects.push(subject_id);
+      }
+    };
+    return $scope.selectedSubjectsList = function() {
+      var i, len, ref, ref1, ref2, subject_id, subjects;
+      if (!((ref = $scope.order) != null ? (ref1 = ref.subjects) != null ? ref1.length : void 0 : void 0)) {
+        return false;
+      }
+      subjects = [];
+      ref2 = $scope.order.subjects;
+      for (i = 0, len = ref2.length; i < len; i++) {
+        subject_id = ref2[i];
+        subjects.push($scope.Subjects[subject_id].name);
+      }
+      return subjects.join(', ');
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Programs', function($scope) {});
+
+}).call(this);
+
+(function() {
+  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Reviews', function($scope, $timeout, $http, Subjects) {
+    var search;
+    bindArguments($scope, arguments);
+    $timeout(function() {
+      $scope.reviews = [];
+      $scope.page = 1;
+      $scope.has_more_pages = true;
+      return search();
+    });
+    $scope.popup = function(index) {
+      return $scope.show_review = index;
+    };
+    $scope.nextPage = function() {
+      $scope.page++;
+      return search();
+    };
+    return search = function() {
+      $scope.searching = true;
+      return $http.get('/api/reviews?page=' + $scope.page).then(function(response) {
+        console.log(response);
+        $scope.searching = false;
+        $scope.reviews = $scope.reviews.concat(response.data.reviews);
+        return $scope.has_more_pages = response.data.has_more_pages;
+      });
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').filter('cut', function() {
+    return function(value, wordwise, max, tail) {
+      var lastspace;
+      if (tail == null) {
+        tail = '';
+      }
+      if (!value) {
+        return '';
+      }
+      max = parseInt(max, 10);
+      if (!max) {
+        return value;
+      }
+      if (value.length <= max) {
+        return value;
+      }
+      value = value.substr(0, max);
+      if (wordwise) {
+        lastspace = value.lastIndexOf(' ');
+        if (lastspace !== -1) {
+          if (value.charAt(lastspace - 1) === '.' || value.charAt(lastspace - 1) === ',') {
+            lastspace = lastspace - 1;
+          }
+          value = value.substr(0, lastspace);
+        }
+      }
+      return value + tail;
+    };
+  }).controller('Stats', function($scope, $timeout, $http, Subjects, Grades) {
+    var search;
+    bindArguments($scope, arguments);
+    $timeout(function() {
+      $scope.search = {
+        per_page: 1000
+      };
+      return $scope.filter();
+    });
+    $scope.popup = function(index) {
+      return $scope.show_review = index;
+    };
+    $scope.nextPage = function() {
+      $scope.page++;
+      return search();
+    };
+    $scope.filter = function() {
+      $scope.reviews = null;
+      $scope.page = 1;
+      $scope.has_more_pages = true;
+      return search();
+    };
+    return search = function() {
+      $scope.searching = true;
+      return $http.get('/api/reviews?page=' + $scope.page + '&' + $.param($scope.search)).then(function(response) {
+        console.log(response);
+        $scope.searching = false;
+        if ($scope.page === 1) {
+          $scope.reviews = [];
+        }
+        $scope.reviews = $scope.reviews.concat(response.data.reviews);
+        return $scope.has_more_pages = response.data.has_more_pages;
+      });
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Tutors', function($scope, $timeout, $http, Tutor, REVIEWS_PER_PAGE, Subjects) {
+    var filter, filter_used, search, search_count;
+    bindArguments($scope, arguments);
+    search_count = 0;
+    $scope.profilePage = function() {
+      return RegExp(/^\/tutors\/[\d]+$/).test(window.location.pathname);
+    };
+    $timeout(function() {
+      initYoutube();
+      if (!$scope.profilePage()) {
+        return $scope.filter();
+      }
+    });
+    $scope.reviews = function(tutor, index) {
+      if (tutor.all_reviews === void 0) {
+        tutor.all_reviews = Tutor.reviews({
+          id: tutor.id
+        }, function(response) {
+          return $scope.showMoreReviews(tutor);
+        });
+      }
+      return $scope.toggleShow(tutor, 'show_reviews', 'reviews', false);
+    };
+    $scope.showMoreReviews = function(tutor, index) {
+      var from, to;
+      tutor.reviews_page = !tutor.reviews_page ? 1 : tutor.reviews_page + 1;
+      from = (tutor.reviews_page - 1) * REVIEWS_PER_PAGE;
+      to = from + REVIEWS_PER_PAGE;
+      return tutor.displayed_reviews = tutor.all_reviews.slice(0, to);
+    };
+    $scope.reviewsLeft = function(tutor) {
+      var reviews_left;
+      if (!tutor.all_reviews || !tutor.displayed_reviews) {
+        return;
+      }
+      reviews_left = tutor.all_reviews.length - tutor.displayed_reviews.length;
+      if (reviews_left > REVIEWS_PER_PAGE) {
+        return REVIEWS_PER_PAGE;
+      } else {
+        return reviews_left;
+      }
+    };
+    filter_used = false;
+    $scope.filter = function() {
+      $scope.tutors = [];
+      $scope.page = 1;
+      if (filter_used) {
+        return filter();
+      } else {
+        filter();
+        return filter_used = true;
+      }
+    };
+    filter = function() {
+      return search();
+    };
+    $scope.nextPage = function() {
+      $scope.page++;
+      return search();
+    };
+    search = function() {
+      $scope.searching = true;
+      return Tutor.search({
+        filter_used: filter_used,
+        page: $scope.page,
+        search: $scope.search
+      }, function(response) {
+        search_count++;
+        $scope.searching = false;
+        $scope.data = response;
+        return $scope.tutors = $scope.tutors.concat(response.data);
+      });
+    };
+    $scope.video = function(tutor) {
+      player.loadVideoById(tutor.video_link);
+      player.playVideo();
+      if (isMobile) {
+        return $('.fullscreen-loading-black').css('display', 'flex');
+      } else {
+        return openModal('video');
+      }
+    };
+    $scope.videoDuration = function(tutor) {
+      var duration, format;
+      duration = parseInt(tutor.video_duration);
+      format = duration >= 60 ? 'm мин s сек' : 's сек';
+      return moment.utc(duration * 1000).format(format);
+    };
+    $scope.toggleShow = function(tutor, prop, iteraction_type, index) {
+      if (index == null) {
+        index = null;
+      }
+      if (tutor[prop]) {
+        return $timeout(function() {
+          return tutor[prop] = false;
+        }, $scope.mobile ? 400 : 0);
+      } else {
+        return tutor[prop] = true;
+      }
+    };
+    return $scope.popup = function(id, tutor, fn, index) {
+      if (tutor == null) {
+        tutor = null;
+      }
+      if (fn == null) {
+        fn = null;
+      }
+      if (index == null) {
+        index = null;
+      }
+      openModal(id);
+      if (tutor !== null) {
+        $scope.popup_tutor = tutor;
+      }
+      if (fn !== null) {
+        return $timeout(function() {
+          return $scope[fn](tutor, index);
+        });
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
   angular.module('App').directive('academic', function() {
     return {
       restrict: 'E',
@@ -578,406 +978,6 @@
       11: 'ГЕО'
     },
     short_eng: ['math', 'phys', 'rus', 'lit', 'eng', 'his', 'soc', 'chem', 'bio', 'inf', 'geo']
-  });
-
-}).call(this);
-
-(function() {
-
-
-}).call(this);
-
-(function() {
-  angular.module('App').controller('Cv', function($scope, $timeout, $http, Subjects, Cv) {
-    bindArguments($scope, arguments);
-    $timeout(function() {
-      $scope.cv = {};
-      return $scope.sent = false;
-    });
-    $scope.send = function() {
-      $scope.sending = true;
-      $scope.errors = {};
-      return Cv.save($scope.cv, function() {
-        $scope.sending = false;
-        $scope.sent = true;
-        return $('body').animate({
-          scrollTop: $('.header').offset().top
-        });
-      }, function(response) {
-        $scope.sending = false;
-        return angular.forEach(response.data, function(errors, field) {
-          var input, selector;
-          $scope.errors[field] = errors;
-          selector = "[ng-model$='" + field + "']";
-          input = $("input" + selector + ", textarea" + selector);
-          input.focus();
-          if (isMobile) {
-            return input.notify(errors[0], notify_options);
-          }
-        });
-      });
-    };
-    $scope.isSelected = function(subject_id) {
-      if (!($scope.cv && $scope.cv.subjects)) {
-        return false;
-      }
-      return $scope.cv.subjects.indexOf(subject_id) !== -1;
-    };
-    $scope.selectSubject = function(subject_id) {
-      if (!$scope.cv.subjects) {
-        $scope.cv.subjects = [];
-      }
-      if ($scope.isSelected(subject_id)) {
-        return $scope.cv.subjects = _.without($scope.cv.subjects, subject_id);
-      } else {
-        return $scope.cv.subjects.push(subject_id);
-      }
-    };
-    return $scope.selectedSubjectsList = function() {
-      var i, len, ref, ref1, ref2, subject_id, subjects;
-      if (!((ref = $scope.cv) != null ? (ref1 = ref.subjects) != null ? ref1.length : void 0 : void 0)) {
-        return false;
-      }
-      subjects = [];
-      ref2 = $scope.cv.subjects;
-      for (i = 0, len = ref2.length; i < len; i++) {
-        subject_id = ref2[i];
-        subjects.push($scope.Subjects[subject_id].name);
-      }
-      return subjects.join(', ');
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').controller('Empty', function($scope) {
-    bindArguments($scope, arguments);
-    return $scope.gallery = {};
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').controller('Gallery', function($scope, $timeout) {
-    bindArguments($scope, arguments);
-    $scope.shown_images = [];
-    $scope.nextPage = function() {
-      var start;
-      start = 0;
-      $scope.shown_images = _.union($scope.shown_images, $scope.images.splice(start, Math.min(start + 30, $scope.images.length)));
-      return console.log($scope.shown_images.length, $scope.images.length);
-    };
-    return angular.element(document).ready(function() {
-      return $scope.nextPage();
-    });
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Subjects, Request) {
-    bindArguments($scope, arguments);
-    $timeout(function() {
-      return $scope.order = {};
-    });
-    $scope.request = function() {
-      $scope.sending = true;
-      $scope.errors = {};
-      return Request.save($scope.order, function() {
-        dataLayerPush({
-          event: 'purchase',
-          ecommerce: {
-            currencyCode: 'RUR',
-            purchase: {
-              actionField: {
-                id: googleClientId()
-              },
-              products: [
-                {
-                  brand: $scope.order.grade,
-                  category: ($scope.order.subjects ? $scope.order.subjects.sort().join(',') : '') + '_' + $scope.order.branch_id,
-                  quantity: 1
-                }
-              ]
-            }
-          }
-        });
-        $scope.sending = false;
-        $scope.sent = true;
-        return $('body').animate({
-          scrollTop: $('.header').offset().top
-        });
-      }, function(response) {
-        $scope.sending = false;
-        return angular.forEach(response.data, function(errors, field) {
-          var input, selector;
-          $scope.errors[field] = errors;
-          selector = "[ng-model$='" + field + "']";
-          input = $("input" + selector + ", textarea" + selector);
-          input.focus();
-          if (isMobile) {
-            return input.notify(errors[0], notify_options);
-          }
-        });
-      });
-    };
-    $scope.isSelected = function(subject_id) {
-      if (!($scope.order && $scope.order.subjects)) {
-        return false;
-      }
-      return $scope.order.subjects.indexOf(subject_id) !== -1;
-    };
-    $scope.selectSubject = function(subject_id) {
-      if (!$scope.order.subjects) {
-        $scope.order.subjects = [];
-      }
-      if ($scope.isSelected(subject_id)) {
-        return $scope.order.subjects = _.without($scope.order.subjects, subject_id);
-      } else {
-        return $scope.order.subjects.push(subject_id);
-      }
-    };
-    return $scope.selectedSubjectsList = function() {
-      var i, len, ref, ref1, ref2, subject_id, subjects;
-      if (!((ref = $scope.order) != null ? (ref1 = ref.subjects) != null ? ref1.length : void 0 : void 0)) {
-        return false;
-      }
-      subjects = [];
-      ref2 = $scope.order.subjects;
-      for (i = 0, len = ref2.length; i < len; i++) {
-        subject_id = ref2[i];
-        subjects.push($scope.Subjects[subject_id].name);
-      }
-      return subjects.join(', ');
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').controller('Programs', function($scope) {});
-
-}).call(this);
-
-(function() {
-  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Reviews', function($scope, $timeout, $http, Subjects) {
-    var search;
-    bindArguments($scope, arguments);
-    $timeout(function() {
-      $scope.reviews = [];
-      $scope.page = 1;
-      $scope.has_more_pages = true;
-      return search();
-    });
-    $scope.popup = function(index) {
-      return $scope.show_review = index;
-    };
-    $scope.nextPage = function() {
-      $scope.page++;
-      return search();
-    };
-    return search = function() {
-      $scope.searching = true;
-      return $http.get('/api/reviews?page=' + $scope.page).then(function(response) {
-        console.log(response);
-        $scope.searching = false;
-        $scope.reviews = $scope.reviews.concat(response.data.reviews);
-        return $scope.has_more_pages = response.data.has_more_pages;
-      });
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').filter('cut', function() {
-    return function(value, wordwise, max, tail) {
-      var lastspace;
-      if (tail == null) {
-        tail = '';
-      }
-      if (!value) {
-        return '';
-      }
-      max = parseInt(max, 10);
-      if (!max) {
-        return value;
-      }
-      if (value.length <= max) {
-        return value;
-      }
-      value = value.substr(0, max);
-      if (wordwise) {
-        lastspace = value.lastIndexOf(' ');
-        if (lastspace !== -1) {
-          if (value.charAt(lastspace - 1) === '.' || value.charAt(lastspace - 1) === ',') {
-            lastspace = lastspace - 1;
-          }
-          value = value.substr(0, lastspace);
-        }
-      }
-      return value + tail;
-    };
-  }).controller('Stats', function($scope, $timeout, $http, Subjects, Grades) {
-    var search;
-    bindArguments($scope, arguments);
-    $timeout(function() {
-      $scope.search = {
-        per_page: 50
-      };
-      return $scope.filter();
-    });
-    $scope.popup = function(index) {
-      return $scope.show_review = index;
-    };
-    $scope.nextPage = function() {
-      $scope.page++;
-      return search();
-    };
-    $scope.filter = function() {
-      $scope.reviews = null;
-      $scope.page = 1;
-      $scope.has_more_pages = true;
-      return search();
-    };
-    return search = function() {
-      $scope.searching = true;
-      return $http.get('/api/reviews?page=' + $scope.page + '&' + $.param($scope.search)).then(function(response) {
-        console.log(response);
-        $scope.searching = false;
-        if ($scope.page === 1) {
-          $scope.reviews = [];
-        }
-        $scope.reviews = $scope.reviews.concat(response.data.reviews);
-        return $scope.has_more_pages = response.data.has_more_pages;
-      });
-    };
-  });
-
-}).call(this);
-
-(function() {
-  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Tutors', function($scope, $timeout, $http, Tutor, REVIEWS_PER_PAGE, Subjects) {
-    var filter, filter_used, search, search_count;
-    bindArguments($scope, arguments);
-    search_count = 0;
-    $scope.profilePage = function() {
-      return RegExp(/^\/tutors\/[\d]+$/).test(window.location.pathname);
-    };
-    $timeout(function() {
-      initYoutube();
-      if (!$scope.profilePage()) {
-        return $scope.filter();
-      }
-    });
-    $scope.reviews = function(tutor, index) {
-      if (tutor.all_reviews === void 0) {
-        tutor.all_reviews = Tutor.reviews({
-          id: tutor.id
-        }, function(response) {
-          return $scope.showMoreReviews(tutor);
-        });
-      }
-      return $scope.toggleShow(tutor, 'show_reviews', 'reviews', false);
-    };
-    $scope.showMoreReviews = function(tutor, index) {
-      var from, to;
-      tutor.reviews_page = !tutor.reviews_page ? 1 : tutor.reviews_page + 1;
-      from = (tutor.reviews_page - 1) * REVIEWS_PER_PAGE;
-      to = from + REVIEWS_PER_PAGE;
-      return tutor.displayed_reviews = tutor.all_reviews.slice(0, to);
-    };
-    $scope.reviewsLeft = function(tutor) {
-      var reviews_left;
-      if (!tutor.all_reviews || !tutor.displayed_reviews) {
-        return;
-      }
-      reviews_left = tutor.all_reviews.length - tutor.displayed_reviews.length;
-      if (reviews_left > REVIEWS_PER_PAGE) {
-        return REVIEWS_PER_PAGE;
-      } else {
-        return reviews_left;
-      }
-    };
-    filter_used = false;
-    $scope.filter = function() {
-      $scope.tutors = [];
-      $scope.page = 1;
-      if (filter_used) {
-        return filter();
-      } else {
-        filter();
-        return filter_used = true;
-      }
-    };
-    filter = function() {
-      return search();
-    };
-    $scope.nextPage = function() {
-      $scope.page++;
-      return search();
-    };
-    search = function() {
-      $scope.searching = true;
-      return Tutor.search({
-        filter_used: filter_used,
-        page: $scope.page,
-        search: $scope.search
-      }, function(response) {
-        search_count++;
-        $scope.searching = false;
-        $scope.data = response;
-        return $scope.tutors = $scope.tutors.concat(response.data);
-      });
-    };
-    $scope.video = function(tutor) {
-      player.loadVideoById(tutor.video_link);
-      player.playVideo();
-      if (isMobile) {
-        return $('.fullscreen-loading-black').css('display', 'flex');
-      } else {
-        return openModal('video');
-      }
-    };
-    $scope.videoDuration = function(tutor) {
-      var duration, format;
-      duration = parseInt(tutor.video_duration);
-      format = duration >= 60 ? 'm мин s сек' : 's сек';
-      return moment.utc(duration * 1000).format(format);
-    };
-    $scope.toggleShow = function(tutor, prop, iteraction_type, index) {
-      if (index == null) {
-        index = null;
-      }
-      if (tutor[prop]) {
-        return $timeout(function() {
-          return tutor[prop] = false;
-        }, $scope.mobile ? 400 : 0);
-      } else {
-        return tutor[prop] = true;
-      }
-    };
-    return $scope.popup = function(id, tutor, fn, index) {
-      if (tutor == null) {
-        tutor = null;
-      }
-      if (fn == null) {
-        fn = null;
-      }
-      if (index == null) {
-        index = null;
-      }
-      openModal(id);
-      if (tutor !== null) {
-        $scope.popup_tutor = tutor;
-      }
-      if (fn !== null) {
-        return $timeout(function() {
-          return $scope[fn](tutor, index);
-        });
-      }
-    };
   });
 
 }).call(this);

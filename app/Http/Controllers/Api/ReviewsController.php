@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Tutor;
 use App\Models\Review;
 use DB;
+use Cache;
 
 class ReviewsController extends Controller
 {
@@ -18,7 +19,7 @@ class ReviewsController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Review::query();
+        $query = Review::withStudent();
 
         if ($request->tutor_id) {
             $query->where('id_teacher', $request->tutor_id);
@@ -35,8 +36,9 @@ class ReviewsController extends Controller
         $paginator = $query->simplePaginate(isset($request->per_page) ? $request->per_page : 20);
 
         $reviews = $paginator->getCollection()->map(function ($review) {
-            $review->tutor = DB::connection('egerep')->table('tutors')->whereId($review->id_teacher)->select('id', 'first_name', 'last_name', 'middle_name')->first();
-            $review->student = DB::connection('egecrm')->table('students')->whereId($review->id_student)->select('first_name', 'last_name', 'middle_name')->first();
+            $review->tutor = Cache::remember(cacheKey('tutor', $review->id_teacher), 60 * 24, function() use ($review) {
+                return DB::connection('egerep')->table('tutors')->whereId($review->id_teacher)->select('id', 'first_name', 'last_name', 'middle_name')->first();
+            });
             return $review;
         });
         return [
