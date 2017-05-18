@@ -14,6 +14,6 @@ class ReviewScope implements Scope
         return $builder->where('published', 1)
                 ->orderBy('id', 'desc')
                 ->select(DB::raw('admin_comment_final as comment, IF(admin_rating_final=6, 0, admin_rating_final) as rating,
-                    score, max_score, signature, id_subject, id_student, id_teacher, year'));
+                    score, max_score, signature, id_subject, id_student, id_teacher, year, grade'));
     }
 }
