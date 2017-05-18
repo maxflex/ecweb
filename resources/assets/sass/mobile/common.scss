@@ -409,6 +409,7 @@ a[href^="https://www.google.com/maps"] {
   & .catalog-list-item {
       &-title {
           background: rgba(0, 0, 0, 0.07);
+          font-family: $font-regular;
       }
       &:first-of-type {
           border-top: none;
@@ -431,6 +432,11 @@ a[href^="https://www.google.com/maps"] {
 .stats-review-signature {
     font-family: $font-italic;
     margin-top: .5em;
+}
+
+.stats-score {
+    position: absolute;
+    right: 3em;
 }
 
 select {
