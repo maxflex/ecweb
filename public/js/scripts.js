@@ -15766,24 +15766,6 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       $scope.sending = true;
       $scope.errors = {};
       return Request.save($scope.order, function() {
-        dataLayerPush({
-          event: 'purchase',
-          ecommerce: {
-            currencyCode: 'RUR',
-            purchase: {
-              actionField: {
-                id: googleClientId()
-              },
-              products: [
-                {
-                  brand: $scope.order.grade,
-                  category: ($scope.order.subjects ? $scope.order.subjects.sort().join(',') : '') + '_' + $scope.order.branch_id,
-                  quantity: 1
-                }
-              ]
-            }
-          }
-        });
         $scope.sending = false;
         $scope.sent = true;
         return $('body').animate({
@@ -15851,6 +15833,9 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       $scope.has_more_pages = true;
       return search();
     });
+    $scope.popup = function(index) {
+      return $scope.show_review = index;
+    };
     $scope.nextPage = function() {
       $scope.page++;
       return search();
@@ -15862,6 +15847,78 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
         $scope.searching = false;
         $scope.reviews = $scope.reviews.concat(response.data.reviews);
         return $scope.has_more_pages = response.data.has_more_pages;
+      });
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').filter('cut', function() {
+    return function(value, wordwise, max, tail) {
+      var lastspace;
+      if (tail == null) {
+        tail = '';
+      }
+      if (!value) {
+        return '';
+      }
+      max = parseInt(max, 10);
+      if (!max) {
+        return value;
+      }
+      if (value.length <= max) {
+        return value;
+      }
+      value = value.substr(0, max);
+      if (wordwise) {
+        lastspace = value.lastIndexOf(' ');
+        if (lastspace !== -1) {
+          if (value.charAt(lastspace - 1) === '.' || value.charAt(lastspace - 1) === ',') {
+            lastspace = lastspace - 1;
+          }
+          value = value.substr(0, lastspace);
+        }
+      }
+      return value + tail;
+    };
+  }).controller('Stats', function($scope, $timeout, $http, Subjects, Grades) {
+    var search;
+    bindArguments($scope, arguments);
+    $timeout(function() {
+      $scope.search = {};
+      $scope.data = {};
+      $scope.show_review = null;
+      $scope.filter();
+      return $(window).on('click', function(event) {
+        if ($scope.show_review !== null && !$(event.target).hasClass('expand-comment')) {
+          if (!$(event.target).hasClass('review-popup')) {
+            $scope.popup(null);
+          }
+          return $scope.$apply();
+        }
+      });
+    });
+    $scope.popup = function(index) {
+      return $timeout(function() {
+        return $scope.show_review = index;
+      });
+    };
+    $scope.filter = function() {
+      $scope.data = null;
+      return search();
+    };
+    return search = function() {
+      $scope.searching = true;
+      return $http.get('/api/stats?' + $.param($scope.search)).then(function(response) {
+        console.log(response);
+        $scope.searching = false;
+        $scope.data = response.data;
+        if (isMobile) {
+          return $timeout(function() {
+            return bindToggle();
+          });
+        }
       });
     };
   });

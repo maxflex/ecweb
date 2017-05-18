@@ -163,7 +163,7 @@ class Tutor extends Service\Model
         ])->join('tutor_data', 'tutor_data.tutor_id', '=', 'tutors.id');
     }
 
-    public static function bySubject($subject_eng, $limit = false, $grade = false, $ids = false)
+    public static function bySubject($subject_eng, $limit = false, $grade = false)
     {
         $query = static::query();
         if ($subject_eng != 'any') {
@@ -175,10 +175,6 @@ class Tutor extends Service\Model
 
         if ($grade) {
             $query->whereRaw("FIND_IN_SET($grade, grades)");
-        }
-
-        if ($ids) {
-            $query->whereIn('id', explode(',', $ids));
         }
 
         return $query->light()

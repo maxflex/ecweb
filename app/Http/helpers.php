@@ -255,6 +255,11 @@
         if( $httpCode == 200 ){return true;}
     }
 
+    function cacheKey($key, $id = null)
+    {
+        return "ecweb:$key" . ($id ? ":$id" : '');
+    }
+
 
     function flatten($collection, $child) {
         return $collection->flatMap(function($value) use ($child) {

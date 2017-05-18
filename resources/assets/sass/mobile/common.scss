@@ -404,3 +404,41 @@ a[href^="https://www.google.com/maps"] {
     width: 100%;
   }
 }
+
+.stats-table {
+  & .catalog-list-item {
+      &-title {
+          background: rgba(0, 0, 0, 0.07);
+          font-family: $font-regular;
+      }
+      &:first-of-type {
+          border-top: none;
+      }
+  }
+  & .catalog-list-inner-item {
+      & > div {
+          &:not(:last-child) {
+              margin-bottom: 1em;
+          }
+      }
+  }
+}
+
+.stats-average {
+    margin-bottom: 2.5em;
+    text-align: center;
+}
+
+.stats-review-signature {
+    font-family: $font-italic;
+    margin-top: .5em;
+}
+
+.stats-score {
+    position: absolute;
+    right: 3em;
+}
+
+select {
+    -webkit-appearance: none !important;
+}

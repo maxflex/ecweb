@@ -10,6 +10,8 @@ angular
             $scope.has_more_pages = true
             search()
 
+        $scope.popup = (index) ->
+            $scope.show_review = index
 
         $scope.nextPage = ->
             $scope.page++

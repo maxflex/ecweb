@@ -4,6 +4,7 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
     Route::post('tutors/search', 'TutorsController@search');
     Route::resource('requests', 'RequestsController', ['only' => 'store']);
     Route::resource('reviews', 'ReviewsController');
+    Route::resource('stats', 'StatsController', ['only' => 'index']);
     // Route::post('cv/uploadPhoto', 'CvController@uploadPhoto');
      Route::resource('cv', 'CvController', ['only' => 'store']);
     // Route::resource('stream', 'StreamController', ['only' => 'store']);

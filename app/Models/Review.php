@@ -4,20 +4,18 @@ namespace App\Models;
 
 use App\Scopes\ReviewScope;
 use Illuminate\Database\Eloquent\Model;
-use DB;
 
 class Review extends Model
 {
     protected $connection = 'egecrm';
     protected $table = 'teacher_reviews';
 
-    protected $appends = ['grade'];
-
-    public function getGradeAttribute()
+    public function scopeWithStudent($query)
     {
-        // dump([$this->id_teacher, $this->id_student, $this->id_subject, $this->year]);
-        return egecrm('visit_journal')->where('id_teacher', $this->id_teacher)->where('id_entity', $this->id_student)
-            ->where('id_subject', $this->id_subject)->where('year', $this->year)->where('type_entity', 'STUDENT')->value('grade');
+        return $query->join('students', 'students.id', '=', 'teacher_reviews.id_student')
+            ->addSelect('students.first_name as student_first_name',
+                        'students.last_name as student_last_name',
+                        'students.middle_name as student_middle_name');
     }
 
     public static function boot()

@@ -11,7 +11,7 @@ use App\Models\Review;
 use DB;
 use Cache;
 
-class ReviewsController extends Controller
+class StatsController extends Controller
 {
     /**
      * Все отзывы
@@ -19,27 +19,31 @@ class ReviewsController extends Controller
      */
     public function index(Request $request)
     {
-        $paginator = Review::simplePaginate(20);
+        $query = Review::withStudent()->orderBy('score', 'desc');
 
-        $reviews = $paginator->getCollection()->map(function ($review) {
+        if ($request->tutor_id) {
+            $query->where('id_teacher', $request->tutor_id);
+        }
+
+        if ($request->subject_id) {
+            $query->where('id_subject', $request->subject_id);
+        }
+
+        if ($request->grade) {
+            $query->where('teacher_reviews.grade', $request->grade);
+        }
+
+        $reviews = $query->get()->all();
+
+        foreach($reviews as $review) {
             $review->tutor = Cache::remember(cacheKey('tutor', $review->id_teacher), 60 * 24, function() use ($review) {
                 return DB::connection('egerep')->table('tutors')->whereId($review->id_teacher)->select('id', 'first_name', 'last_name', 'middle_name')->first();
             });
-            return $review;
-        });
+        }
+
         return [
             'reviews' => $reviews,
-            'has_more_pages' => $paginator->hasMorePages(),
+            'avg' => round($query->where('score', '>', 0)->avg('score'), 1),
         ];
     }
-
-    /**
-     * Показать отзывы препода
-     *
-     */
-    public function show($id)
-    {
-        return Review::where('id_teacher', $id)->get();
-    }
-
 }

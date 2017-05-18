@@ -7,6 +7,7 @@
     use App\Models\Page;
     use App\Models\Tutor;
     use DB;
+    use Cache;
 
     /**
      * Parser
@@ -100,6 +101,7 @@
         public static function compileFunctions(&$html, $var)
         {
             $replacement = '';
+            \Log::info($var);
             $args = explode('|', $var);
             if (count($args) > 1) {
                 $function_name = $args[0];
@@ -116,8 +118,13 @@
                         break;
                     case 'tutors':
                         // поиск по ID
+                        \Log::info($args[0]);
                         if (strpos($args[0], ',') !== false) {
                             $replacement = Tutor::light()->whereIn('id', explode(',', $args[0]))->get()->toJson();
+                        } else if ($args[0] == 'reviews') {
+                            $replacement = Cache::remember(cacheKey('review-tutors'), 60 * 24, function() {
+                                return Tutor::light()->whereIn('id', Review::pluck('id_teacher')->unique())->orderBy(DB::raw('last_name, first_name, middle_name'))->get();
+                            });
                         } else {
                             $replacement = Tutor::bySubject(...$args)->toJson();
                         }

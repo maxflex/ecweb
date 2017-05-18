@@ -140,6 +140,7 @@ return [
     */
 
     'providers' => [
+        Clockwork\Support\Laravel\ClockworkServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...
@@ -184,7 +185,6 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         Watson\Sitemap\SitemapServiceProvider::class,
-        Clockwork\Support\Laravel\ClockworkServiceProvider::class,
     ],
 
     /*

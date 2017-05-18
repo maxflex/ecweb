@@ -9,8 +9,9 @@ $(document).ready(function() {
 	$('.header-menu-button').click(function() {
         openModal('menu')
 	})
-    $('.price-list .price-list-item-title').click(togglePrice);
-    $('.catalog-list .catalog-list-item-title').click(toggleCatalog);
+
+    bindToggle()
+
 	// if (isMobile && isIphone4) $('body').addClass('iphone4fix');
 
     $('.questions-item-answer img.can-resize, .questions-item-answer .zoom-hint').click(function() {
@@ -41,7 +42,7 @@ $(document).ready(function() {
 
 //
 // close modal on «back» button
-// 
+//
 $(window).on('hashchange', function() {
     if(window.location.hash != "#modal") {
         closeModal()
@@ -60,4 +61,9 @@ function toggleCatalog(){
 
     $parent.toggleClass('catalog-list-item__active');
     $parent.children('.catalog-list-inner').slideToggle();
+}
+
+function bindToggle() {
+    $('.price-list .price-list-item-title').click(togglePrice)
+    $('.catalog-list .catalog-list-item-title').click(toggleCatalog)
 }
