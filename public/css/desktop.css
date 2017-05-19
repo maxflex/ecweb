@@ -4904,7 +4904,8 @@ h3.padding-top {
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  text-align: center; }
 
 .btn {
   padding: 6px 10px; }
