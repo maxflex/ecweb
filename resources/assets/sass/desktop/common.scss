@@ -10,6 +10,7 @@ body {
 .common {
   width: $screen-width;
   margin: 0 auto;
+  flex: 1;
 }
 
 h1 {
@@ -131,6 +132,9 @@ a {
   height: auto !important;
   height: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .center-col {
@@ -312,7 +316,6 @@ p.last {
 
 .stats-table {
     width: 100%;
-    margin-bottom: 28px;
     & thead tr td {
         font-family: $font-medium;
         padding-bottom: 20px;

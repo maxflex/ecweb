@@ -3817,7 +3817,9 @@ body {
 
 .common {
   width: 960px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  -webkit-box-flex: 1;
+  flex: 1; }
 
 h1 {
   margin: 0;
@@ -3908,7 +3910,14 @@ a {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  position: relative; }
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  justify-content: space-between; }
 
 .center-col {
   float: left;
@@ -4045,8 +4054,7 @@ a[href^="https://www.google.com/maps"] {
   visibility: hidden; }
 
 .stats-table {
-  width: 100%;
-  margin-bottom: 28px; }
+  width: 100%; }
   .stats-table thead tr td {
     font-family: "helveticaneuecyrmedium";
     padding-bottom: 20px; }
@@ -4248,15 +4256,9 @@ a[href^="https://www.google.com/maps"] {
   font-family: "helveticaneuecyrregular";
   font-size: 14px;
   font-weight: normal;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
   padding-bottom: 20px;
-  height: 336pxpx; }
-  .footer-fix {
-    clear: both;
-    height: 336px; }
+  margin-top: 30px; }
   .footer a {
     color: #fff;
     text-decoration: none; }
