@@ -4791,6 +4791,8 @@ body {
 .common {
   width: 960px;
   margin: 0 auto;
+  -webkit-box-flex: 1;
+  flex: 1;
 }
 
 h1 {
@@ -4909,6 +4911,13 @@ a:hover {
   height: auto !important;
   height: 100%;
   position: relative;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
 }
 
 .center-col {
@@ -5088,7 +5097,6 @@ a[href^="https://www.google.com/maps"] {
 
 .stats-table {
   width: 100%;
-  margin-bottom: 28px;
 }
 
 .stats-table thead tr td {
@@ -5108,7 +5116,7 @@ a[href^="https://www.google.com/maps"] {
   position: absolute;
   left: 200px;
   background: white;
-  z-index: 2;
+  z-index: 100;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
   padding: 10px;
   border-radius: 5px;
@@ -5147,6 +5155,15 @@ a[href^="https://www.google.com/maps"] {
 
 .stats-average b, .stats-average .address-more li > div:first-of-type, .address-more .stats-average li > div:first-of-type {
   font-family: "helveticaneuecyrmedium";
+}
+
+.review-popup-close {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
 }
 
 /* Components */
@@ -5357,17 +5374,9 @@ a[href^="https://www.google.com/maps"] {
   font-family: "helveticaneuecyrregular";
   font-size: 14px;
   font-weight: normal;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
   padding-bottom: 20px;
-  height: 336pxpx;
-}
-
-.footer-fix {
-  clear: both;
-  height: 336px;
+  margin-top: 30px;
 }
 
 .footer a {
