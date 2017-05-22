@@ -3836,7 +3836,7 @@ select {
   .header-image {
     text-align: center;
     color: #fff;
-    font-family: 'helveticaneuecyrthin';
+    font-family: 'helveticaneuecyrultralight';
     padding: 3.5em 0 0 0;
     position: relative; }
     .header-image-container {
@@ -4035,8 +4035,8 @@ select {
       justify-content: space-between;
       text-decoration: none; }
       .address-list-item > a > img {
-        height: 1.2em;
-        width: 1.2em; }
+        height: 0.75em;
+        width: 0.75em; }
       .address-list-item > a .address-branch-title {
         text-decoration: underline; }
     .address-list-item-info {

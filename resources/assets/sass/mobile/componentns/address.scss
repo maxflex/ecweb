@@ -19,8 +19,8 @@ $height-right-arrow: 1.188;
           justify-content: space-between;
           text-decoration: none;
           & > img {
-              height: 1.2em;
-              width: 1.2em;
+              height: $arrow-thick-size;
+              width: $arrow-thick-size;
           }
           & .address-branch-title {
               text-decoration: underline;
