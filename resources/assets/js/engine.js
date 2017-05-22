@@ -125,3 +125,7 @@ function dataLayerPush(object) {
     window.dataLayer = window.dataLayer || []
     window.dataLayer.push(object)
 }
+
+function keyCount (object) {
+    return _.keys(object).length;
+}
