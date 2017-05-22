@@ -55,7 +55,7 @@ class StatsController extends Controller
                 if ($id_subject == 1 && $grade == 11) {
                     continue;
                 }
-                $subject_grades[] = $grade . '-' . $id_subject;
+                $subject_grades[] = $id_subject . '-' . $grade;
             }
         }
 
