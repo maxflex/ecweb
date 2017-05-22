@@ -4622,8 +4622,7 @@ a[href^="https://www.google.com/maps"] {
         text-decoration: none;
         font-weight: bolder; }
       .courses-container .course-items .item-desc {
-        color: #818181;
-        font-family: 'helveticaneuecyrlight'; }
+        color: #818181; }
 
 .popup {
   display: none;
