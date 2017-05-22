@@ -32,7 +32,7 @@ angular
         $scope.getScoreLabel = ->
             [subject_id, grade, profile] = $scope.search.subject_grade.split('-')
             label = Subjects.dative[subject_id]
-            if subject_id == 1 and grade >= 10
+            if (parseInt(subject_id) is 1 && parseInt(grade) >= 10)
                 if grade == 10
                     label += ' (база)'
                 else
