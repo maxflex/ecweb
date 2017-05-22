@@ -33,10 +33,10 @@ angular
             [subject_id, grade, profile] = $scope.search.subject_grade.split('-')
             label = Subjects.dative[subject_id]
             if (parseInt(subject_id) is 1 && parseInt(grade) >= 10)
-                if grade == 10
+                if parseInt(grade) is 10
                     label += ' (база)'
                 else
-                    label += if profile then ' (профиль)' else ' (база)'
+                    label += if parseInt(profile) then ' (профиль)' else ' (база)'
             label
 
         # предмет-класс-(профиль/база?)
