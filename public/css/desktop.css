@@ -4087,14 +4087,23 @@ a[href^="https://www.google.com/maps"] {
 .stats-filter {
   margin-bottom: 20px; }
   .stats-filter > div {
-    width: 250px;
+    width: 275px;
     display: inline-block;
     margin-right: 10px; }
+  .stats-filter .customSelectInner {
+    white-space: nowrap; }
 
 .stats-average {
-  margin-bottom: 20px; }
+  margin: 40px 0 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(172, 172, 172, 0.75); }
   .stats-average b, .stats-average .address-more li > div:first-of-type, .address-more .stats-average li > div:first-of-type {
     font-family: "helveticaneuecyrmedium"; }
+  .stats-average > div {
+    padding: 4px 0; }
+    .stats-average > div > span {
+      display: inline-block;
+      width: 440px; }
 
 .review-popup-close {
   position: fixed;

@@ -406,6 +406,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .stats-table {
+  margin-top: 1em !important;
   & .catalog-list-item {
       &-title {
           background: rgba(0, 0, 0, 0.07);
@@ -425,8 +426,8 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .stats-average {
-    margin-bottom: 2.5em;
-    text-align: center;
+    font-size: .9em;
+    line-height: 1.3em;
 }
 
 .stats-review-signature {

@@ -356,17 +356,29 @@ p.last {
 
 .stats-filter {
     & > div {
-        width: 250px;
+        width: 275px;
         display: inline-block;
         margin-right: 10px;
     }
     margin-bottom: 20px;
+    & .customSelectInner {
+        white-space: nowrap;
+    }
 }
 
 .stats-average {
-    margin-bottom: 20px;
+    margin: 40px 0 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba($text-grey-light, .75);
     & b {
         font-family: $font-medium;
+    }
+    & > div {
+        padding: 4px 0;
+        & > span {
+            display: inline-block;
+            width: 440px;
+        }
     }
 }
 

@@ -528,7 +528,7 @@
       }
       return value + tail;
     };
-  }).controller('Stats', function($scope, $timeout, $http, Subjects, Grades) {
+  }).controller('Stats', function($scope, $timeout, $http, Subjects, Grades, AvgScores) {
     var search;
     bindArguments($scope, arguments);
     $timeout(function() {
@@ -541,8 +541,52 @@
       return $scope.show_review = index;
     };
     $scope.filter = function() {
-      $scope.data = null;
       return search();
+    };
+    $scope.getScoreLabel = function() {
+      var grade, label, profile, ref, subject_id;
+      ref = $scope.search.subject_grade.split('-'), subject_id = ref[0], grade = ref[1], profile = ref[2];
+      label = Subjects.dative[subject_id];
+      if (subject_id === 1 && grade >= 10) {
+        if (grade === 10) {
+          label += ' (база)';
+        } else {
+          label += profile ? ' (профиль)' : ' (база)';
+        }
+      }
+      return label;
+    };
+    $scope.getSubjectsGrades = function() {
+      var options;
+      if ($scope.subject_grades === void 0) {
+        options = [
+          {
+            id: '1-11-1',
+            label: 'математика 11 класс, профиль'
+          }, {
+            id: '1-11-0',
+            label: 'математика 11 класс, база'
+          }
+        ];
+        $.each(Subjects.all, function(subject_id, subject_name) {
+          return [11, 10, 9].forEach(function(grade) {
+            var label;
+            if (grade === 11 && parseInt(subject_id) === 1) {
+              return;
+            }
+            label = subject_name + " " + grade + " класс";
+            if (grade === 10 && parseInt(subject_id) === 1) {
+              label += ', база';
+            }
+            return options.push({
+              id: subject_id + "-" + grade,
+              label: label
+            });
+          });
+        });
+        $scope.subject_grades = options;
+      }
+      return $scope.subject_grades;
     };
     return search = function() {
       $scope.searching = true;
@@ -683,123 +727,6 @@
       }
     };
   });
-
-}).call(this);
-
-(function() {
-  angular.module('App').value('Grades', {
-    9: '9 класс',
-    10: '10 класс',
-    11: '11 класс'
-  }).value('Subjects', {
-    all: {
-      1: 'математика',
-      2: 'физика',
-      3: 'химия',
-      4: 'биология',
-      5: 'информатика',
-      6: 'русский',
-      7: 'литература',
-      8: 'обществознание',
-      9: 'история',
-      10: 'английский',
-      11: 'география'
-    },
-    full: {
-      1: 'Математика',
-      2: 'Физика',
-      3: 'Химия',
-      4: 'Биология',
-      5: 'Информатика',
-      6: 'Русский язык',
-      7: 'Литература',
-      8: 'Обществознание',
-      9: 'История',
-      10: 'Английский язык',
-      11: 'География'
-    },
-    dative: {
-      1: 'математике',
-      2: 'физике',
-      3: 'химии',
-      4: 'биологии',
-      5: 'информатике',
-      6: 'русскому языку',
-      7: 'литературе',
-      8: 'обществознанию',
-      9: 'истории',
-      10: 'английскому языку',
-      11: 'географии'
-    },
-    short: ['М', 'Ф', 'Р', 'Л', 'А', 'Ис', 'О', 'Х', 'Б', 'Ин', 'Г'],
-    three_letters: {
-      1: 'МАТ',
-      2: 'ФИЗ',
-      3: 'ХИМ',
-      4: 'БИО',
-      5: 'ИНФ',
-      6: 'РУС',
-      7: 'ЛИТ',
-      8: 'ОБЩ',
-      9: 'ИСТ',
-      10: 'АНГ',
-      11: 'ГЕО'
-    },
-    short_eng: ['math', 'phys', 'rus', 'lit', 'eng', 'his', 'soc', 'chem', 'bio', 'inf', 'geo']
-  });
-
-}).call(this);
-
-(function() {
-  var apiPath, countable, updatable;
-
-  angular.module('App').factory('Tutor', function($resource) {
-    return $resource(apiPath('tutors'), {
-      id: '@id',
-      type: '@type'
-    }, {
-      search: {
-        method: 'POST',
-        url: apiPath('tutors', 'search')
-      },
-      reviews: {
-        method: 'GET',
-        isArray: true,
-        url: apiPath('reviews')
-      }
-    });
-  }).factory('Request', function($resource) {
-    return $resource(apiPath('requests'), {
-      id: '@id'
-    }, updatable());
-  }).factory('Cv', function($resource) {
-    return $resource(apiPath('cv'), {
-      id: '@id'
-    }, updatable());
-  });
-
-  apiPath = function(entity, additional) {
-    if (additional == null) {
-      additional = '';
-    }
-    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
-  };
-
-  updatable = function() {
-    return {
-      update: {
-        method: 'PUT'
-      }
-    };
-  };
-
-  countable = function() {
-    return {
-      count: {
-        method: 'GET'
-      }
-    };
-  };
 
 }).call(this);
 
@@ -952,6 +879,136 @@
 
 (function() {
 
+
+}).call(this);
+
+(function() {
+  angular.module('App').value('AvgScores', {
+    '1-11-0': 50.0,
+    '1-11-1': 50.0,
+    '2-11': 50.0,
+    '3-11': 50.0,
+    '4-11': 50.0,
+    '5-11': 50.0,
+    '6-11': 50.0,
+    '7-11': 50.0,
+    '8-11': 50.0,
+    '9-11': 50.0,
+    '10-11': 50.0,
+    '11-11': 50.0
+  }).value('Grades', {
+    9: '9 класс',
+    10: '10 класс',
+    11: '11 класс'
+  }).value('Subjects', {
+    all: {
+      1: 'математика',
+      2: 'физика',
+      3: 'химия',
+      4: 'биология',
+      5: 'информатика',
+      6: 'русский',
+      7: 'литература',
+      8: 'обществознание',
+      9: 'история',
+      10: 'английский',
+      11: 'география'
+    },
+    full: {
+      1: 'Математика',
+      2: 'Физика',
+      3: 'Химия',
+      4: 'Биология',
+      5: 'Информатика',
+      6: 'Русский язык',
+      7: 'Литература',
+      8: 'Обществознание',
+      9: 'История',
+      10: 'Английский язык',
+      11: 'География'
+    },
+    dative: {
+      1: 'математике',
+      2: 'физике',
+      3: 'химии',
+      4: 'биологии',
+      5: 'информатике',
+      6: 'русскому языку',
+      7: 'литературе',
+      8: 'обществознанию',
+      9: 'истории',
+      10: 'английскому языку',
+      11: 'географии'
+    },
+    short: ['М', 'Ф', 'Р', 'Л', 'А', 'Ис', 'О', 'Х', 'Б', 'Ин', 'Г'],
+    three_letters: {
+      1: 'МАТ',
+      2: 'ФИЗ',
+      3: 'ХИМ',
+      4: 'БИО',
+      5: 'ИНФ',
+      6: 'РУС',
+      7: 'ЛИТ',
+      8: 'ОБЩ',
+      9: 'ИСТ',
+      10: 'АНГ',
+      11: 'ГЕО'
+    },
+    short_eng: ['math', 'phys', 'rus', 'lit', 'eng', 'his', 'soc', 'chem', 'bio', 'inf', 'geo']
+  });
+
+}).call(this);
+
+(function() {
+  var apiPath, countable, updatable;
+
+  angular.module('App').factory('Tutor', function($resource) {
+    return $resource(apiPath('tutors'), {
+      id: '@id',
+      type: '@type'
+    }, {
+      search: {
+        method: 'POST',
+        url: apiPath('tutors', 'search')
+      },
+      reviews: {
+        method: 'GET',
+        isArray: true,
+        url: apiPath('reviews')
+      }
+    });
+  }).factory('Request', function($resource) {
+    return $resource(apiPath('requests'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Cv', function($resource) {
+    return $resource(apiPath('cv'), {
+      id: '@id'
+    }, updatable());
+  });
+
+  apiPath = function(entity, additional) {
+    if (additional == null) {
+      additional = '';
+    }
+    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
+  };
+
+  updatable = function() {
+    return {
+      update: {
+        method: 'PUT'
+      }
+    };
+  };
+
+  countable = function() {
+    return {
+      count: {
+        method: 'GET'
+      }
+    };
+  };
 
 }).call(this);
 
