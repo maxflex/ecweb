@@ -16693,6 +16693,11 @@ function dataLayerPush(object) {
     window.dataLayer = window.dataLayer || []
     window.dataLayer.push(object)
 }
+
+function keyCount (object) {
+    return _.keys(object).length;
+}
+
 <!-- Google Tag Manager -->
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

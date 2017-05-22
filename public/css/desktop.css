@@ -4598,6 +4598,33 @@ a[href^="https://www.google.com/maps"] {
         padding: 0;
         vertical-align: bottom; }
 
+.courses-container {
+  margin: 1em 0; }
+  .courses-container .course-items {
+    padding: 0;
+    margin: 0;
+    overflow: hidden; }
+    .courses-container .course-items .item {
+      display: block;
+      width: 50%;
+      box-sizing: border-box;
+      list-style: none;
+      float: left;
+      margin-bottom: 1em; }
+      .courses-container .course-items .item:first-of-type {
+        padding-right: 2em; }
+      .courses-container .course-items .item:last-of-type {
+        padding-left: 2em; }
+      .courses-container .course-items .item-title {
+        display: block;
+        width: 100%;
+        margin-bottom: 1em;
+        text-decoration: none;
+        font-weight: bolder; }
+      .courses-container .course-items .item-desc {
+        color: #818181;
+        font-family: 'helveticaneuecyrlight'; }
+
 .popup {
   display: none;
   position: fixed;

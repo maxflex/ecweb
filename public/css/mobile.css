@@ -4371,6 +4371,31 @@ select {
 .photogallery button {
   outline: none; }
 
+.course-items {
+  margin: -1.3em -1.357em 0 -1.357em;
+  padding: 0;
+  list-style: none; }
+  .course-items .item {
+    border-bottom: 0.063em solid #dcdcdc;
+    padding: 1em 0.7em 1em 1.357em; }
+    .course-items .item a {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      text-decoration: none;
+      color: #818181; }
+      .course-items .item a .item-title {
+        display: block;
+        text-decoration: none;
+        color: #3a6699;
+        margin-bottom: 0.8em; }
+    .course-items .item img {
+      height: 0.75em;
+      width: 0.75em; }
+
 /* Elements */
 .button-green-large, .button-green-small, .button-blue-large, .button-white-large {
   display: inline-block;
