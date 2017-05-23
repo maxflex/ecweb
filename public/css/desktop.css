@@ -4284,8 +4284,7 @@ a[href^="https://www.google.com/maps"] {
   padding-bottom: 20px;
   margin-top: 30px; }
   .footer a {
-    color: #fff;
-    text-decoration: none; }
+    color: #fff; }
     .footer a:hover {
       text-decoration: underline; }
   .footer-inner {
@@ -4973,8 +4972,6 @@ h3.padding-top {
   -webkit-box-pack: end;
   justify-content: flex-end;
   font-size: 12px; }
-  .pdf-download a {
-    text-decoration: none; }
   .pdf-download span {
     margin-left: 5px; }
 
