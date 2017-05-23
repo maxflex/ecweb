@@ -15904,7 +15904,9 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
     var search;
     bindArguments($scope, arguments);
     $timeout(function() {
-      $scope.search = {};
+      $scope.search = {
+        page: 1
+      };
       $scope.data = {};
       $scope.show_review = null;
       return $scope.filter();
@@ -15912,7 +15914,12 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
     $scope.popup = function(index) {
       return $scope.show_review = index;
     };
+    $scope.nextPage = function() {
+      $scope.search.page++;
+      return search();
+    };
     $scope.filter = function() {
+      $scope.search.page = 1;
       return search();
     };
     $scope.getScoreLabel = function() {
@@ -15940,12 +15947,13 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
             label: 'математика 11 класс, база'
           }
         ];
-        $.each(Subjects.all, function(subject_id, subject_name) {
+        $.each(Subjects.full, function(subject_id, subject_name) {
           return [11, 10, 9].forEach(function(grade) {
             var label;
             if (grade === 11 && parseInt(subject_id) === 1) {
               return;
             }
+            subject_name = subject_name.toLowerCase();
             label = subject_name + " " + grade + " класс";
             if (grade === 10 && parseInt(subject_id) === 1) {
               label += ', база';
@@ -15965,7 +15973,15 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       return $http.get('/api/stats?' + $.param($scope.search)).then(function(response) {
         console.log(response);
         $scope.searching = false;
-        $scope.data = response.data;
+        if ($scope.search.page === 1) {
+          $scope.data = response.data;
+        } else {
+          $scope.data.has_more_pages = response.data.has_more_pages;
+          $scope.data.reviews = $scope.data.reviews.concat(response.data.reviews);
+        }
+        $timeout(function() {
+          return $('.custom-select').trigger('render');
+        });
         if (isMobile) {
           return $timeout(function() {
             return bindToggle();
@@ -16256,17 +16272,17 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 
 (function() {
   angular.module('App').value('AvgScores', {
-    '1-11-1': 51.9,
+    '1-11-1': 46.3,
     '2-11': 51.2,
     '3-11': 56.1,
     '4-11': 52.8,
     '5-11': 53,
-    '6-11': 64.3,
-    '7-11': 56.9,
+    '6-11': 65.8,
+    '7-11': 56,
     '8-11': 53.3,
     '9-11': 48.1,
     '10-11': 64.2,
-    '11-11': 49.6
+    '11-11': 53
   }).value('Grades', {
     9: '9 класс',
     10: '10 класс',

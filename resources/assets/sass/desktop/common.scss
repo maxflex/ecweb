@@ -316,13 +316,32 @@ p.last {
 
 .stats-table {
     width: 100%;
-    & thead tr td {
+    margin-top: 40px;
+    & tr.thead td {
         font-family: $font-medium;
+        padding-bottom: 20px;
+    }
+    & tr.thead.with-average td {
+        padding-top: 20px;
+    }
+    td.bordered {
+        border-left: 1px solid $text-grey-light;
+        border-right: 1px solid $text-grey-light;
+        padding: 5px 20px;
+    }
+    td.next-to-bordered {
+        padding-left: 40px;
+    }
+    tr.average td {
+        border-bottom: 1px solid $text-grey-light;
         padding-bottom: 20px;
     }
     & tr {
         & td {
             padding: 5px 5px;
+            & b {
+                font-family: $font-medium;
+            }
             &:first-of-type {
                 padding-left: 0;
             }
@@ -356,7 +375,7 @@ p.last {
 
 .stats-filter {
     & > div {
-        width: 275px;
+        width: 300px;
         display: inline-block;
         margin-right: 10px;
     }
@@ -380,6 +399,10 @@ p.last {
             width: 500px;
         }
     }
+}
+
+.button-stats-more {
+    margin-top: 30px;
 }
 
 .review-popup-close {

@@ -18,7 +18,7 @@ angular
         bindArguments($scope, arguments)
 
         $timeout ->
-            $scope.search = {}
+            $scope.search = {page: 1}
             $scope.data = {}
             $scope.show_review = null
             $scope.filter()
@@ -26,7 +26,12 @@ angular
         $scope.popup = (index) ->
             $scope.show_review = index
 
+        $scope.nextPage = ->
+            $scope.search.page++
+            search()
+
         $scope.filter = ->
+            $scope.search.page = 1
             search()
 
         $scope.getScoreLabel = ->
@@ -50,9 +55,10 @@ angular
                     label: 'математика 11 класс, база'
                 ]
 
-                $.each Subjects.all, (subject_id, subject_name) ->
+                $.each Subjects.full, (subject_id, subject_name) ->
                     [11, 10, 9].forEach (grade) ->
                         return if (grade is 11 && parseInt(subject_id) == 1)
+                        subject_name = subject_name.toLowerCase()
                         label = "#{subject_name} #{grade} класс"
                         label += ', база' if (grade is 10 && parseInt(subject_id) is 1)
                         options.push
@@ -68,5 +74,10 @@ angular
             $http.get('/api/stats?' + $.param($scope.search)).then (response) ->
                 console.log(response)
                 $scope.searching = false
-                $scope.data = response.data
+                if $scope.search.page is 1
+                    $scope.data = response.data
+                else
+                    $scope.data.has_more_pages = response.data.has_more_pages
+                    $scope.data.reviews = $scope.data.reviews.concat(response.data.reviews)
+                $timeout -> $('.custom-select').trigger('render')
                 if isMobile then $timeout -> bindToggle()

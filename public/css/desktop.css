@@ -4054,12 +4054,26 @@ a[href^="https://www.google.com/maps"] {
   visibility: hidden; }
 
 .stats-table {
-  width: 100%; }
-  .stats-table thead tr td {
+  width: 100%;
+  margin-top: 40px; }
+  .stats-table tr.thead td {
     font-family: "helveticaneuecyrmedium";
+    padding-bottom: 20px; }
+  .stats-table tr.thead.with-average td {
+    padding-top: 20px; }
+  .stats-table td.bordered {
+    border-left: 1px solid #acacac;
+    border-right: 1px solid #acacac;
+    padding: 5px 20px; }
+  .stats-table td.next-to-bordered {
+    padding-left: 40px; }
+  .stats-table tr.average td {
+    border-bottom: 1px solid #acacac;
     padding-bottom: 20px; }
   .stats-table tr td {
     padding: 5px 5px; }
+    .stats-table tr td b, .stats-table tr td .address-more li > div:first-of-type, .address-more .stats-table tr td li > div:first-of-type {
+      font-family: "helveticaneuecyrmedium"; }
     .stats-table tr td:first-of-type {
       padding-left: 0; }
     .stats-table tr td .review-popup {
@@ -4087,7 +4101,7 @@ a[href^="https://www.google.com/maps"] {
 .stats-filter {
   margin-bottom: 20px; }
   .stats-filter > div {
-    width: 275px;
+    width: 300px;
     display: inline-block;
     margin-right: 10px; }
   .stats-filter .customSelectInner {
@@ -4104,6 +4118,9 @@ a[href^="https://www.google.com/maps"] {
     .stats-average > div > span {
       display: inline-block;
       width: 500px; }
+
+.button-stats-more {
+  margin-top: 30px; }
 
 .review-popup-close {
   position: fixed;

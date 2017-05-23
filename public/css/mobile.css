@@ -3785,6 +3785,9 @@ a[href^="https://www.google.com/maps"] {
   position: absolute;
   right: 3em; }
 
+.button-stats-more {
+  margin: 2em 0; }
+
 select {
   -webkit-appearance: none !important; }
 

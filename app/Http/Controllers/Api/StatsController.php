@@ -21,28 +21,34 @@ class StatsController extends Controller
     {
         $query = static::_query($request)->withStudent()->orderBy('score', 'desc');
 
-        $reviews = $query->get()->all();
+        $paginator = $query->simplePaginate(100);
 
-        foreach($reviews as $review) {
+        $reviews = $paginator->getCollection()->map(function ($review) {
             $review->tutor = Cache::remember(cacheKey('tutor', $review->id_teacher), 60 * 24, function() use ($review) {
                 return DB::connection('egerep')->table('tutors')->whereId($review->id_teacher)->select('id', 'first_name', 'last_name', 'middle_name')->first();
             });
+            return $review;
+        });
+
+        $return = [
+            'reviews'        => $reviews,
+            'has_more_pages' => $paginator->hasMorePages(),
+        ];
+
+        if ($request->page == 1) {
+            $avg = $query->where('score', '>', 0)->avg('score');
+            $return['avg'] = round($avg, $avg >= 10 ? 1 : 2);
+            $return['counts'] = static::_counts($request);
         }
 
-        $avg = $query->where('score', '>', 0)->avg('score');
-
-        return [
-            'reviews' => $reviews,
-            'avg' => round($avg, $avg >= 10 ? 1 : 2), // 6.53 или 65.3
-            'counts' => static::_counts($request),
-        ];
+        return $return;
     }
 
     private static function _counts($request)
     {
         $counts = [];
 
-        foreach(Cache::get(cacheKey('review-tutors')) as $tutor) {
+        foreach(array_merge([(object)['id' => '']], Cache::get(cacheKey('review-tutors'))->all()) as $tutor) {
             $new_request = (object)$request->all();
             $new_request->tutor_id = $tutor->id;
             $counts['tutor'][$tutor->id] = static::_query($new_request)->count();
@@ -59,7 +65,7 @@ class StatsController extends Controller
             }
         }
 
-        foreach($subject_grades as $subject_grade) {
+        foreach(array_merge([''], $subject_grades) as $subject_grade) {
             $new_request = (object)$request->all();
             $new_request->subject_grade = $subject_grade;
             $counts['subject_grade'][$subject_grade] = static::_query($new_request)->count();
