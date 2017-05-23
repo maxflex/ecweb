@@ -569,22 +569,32 @@
         options = [
           {
             id: '1-11-1',
-            label: 'математика 11 класс, профиль'
+            label: 'ЕГЭ математика (профиль)'
           }, {
             id: '1-11-0',
-            label: 'математика 11 класс, база'
+            label: 'ЕГЭ математика (база)'
           }
         ];
-        $.each(Subjects.full, function(subject_id, subject_name) {
-          return [11, 10, 9].forEach(function(grade) {
-            var label;
+        [11, 10, 9].forEach(function(grade) {
+          return $.each(Subjects.full, function(subject_id, subject_name) {
+            var grade_label, label;
             if (grade === 11 && parseInt(subject_id) === 1) {
               return;
             }
             subject_name = subject_name.toLowerCase();
-            label = subject_name + " " + grade + " класс";
+            switch (parseInt(grade)) {
+              case 11:
+                grade_label = 'ЕГЭ';
+                break;
+              case 9:
+                grade_label = 'ОГЭ';
+                break;
+              default:
+                grade_label = grade + " класс";
+            }
+            label = grade_label + " " + subject_name;
             if (grade === 10 && parseInt(subject_id) === 1) {
-              label += ', база';
+              label += ' (база)';
             }
             return options.push({
               id: subject_id + "-" + grade,

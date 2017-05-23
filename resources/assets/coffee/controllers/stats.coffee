@@ -49,18 +49,22 @@ angular
             if $scope.subject_grades is undefined
                 options = [
                     id: '1-11-1'
-                    label: 'математика 11 класс, профиль'
+                    label: 'ЕГЭ математика (профиль)'
                 ,
                     id: '1-11-0'
-                    label: 'математика 11 класс, база'
+                    label: 'ЕГЭ математика (база)'
                 ]
 
-                $.each Subjects.full, (subject_id, subject_name) ->
-                    [11, 10, 9].forEach (grade) ->
+                [11, 10, 9].forEach (grade) ->
+                    $.each Subjects.full, (subject_id, subject_name) ->
                         return if (grade is 11 && parseInt(subject_id) == 1)
                         subject_name = subject_name.toLowerCase()
-                        label = "#{subject_name} #{grade} класс"
-                        label += ', база' if (grade is 10 && parseInt(subject_id) is 1)
+                        switch parseInt(grade)
+                            when 11 then grade_label = 'ЕГЭ'
+                            when 9 then grade_label = 'ОГЭ'
+                            else grade_label = "#{grade} класс"
+                        label = "#{grade_label} #{subject_name}"
+                        label += ' (база)' if (grade is 10 && parseInt(subject_id) is 1)
                         options.push
                             id: "#{subject_id}-#{grade}"
                             label: label

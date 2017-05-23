@@ -413,3 +413,10 @@ p.last {
     height: 100%;
     z-index: 99;
 }
+
+.input-label {
+    color: $text-grey;
+    font-size: 12px;
+    margin-bottom: 5px;
+    display: block;
+}

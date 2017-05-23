@@ -4128,6 +4128,12 @@ a[href^="https://www.google.com/maps"] {
   height: 100%;
   z-index: 99; }
 
+.input-label {
+  color: #818181;
+  font-size: 12px;
+  margin-bottom: 5px;
+  display: block; }
+
 /* Components */
 .top-message {
   background: #fef9de;
