@@ -40,20 +40,23 @@ class StatsController extends Controller
 
             $avg = $query->where('score', '>', 0)->avg('score');
             $return['avg'] = round($avg, $avg >= 10 ? 1 : 2);
-            $return['counts'] = static::_counts($request);
+            $return['counts'] = static::_counts($request, true);
         }
 
         return $return;
     }
 
-    private static function _counts($request)
+    /**
+     * $exists – counts не нужны, только exists
+     */
+    private static function _counts($request, $exists = false)
     {
         $counts = [];
 
         foreach(array_merge([(object)['id' => '']], Cache::get(cacheKey('review-tutors'))->all()) as $tutor) {
             $new_request = (object)$request->all();
             $new_request->tutor_id = $tutor->id;
-            $counts['tutor'][$tutor->id] = static::_query($new_request)->count();
+            $counts['tutor'][$tutor->id] = static::_query($new_request)->{$exists ? 'exists' : 'count'}();
         }
 
         // генерируем grade_subjects (stats.coffee:getSubjectsGrades)
@@ -70,7 +73,7 @@ class StatsController extends Controller
         foreach(array_merge([''], $subject_grades) as $subject_grade) {
             $new_request = (object)$request->all();
             $new_request->subject_grade = $subject_grade;
-            $counts['subject_grade'][$subject_grade] = static::_query($new_request)->count();
+            $counts['subject_grade'][$subject_grade] = static::_query($new_request)->{$exists ? 'exists' : 'count'}();
         }
 
         return $counts;
