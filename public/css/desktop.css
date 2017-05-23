@@ -4634,8 +4634,6 @@ a[href^="https://www.google.com/maps"] {
         display: block;
         width: 100%;
         margin-bottom: 1em;
-        text-decoration: none;
-        font-weight: bolder;
         font-family: "helveticaneuecyrmedium"; }
       .courses-container .course-items .item-desc {
         color: #818181; }
@@ -4962,12 +4960,10 @@ h3.padding-top {
   padding: 6px 10px; }
 
 .back-arrow {
-  text-decoration: none;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-  font-family: "helveticaneuecyrregular";
   margin-bottom: 11px; }
   .back-arrow img {
     height: 14px;

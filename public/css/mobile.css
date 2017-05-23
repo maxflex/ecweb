@@ -3693,7 +3693,6 @@ a[href^="https://www.google.com/maps"] {
   margin-bottom: 1.8em; }
 
 .back-arrow {
-  text-decoration: none;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: start;
@@ -4392,7 +4391,7 @@ select {
       color: #818181; }
       .course-items .item a .item-title {
         display: block;
-        text-decoration: none;
+        text-decoration: underline;
         color: #3a6699;
         margin-bottom: 0.8em;
         font-family: "helveticaneuecyrmedium"; }
