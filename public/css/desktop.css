@@ -4108,9 +4108,7 @@ a[href^="https://www.google.com/maps"] {
     white-space: nowrap; }
 
 .stats-average {
-  margin: 40px 0 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(172, 172, 172, 0.75); }
+  margin: 40px 0 20px; }
   .stats-average b, .stats-average .address-more li > div:first-of-type, .address-more .stats-average li > div:first-of-type {
     font-family: "helveticaneuecyrmedium"; }
   .stats-average > div {
