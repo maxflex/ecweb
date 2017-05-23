@@ -15925,7 +15925,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
     $scope.getScoreLabel = function() {
       var grade, label, profile, ref, subject_id;
       ref = $scope.search.subject_grade.split('-'), subject_id = ref[0], grade = ref[1], profile = ref[2];
-      label = Subjects.dative[subject_id];
+      label = (parseInt(grade) === 9 ? 'ОГЭ' : 'ЕГЭ') + ' по ' + Subjects.dative[subject_id];
       if (parseInt(subject_id) === 1 && parseInt(grade) >= 10) {
         if (parseInt(grade) === 10) {
           label += ' (база)';
