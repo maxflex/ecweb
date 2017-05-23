@@ -37,10 +37,10 @@ class StatsController extends Controller
 
         if ($request->page == 1) {
             $return['total'] = $query->count();
-            
+
             $avg = $query->where('score', '>', 0)->avg('score');
             $return['avg'] = round($avg, $avg >= 10 ? 1 : 2);
-            // $return['counts'] = static::_counts($request);
+            $return['counts'] = static::_counts($request);
         }
 
         return $return;
