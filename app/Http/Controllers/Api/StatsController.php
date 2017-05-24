@@ -21,7 +21,7 @@ class StatsController extends Controller
     {
         $query = static::_query($request)->withStudent()->orderBy('score', 'desc');
 
-        $paginator = $query->simplePaginate(100);
+        $paginator = $query->simplePaginate(50);
 
         $reviews = $paginator->getCollection()->map(function ($review) {
             $review->tutor = Cache::remember(cacheKey('tutor', $review->id_teacher), 60 * 24, function() use ($review) {

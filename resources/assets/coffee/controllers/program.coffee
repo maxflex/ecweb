@@ -1,3 +1,6 @@
 angular
     .module 'App'
-    .controller 'Programs', ($scope) ->
+    .controller 'Programs', ($scope, $timeout) ->
+        $timeout ->
+            $scope.ready = true
+        , 300

@@ -1,7 +1,8 @@
 angular
     .module 'App'
-    .controller 'Empty', ($scope) ->
+    .controller 'Empty', ($scope, $timeout) ->
         bindArguments($scope, arguments)
 
-        # gallery methods
-        $scope.gallery = {}
+        $timeout ->
+            # gallery methods
+            $scope.gallery = {}
