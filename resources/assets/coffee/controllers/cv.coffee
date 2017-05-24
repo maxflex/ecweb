@@ -14,6 +14,20 @@ angular
                 $scope.sending = false
                 $scope.sent = true
                 $('body').animate scrollTop: $('.header').offset().top
+                dataLayerPush
+                    event: 'cv'
+                    # ecommerce:
+                    #     currencyCode: 'RUR'
+                    #     purchase:
+                    #         actionField:
+                    #             id: googleClientId()
+                    #         products: [
+                    #             # класс
+                    #             # brand: $scope.order.grade
+                    #             # предметы_филиал
+                    #             category: (if $scope.cv.subjects then $scope.cv.subjects.sort().join(',') else '')
+                    #             quantity: 1
+                    #         ]
             , (response) ->
                 $scope.sending = false
                 angular.forEach response.data, (errors, field) ->
@@ -36,9 +50,7 @@ angular
 
         $scope.selectedSubjectsList = ->
             return false if not $scope.cv?.subjects?.length
-
             subjects = []
             for subject_id in $scope.cv.subjects
                 subjects.push $scope.Subjects[subject_id].name
-
             subjects.join ', '

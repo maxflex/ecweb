@@ -3,6 +3,7 @@ angular
     .constant 'REVIEWS_PER_PAGE', 5
     .controller 'Tutors', ($scope, $timeout, $http, Tutor, REVIEWS_PER_PAGE, Subjects) ->
         bindArguments($scope, arguments)
+        initYoutube()
 
         # сколько загрузок преподавателей было
         search_count = 0
@@ -13,7 +14,6 @@ angular
 
         # страница поиска
         $timeout ->
-            initYoutube()
             if not $scope.profilePage()
                 # SubjectService.init($scope.search.subjects)
                 # StreamService.run('landing', 'serp')

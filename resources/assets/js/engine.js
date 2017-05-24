@@ -61,9 +61,6 @@ function openModal(id) {
 
 // Автовоспроизведение видео с открытием модального окна
 function initYoutube() {
-    $('iframe').on('keyup', function(event) {
-        console.log('твою мать ебал')
-    })
     window.onYouTubeIframeAPIReady = function() {
         player = new YT.Player('youtube-video', {})
         player.addEventListener("onStateChange", function(state){
