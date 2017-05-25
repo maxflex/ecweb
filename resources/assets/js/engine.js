@@ -72,11 +72,11 @@ function initYoutube() {
         })
     }
 
-    if (! isMobile) {
+    // if (! isMobile) {
         window.onCloseModal = function() {
             player.stopVideo()
         }
-    }
+    // }
 }
 
 /**

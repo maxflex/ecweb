@@ -3434,6 +3434,8 @@ body {
       background-color: rgba(0, 0, 0, 0.5);
       position: fixed;
       z-index: 99; }
+    body.modal-open.open-modal-video:before {
+      background-color: black; }
   @media only screen and (max-width: 480px) {
     body {
       font-size: 14px; } }
@@ -3629,7 +3631,7 @@ a {
   height: 100%;
   width: 100%;
   background: white;
-  z-index: 999;
+  z-index: 99;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -3682,12 +3684,10 @@ a[href^="https://www.google.com/maps"] {
   z-index: 104; }
 
 #youtube-video {
-  height: 1px;
-  width: 1px;
-  opacity: 0;
-  position: fixed;
-  left: 50%;
-  top: 50%; }
+  z-index: 105;
+  width: 100%;
+  height: 100%;
+  position: absolute; }
 
 .faq-page ul {
   margin-bottom: 1.8em; }
