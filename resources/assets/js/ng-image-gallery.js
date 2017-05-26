@@ -265,7 +265,7 @@
                                        // Images container
                                        // @custom
                                        '<div ng-show="!imgLoading" class="galleria-images img-anim-{{imgAnim}} img-move-dir-{{_imgMoveDirection}}">'+
-                                           '<img class="galleria-image" ng-show="!imgLoading" ng-right-click ng-repeat="image in images track by image.id" ng-if="_activeImg == image" ng-src="{{image.url}}" ondragstart="return false;" ng-attr-alt="{{image.alt || undefined}}"/>'+
+                                           '<img ng-click="methods.next()" class="galleria-image" ng-show="!imgLoading" ng-right-click ng-repeat="image in images track by image.id" ng-if="_activeImg == image" ng-src="{{image.url}}" ondragstart="return false;" ng-attr-alt="{{image.alt || undefined}}"/>'+
                                        '</div>'+
 
                                        // Bubble navigation container
@@ -573,7 +573,7 @@
                    **/
 
                    // Key events
-                   angular.element(document).bind('keyup', function(event){
+                   angular.element(document).bind('keydown', function(event){
                        // If inline modal, do not interact
                        if(scope.inline) return;
 
@@ -588,6 +588,7 @@
                            });
                        }
                        else if(event.which == keys.esc){
+                           event.preventDefault();
                            $timeout(function(){
                                scope.methods.close();
                            });
