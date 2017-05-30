@@ -421,3 +421,22 @@ p.last {
     margin-bottom: 5px;
     display: block;
 }
+
+.input-group {
+    display: flex;
+    & > span {
+        background: white;
+        border: 1px solid $text-grey-light;
+        border-radius: $border-radius-element-form + px 0 0 $border-radius-element-form + px;
+        border-right: none;
+        padding-left: 10px;
+        display: flex;
+        align-items: center;
+    }
+    & > input {
+        border-left: none;
+        border-radius: 0 $border-radius-element-form + px $border-radius-element-form + px 0;
+        padding-left: 0;
+        padding-left: 5px;
+    }
+}

@@ -3806,6 +3806,25 @@ select {
 .form-row-inner {
   position: relative; }
 
+.input-group {
+  display: -webkit-box;
+  display: flex; }
+  .input-group > span {
+    background: white;
+    border: 1px solid #acacac;
+    border-radius: 0.313em 0 0 0.313em;
+    border-right: none;
+    padding-left: 10px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center; }
+  .input-group > input {
+    border-left: none;
+    border-radius: 0 0.313em 0.313em 0;
+    padding-left: 0;
+    padding-left: 5px; }
+
 /* Components */
 .header {
   background: #0c4e69;

@@ -472,3 +472,22 @@ select {
 .form-row-inner {
     position: relative;
 }
+
+.input-group {
+    display: flex;
+    & > span {
+        background: white;
+        border: 1px solid $text-grey-light;
+        border-radius: $border-radius-element-form + em 0 0 $border-radius-element-form + em;
+        border-right: none;
+        padding-left: 10px;
+        display: flex;
+        align-items: center;
+    }
+    & > input {
+        border-left: none;
+        border-radius: 0 $border-radius-element-form + em $border-radius-element-form + em 0;
+        padding-left: 0;
+        padding-left: 5px;
+    }
+}

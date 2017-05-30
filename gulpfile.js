@@ -40,8 +40,8 @@ elixir(mix => {
             port: 8101,
             open: 'external',
             host: 'ecweb.app',
-            proxy: 'http://ecweb.app:8100',
-            // https: true,
+            proxy: 'https://ecweb.app:8100',
+            https: true,
             ghostMode: false
         })
         .sass('desktop/desktop.scss')
