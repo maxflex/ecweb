@@ -20,11 +20,14 @@ $(document).ready(function() {
         }
     })
 
-    // $('body').on('click', function(event) {
-    //     if ($(this).hasClass('modal-open')) {
-    //         closeModal()
-    //     }
-    // })
+    //
+    // close modal on «back» button
+    //
+    $(window).on('hashchange', function() {
+        if(window.location.hash != "#modal") {
+            closeModal()
+        }
+    });
 
     angular.element(document).ready(function() {
 		setTimeout(function() {
@@ -72,11 +75,9 @@ function initYoutube() {
         })
     }
 
-    // if (! isMobile) {
-        window.onCloseModal = function() {
-            player.stopVideo()
-        }
-    // }
+    window.onCloseModal = function() {
+        player.stopVideo()
+    }
 }
 
 /**

@@ -3800,6 +3800,9 @@ a[href^="https://www.google.com/maps"] {
 select {
   -webkit-appearance: none !important; }
 
+.select span {
+  line-height: 2.6em; }
+
 .form-row-inner {
   position: relative; }
 
