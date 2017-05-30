@@ -3806,6 +3806,9 @@ select {
 .form-row-inner {
   position: relative; }
 
+input {
+  background-clip: padding-box; }
+
 .input-group {
   display: -webkit-box;
   display: flex; }

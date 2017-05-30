@@ -473,6 +473,10 @@ select {
     position: relative;
 }
 
+input {
+    background-clip: padding-box;
+}
+
 .input-group {
     display: flex;
     & > span {
