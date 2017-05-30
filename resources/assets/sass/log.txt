@@ -1,6 +1,6 @@
 /home/ecweb
-[07:43:01] Using gulpfile /home/ecweb/gulpfile.js
-[07:43:01] Starting 'sass'...
+[04:03:50] Using gulpfile /home/ecweb/gulpfile.js
+[04:03:50] Starting 'sass'...
 ┌────────────┬──────────────────────────┬────────────────────────────────────────────┬────────────────────────┐
 │ Task       │ Summary                  │ Source Files                               │ Destination            │
 ├────────────┼──────────────────────────┼────────────────────────────────────────────┼────────────────────────┤
@@ -19,4 +19,4 @@
 │            │ 4. Writing Source Maps   │                                          │                       │
 │            │ 5. Saving to Destination │                                          │                       │
 └────────────┴──────────────────────────┴──────────────────────────────────────────┴───────────────────────┘
-[07:43:02] Finished 'sass' after 390 ms
+[04:03:51] Finished 'sass' after 604 ms
