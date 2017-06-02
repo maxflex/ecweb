@@ -3,4 +3,4 @@ Allow: /
 
 Sitemap: https://ege-centr.ru/sitemap.xml
 
-Host: ege-repetitor.ru
+Host: ege-centr.ru
