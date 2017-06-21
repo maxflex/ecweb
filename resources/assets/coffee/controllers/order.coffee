@@ -13,7 +13,7 @@ angular
                 dataLayerPush
                     event: 'purchase'
                     ecommerce:
-                        currencyCode: 'RUR'
+                        currencyCode: 'RUB'
                         purchase:
                             actionField:
                                 id: googleClientId()

@@ -10,6 +10,6 @@ class TutorScope implements Scope
 {
     public function apply(Builder $builder, Model $model)
     {
-        return $builder->where('in_egecentr', 2);
+        return $builder->where('description', '<>', '')->where('in_egecentr', 2);
     }
 }
