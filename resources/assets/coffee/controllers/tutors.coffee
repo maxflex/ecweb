@@ -104,6 +104,10 @@ angular
             format = if duration >= 60 then 'm мин s сек' else 's сек'
             moment.utc(duration * 1000).format(format)
 
+        # длительность видео в ISO
+        $scope.videoDurationISO = (tutor) ->
+            moment.duration(tutor.video_duration, 'seconds').toISOString()
+
         # stream if index isnt null
         $scope.toggleShow = (tutor, prop, iteraction_type, index = null) ->
             if tutor[prop]
