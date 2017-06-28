@@ -13,7 +13,11 @@ class Api {
 			// Добавляем API_KEY к запросу
 			// $data["API_KEY"] = self::API_KEY;
 			if ($function == 'AddRequest') {
-				$data['google_id'] = static::_googleId();
+				$data['id_google']  = static::_googleId();
+                $data['ip']         = $_SERVER['REMOTE_ADDR'];
+                $data['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+                $data['referer']	= $_COOKIE['source']['referer'];
+			    $data['referer_url']= $_COOKIE['source']['url'];
                 $url = config('app.api-url');
 			} else {
                 $data['egecentr_source'] = 1;

@@ -53,6 +53,18 @@ if (! isset($_SESSION['sent_ids'])) {
     $_SESSION['sent_ids'] = [];
 }
 
+if (! isset($_COOKIE['source']))
+{
+    $_COOKIE['source'] = array(
+        'referer' => isset($_SERVER['HTTP_REFERER'])? $_SERVER['HTTP_REFERER'] : '',
+        'url' => $_SERVER['REDIRECT_URL'] . (isset($_SERVER['REDIRECT_QUERY_STRING'])? $_SERVER['REDIRECT_QUERY_STRING'] : '')
+    );
+    setcookie('source', serialize($_COOKIE['source']),time()+86400*90,'/');
+} else {
+    $_COOKIE['source'] = unserialize($_COOKIE['source']);
+}
+
+
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
