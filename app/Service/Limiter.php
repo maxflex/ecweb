@@ -12,10 +12,10 @@ class Limiter
     {
         $key = "ecweb:{$key}:count";
         $count = intval(Redis::get($key));
+        Redis::incr($key);
         if ($count < $max) {
             $return = $success();
-            Redis::incr($key);
-            if ($count == 1) {
+            if ($count == 0) {
                 Redis::expire($key, 3600 * $hours);
             }
             return $return;
