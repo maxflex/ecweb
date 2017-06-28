@@ -16,6 +16,7 @@ class Api {
 				$data['google_id'] = static::_googleId();
                 $url = config('app.api-url');
 			} else {
+                $data['egecentr_source'] = 1;
                 $url = config('app.api-egerep-url');
             }
 
