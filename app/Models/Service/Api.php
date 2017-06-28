@@ -14,7 +14,6 @@ class Api {
 			// $data["API_KEY"] = self::API_KEY;
 			if ($function == 'AddRequest') {
 				$data['id_google']  = static::_googleId();
-                $data['ip']         = $_SERVER['HTTP_X_REAL_IP'];
                 $data['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
                 $data['referer']	= $_COOKIE['source']['referer'];
 			    $data['referer_url']= $_COOKIE['source']['url'];
