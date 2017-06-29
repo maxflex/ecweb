@@ -10,6 +10,7 @@ use App\Models\Tutor;
 use App\Models\Review;
 use DB;
 use Cache;
+use App\Service\Cacher;
 
 class ReviewsController extends Controller
 {
@@ -23,7 +24,11 @@ class ReviewsController extends Controller
 
         $reviews = $paginator->getCollection()->map(function ($review) {
             $review->tutor = Cache::remember(cacheKey('tutor', $review->id_teacher), 60 * 24, function() use ($review) {
-                return DB::connection('egerep')->table('tutors')->whereId($review->id_teacher)->select('id', 'first_name', 'last_name', 'middle_name')->first();
+                $tutor = DB::connection('egerep')->table('tutors')->whereId($review->id_teacher)->select('id', 'first_name', 'last_name', 'middle_name', 'subjects')->first();
+                $tutor->subjects_string_common = implode(', ', array_map(function($subject_id) {
+                    return Cacher::getSubjectName($subject_id, 'name');
+                }, explode(',', $tutor->subjects)));
+                return $tutor;
             });
             return $review;
         });

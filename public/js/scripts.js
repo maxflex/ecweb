@@ -15774,7 +15774,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
         dataLayerPush({
           event: 'purchase',
           ecommerce: {
-            currencyCode: 'RUR',
+            currencyCode: 'RUB',
             purchase: {
               actionField: {
                 id: googleClientId()
@@ -16099,6 +16099,9 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       duration = parseInt(tutor.video_duration);
       format = duration >= 60 ? 'm мин s сек' : 's сек';
       return moment.utc(duration * 1000).format(format);
+    };
+    $scope.videoDurationISO = function(tutor) {
+      return moment.duration(tutor.video_duration, 'seconds').toISOString();
     };
     $scope.toggleShow = function(tutor, prop, iteraction_type, index) {
       if (index == null) {
