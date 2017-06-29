@@ -120,7 +120,7 @@ window.notify_options = {
 }
 
 function dataLayerPush(object) {
-    if ($.cookie('admin')) {
+    if (getSubdomain() == 'test') {
         return;
     }
     window.dataLayer = window.dataLayer || []
@@ -129,4 +129,8 @@ function dataLayerPush(object) {
 
 function keyCount (object) {
     return _.keys(object).length;
+}
+
+function getSubdomain() {
+    return window.location.host.split('.')[0]
 }
