@@ -16728,9 +16728,6 @@ window.notify_options = {
 }
 
 function dataLayerPush(object) {
-    if (getSubdomain() == 'test') {
-        return;
-    }
     window.dataLayer = window.dataLayer || []
     window.dataLayer.push(object)
 }
