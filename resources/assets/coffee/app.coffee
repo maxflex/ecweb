@@ -15,27 +15,26 @@ angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angu
         laddaProvider.setOption
             spinnerColor: '#83b060'
     .filter 'cut', ->
-      (value, wordwise, max, nothing = '', tail) ->
-        if !value
-          return nothing
-        max = parseInt(max, 10)
-        if !max
-          return value
-        if value.length <= max
-          return value
-        value = value.substr(0, max)
-        if wordwise
-          lastspace = value.lastIndexOf(' ')
-          if lastspace != -1
-            #Also remove . and , so its gives a cleaner result.
-            if value.charAt(lastspace - 1) == '.' or value.charAt(lastspace - 1) == ','
-              lastspace = lastspace - 1
-            value = value.substr(0, lastspace)
-        value + (tail or '…')
+        (value, wordwise, max, tail = '') ->
+            return '' if not value
+            max = parseInt(max, 10)
+            return value if not max
+            return value if value.length <= max
+            value = value.substr(0, max)
+            if wordwise
+                lastspace = value.lastIndexOf(' ')
+                if lastspace isnt -1
+                  if value.charAt(lastspace-1) is '.' || value.charAt(lastspace-1) is ','
+                    lastspace = lastspace - 1
+                  value = value.substr(0, lastspace)
+            return value + tail
     .filter 'hideZero', ->
         (item) ->
             if item > 0 then item else null
-    .run ($rootScope, $q) ->
+    .run ($rootScope, $q, StreamService) ->
+        $rootScope.streamLink = streamLink
+        $rootScope.StreamService = StreamService
+
         # отвечает за загрузку данных
         $rootScope.dataLoaded = $q.defer()
         # конец анимации front-end загрузки и rebind маск

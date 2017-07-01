@@ -14,8 +14,8 @@ angular
             $scope.show_review = index
 
         $scope.nextPage = ->
+            StreamService.run('all_reviews', 'more')
             $scope.page++
-            # StreamService.run('load_more_tutors', null, {page: $scope.page})
             search()
 
         # $scope.$watch 'page', (newVal, oldVal) -> $.cookie('page', $scope.page) if newVal isnt undefined

@@ -504,6 +504,7 @@
 
                    // Close gallery modal
                    scope.methods.close = function(){
+                       scope.$parent.StreamService.run('photogallery', 'close')
                        scope.opened = false; // Model closed
 
                        // set overflow hidden to body
@@ -517,23 +518,23 @@
                    }
 
                    // Change image to next
-                   scope.methods.next = function(){
-                       if(scope._activeImageIndex == (scope.images.length - 1)){
+                   scope.methods.next = function() {
+                       if (scope._activeImageIndex == (scope.images.length - 1)){
                            scope._activeImageIndex = 0;
-                       }
-                       else{
+                       } else {
                            scope._activeImageIndex = scope._activeImageIndex + 1;
                        }
+                       scope.$parent.StreamService.run('photogallery', 'right')
                    }
 
                    // Change image to prev
-                   scope.methods.prev = function(){
-                       if(scope._activeImageIndex == 0){
+                   scope.methods.prev = function() {
+                       if(scope._activeImageIndex == 0) {
                            scope._activeImageIndex = scope.images.length - 1;
-                       }
-                       else{
+                       } else {
                            scope._activeImageIndex--;
                        }
+                       scope.$parent.StreamService.run('photogallery', 'left')
                    }
 
                    // Close gallery on background click

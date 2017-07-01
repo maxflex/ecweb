@@ -12,11 +12,11 @@ class StreamController extends Controller
 {
     public function store(Request $request)
     {
-        // если первая запись, добавляем referer и referer_url
-        if ($request->action == 'landing' && ! egerep('stream')->where('google_id', $request->google_id)->exists()) {
-            $request->merge(['referer' => $_SERVER['HTTP_REFERER']]);
+        if (strpos(@$_SERVER['HTTP_X_REAL_IP'], '213.184.130.') === 0) {
+            return;
         }
+
         $request->merge(['mobile' => isMobile()]);
-        egerep('stream')->insert($request->all());
+        egecrm('stream')->insert($request->all());
     }
 }

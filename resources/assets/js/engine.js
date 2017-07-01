@@ -34,6 +34,18 @@ $(document).ready(function() {
 			scope = angular.element('[ng-app=App]').scope()
 		}, 50)
 	})
+
+    // каждый раз, когда открывается любоая страница
+    // отправляем стрим landing
+    // $.post('/api/stream', {
+    //     action: 'page',
+    //     href: window.location.href,
+    //     google_id: googleClientId(),
+    //     yandex_id:
+    // })
+    setTimeout(function() {
+        scope.StreamService.run('page', null, {href: window.location.href})
+    }, 500)
 })
 
 function closeModal() {
@@ -127,6 +139,24 @@ function dataLayerPush(object) {
 function keyCount (object) {
     return _.keys(object).length;
 }
+
+function streamLink(url, action, type, additional) {
+    if (url === null) {
+        scope.StreamService.run(action, type, additional)
+        return
+    }
+    if (additional === undefined) {
+        additional = {}
+    }
+    // в tel: тоже не подставлять
+    if (url[0] != '/' && url[0] != 't') {
+        url = '/' + url
+    }
+    scope.StreamService.run(action, type, additional).then(function() {
+        window.location = url
+    })
+}
+
 
 function getSubdomain() {
     return window.location.host.split('.')[0]

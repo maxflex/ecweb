@@ -1,7 +1,7 @@
 angular
     .module 'App'
     .constant 'REVIEWS_PER_PAGE', 5
-    .controller 'Tutors', ($scope, $timeout, $http, Tutor, REVIEWS_PER_PAGE, Subjects) ->
+    .controller 'Tutors', ($scope, $timeout, $http, Tutor, REVIEWS_PER_PAGE, Subjects, StreamService) ->
         bindArguments($scope, arguments)
         initYoutube()
 
@@ -20,7 +20,7 @@ angular
                 $scope.filter()
 
         $scope.reviews = (tutor, index) ->
-            # StreamService.run 'reviews', StreamService.identifySource(tutor),
+            StreamService.run('tutor_reviews', tutor.id)
             #     position: $scope.getIndex(index)
             #     tutor_id: tutor.id
             if tutor.all_reviews is undefined
@@ -45,6 +45,10 @@ angular
             return if not tutor.all_reviews or not tutor.displayed_reviews
             reviews_left = tutor.all_reviews.length - tutor.displayed_reviews.length
             if reviews_left > REVIEWS_PER_PAGE then REVIEWS_PER_PAGE else reviews_left
+
+        $scope.subjectChanged = ->
+            StreamService.run('choose_tutor_subject', Subjects.short_eng[$scope.search.subject_id])
+            $scope.filter()
 
         # чтобы не редиректило в начале
         filter_used = false
@@ -72,8 +76,8 @@ angular
             # $.cookie('search', JSON.stringify($scope.search))
 
         $scope.nextPage = ->
+            StreamService.run('load_more_tutors', $scope.page * 10)
             $scope.page++
-            # StreamService.run('load_more_tutors', null, {page: $scope.page})
             search()
 
         # $scope.$watch 'page', (newVal, oldVal) -> $.cookie('page', $scope.page) if newVal isnt undefined
@@ -92,6 +96,7 @@ angular
                 # if $scope.mobile then $timeout -> bindToggle()
 
         $scope.video = (tutor) ->
+            StreamService.run('tutor_video', tutor.id)
             player.loadVideoById(tutor.video_link)
             player.playVideo()
             if isMobile

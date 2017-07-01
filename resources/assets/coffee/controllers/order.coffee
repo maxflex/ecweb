@@ -1,6 +1,6 @@
 angular
     .module 'App'
-    .controller 'Order', ($scope, $timeout, $http, Grades, Subjects, Request) ->
+    .controller 'Order', ($scope, $timeout, $http, Grades, Subjects, Request, StreamService) ->
         bindArguments($scope, arguments)
         $timeout ->
             # @todo: client_id, referer, referer_url, user agent
@@ -10,6 +10,7 @@ angular
             $scope.sending = true
             $scope.errors = {}
             Request.save $scope.order, ->
+                StreamService.run('client_request', streamString())
                 dataLayerPush
                     event: 'purchase'
                     ecommerce:
@@ -35,6 +36,18 @@ angular
                     input = $("input#{selector}, textarea#{selector}")
                     input.focus()
                     input.notify errors[0], notify_options if isMobile
+                StreamService.run('client_request_attempt', response.data[Object.keys(response.data)[0]][0])
+
+        streamString = ->
+            stream_string = []
+            stream_string.push("class=#{$scope.order.grade}") if $scope.order.grade
+            if $scope.order.subjects
+                subj = []
+                $scope.order.subjects.forEach (subject_id) -> subj.push(Subjects.short_eng[subject_id])
+                stream_string.push("subjects=" + subj.join('+'))
+            if $scope.order.branch_id
+                stream_string.push("address=" + _.find($scope.Branches, {id: parseInt($scope.order.branch_id)}).code)
+            stream_string.join('_')
 
         $scope.isSelected = (subject_id) ->
             return false if not ($scope.order and $scope.order.subjects)

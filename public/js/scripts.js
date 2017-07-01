@@ -15389,13 +15389,13 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       spinnerColor: '#83b060'
     });
   }).filter('cut', function() {
-    return function(value, wordwise, max, nothing, tail) {
+    return function(value, wordwise, max, tail) {
       var lastspace;
-      if (nothing == null) {
-        nothing = '';
+      if (tail == null) {
+        tail = '';
       }
       if (!value) {
-        return nothing;
+        return '';
       }
       max = parseInt(max, 10);
       if (!max) {
@@ -15414,7 +15414,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
           value = value.substr(0, lastspace);
         }
       }
-      return value + (tail || '…');
+      return value + tail;
     };
   }).filter('hideZero', function() {
     return function(item) {
@@ -15424,7 +15424,9 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
         return null;
       }
     };
-  }).run(function($rootScope, $q) {
+  }).run(function($rootScope, $q, StreamService) {
+    $rootScope.streamLink = streamLink;
+    $rootScope.StreamService = StreamService;
     $rootScope.dataLoaded = $q.defer();
     $rootScope.frontendStop = function(rebind_masks) {
       if (rebind_masks == null) {
@@ -15668,7 +15670,8 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 }).call(this);
 
 (function() {
-  angular.module('App').controller('Cv', function($scope, $timeout, $http, Subjects, Cv) {
+  angular.module('App').controller('Cv', function($scope, $timeout, $http, Subjects, Cv, StreamService) {
+    var streamString;
     bindArguments($scope, arguments);
     $timeout(function() {
       $scope.cv = {};
@@ -15678,6 +15681,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       $scope.sending = true;
       $scope.errors = {};
       return Cv.save($scope.cv, function() {
+        StreamService.run('tutor_cv', streamString());
         $scope.sending = false;
         $scope.sent = true;
         $('body').animate({
@@ -15699,6 +15703,18 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
           }
         });
       });
+    };
+    streamString = function() {
+      var stream_string, subj;
+      stream_string = [];
+      if ($scope.cv.subjects) {
+        subj = [];
+        $scope.cv.subjects.forEach(function(subject_id) {
+          return subj.push(Subjects.short_eng[subject_id]);
+        });
+        stream_string.push("subjects=" + subj.join('+'));
+      }
+      return stream_string.join('_');
     };
     $scope.isSelected = function(subject_id) {
       if (!($scope.cv && $scope.cv.subjects)) {
@@ -15734,8 +15750,16 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 }).call(this);
 
 (function() {
-  angular.module('App').controller('Empty', function($scope, $timeout) {
+  angular.module('App').controller('Empty', function($scope, $timeout, $filter, StreamService) {
     bindArguments($scope, arguments);
+    $scope.expand_items = {};
+    $scope.expandStream = function(action, type) {
+      type = $filter('cut')(type, false, 20, '...');
+      $scope.expand_items[type] = !$scope.expand_items[type];
+      if ($scope.expand_items[type]) {
+        return StreamService.run(action, type);
+      }
+    };
     return $timeout(function() {
       return $scope.gallery = {};
     });
@@ -15744,7 +15768,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 }).call(this);
 
 (function() {
-  angular.module('App').controller('Gallery', function($scope, $timeout) {
+  angular.module('App').controller('Gallery', function($scope, $timeout, StreamService) {
     bindArguments($scope, arguments);
     angular.element(document).ready(function() {
       $scope.all_photos = [];
@@ -15752,6 +15776,10 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
         return $scope.all_photos = $scope.all_photos.concat(group.photo);
       });
     });
+    $scope.openPhoto = function(photo_id) {
+      StreamService.run('photogallery', "open_" + photo_id);
+      return $scope.gallery.open($scope.getFlatIndex(photo_id));
+    };
     return $scope.getFlatIndex = function(photo_id) {
       return _.findIndex($scope.all_photos, {
         id: photo_id
@@ -15762,7 +15790,8 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 }).call(this);
 
 (function() {
-  angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Subjects, Request) {
+  angular.module('App').controller('Order', function($scope, $timeout, $http, Grades, Subjects, Request, StreamService) {
+    var streamString;
     bindArguments($scope, arguments);
     $timeout(function() {
       return $scope.order = {};
@@ -15771,6 +15800,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       $scope.sending = true;
       $scope.errors = {};
       return Request.save($scope.order, function() {
+        StreamService.run('client_request', streamString());
         dataLayerPush({
           event: 'purchase',
           ecommerce: {
@@ -15796,7 +15826,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
         });
       }, function(response) {
         $scope.sending = false;
-        return angular.forEach(response.data, function(errors, field) {
+        angular.forEach(response.data, function(errors, field) {
           var input, selector;
           $scope.errors[field] = errors;
           selector = "[ng-model$='" + field + "']";
@@ -15806,7 +15836,28 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
             return input.notify(errors[0], notify_options);
           }
         });
+        return StreamService.run('client_request_attempt', response.data[Object.keys(response.data)[0]][0]);
       });
+    };
+    streamString = function() {
+      var stream_string, subj;
+      stream_string = [];
+      if ($scope.order.grade) {
+        stream_string.push("class=" + $scope.order.grade);
+      }
+      if ($scope.order.subjects) {
+        subj = [];
+        $scope.order.subjects.forEach(function(subject_id) {
+          return subj.push(Subjects.short_eng[subject_id]);
+        });
+        stream_string.push("subjects=" + subj.join('+'));
+      }
+      if ($scope.order.branch_id) {
+        stream_string.push("address=" + _.find($scope.Branches, {
+          id: parseInt($scope.order.branch_id)
+        }).code);
+      }
+      return stream_string.join('_');
     };
     $scope.isSelected = function(subject_id) {
       if (!($scope.order && $scope.order.subjects)) {
@@ -15864,6 +15915,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       return $scope.show_review = index;
     };
     $scope.nextPage = function() {
+      StreamService.run('all_reviews', 'more');
       $scope.page++;
       return search();
     };
@@ -15881,35 +15933,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 }).call(this);
 
 (function() {
-  angular.module('App').filter('cut', function() {
-    return function(value, wordwise, max, tail) {
-      var lastspace;
-      if (tail == null) {
-        tail = '';
-      }
-      if (!value) {
-        return '';
-      }
-      max = parseInt(max, 10);
-      if (!max) {
-        return value;
-      }
-      if (value.length <= max) {
-        return value;
-      }
-      value = value.substr(0, max);
-      if (wordwise) {
-        lastspace = value.lastIndexOf(' ');
-        if (lastspace !== -1) {
-          if (value.charAt(lastspace - 1) === '.' || value.charAt(lastspace - 1) === ',') {
-            lastspace = lastspace - 1;
-          }
-          value = value.substr(0, lastspace);
-        }
-      }
-      return value + tail;
-    };
-  }).controller('Stats', function($scope, $timeout, $http, Subjects, Grades, AvgScores) {
+  angular.module('App').controller('Stats', function($scope, $timeout, $http, Subjects, Grades, AvgScores, StreamService) {
     var search;
     bindArguments($scope, arguments);
     $timeout(function() {
@@ -15920,10 +15944,20 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       $scope.show_review = null;
       return $scope.filter();
     });
+    $scope.changeSubject = function() {
+      StreamService.run('subject_class_stats_set', $scope.search.subject_grade);
+      $scope.search.tutor_id = null;
+      return $scope.filter();
+    };
+    $scope.changeTutor = function() {
+      StreamService.run('tutor_stats_set', $scope.search.tutor_id);
+      return $scope.filter();
+    };
     $scope.popup = function(index) {
       return $scope.show_review = index;
     };
     $scope.nextPage = function() {
+      StreamService.run('load_more_results', $scope.search.page * 50);
       $scope.search.page++;
       return search();
     };
@@ -16013,7 +16047,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 }).call(this);
 
 (function() {
-  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Tutors', function($scope, $timeout, $http, Tutor, REVIEWS_PER_PAGE, Subjects) {
+  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Tutors', function($scope, $timeout, $http, Tutor, REVIEWS_PER_PAGE, Subjects, StreamService) {
     var filter, filter_used, search, search_count;
     bindArguments($scope, arguments);
     initYoutube();
@@ -16027,6 +16061,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       }
     });
     $scope.reviews = function(tutor, index) {
+      StreamService.run('tutor_reviews', tutor.id);
       if (tutor.all_reviews === void 0) {
         tutor.all_reviews = Tutor.reviews({
           id: tutor.id
@@ -16055,6 +16090,10 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
         return reviews_left;
       }
     };
+    $scope.subjectChanged = function() {
+      StreamService.run('choose_tutor_subject', Subjects.short_eng[$scope.search.subject_id]);
+      return $scope.filter();
+    };
     filter_used = false;
     $scope.filter = function() {
       $scope.tutors = [];
@@ -16070,6 +16109,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       return search();
     };
     $scope.nextPage = function() {
+      StreamService.run('load_more_tutors', $scope.page * 10);
       $scope.page++;
       return search();
     };
@@ -16087,6 +16127,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       });
     };
     $scope.video = function(tutor) {
+      StreamService.run('tutor_video', tutor.id);
       player.loadVideoById(tutor.video_link);
       player.playVideo();
       if (isMobile) {
@@ -16293,59 +16334,6 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 }).call(this);
 
 (function() {
-  var apiPath, countable, updatable;
-
-  angular.module('App').factory('Tutor', function($resource) {
-    return $resource(apiPath('tutors'), {
-      id: '@id',
-      type: '@type'
-    }, {
-      search: {
-        method: 'POST',
-        url: apiPath('tutors', 'search')
-      },
-      reviews: {
-        method: 'GET',
-        isArray: true,
-        url: apiPath('reviews')
-      }
-    });
-  }).factory('Request', function($resource) {
-    return $resource(apiPath('requests'), {
-      id: '@id'
-    }, updatable());
-  }).factory('Cv', function($resource) {
-    return $resource(apiPath('cv'), {
-      id: '@id'
-    }, updatable());
-  });
-
-  apiPath = function(entity, additional) {
-    if (additional == null) {
-      additional = '';
-    }
-    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
-  };
-
-  updatable = function() {
-    return {
-      update: {
-        method: 'PUT'
-      }
-    };
-  };
-
-  countable = function() {
-    return {
-      count: {
-        method: 'GET'
-      }
-    };
-  };
-
-}).call(this);
-
-(function() {
   angular.module('App').value('AvgScores', {
     '1-11-1': 46.3,
     '2-11': 51.2,
@@ -16416,8 +16404,77 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       10: 'АНГ',
       11: 'ГЕО'
     },
-    short_eng: ['math', 'phys', 'rus', 'lit', 'eng', 'his', 'soc', 'chem', 'bio', 'inf', 'geo']
+    short_eng: {
+      1: 'math',
+      2: 'phys',
+      3: 'chem',
+      4: 'bio',
+      5: 'inf',
+      6: 'rus',
+      7: 'lit',
+      8: 'soc',
+      9: 'his',
+      10: 'eng',
+      11: 'geo'
+    }
   });
+
+}).call(this);
+
+(function() {
+  var apiPath, countable, updatable;
+
+  angular.module('App').factory('Tutor', function($resource) {
+    return $resource(apiPath('tutors'), {
+      id: '@id',
+      type: '@type'
+    }, {
+      search: {
+        method: 'POST',
+        url: apiPath('tutors', 'search')
+      },
+      reviews: {
+        method: 'GET',
+        isArray: true,
+        url: apiPath('reviews')
+      }
+    });
+  }).factory('Request', function($resource) {
+    return $resource(apiPath('requests'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Cv', function($resource) {
+    return $resource(apiPath('cv'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Stream', function($resource) {
+    return $resource(apiPath('stream'), {
+      id: '@id'
+    });
+  });
+
+  apiPath = function(entity, additional) {
+    if (additional == null) {
+      additional = '';
+    }
+    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
+  };
+
+  updatable = function() {
+    return {
+      update: {
+        method: 'PUT'
+      }
+    };
+  };
+
+  countable = function() {
+    return {
+      count: {
+        method: 'GET'
+      }
+    };
+  };
 
 }).call(this);
 
@@ -16450,7 +16507,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 }).call(this);
 
 (function() {
-  angular.module('App').service('StreamService', function($http, $timeout, Stream, SubjectService, Sources) {
+  angular.module('App').service('StreamService', function($http, $timeout, Stream) {
     this.identifySource = function(tutor) {
       if (tutor == null) {
         tutor = void 0;
@@ -16510,9 +16567,6 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
               default:
                 where = 'any';
             }
-            break;
-          case 'subjects':
-            value = SubjectService.getSelected(value).join(',');
         }
         if ((key === 'action' || key === 'type' || key === 'google_id' || key === 'yandex_id' || key === 'id' || key === 'hidden_filter') || !value) {
           return;
@@ -16549,9 +16603,6 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       if (additional == null) {
         additional = {};
       }
-      if (getSubdomain() === 'test') {
-        return;
-      }
       if (this.cookie === void 0) {
         this.initCookie();
       }
@@ -16578,7 +16629,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
         type: type,
         step: this.cookie.step,
         google_id: googleClientId(),
-        yandex_id: yaCounter1411783.getClientID(),
+        yandex_id: yaCounter8061652.getClientID(),
         mobile: typeof isMobile === 'undefined' ? '0' : '1'
       };
       $.each(additional, (function(_this) {
@@ -16596,6 +16647,9 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
           eventCategory: ("action=" + action) + (type ? "_type=" + type : ""),
           eventAction: this.generateEventString(angular.copy(params))
         });
+      }
+      if (getSubdomain() === 'test') {
+        return Promise.resolve();
       }
       return Stream.save(params).$promise;
     };
@@ -16642,6 +16696,18 @@ $(document).ready(function() {
 			scope = angular.element('[ng-app=App]').scope()
 		}, 50)
 	})
+
+    // каждый раз, когда открывается любоая страница
+    // отправляем стрим landing
+    // $.post('/api/stream', {
+    //     action: 'page',
+    //     href: window.location.href,
+    //     google_id: googleClientId(),
+    //     yandex_id:
+    // })
+    setTimeout(function() {
+        scope.StreamService.run('page', null, {href: window.location.href})
+    }, 500)
 })
 
 function closeModal() {
@@ -16735,6 +16801,24 @@ function dataLayerPush(object) {
 function keyCount (object) {
     return _.keys(object).length;
 }
+
+function streamLink(url, action, type, additional) {
+    if (url === null) {
+        scope.StreamService.run(action, type, additional)
+        return
+    }
+    if (additional === undefined) {
+        additional = {}
+    }
+    // в tel: тоже не подставлять
+    if (url[0] != '/' && url[0] != 't') {
+        url = '/' + url
+    }
+    scope.StreamService.run(action, type, additional).then(function() {
+        window.location = url
+    })
+}
+
 
 function getSubdomain() {
     return window.location.host.split('.')[0]
@@ -17465,6 +17549,7 @@ addMarker = function(map, latLng) {
 
                    // Close gallery modal
                    scope.methods.close = function(){
+                       scope.$parent.StreamService.run('photogallery', 'close')
                        scope.opened = false; // Model closed
 
                        // set overflow hidden to body
@@ -17478,23 +17563,23 @@ addMarker = function(map, latLng) {
                    }
 
                    // Change image to next
-                   scope.methods.next = function(){
-                       if(scope._activeImageIndex == (scope.images.length - 1)){
+                   scope.methods.next = function() {
+                       if (scope._activeImageIndex == (scope.images.length - 1)){
                            scope._activeImageIndex = 0;
-                       }
-                       else{
+                       } else {
                            scope._activeImageIndex = scope._activeImageIndex + 1;
                        }
+                       scope.$parent.StreamService.run('photogallery', 'right')
                    }
 
                    // Change image to prev
-                   scope.methods.prev = function(){
-                       if(scope._activeImageIndex == 0){
+                   scope.methods.prev = function() {
+                       if(scope._activeImageIndex == 0) {
                            scope._activeImageIndex = scope.images.length - 1;
-                       }
-                       else{
+                       } else {
                            scope._activeImageIndex--;
                        }
+                       scope.$parent.StreamService.run('photogallery', 'left')
                    }
 
                    // Close gallery on background click

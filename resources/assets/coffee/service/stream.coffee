@@ -1,5 +1,5 @@
 angular.module 'App'
-    .service 'StreamService', ($http, $timeout, Stream, SubjectService, Sources) ->
+    .service 'StreamService', ($http, $timeout, Stream) ->
         this.identifySource = (tutor = undefined) ->
             return 'similar' if tutor isnt undefined and tutor.is_similar
             return 'tutor' if RegExp(/^\/[\d]+$/).test(window.location.pathname)
@@ -26,7 +26,6 @@ angular.module 'App'
                             when 1 then where = 'tutor'
                             when 2 then where = 'client'
                             else where = 'any'
-                    when 'subjects' then value = SubjectService.getSelected(value).join(',')
                 return if key in ['action', 'type', 'google_id', 'yandex_id', 'id', 'hidden_filter'] or not value
                 parts.push(key + '=' + value)
             return parts.join('_')
@@ -44,7 +43,6 @@ angular.module 'App'
                 this.updateCookie({step: 0, search: 0})
 
         this.run = (action, type, additional = {}) ->
-            return if getSubdomain() is 'test' # отключаем стрим для поддомена test
             this.initCookie() if this.cookie is undefined
             if not this.initialized
                 $timeout =>
@@ -61,7 +59,7 @@ angular.module 'App'
                 type: type
                 step: this.cookie.step
                 google_id: googleClientId()
-                yandex_id: yaCounter1411783.getClientID()
+                yandex_id: yaCounter8061652.getClientID()
                 mobile: if (typeof isMobile is 'undefined') then '0' else '1'
 
             $.each additional, (key, value) =>
@@ -73,6 +71,7 @@ angular.module 'App'
                 event: 'configuration'
                 eventCategory: "action=#{action}" + (if type then "_type=#{type}" else "")
                 eventAction: this.generateEventString(angular.copy(params))
+            return Promise.resolve() if getSubdomain() is 'test' # отключаем стрим для поддомена test
             Stream.save(params).$promise
 
         this

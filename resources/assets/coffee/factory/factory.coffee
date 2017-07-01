@@ -76,4 +76,15 @@ angular.module('App')
             9: 'ИСТ'
             10: 'АНГ'
             11: 'ГЕО'
-        short_eng: ['math', 'phys', 'rus', 'lit', 'eng', 'his', 'soc', 'chem', 'bio', 'inf', 'geo']
+        short_eng:
+            1: 'math'
+            2: 'phys'
+            3: 'chem'
+            4: 'bio'
+            5: 'inf'
+            6: 'rus'
+            7: 'lit'
+            8: 'soc'
+            9: 'his'
+            10: 'eng'
+            11: 'geo'
