@@ -65,12 +65,10 @@ angular.module 'App'
             $.each additional, (key, value) =>
                 params[key] = value
 
-            console.log(action, type, params)
-            if action isnt 'view' then console.log(this.generateEventString(angular.copy(params)))
             if action isnt 'view' then dataLayerPush
                 event: 'configuration'
-                eventCategory: "action=#{action}" + (if type then "_type=#{type}" else "")
-                eventAction: this.generateEventString(angular.copy(params))
+                eventCategory: action
+                eventAction: type
             return Promise.resolve() if getSubdomain() is 'test' # отключаем стрим для поддомена test
             Stream.save(params).$promise
 

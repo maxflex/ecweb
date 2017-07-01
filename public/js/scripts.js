@@ -16637,15 +16637,11 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
           return params[key] = value;
         };
       })(this));
-      console.log(action, type, params);
-      if (action !== 'view') {
-        console.log(this.generateEventString(angular.copy(params)));
-      }
       if (action !== 'view') {
         dataLayerPush({
           event: 'configuration',
-          eventCategory: ("action=" + action) + (type ? "_type=" + type : ""),
-          eventAction: this.generateEventString(angular.copy(params))
+          eventCategory: action,
+          eventAction: type
         });
       }
       if (getSubdomain() === 'test') {
