@@ -65,7 +65,7 @@ angular.module 'App'
             $.each additional, (key, value) =>
                 params[key] = value
 
-            if action isnt 'view' then dataLayerPush
+            if action isnt 'page' then dataLayerPush
                 event: 'configuration'
                 eventCategory: action
                 eventAction: type
