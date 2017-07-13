@@ -33,6 +33,7 @@ angular
                 angular.forEach response.data, (errors, field) ->
                     $scope.errors[field] = errors
                     selector = "[ng-model$='#{field}']"
+                    $('html,body').animate({scrollTop: $("input#{selector}, textarea#{selector}").first().offset().top}, 0)
                     input = $("input#{selector}, textarea#{selector}")
                     input.focus()
                     input.notify errors[0], notify_options if isMobile
