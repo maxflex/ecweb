@@ -1,7 +1,7 @@
 angular
     .module 'App'
     .constant 'REVIEWS_PER_PAGE', 5
-    .controller 'Reviews', ($scope, $timeout, $http, Subjects) ->
+    .controller 'Reviews', ($scope, $timeout, $http, Subjects, StreamService) ->
         bindArguments($scope, arguments)
 
         $timeout ->
