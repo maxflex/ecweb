@@ -257,3 +257,10 @@ ol, ul {
 .bootstrap-select.btn-group .dropdown-toggle .caret {
     top: 40%;
 }
+
+/* IE10+ specific styles go here */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .main {
+      display: block !important;
+    }
+}
