@@ -258,6 +258,34 @@ ol, ul {
     top: 40%;
 }
 
+.header-menu-item-order {
+    background: $color-green;
+    &:hover {
+        background: darken($color-green, 20);
+    }
+}
+
+.order-right-block {
+    padding: 10px;
+    background: #d9eede;
+    border-radius: 4px;
+    line-height: $line-height-main + px;
+    & center {
+        margin: 20px 0 10px;
+    }
+    & span.price {
+        font-size: 18px;
+    }
+}
+
+.payment-types {
+    display: inline-block;
+    height: 20px;
+    top: 3px;
+    position: relative;
+    margin-left: 3px;
+}
+
 /* IE10+ specific styles go here */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .main {

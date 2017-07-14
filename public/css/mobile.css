@@ -4467,7 +4467,7 @@ input {
   color: #818181;
   font-family: 'helveticaneuecyrmedium';
   line-height: 2.6em;
-  border: 0.063em solid #acacac;
+  border: 1px solid #acacac;
   position: relative;
   text-transform: none; }
 

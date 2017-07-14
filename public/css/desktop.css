@@ -5029,6 +5029,33 @@ ol, ul {
 .bootstrap-select.btn-group .dropdown-toggle .caret {
   top: 40%; }
 
+.header-menu-item-order {
+  background: #35a45b; }
+  .header-menu-item-order:hover {
+    background: #1c5730; }
+
+.order-right-block {
+  padding: 10px;
+  background: #d9eede;
+  border-radius: 4px;
+  line-height: 21px; }
+  .order-right-block center {
+    margin: 20px 0 10px; }
+  .order-right-block span.price {
+    font-size: 18px; }
+
+.payment-types {
+  display: inline-block;
+  height: 20px;
+  top: 3px;
+  position: relative;
+  margin-left: 3px; }
+
+/* IE10+ specific styles go here */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .main {
+    display: block !important; } }
+
 @-webkit-keyframes sk-stretchdelay {
   0%, 40%, 100% {
     -webkit-transform: scaleY(0.4); }
