@@ -4186,7 +4186,16 @@ a[href^="https://www.google.com/maps"] {
       text-decoration: underline; }
 
 .main-page .dropdown-content {
-  background-color: rgba(0, 0, 0, 0.77); }
+  background-color: rgba(0, 0, 0, 0.6); }
+  .main-page .dropdown-content:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.4); }
 
 /* Show the dropdown menu on hover */
 .header-menu-item:hover .dropdown-content {
