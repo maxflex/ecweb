@@ -3828,6 +3828,10 @@ input {
     padding-left: 0;
     padding-left: 5px; }
 
+.signup-bottom {
+  text-align: center;
+  margin: 3em 0 2em; }
+
 /* Components */
 .header {
   background: #0c4e69;
@@ -3916,7 +3920,7 @@ input {
   width: 100%;
   padding: 1.450em 0;
   box-sizing: content-box;
-  margin-top: 2em; }
+  margin-top: 0; }
   .footer-message {
     padding: 0 0 0.625em 0; }
   .footer-title {
@@ -3936,9 +3940,6 @@ input {
       padding: 0 0 0.725em 0; }
   .footer .button-green-large, .footer .button-green-small, .footer .button-blue-large, .footer .button-white-large {
     margin: 0 0 1.750em 0; }
-
-.footer.no-margin {
-  margin-top: 0; }
 
 .tutors {
   margin: 0;
