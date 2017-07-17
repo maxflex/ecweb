@@ -286,6 +286,14 @@ ol, ul {
     margin-left: 3px;
 }
 
+.signup-bottom-price {
+    text-align: center;
+    line-height: $line-height-main + px;
+    & .signup-bottom-price-deadline {
+        margin-top: 10px;
+    }
+}
+
 /* IE10+ specific styles go here */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .main {
