@@ -42,6 +42,7 @@
   }
 }
 
-.footer.no-margin {
-    margin-top: 0;
+.footer.hidden {
+    display: block !important;
+    margin-top: 2em;
 }

@@ -3789,7 +3789,7 @@ a[href^="https://www.google.com/maps"] {
   text-align: center; }
 
 .button-stats-more {
-  margin: 2em 0; }
+  margin: 2em 0 0; }
 
 .input-label {
   color: #818181;
@@ -3941,8 +3941,9 @@ input {
   .footer .button-green-large, .footer .button-green-small, .footer .button-blue-large, .footer .button-white-large {
     margin: 0 0 1.750em 0; }
 
-.footer.no-margin {
-  margin-top: 0; }
+.footer.hidden {
+  display: block !important;
+  margin-top: 2em; }
 
 .tutors {
   margin: 0;
