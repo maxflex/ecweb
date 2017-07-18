@@ -376,9 +376,12 @@ p.last {
 
 .stats-filter {
     & > div {
-        width: 300px;
+        width: 250px;
         display: inline-block;
         margin-right: 10px;
+        &:last-child {
+            width: auto;
+        }
     }
     margin-bottom: 20px;
     & .customSelectInner {

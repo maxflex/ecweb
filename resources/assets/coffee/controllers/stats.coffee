@@ -4,7 +4,7 @@ angular
         bindArguments($scope, arguments)
 
         $timeout ->
-            $scope.search = {page: 1}
+            $scope.search = {page: 1, year: '2016'}
             $scope.data = {}
             $scope.show_review = null
             $scope.filter()
@@ -16,6 +16,10 @@ angular
 
         $scope.changeTutor = ->
             StreamService.run('tutor_stats_set', $scope.search.tutor_id)
+            $scope.filter()
+
+        $scope.changeYear = ->
+            StreamService.run('year_stats_set', $scope.search.year)
             $scope.filter()
 
         $scope.popup = (index) ->

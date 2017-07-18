@@ -572,7 +572,8 @@
     bindArguments($scope, arguments);
     $timeout(function() {
       $scope.search = {
-        page: 1
+        page: 1,
+        year: '2016'
       };
       $scope.data = {};
       $scope.show_review = null;
@@ -585,6 +586,10 @@
     };
     $scope.changeTutor = function() {
       StreamService.run('tutor_stats_set', $scope.search.tutor_id);
+      return $scope.filter();
+    };
+    $scope.changeYear = function() {
+      StreamService.run('year_stats_set', $scope.search.year);
       return $scope.filter();
     };
     $scope.popup = function(index) {

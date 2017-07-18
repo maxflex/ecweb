@@ -87,6 +87,10 @@ class StatsController extends Controller
             $query->where('id_teacher', $request->tutor_id);
         }
 
+        if (isset($request->year) && $request->year) {
+            $query->where('year', $request->year);
+        }
+
         if (isset($request->subject_grade) && $request->subject_grade) {
             // профильный – max_score = 100
             @list($subject_id, $grade, $profile) = explode('-', $request->subject_grade);

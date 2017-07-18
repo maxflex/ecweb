@@ -15944,7 +15944,8 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
     bindArguments($scope, arguments);
     $timeout(function() {
       $scope.search = {
-        page: 1
+        page: 1,
+        year: '2016'
       };
       $scope.data = {};
       $scope.show_review = null;
@@ -15957,6 +15958,10 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
     };
     $scope.changeTutor = function() {
       StreamService.run('tutor_stats_set', $scope.search.tutor_id);
+      return $scope.filter();
+    };
+    $scope.changeYear = function() {
+      StreamService.run('year_stats_set', $scope.search.year);
       return $scope.filter();
     };
     $scope.popup = function(index) {
