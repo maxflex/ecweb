@@ -4102,11 +4102,12 @@ a[href^="https://www.google.com/maps"] {
 .stats-filter {
   margin-bottom: 20px; }
   .stats-filter > div {
-    width: 250px;
+    width: 249px;
     display: inline-block;
     margin-right: 10px; }
     .stats-filter > div:last-child {
-      width: auto; }
+      width: auto;
+      margin: 0; }
   .stats-filter .customSelectInner {
     white-space: nowrap; }
 

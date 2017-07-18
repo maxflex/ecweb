@@ -376,11 +376,12 @@ p.last {
 
 .stats-filter {
     & > div {
-        width: 250px;
+        width: 249px;
         display: inline-block;
         margin-right: 10px;
         &:last-child {
             width: auto;
+            margin: 0;
         }
     }
     margin-bottom: 20px;
