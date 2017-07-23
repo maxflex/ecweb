@@ -506,7 +506,7 @@ p.last {
     font-size: 12px;
     & p {
         line-height: 18px;
-        &:first-child {
+        &:first-of-type {
             padding-top: 13px;
         }
         &:last-child {

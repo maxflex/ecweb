@@ -4210,7 +4210,7 @@ a[href^="https://www.google.com/maps"] {
   font-size: 12px; }
   .career-tutor p {
     line-height: 18px; }
-    .career-tutor p:first-child {
+    .career-tutor p:first-of-type {
       padding-top: 13px; }
     .career-tutor p:last-child {
       padding: 0; }
