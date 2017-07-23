@@ -499,3 +499,18 @@ p.last {
 .header-menu-item:hover .dropdown-content {
     display: block;
 }
+
+.career-tutor {
+    display: inline-block;
+    width: 100%;
+    font-size: 12px;
+    & p {
+        line-height: 18px;
+        &:first-child {
+            padding-top: 13px;
+        }
+        &:last-child {
+            padding: 0;
+        }
+    }
+}

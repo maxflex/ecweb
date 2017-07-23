@@ -4204,6 +4204,17 @@ a[href^="https://www.google.com/maps"] {
 .header-menu-item:hover .dropdown-content {
   display: block; }
 
+.career-tutor {
+  display: inline-block;
+  width: 100%;
+  font-size: 12px; }
+  .career-tutor p {
+    line-height: 18px; }
+    .career-tutor p:first-child {
+      padding-top: 13px; }
+    .career-tutor p:last-child {
+      padding: 0; }
+
 /* Components */
 .top-message {
   background: #fef9de;
