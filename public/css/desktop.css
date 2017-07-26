@@ -5117,6 +5117,9 @@ ol, ul {
   .signup-bottom-price .signup-bottom-price-deadline {
     margin-top: 10px; }
 
+.deadline-underline {
+  border-bottom: 2px solid #e90f20; }
+
 /* IE10+ specific styles go here */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .main {
