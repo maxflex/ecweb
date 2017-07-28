@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Bootstrap-select v1.12.2 (http://silviomoreto.github.io/bootstrap-select)
  *
@@ -5119,6 +5120,19 @@ ol, ul {
 
 .deadline-underline {
   border-bottom: 2px solid #e90f20; }
+
+#deadline-bar {
+  background: #fffccc;
+  border: 1px solid #ebdd53;
+  border-left: 0;
+  border-right: 0;
+  padding: 8px 0;
+  text-align: center;
+  color: #a30000; }
+
+/* на главной бар не отображать */
+.header-menu-wrap__img #deadline-bar {
+  display: none !important; }
 
 /* IE10+ specific styles go here */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {

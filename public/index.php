@@ -57,7 +57,7 @@ if (! isset($_COOKIE['source']))
 {
     $_COOKIE['source'] = array(
         'referer' => isset($_SERVER['HTTP_REFERER'])? $_SERVER['HTTP_REFERER'] : '',
-        'url' => $_SERVER['REDIRECT_URL'] . (isset($_SERVER['REDIRECT_QUERY_STRING'])? $_SERVER['REDIRECT_QUERY_STRING'] : '')
+        'url' => @$_SERVER['REDIRECT_URL'] . (isset($_SERVER['REDIRECT_QUERY_STRING'])? $_SERVER['REDIRECT_QUERY_STRING'] : '')
     );
     setcookie('source', serialize($_COOKIE['source']),time()+86400*90,'/');
 } else {
