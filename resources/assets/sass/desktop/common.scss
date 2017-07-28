@@ -65,7 +65,8 @@ p.half-padding {
     padding-bottom: (25 - ($line-height-main / 2)) + px;
 }
 
-a {
+a, .link-like {
+    cursor: pointer;
   color: $main-link-color;
   text-decoration: underline;
 

@@ -3864,10 +3864,11 @@ p.last {
 p.half-padding {
   padding-bottom: 14.5px; }
 
-a {
+a, .link-like {
+  cursor: pointer;
   color: #3a6699;
   text-decoration: underline; }
-  a:hover {
+  a:hover, .link-like:hover {
     text-decoration: none; }
 
 .color-green {
