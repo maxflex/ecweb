@@ -2718,6 +2718,9 @@ th {
 .hidden {
   display: none; }
 
+.deadline-underline {
+  border-bottom: 2px solid #e90f20; }
+
 @-webkit-keyframes sk-stretchdelay {
   0%, 40%, 100% {
     -webkit-transform: scaleY(0.4); }

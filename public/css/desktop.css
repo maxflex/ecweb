@@ -3809,6 +3809,9 @@ th {
 .hidden {
   display: none; }
 
+.deadline-underline {
+  border-bottom: 2px solid #e90f20; }
+
 html, body {
   height: 100%;
   -webkit-tap-highlight-color: transparent; }
@@ -5117,9 +5120,6 @@ ol, ul {
   line-height: 21px; }
   .signup-bottom-price .signup-bottom-price-deadline {
     margin-top: 10px; }
-
-.deadline-underline {
-  border-bottom: 2px solid #e90f20; }
 
 #deadline-bar {
   background: #fffccc;
