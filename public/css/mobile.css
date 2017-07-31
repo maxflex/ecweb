@@ -3842,6 +3842,35 @@ input {
   position: relative;
   margin-left: 3px; }
 
+.student-review {
+  display: -webkit-box;
+  display: flex; }
+  .student-review:not(:last-of-type) {
+    margin-bottom: 27px; }
+  .student-review:last-of-type {
+    margin-bottom: 0.938em; }
+
+.student-review-photo {
+  display: inline-block;
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin-right: 20px; }
+
+.student-review-text {
+  -webkit-box-flex: 1;
+  flex: 1;
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 18px; }
+  .student-review-text > div {
+    margin-top: 15px; }
+
 /* Components */
 .header {
   background: #0c4e69;

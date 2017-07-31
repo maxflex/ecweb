@@ -508,3 +508,36 @@ input {
     position: relative;
     margin-left: 3px;
 }
+
+.student-review {
+    display: flex;
+    &:not(:last-of-type) {
+        margin-bottom: 27px;
+    }
+    &:last-of-type {
+        margin-bottom: 0.938em;
+    }
+}
+
+.student-review-photo {
+    display: inline-block;
+      width: 3.5em;
+      height: 3.5em;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      margin-right: 20px;
+}
+
+.student-review-text {
+    flex: 1;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 18px;
+    & > div {
+        margin-top: 15px;
+    }
+}
