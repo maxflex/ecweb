@@ -13,16 +13,25 @@ class Review extends Model
     /**
      * Отзывы учеников с фотографиями
      */
-    public static function getStudent($limit = 2, $min_score = null, $grade = null)
+    public static function getStudent($limit = 2, $min_score = null, $grade = null, $subject_id = null)
     {
         $query = self::withStudent()->where('users.photo_extension', '<>', '')->take($limit)->inRandomOrder();
 
         if ($min_score) {
-            $query->where('teacher_reviews.score', '>=', $min_score);
+            @list($min_score_ege, $min_score_oge) = explode(',', $min_score);
+            if ($min_score_oge) {
+                $query->whereRaw("((teacher_reviews.score >= {$min_score_ege} AND teacher_reviews.grade=11) OR (teacher_reviews.score >= {$min_score_oge} AND teacher_reviews.grade=9))");
+            } else {
+                $query->where('teacher_reviews.score', '>=', $min_score);
+            }
         }
 
         if ($grade) {
             $query->where('teacher_reviews.grade', '=', $grade);
+        }
+
+        if ($subject_id) {
+            $query->where('teacher_reviews.id_subject', '=', $subject_id);
         }
 
         return $query->get();
