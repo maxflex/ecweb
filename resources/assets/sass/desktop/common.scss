@@ -515,3 +515,37 @@ p.last {
         }
     }
 }
+
+.student-review {
+    display: flex;
+    line-height: $line-height-main + px;
+    &:not(:last-of-type) {
+        margin-bottom: 27px;
+    }
+}
+
+.student-review-photo {
+    display: inline-block;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      margin-right: 25px;
+}
+
+.student-review-text {
+    flex: 1;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    & > div {
+        margin-top: 15px;
+    }
+}
+
+.student-review-all {
+    float: right;
+    margin-top: 10px;
+}

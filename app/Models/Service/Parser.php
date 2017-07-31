@@ -178,6 +178,9 @@
                     case 'faq':
                         $replacement = \App\Models\FaqGroup::getAll()->toJson();
                         break;
+                    case 'photo-reviews':
+                        $replacement = Review::getStudent(...$args)->toJson();
+                        break;
                     case 'count':
                         $type = array_shift($args);
                         switch($type) {

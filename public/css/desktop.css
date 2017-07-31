@@ -4220,6 +4220,36 @@ a[href^="https://www.google.com/maps"] {
     .career-tutor p:last-child {
       padding: 0; }
 
+.student-review {
+  display: -webkit-box;
+  display: flex;
+  line-height: 21px; }
+  .student-review:not(:last-of-type) {
+    margin-bottom: 27px; }
+
+.student-review-photo {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin-right: 25px; }
+
+.student-review-text {
+  -webkit-box-flex: 1;
+  flex: 1;
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 4px; }
+  .student-review-text > div {
+    margin-top: 15px; }
+
+.student-review-all {
+  float: right;
+  margin-top: 10px; }
+
 /* Components */
 .top-message {
   background: #fef9de;

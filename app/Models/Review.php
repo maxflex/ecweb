@@ -10,6 +10,26 @@ class Review extends Model
     protected $connection = 'egecrm';
     protected $table = 'teacher_reviews';
 
+    /**
+     * Отзывы учеников с фотографиями
+     */
+    public static function getStudent($limit = 2, $min_score = null, $grade = null)
+    {
+        $query = self::withStudent()->join('users', function($join) {
+            $join->on('users.id_entity', '=', 'students.id')->on('users.type', '=', \DB::raw("'STUDENT'"));
+        })->addSelect('users.photo_extension')->where('users.photo_extension', '<>', '')->take($limit)->inRandomOrder();
+
+        if ($min_score) {
+            $query->where('teacher_reviews.score', '>=', $min_score);
+        }
+
+        if ($grade) {
+            $query->where('teacher_reviews.grade', '=', $grade);
+        }
+
+        return $query->get();
+    }
+
     public function scopeWithStudent($query)
     {
         return $query->join('students', 'students.id', '=', 'teacher_reviews.id_student')
