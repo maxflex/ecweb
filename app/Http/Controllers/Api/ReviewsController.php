@@ -20,7 +20,7 @@ class ReviewsController extends Controller
      */
     public function index(Request $request)
     {
-        $paginator = Review::simplePaginate(20);
+        $paginator = Review::withStudent()->simplePaginate(20);
 
         $reviews = $paginator->getCollection()->map(function ($review) {
             $review->tutor = Cache::remember(cacheKey('tutor', $review->id_teacher), 60 * 24, function() use ($review) {
