@@ -4223,9 +4223,10 @@ a[href^="https://www.google.com/maps"] {
 .student-review {
   display: -webkit-box;
   display: flex;
-  line-height: 21px; }
-  .student-review:not(:last-of-type) {
-    margin-bottom: 27px; }
+  line-height: 21px;
+  margin-bottom: 27px; }
+  .student-review-last {
+    margin-bottom: 0; }
 
 .student-review-photo {
   display: inline-block;

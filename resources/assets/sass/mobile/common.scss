@@ -511,10 +511,8 @@ input {
 
 .student-review {
     display: flex;
-    &:not(:last-of-type) {
-        margin-bottom: 27px;
-    }
-    &:last-of-type {
+    margin-bottom: 27px;
+    &-last {
         margin-bottom: 0.938em;
     }
 }

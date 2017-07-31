@@ -519,8 +519,9 @@ p.last {
 .student-review {
     display: flex;
     line-height: $line-height-main + px;
-    &:not(:last-of-type) {
-        margin-bottom: 27px;
+    margin-bottom: 27px;
+    &-last {
+        margin-bottom: 0;
     }
 }
 

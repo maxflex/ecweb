@@ -3844,10 +3844,9 @@ input {
 
 .student-review {
   display: -webkit-box;
-  display: flex; }
-  .student-review:not(:last-of-type) {
-    margin-bottom: 27px; }
-  .student-review:last-of-type {
+  display: flex;
+  margin-bottom: 27px; }
+  .student-review-last {
     margin-bottom: 0.938em; }
 
 .student-review-photo {
