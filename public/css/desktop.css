@@ -4242,7 +4242,9 @@ a[href^="https://www.google.com/maps"] {
   flex: 1;
   background: #f0f0f0;
   padding: 10px;
-  border-radius: 4px; }
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 18px; }
   .student-review-text > div {
     margin-top: 15px; }
 
