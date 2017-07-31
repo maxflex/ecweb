@@ -16,7 +16,7 @@ class Review extends Model
     /**
      * Отзывы учеников с фотографиями
      */
-    public static function getStudent($limit = 2, $min_score = null, $grade = null, $subject_id = null, $tutor = null)
+    public static function getStudent($limit = 2, $min_score = null, $grade = null, $subject_id = null, $tutor = null, $university = null)
     {
         $query = self::withStudent()->where('users.photo_extension', '<>', '')->take($limit)->inRandomOrder();
 
@@ -37,6 +37,15 @@ class Review extends Model
             $query->where('teacher_reviews.id_subject', '=', $subject_id);
         }
 
+        if ($university) {
+            $query->where('teacher_reviews.admin_comment_final', 'like', "%$university%");
+
+            // если результатов меньше $count
+            if ($query->count() < $limit) {
+                $additional_reviews = self::getStudent($limit - $query->count(), $min_score, $grade, $subject_id, $tutor);
+            }
+        }
+
         $reviews = $query->get();
 
         if ($tutor) {
@@ -49,6 +58,10 @@ class Review extends Model
                     return $tutor;
                 });
             }
+        }
+
+        if (isset($additional_reviews)) {
+            $reviews = collect(array_merge($reviews->all(), $additional_reviews->all()));
         }
 
         return $reviews;

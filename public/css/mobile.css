@@ -3871,6 +3871,10 @@ input {
   .student-review-text > div {
     margin-top: 15px; }
 
+.student-review-all {
+  margin-bottom: 0.938em;
+  display: block; }
+
 /* Components */
 .header {
   background: #0c4e69;
