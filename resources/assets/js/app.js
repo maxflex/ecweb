@@ -895,6 +895,29 @@
 }).call(this);
 
 (function() {
+  angular.module('App').directive('ngMark', function() {
+    return {
+      restrict: 'A',
+      scope: {
+        word: '@'
+      },
+      controller: function($scope, $element, $attrs, $timeout) {
+        return $timeout(function() {
+          return $($element).mark($scope.word, {
+            separateWordSearch: true,
+            accuracy: {
+              value: 'exactly',
+              limiters: ['!', '@', '#', '&', '*', '(', ')', '-', '–', '—', '+', '=', '[', ']', '{', '}', '|', ':', ';', '\'', '\"', '‘', '’', '“', '”', ',', '.', '<', '>', '/', '?']
+            }
+          });
+        });
+      }
+    };
+  });
+
+}).call(this);
+
+(function() {
   angular.module('App').directive('ngPhone', function() {
     return {
       restrict: 'A',

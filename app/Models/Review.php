@@ -38,7 +38,7 @@ class Review extends Model
         }
 
         if ($university) {
-            $query->where('teacher_reviews.admin_comment_final', 'like', "%$university%");
+            $query->whereRaw("LOWER(teacher_reviews.admin_comment_final) RLIKE '[[:<:]]" . strtolower($university) . "[[:>:]]'");
 
             // если результатов меньше $count
             if ($query->count() < $limit) {

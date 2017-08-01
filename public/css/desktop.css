@@ -3739,6 +3739,10 @@ th {
   font-weight: normal;
   font-style: normal; }
 
+mark {
+  border-bottom: 1px solid #35a45b;
+  background: none; }
+
 .loading:after {
   overflow: hidden;
   display: inline-block;

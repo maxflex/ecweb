@@ -1,3 +1,8 @@
+mark {
+    border-bottom: 1px solid #35a45b;
+    background: none;
+}
+
 .loading:after {
   overflow: hidden;
   display: inline-block;
@@ -93,6 +98,6 @@ $font-italic: 'helveticaneuecyrlight_italic';
     display: none;
 }
 
-.deadline-underline { 
+.deadline-underline {
     border-bottom: 2px solid #e90f20;
 }
