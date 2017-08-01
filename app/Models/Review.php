@@ -18,7 +18,7 @@ class Review extends Model
      */
     public static function getStudent($limit = 2, $min_score = null, $grade = null, $subject_eng = null, $tutor = null, $university = null)
     {
-        $query = self::withStudent()->where('users.photo_extension', '<>', '')->take($limit)->inRandomOrder()->orderBy('admin_rating_final', 'desc');
+        $query = self::withStudent()->where('users.photo_extension', '<>', '')->take($limit)->orderBy('admin_rating_final', 'desc')->inRandomOrder();
 
         if ($min_score) {
             @list($min_score_ege, $min_score_oge) = explode(',', $min_score);
