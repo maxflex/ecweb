@@ -16,7 +16,7 @@ class Review extends Model
     /**
      * Отзывы учеников с фотографиями
      */
-    public static function getStudent($limit = 2, $min_score = null, $grade = null, $subject_id = null, $tutor = null, $university = null)
+    public static function getStudent($limit = 2, $min_score = null, $grade = null, $subject_eng = null, $tutor = null, $university = null)
     {
         $query = self::withStudent()->where('users.photo_extension', '<>', '')->take($limit)->inRandomOrder();
 
@@ -33,7 +33,8 @@ class Review extends Model
             $query->where('teacher_reviews.grade', '=', $grade);
         }
 
-        if ($subject_id) {
+        if ($subject_eng) {
+            $subject_id = Service\Factory::getSubjectId($subject_eng);
             $query->where('teacher_reviews.id_subject', '=', $subject_id);
         }
 
@@ -42,7 +43,7 @@ class Review extends Model
 
             // если результатов меньше $count
             if ($query->count() < $limit) {
-                $additional_reviews = self::getStudent($limit - $query->count(), $min_score, $grade, $subject_id, $tutor);
+                $additional_reviews = self::getStudent($limit - $query->count(), $min_score, $grade, $subject_eng, $tutor);
             }
         }
 
