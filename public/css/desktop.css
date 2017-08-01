@@ -3739,10 +3739,6 @@ th {
   font-weight: normal;
   font-style: normal; }
 
-mark {
-  border-bottom: 1px solid #35a45b;
-  background: none; }
-
 .loading:after {
   overflow: hidden;
   display: inline-block;
@@ -3815,6 +3811,9 @@ mark {
 
 .deadline-underline {
   border-bottom: 2px solid #e90f20; }
+
+mark {
+  background: #d9eede; }
 
 html, body {
   height: 100%;
