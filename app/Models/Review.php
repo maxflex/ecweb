@@ -18,7 +18,7 @@ class Review extends Model
      */
     public static function getStudent($limit = 2, $min_score = null, $grade = null, $subject_eng = null, $tutor = null, $university = null)
     {
-        $query = self::withStudent()->where('users.photo_extension', '<>', '')->take($limit)->inRandomOrder();
+        $query = self::withStudent()->where('users.photo_extension', '<>', '')->take($limit)->inRandomOrder()->orderBy('admin_rating_final', 'desc');
 
         if ($min_score) {
             @list($min_score_ege, $min_score_oge) = explode(',', $min_score);
@@ -40,7 +40,6 @@ class Review extends Model
 
         if ($university) {
             $query->whereRaw("LOWER(teacher_reviews.admin_comment_final) RLIKE '[[:<:]]" . mb_strtolower($university) . "[[:>:]]'");
-
             // если результатов меньше $count
             if ($query->count() < $limit) {
                 $additional_reviews = self::getStudent($limit - $query->count(), $min_score, $grade, $subject_eng, $tutor);
