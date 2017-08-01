@@ -24,7 +24,7 @@ class StatsController extends Controller
         $paginator = $query->simplePaginate(50);
 
         $reviews = $paginator->getCollection()->map(function ($review) {
-            $review->tutor = Cache::remember(cacheKey('tutor', $review->id_teacher), 60 * 24, function() use ($review) {
+            $review->tutor = Cache::remember(cacheKey('stats-tutor', $review->id_teacher), 60 * 24, function() use ($review) {
                 return DB::connection('egerep')->table('tutors')->whereId($review->id_teacher)->select('id', 'first_name', 'last_name', 'middle_name')->first();
             });
             return $review;
