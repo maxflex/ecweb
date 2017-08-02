@@ -4235,6 +4235,9 @@ a[href^="https://www.google.com/maps"] {
     margin-bottom: 0;
     border: none; }
 
+.student-review-date {
+  color: #acacac; }
+
 .student-review-photo {
   display: inline-block;
   width: 60px;

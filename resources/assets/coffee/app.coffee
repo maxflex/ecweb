@@ -198,6 +198,9 @@ angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angu
         $rootScope.countObj = (obj) ->
             Object.keys(obj).length
 
+        $rootScope.formatReviewDate = (date) ->
+            moment(date).format("D MMM YYYY")
+
         $rootScope.formatBytes = (bytes) ->
           if bytes < 1024
             bytes + ' Bytes'
