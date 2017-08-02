@@ -3860,6 +3860,9 @@ input {
   color: #3a6699;
   font-family: "helveticaneuecyrmedium"; }
 
+.student-review-date {
+  color: #acacac; }
+
 .student-review-photo {
   display: inline-block;
   width: 3.5em;
