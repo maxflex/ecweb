@@ -3846,8 +3846,6 @@ input {
   margin-left: 3px; }
 
 .student-review {
-  display: -webkit-box;
-  display: flex;
   margin-bottom: 20px;
   padding-bottom: 15px;
   border-bottom: 1px solid #c6c6c6; }
@@ -3855,6 +3853,11 @@ input {
     margin-bottom: 0;
     padding-bottom: 0;
     border: none; }
+
+.student-review-header {
+  display: -webkit-box;
+  display: flex;
+  margin-bottom: 10px; }
 
 .student-review-name {
   color: #3a6699;
@@ -3873,13 +3876,15 @@ input {
   background-size: cover;
   margin-right: 20px; }
 
-.student-review-text {
+.student-review-info {
   -webkit-box-flex: 1;
   flex: 1;
-  font-size: 12px;
+  font-size: 12px; }
+  .student-review-info > div:not(:last-of-type) {
+    margin-bottom: 5px; }
+
+.student-review-text {
   line-height: 18px; }
-  .student-review-text > div:not(:last-of-type) {
-    margin-bottom: 8px; }
 
 .student-review-all {
   margin-bottom: 0.938em;

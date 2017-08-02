@@ -510,7 +510,6 @@ input {
 }
 
 .student-review {
-    display: flex;
     margin-bottom: 20px;
     padding-bottom: 15px;
     border-bottom: 1px solid lighten($text-grey-light, 10);
@@ -519,6 +518,11 @@ input {
         padding-bottom: 0;
         border: none;
     }
+}
+
+.student-review-header {
+    display: flex;
+    margin-bottom: 10px;
 }
 
 .student-review-name {
@@ -541,18 +545,21 @@ input {
       margin-right: 20px;
 }
 
-.student-review-text {
+.student-review-info {
     flex: 1;
     // background: #f0f0f0;
     // padding: 10px;
     // border-radius: 4px;
     font-size: 12px;
-    line-height: 18px;
     & > div {
         &:not(:last-of-type) {
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
     }
+}
+
+.student-review-text {
+    line-height: 18px;
 }
 
 .student-review-all {
