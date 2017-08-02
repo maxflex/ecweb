@@ -100,3 +100,9 @@ $font-italic: 'helveticaneuecyrlight_italic';
 mark {
     background: #d9eede;
 }
+
+.page-best-students {
+    & .button-student-reviews {
+        display: none;
+    }
+}
