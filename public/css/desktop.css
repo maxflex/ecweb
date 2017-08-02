@@ -4228,7 +4228,7 @@ a[href^="https://www.google.com/maps"] {
   display: flex;
   line-height: 21px;
   margin-bottom: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   border-bottom: 1px solid #c6c6c6; }
   .student-review-last {
     padding-bottom: 0;
@@ -4236,7 +4236,7 @@ a[href^="https://www.google.com/maps"] {
     border: none; }
 
 .student-review-date {
-  color: #acacac; }
+  color: #818181; }
 
 .student-review-photo {
   display: inline-block;
