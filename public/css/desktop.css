@@ -4345,7 +4345,7 @@ a[href^="https://www.google.com/maps"] {
   .header-contacts {
     float: right;
     font-family: "helveticaneuecyrregular";
-    padding: 5px 0 0 0; }
+    padding: 0; }
     .header-contacts-phone {
       font-size: 24px; }
     .header-contacts-worktime {
