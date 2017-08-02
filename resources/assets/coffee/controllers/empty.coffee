@@ -1,6 +1,6 @@
 angular
     .module 'App'
-    .controller 'Empty', ($scope, $timeout, $filter, StreamService) ->
+    .controller 'Empty', ($scope, $timeout, $filter, $http, StreamService) ->
         bindArguments($scope, arguments)
 
         # для развертывания предметов на главной странице
@@ -12,8 +12,32 @@ angular
             $scope.expand_items[type] = not $scope.expand_items[type]
             StreamService.run(action, type) if $scope.expand_items[type]
 
-
-
         $timeout ->
             # gallery methods
             $scope.gallery = {}
+            $scope.initReviews() if $scope.load_reviews
+
+        $scope.initReviews = (count, min_score, grade, subject, university)->
+            $scope.search =
+                page: 1
+                count: count
+                min_score: min_score
+                grade: grade
+                subject: subject
+                university: university
+                ids: []
+            $scope.reviews = []
+            $scope.has_more_pages = true
+            searchReviews()
+
+        $scope.nextReviewsPage = ->
+            $scope.search.page++
+            searchReviews()
+
+        searchReviews = ->
+            $scope.searching_reviews = true
+            $http.get('/api/reviews/block?' + $.param($scope.search)).then (response) ->
+                $scope.searching_reviews = false
+                $scope.reviews = $scope.reviews.concat(response.data.reviews)
+                $scope.search.ids = _.pluck($scope.reviews, 'id')
+                $scope.has_more_pages = response.data.has_more_pages

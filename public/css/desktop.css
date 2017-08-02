@@ -4263,6 +4263,9 @@ a[href^="https://www.google.com/maps"] {
 .student-review-all {
   margin-top: 10px; }
 
+.button-student-reviews {
+  font-family: "helveticaneuecyrregular" !important; }
+
 /* Components */
 .top-message {
   background: #fef9de;

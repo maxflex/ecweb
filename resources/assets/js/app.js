@@ -381,7 +381,8 @@
 }).call(this);
 
 (function() {
-  angular.module('App').controller('Empty', function($scope, $timeout, $filter, StreamService) {
+  angular.module('App').controller('Empty', function($scope, $timeout, $filter, $http, StreamService) {
+    var searchReviews;
     bindArguments($scope, arguments);
     $scope.expand_items = {};
     $scope.expandStream = function(action, type) {
@@ -391,9 +392,39 @@
         return StreamService.run(action, type);
       }
     };
-    return $timeout(function() {
-      return $scope.gallery = {};
+    $timeout(function() {
+      $scope.gallery = {};
+      if ($scope.load_reviews) {
+        return $scope.initReviews();
+      }
     });
+    $scope.initReviews = function(count, min_score, grade, subject, university) {
+      $scope.search = {
+        page: 1,
+        count: count,
+        min_score: min_score,
+        grade: grade,
+        subject: subject,
+        university: university,
+        ids: []
+      };
+      $scope.reviews = [];
+      $scope.has_more_pages = true;
+      return searchReviews();
+    };
+    $scope.nextReviewsPage = function() {
+      $scope.search.page++;
+      return searchReviews();
+    };
+    return searchReviews = function() {
+      $scope.searching_reviews = true;
+      return $http.get('/api/reviews/block?' + $.param($scope.search)).then(function(response) {
+        $scope.searching_reviews = false;
+        $scope.reviews = $scope.reviews.concat(response.data.reviews);
+        $scope.search.ids = _.pluck($scope.reviews, 'id');
+        return $scope.has_more_pages = response.data.has_more_pages;
+      });
+    };
   });
 
 }).call(this);
