@@ -3878,8 +3878,7 @@ input {
 
 .student-review-info {
   -webkit-box-flex: 1;
-  flex: 1;
-  font-size: 12px; }
+  flex: 1; }
   .student-review-info > div:not(:last-of-type) {
     margin-bottom: 5px; }
 
