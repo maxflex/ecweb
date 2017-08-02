@@ -3860,7 +3860,8 @@ input {
   margin-bottom: 10px; }
 
 .student-review-name {
-  color: #3a6699; }
+  color: #3a6699;
+  font-family: "helveticaneuecyrmedium"; }
 
 .student-review-date {
   color: #818181; }
