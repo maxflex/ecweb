@@ -15649,9 +15649,6 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
     $rootScope.countObj = function(obj) {
       return Object.keys(obj).length;
     };
-    $rootScope.formatReviewDate = function(date) {
-      return moment(date).format("D MMM YYYY");
-    };
     return $rootScope.formatBytes = function(bytes) {
       if (bytes < 1024) {
         return bytes + ' Bytes';

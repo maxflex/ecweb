@@ -277,9 +277,6 @@
     $rootScope.countObj = function(obj) {
       return Object.keys(obj).length;
     };
-    $rootScope.formatReviewDate = function(date) {
-      return moment(date).format("D MMM YYYY");
-    };
     return $rootScope.formatBytes = function(bytes) {
       if (bytes < 1024) {
         return bytes + ' Bytes';

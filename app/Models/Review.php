@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Scopes\ReviewScope;
 use Illuminate\Database\Eloquent\Model;
 use App\Service\Cacher;
+use App\Service\Months;
 use Cache;
 use DB;
 
@@ -68,6 +69,7 @@ class Review extends Model
             $review->subject_string = Cache::remember(cacheKey('subject-dative', $review->id_subject), 60 * 24, function() use ($review) {
                 return Cacher::getSubjectName($review->id_subject, 'dative');
             });
+            $review->date_string = date('j ', strtotime($review->date)) . Months::SHORT[date('n', strtotime($review->date))] . date(' Y', strtotime($review->date));
         }
 
         return $reviews;
