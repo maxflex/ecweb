@@ -4286,6 +4286,12 @@ a[href^="https://www.google.com/maps"] {
   .table-schedule tbody tr:first-of-type td {
     padding-top: 12px; }
 
+.whatsapp {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  left: -25px; }
+
 /* Components */
 .top-message {
   background: #fef9de;
