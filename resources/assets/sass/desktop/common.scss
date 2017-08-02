@@ -582,6 +582,11 @@ p.last {
         & td {
             padding: 0 0 10px 10px
         }
+        &.weekend-start {
+            & td {
+                padding-top: 15px;
+            }
+        }
     }
     & thead {
         & tr {

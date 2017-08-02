@@ -4278,6 +4278,8 @@ a[href^="https://www.google.com/maps"] {
   width: 100%; }
   .table-schedule tr td {
     padding: 0 0 10px 10px; }
+  .table-schedule tr.weekend-start td {
+    padding-top: 15px; }
   .table-schedule thead tr td {
     font-family: 'helveticaneuecyrmedium';
     background: #767676;
