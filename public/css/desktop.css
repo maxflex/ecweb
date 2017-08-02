@@ -4267,7 +4267,12 @@ a[href^="https://www.google.com/maps"] {
   margin-top: 10px; }
 
 .button-student-reviews {
-  font-family: "helveticaneuecyrregular" !important; }
+  font-family: "helveticaneuecyrregular" !important;
+  line-height: 30px !important;
+  height: 30px !important;
+  padding: 0 11px !important;
+  font-size: 12px !important;
+  margin-top: 13px; }
 
 /* Components */
 .top-message {
