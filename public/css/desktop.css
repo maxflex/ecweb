@@ -4292,6 +4292,9 @@ a[href^="https://www.google.com/maps"] {
   position: absolute;
   left: -25px; }
 
+.header-callback {
+  text-align: right; }
+
 /* Components */
 .top-message {
   background: #fef9de;
@@ -4348,7 +4351,7 @@ a[href^="https://www.google.com/maps"] {
     .header-contacts-worktime {
       font-size: 14px;
       text-align: right;
-      padding: 5px 0 0 0; }
+      padding: 0; }
   .header-menu {
     height: 44px;
     list-style: none;
