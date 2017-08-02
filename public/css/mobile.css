@@ -3897,6 +3897,13 @@ input {
   margin-bottom: 0.938em;
   margin-top: 1em; }
 
+.whatsapp {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  margin-left: -25px;
+  margin-top: -1px; }
+
 /* Components */
 .header {
   background: #0c4e69;
