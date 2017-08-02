@@ -35,7 +35,7 @@ class ReviewsController extends Controller
      */
     public function block(Request $request)
     {
-        $query = Review::withStudent()->where('users.photo_extension', '<>', '')->orderBy('admin_rating_final', 'desc');
+        $query = Review::withStudent()->where('users.photo_extension', '<>', '');
 
         if ($request->ids) {
             $query->whereNotIn('teacher_reviews.id', $request->ids);
@@ -62,11 +62,11 @@ class ReviewsController extends Controller
         if ($request->university) {
             $query->orderByRaw("case
                 when LOWER(teacher_reviews.admin_comment_final) RLIKE '[[:<:]]" . mb_strtolower($request->university) . "[[:>:]]' then 1
-                else 0 end
-            ", 'desc');
+                else 0 end desc
+            ");
         }
 
-        $paginator = $query->inRandomOrder()->simplePaginate($request->count);
+        $paginator = $query->orderBy('admin_rating_final', 'desc')->inRandomOrder()->simplePaginate($request->count);
 
         return [
             'reviews' => $paginator->getCollection(),
