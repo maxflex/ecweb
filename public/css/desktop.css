@@ -4274,6 +4274,18 @@ a[href^="https://www.google.com/maps"] {
   font-size: 12px !important;
   margin-top: 13px; }
 
+.table-schedule {
+  width: 100%; }
+  .table-schedule tr td {
+    padding: 0 0 10px 10px; }
+  .table-schedule thead tr td {
+    font-family: 'helveticaneuecyrmedium';
+    background: #767676;
+    color: white;
+    padding: 10px; }
+  .table-schedule tbody tr:first-of-type td {
+    padding-top: 12px; }
+
 /* Components */
 .top-message {
   background: #fef9de;

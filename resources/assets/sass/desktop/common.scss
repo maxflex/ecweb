@@ -575,3 +575,31 @@ p.last {
     font-size: 12px !important;
     margin-top: 13px;
 }
+
+.table-schedule {
+    width: 100%;
+    & tr {
+        & td {
+            padding: 0 0 10px 10px
+        }
+    }
+    & thead {
+        & tr {
+            & td {
+                font-family: 'helveticaneuecyrmedium';
+                background: $table-gray;
+                color: white;
+                padding: 10px;
+            }
+        }
+    }
+    & tbody {
+        & tr {
+            &:first-of-type {
+                & td {
+                    padding-top: 12px;
+                }
+            }
+        }
+    }
+}
