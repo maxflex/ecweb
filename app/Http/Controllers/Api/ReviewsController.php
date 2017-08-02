@@ -35,7 +35,7 @@ class ReviewsController extends Controller
      */
     public function block(Request $request)
     {
-        $query = Review::withStudent()->where('users.photo_extension', '<>', '')->take($request->limit)->orderBy('admin_rating_final', 'desc');
+        $query = Review::withStudent()->where('users.photo_extension', '<>', '')->orderBy('admin_rating_final', 'desc');
 
         if ($request->ids) {
             $query->whereNotIn('teacher_reviews.id', $request->ids);
@@ -66,7 +66,7 @@ class ReviewsController extends Controller
             ", 'desc');
         }
 
-        $paginator = $query->inRandomOrder()->simplePaginate(3);
+        $paginator = $query->inRandomOrder()->simplePaginate($request->limit);
 
         return [
             'reviews' => $paginator->getCollection(),
