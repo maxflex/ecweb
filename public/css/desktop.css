@@ -3815,6 +3815,9 @@ th {
 mark {
   background: #d9eede; }
 
+.page-best-students .button-student-reviews {
+  display: none; }
+
 html, body {
   height: 100%;
   -webkit-tap-highlight-color: transparent; }
