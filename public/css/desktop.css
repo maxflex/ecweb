@@ -4227,9 +4227,12 @@ a[href^="https://www.google.com/maps"] {
   display: -webkit-box;
   display: flex;
   line-height: 21px;
-  margin-bottom: 27px; }
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #c6c6c6; }
   .student-review-last {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    border: none; }
 
 .student-review-photo {
   display: inline-block;
@@ -4244,13 +4247,14 @@ a[href^="https://www.google.com/maps"] {
 .student-review-text {
   -webkit-box-flex: 1;
   flex: 1;
-  background: #f0f0f0;
-  padding: 10px;
-  border-radius: 4px;
   font-size: 12px;
   line-height: 18px; }
-  .student-review-text > div {
-    margin-top: 15px; }
+  .student-review-text > div:not(:last-of-type) {
+    margin-bottom: 8px; }
+
+.student-review-name {
+  color: #3a6699;
+  font-family: "helveticaneuecyrmedium"; }
 
 .student-review-all {
   margin-top: 10px; }

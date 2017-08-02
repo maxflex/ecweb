@@ -519,9 +519,12 @@ p.last {
 .student-review {
     display: flex;
     line-height: $line-height-main + px;
-    margin-bottom: 27px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid lighten($text-grey-light, 10);
     &-last {
         margin-bottom: 0;
+        border: none;
     }
 }
 
@@ -538,14 +541,21 @@ p.last {
 
 .student-review-text {
     flex: 1;
-    background: #f0f0f0;
-    padding: 10px;
-    border-radius: 4px;
+    // background: #f0f0f0;
+    // padding: 10px;
+    // border-radius: 4px;
     font-size: 12px;
     line-height: 18px;
     & > div {
-        margin-top: 15px;
+        &:not(:last-of-type) {
+            margin-bottom: 8px;
+        }
     }
+}
+
+.student-review-name {
+    color: #3a6699;
+    font-family: $font-medium;
 }
 
 .student-review-all {

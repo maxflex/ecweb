@@ -16,7 +16,7 @@ class Review extends Model
     /**
      * Отзывы учеников с фотографиями
      */
-    public static function getStudent($limit = 2, $min_score = null, $grade = null, $subject_eng = null, $tutor = null, $university = null)
+    public static function getStudent($limit = 2, $min_score = null, $grade = null, $subject_eng = null, $university = null)
     {
         $query = self::withStudent()->where('users.photo_extension', '<>', '')->take($limit)->orderBy('admin_rating_final', 'desc')->inRandomOrder();
 
@@ -48,20 +48,26 @@ class Review extends Model
 
         $reviews = $query->get();
 
-        if ($tutor) {
-            foreach($reviews as &$review) {
-                $review->tutor = Cache::remember(cacheKey('review-tutor', $review->id_teacher), 60 * 24, function() use ($review) {
-                    $tutor = DB::connection('egerep')->table('tutors')->whereId($review->id_teacher)->select('id', 'first_name', 'last_name', 'middle_name', 'subjects')->first();
-                    $tutor->subjects_string_common = implode(', ', array_map(function($subject_id) {
-                        return Cacher::getSubjectName($subject_id, 'name');
-                    }, explode(',', $tutor->subjects)));
-                    return $tutor;
-                });
-            }
-        }
+        // if ($tutor) {
+        //     foreach($reviews as &$review) {
+        //         $review->tutor = Cache::remember(cacheKey('review-tutor', $review->id_teacher), 60 * 24, function() use ($review) {
+        //             $tutor = DB::connection('egerep')->table('tutors')->whereId($review->id_teacher)->select('id', 'first_name', 'last_name', 'middle_name', 'subjects')->first();
+        //             $tutor->subjects_string_common = implode(', ', array_map(function($subject_id) {
+        //                 return Cacher::getSubjectName($subject_id, 'name');
+        //             }, explode(',', $tutor->subjects)));
+        //             return $tutor;
+        //         });
+        //     }
+        // }
 
         if (isset($additional_reviews)) {
             $reviews = collect(array_merge($reviews->all(), $additional_reviews->all()));
+        }
+
+        foreach($reviews as &$review) {
+            $review->subject_string = Cache::remember(cacheKey('subject-dative', $review->id_subject), 60 * 24, function() use ($review) {
+                return Cacher::getSubjectName($review->id_subject, 'dative');
+            });
         }
 
         return $reviews;
