@@ -31,6 +31,7 @@ angular
             searchReviews()
 
         $scope.nextReviewsPage = ->
+            StreamService.run('all_reviews', 'more')
             $scope.search.page++
             searchReviews()
 
