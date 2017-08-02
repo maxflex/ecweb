@@ -3848,8 +3848,8 @@ input {
 .student-review {
   display: -webkit-box;
   display: flex;
-  margin-bottom: 15px;
-  padding-bottom: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #c6c6c6; }
   .student-review-last {
     margin-bottom: 0;
