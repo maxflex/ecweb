@@ -43,7 +43,7 @@ class Review extends Model
             $query->whereRaw("LOWER(teacher_reviews.admin_comment_final) RLIKE '[[:<:]]" . mb_strtolower($university) . "[[:>:]]'");
             // если результатов меньше $count
             if ($query->count() < $limit) {
-                $additional_reviews = self::getStudent($limit - $query->count(), $min_score, $grade, $subject_eng, $tutor);
+                $additional_reviews = self::getStudent($limit - $query->count(), $min_score, $grade, $subject_eng);
             }
         }
 
