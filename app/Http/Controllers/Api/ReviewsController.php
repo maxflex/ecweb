@@ -66,7 +66,7 @@ class ReviewsController extends Controller
             ", 'desc');
         }
 
-        $paginator = $query->inRandomOrder()->simplePaginate($request->limit);
+        $paginator = $query->inRandomOrder()->simplePaginate($request->count);
 
         return [
             'reviews' => $paginator->getCollection(),
