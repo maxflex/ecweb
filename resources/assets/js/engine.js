@@ -149,7 +149,7 @@ function streamLink(url, action, type, additional) {
         additional = {}
     }
     // в tel: тоже не подставлять
-    if (url[0] != '/' && url[0] != 't') {
+    if (url[0] != '/' && url.indexOf('tel') === -1 && url.indexOf('http') === -1) {
         url = '/' + url
     }
     scope.StreamService.run(action, type, additional).then(function() {
