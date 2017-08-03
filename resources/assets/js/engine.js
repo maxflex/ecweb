@@ -152,9 +152,15 @@ function streamLink(url, action, type, additional) {
     if (url[0] != '/' && url.indexOf('tel') === -1 && url.indexOf('http') === -1) {
         url = '/' + url
     }
-    scope.StreamService.run(action, type, additional).then(function() {
-        window.location = url
-    })
+
+    if (url.indexOf('http') === -1) {
+        scope.StreamService.run(action, type, additional).then(function() {
+            window.location = url
+        })
+    } else {
+        scope.StreamService.run(action, type, additional)
+        window.open(url, '_blank')
+    }
 }
 
 
