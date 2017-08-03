@@ -4315,7 +4315,7 @@ a[href^="https://www.google.com/maps"] {
       .header-messengers > div:last-of-type > div img {
         height: 20px;
         width: 20px;
-        margin-right: 5px; }
+        margin-right: 6px; }
       .header-messengers > div:last-of-type > div a {
         text-decoration: none;
         color: black; }

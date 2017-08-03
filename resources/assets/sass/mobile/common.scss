@@ -186,8 +186,10 @@ a {
         height: calc(100% - 47px);
         &.menu {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            // justify-content: center;
+            // align-items: center;
+            justify-content: flex-start;
+            align-items: flex-start;
             height: 92%;
         }
     }
@@ -578,4 +580,27 @@ input {
     position: absolute;
     margin-left: -25px;
     margin-top: -1px;
+}
+
+.messenger-list {
+    margin-top: 7px;
+    & > div {
+        display: flex;
+        align-items: center;
+        & img {
+            height: 1.5em;
+            width: 1.5em;
+            margin-right: 12px;
+        }
+        & a {
+            text-decoration: none;
+            color: black;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        &:not(:last-of-type) {
+            margin-bottom: 7px;
+        }
+    }
 }

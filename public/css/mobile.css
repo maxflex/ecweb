@@ -3581,10 +3581,10 @@ a {
     .modal .modal-content.menu {
       display: -webkit-box;
       display: flex;
-      -webkit-box-pack: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      align-items: center;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-box-align: start;
+      align-items: flex-start;
       height: 92%; }
   .modal .loading {
     font-size: 1.1em;
@@ -3904,6 +3904,25 @@ input {
   margin-left: -25px;
   margin-top: -1px; }
 
+.messenger-list {
+  margin-top: 7px; }
+  .messenger-list > div {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center; }
+    .messenger-list > div img {
+      height: 1.5em;
+      width: 1.5em;
+      margin-right: 12px; }
+    .messenger-list > div a {
+      text-decoration: none;
+      color: black; }
+      .messenger-list > div a:hover {
+        text-decoration: underline; }
+    .messenger-list > div:not(:last-of-type) {
+      margin-bottom: 7px; }
+
 /* Components */
 .header {
   background: #0c4e69;
@@ -4117,8 +4136,7 @@ input {
   list-style: none; }
 
 .main-menu {
-  text-align: center;
-  padding: 3.125em 0; }
+  padding: 1.6em 1.2em; }
   .main-menu-list {
     margin: 0;
     padding: 0 0 1.250em 0;
