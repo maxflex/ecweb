@@ -3904,24 +3904,22 @@ input {
   margin-left: -25px;
   margin-top: -1px; }
 
-.messenger-list {
-  margin-top: 7px; }
-  .messenger-list > div {
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center; }
-    .messenger-list > div img {
-      height: 1.5em;
-      width: 1.5em;
-      margin-right: 12px; }
-    .messenger-list > div a {
-      text-decoration: none;
-      color: black; }
-      .messenger-list > div a:hover {
-        text-decoration: underline; }
-    .messenger-list > div:not(:last-of-type) {
-      margin-bottom: 7px; }
+.messenger-list > div {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center; }
+  .messenger-list > div img {
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 12px; }
+  .messenger-list > div a {
+    text-decoration: none;
+    color: black; }
+    .messenger-list > div a:hover {
+      text-decoration: underline; }
+  .messenger-list > div:not(:last-of-type) {
+    margin-bottom: 7px; }
 
 /* Components */
 .header {
