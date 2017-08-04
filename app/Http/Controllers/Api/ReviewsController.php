@@ -21,7 +21,7 @@ class ReviewsController extends Controller
      */
     public function index(Request $request)
     {
-        $paginator = Review::withStudent()->orderBy('teacher_reviews.admin_rating_final', 'desc')->simplePaginate(20);
+        $paginator = Review::withStudent()->orderBy('teacher_reviews.admin_rating_final', 'desc')->orderBy('teacher_reviews.id', 'desc')->simplePaginate(20);
 
         return [
             'reviews' => $paginator->getCollection(),
@@ -80,7 +80,7 @@ class ReviewsController extends Controller
      */
     public function show($id)
     {
-        return Review::withStudent()->where('id_teacher', $id)->orderBy('teacher_reviews.admin_rating_final', 'desc')->get();
+        return Review::withStudent()->where('id_teacher', $id)->orderBy('teacher_reviews.admin_rating_final', 'desc')->orderBy('teacher_reviews.id', 'desc')->get();
     }
 
 }
