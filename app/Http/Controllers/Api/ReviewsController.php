@@ -80,7 +80,7 @@ class ReviewsController extends Controller
      */
     public function show($id)
     {
-        return Review::where('id_teacher', $id)->orderBy('teacher_reviews.id', 'desc')->get();
+        return Review::withStudent()->where('id_teacher', $id)->orderBy('teacher_reviews.id', 'desc')->get();
     }
 
 }
