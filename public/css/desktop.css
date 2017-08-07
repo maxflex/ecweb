@@ -4341,12 +4341,10 @@ a[href^="https://www.google.com/maps"] {
     font-size: 48px; }
   .header-landing .header-landing-text {
     font-size: 16px;
-    font-family: "helveticaneuecyrregular";
+    font-family: "helveticaneuecyrlight";
     line-height: 26px; }
-    .header-landing .header-landing-text b, .header-landing .header-landing-text .address-more li > div:first-of-type, .address-more .header-landing .header-landing-text li > div:first-of-type {
-      font-size: 20px; }
-  .header-landing:after {
-    background: rgba(0, 0, 0, 0.6) !important; }
+    .header-landing .header-landing-text span {
+      font-size: 24px; }
 
 .tutor-columns {
   display: -webkit-box;
