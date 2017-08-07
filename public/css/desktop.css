@@ -4421,13 +4421,13 @@ a[href^="https://www.google.com/maps"] {
   .header-contacts {
     float: right;
     font-family: "helveticaneuecyrregular";
-    padding: 0; }
+    padding: 5px 0 0 0; }
     .header-contacts-phone {
       font-size: 24px; }
     .header-contacts-worktime {
       font-size: 14px;
       text-align: right;
-      padding: 0; }
+      padding: 5px 0 0 0; }
   .header-menu {
     height: 44px;
     list-style: none;
