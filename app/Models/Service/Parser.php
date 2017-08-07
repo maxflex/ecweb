@@ -157,6 +157,10 @@
                     case 'subject':
                         $replacement = json_encode(Page::getSubjectRoutes());
                         break;
+                    case 'university-image':
+                        $folder = 'img/university/';
+                        $replacement = file_exists($folder . $args[0] . '.jpg') ? '/' . $folder . $args[0] . '.jpg' : '/img/university/' . (strpos($args[0], 'big') !== false ? 'big/' : '') . 'no-university.jpg';
+                        break;
                     case 'link':
                         // получить ссылку либо по [link|id_раздела] или по [link|math]
                         $replacement = is_numeric($args[0]) ? Page::getUrl($args[0]) : Page::getSubjectUrl($args[0]);
