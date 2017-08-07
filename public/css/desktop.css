@@ -4325,10 +4325,10 @@ a[href^="https://www.google.com/maps"] {
         margin-bottom: 3px; }
 
 .landingnew-page .common > h1:not(:first-of-type), .landingnew-page .common > h3:not(:first-of-type) {
-  margin-top: 18px; }
+  margin-top: 36px; }
 
 .landingnew-page .common h3 {
-  margin-top: 18px; }
+  margin-top: 36px; }
 
 .header-landing {
   height: 600px !important; }
@@ -4568,7 +4568,7 @@ a[href^="https://www.google.com/maps"] {
   width: calc(500px - 20px);
   overflow: hidden;
   border-radius: 6px;
-  margin-bottom: 18px; }
+  margin-bottom: 36px; }
 
 .address-list {
   margin: 0;

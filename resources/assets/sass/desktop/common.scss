@@ -660,12 +660,12 @@ p.last {
     & .common {
         & > h1 {
             &:not(:first-of-type) {
-                margin-top: 18px;
+                margin-top: 36px;
             }
         }
         & h3 {
             @extend h1;
-            margin-top: 18px;
+            margin-top: 36px;
         }
     }
 }
