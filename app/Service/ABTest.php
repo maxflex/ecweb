@@ -6,7 +6,7 @@ use App\Models\Variable;
 
 class ABTest
 {
-    public static function parse(string $key, string $ids)
+    public static function parse($key, $ids)
     {
         $key = md5('abtest-' . $key);
         $ids = explode(',' , $ids);
