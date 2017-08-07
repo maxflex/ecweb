@@ -4341,8 +4341,10 @@ a[href^="https://www.google.com/maps"] {
     font-size: 48px; }
   .header-landing .header-landing-text {
     font-size: 16px;
-    font-family: "helveticaneuecyrultralight";
-    line-height: 21px; }
+    font-family: "helveticaneuecyrregular";
+    line-height: 26px; }
+    .header-landing .header-landing-text b, .header-landing .header-landing-text .address-more li > div:first-of-type, .address-more .header-landing .header-landing-text li > div:first-of-type {
+      font-size: 20px; }
   .header-landing:after {
     background: rgba(0, 0, 0, 0.5) !important; }
 

@@ -684,8 +684,11 @@ p.last {
     }
     & .header-landing-text {
         font-size: 16px;
-        font-family: $font-ultra-light;
-        line-height: $line-height-main + px;
+        font-family: $font-regular;
+        line-height: $line-height-main + 5 + px;
+        & b {
+            font-size: 20px;
+        }
     }
     &:after {
         background: rgba(0, 0, 0, 0.5) !important;
