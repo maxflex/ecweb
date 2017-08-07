@@ -4199,9 +4199,9 @@ a[href^="https://www.google.com/maps"] {
     .dropdown-content a:hover {
       text-decoration: underline; }
 
-.main-page .dropdown-content {
+.main-page .dropdown-content, .landingnew-page .dropdown-content {
   background-color: rgba(0, 0, 0, 0.6); }
-  .main-page .dropdown-content:before {
+  .main-page .dropdown-content:before, .landingnew-page .dropdown-content:before {
     content: '';
     position: absolute;
     left: 0;

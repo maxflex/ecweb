@@ -482,7 +482,7 @@ p.last {
     }
 }
 
-.main-page .dropdown-content {
+.main-page .dropdown-content, .landingnew-page .dropdown-content {
     background-color: rgba(0, 0, 0, 0.6);
     &:before {
         content: '';
