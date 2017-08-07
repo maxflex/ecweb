@@ -10,6 +10,7 @@
     width: calc(500px - #{$screen-padding});
     overflow: hidden;
     border-radius: $border-radius-main + px;
+    margin-bottom: 18px;
   }
 
   &-list {

@@ -139,12 +139,12 @@
     margin: 0 auto;
 
     &-title {
-      font-family: 'helveticaneuecyrultralight';
+      font-family: $font-ultra-light;
       font-size: 64px;
       padding: 0 0 20px 0;
 
       &__large {
-          font-family: 'helveticaneuecyrultralight';
+          font-family: $font-ultra-light;
         font-size: 132px;
         line-height: 128px;
       }

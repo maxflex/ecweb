@@ -655,3 +655,69 @@ p.last {
         }
     }
 }
+
+.landingnew-page {
+    & .common {
+        & > h1 {
+            &:not(:first-of-type) {
+                margin-top: 18px;
+            }
+        }
+        & h3 {
+            @extend h1;
+            margin-top: 18px;
+        }
+    }
+}
+
+.header-landing {
+    height: 600px !important;
+    & .header-img {
+        text-align: left !important;
+        & > div {
+            margin-bottom: 60px;
+        }
+    }
+    & .header-landing-title {
+        font-family: $font-ultra-light;
+        font-size: 48px;
+    }
+    & .header-landing-text {
+        font-size: 16px;
+        font-family: $font-ultra-light;
+        line-height: $line-height-main + px;
+    }
+    &:after {
+        background: rgba(0, 0, 0, 0.5) !important;
+    }
+}
+
+.tutor-columns {
+    display: flex;
+    flex-wrap: wrap;
+    & .tutors-item {
+        width: calc(50% - 10px);
+        display: flex;
+        flex-grow: 1;
+        &:nth-child(even) {
+            margin-left: 10px;
+        }
+        &:nth-child(odd) {
+            margin-right: 10px;
+        }
+    }
+    & .tutors-item-info  {
+        width: auto !important;
+    }
+    & .tutors-item-img {
+        margin-right: 20px;
+    }
+}
+
+.signup-bottom-landingnew {
+    margin-top: 40px;
+}
+
+.default-lineheight {
+    line-height: $line-height-main + px;
+}

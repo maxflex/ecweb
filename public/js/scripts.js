@@ -15765,10 +15765,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       }
     };
     $timeout(function() {
-      $scope.gallery = {};
-      if ($scope.load_reviews) {
-        return $scope.initReviews();
-      }
+      return $scope.gallery = {};
     });
     $scope.initReviews = function(count, min_score, grade, subject, university) {
       $scope.search = {
@@ -15819,6 +15816,127 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       return _.findIndex($scope.all_photos, {
         id: photo_id
       });
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Landing', function($scope, $timeout, $http, StreamService, Tutor, REVIEWS_PER_PAGE, Subjects) {
+    var initTutors, searchReviews, searchTutors;
+    bindArguments($scope, arguments);
+    $timeout(function() {
+      initYoutube();
+      return initTutors();
+    });
+    $scope.initReviews = function(count, min_score, grade, subject, university) {
+      $scope.search_reviews = {
+        page: 1,
+        count: count,
+        min_score: min_score,
+        grade: grade,
+        subject: subject,
+        university: university,
+        ids: []
+      };
+      $scope.reviews = [];
+      $scope.has_more_pages = true;
+      return searchReviews();
+    };
+    $scope.nextReviewsPage = function() {
+      StreamService.run('all_reviews', 'more');
+      $scope.search_reviews.page++;
+      return searchReviews();
+    };
+    searchReviews = function() {
+      $scope.searching_reviews = true;
+      return $http.get('/api/reviews/block?' + $.param($scope.search_reviews)).then(function(response) {
+        $scope.searching_reviews = false;
+        $scope.reviews = $scope.reviews.concat(response.data.reviews);
+        $scope.search_reviews.ids = _.pluck($scope.reviews, 'id');
+        return $scope.has_more_pages = response.data.has_more_pages;
+      });
+    };
+    initTutors = function() {
+      $scope.tutors = [];
+      $scope.tutors_page = 1;
+      return searchTutors();
+    };
+    $scope.tutorReviews = function(tutor, index) {
+      StreamService.run('tutor_reviews', tutor.id);
+      if (tutor.all_reviews === void 0) {
+        tutor.all_reviews = Tutor.reviews({
+          id: tutor.id
+        }, function(response) {
+          return $scope.showMoreReviews(tutor);
+        });
+      }
+      return $scope.toggleShow(tutor, 'show_reviews', 'reviews', false);
+    };
+    $scope.showMoreReviews = function(tutor, index) {
+      var from, to;
+      tutor.reviews_page = !tutor.reviews_page ? 1 : tutor.reviews_page + 1;
+      from = (tutor.reviews_page - 1) * REVIEWS_PER_PAGE;
+      to = from + REVIEWS_PER_PAGE;
+      return tutor.displayed_reviews = tutor.all_reviews.slice(0, to);
+    };
+    $scope.reviewsLeft = function(tutor) {
+      var reviews_left;
+      if (!tutor.all_reviews || !tutor.displayed_reviews) {
+        return;
+      }
+      reviews_left = tutor.all_reviews.length - tutor.displayed_reviews.length;
+      if (reviews_left > REVIEWS_PER_PAGE) {
+        return REVIEWS_PER_PAGE;
+      } else {
+        return reviews_left;
+      }
+    };
+    $scope.nextTutorsPage = function() {
+      StreamService.run('load_more_tutors', $scope.tutors_page * 10);
+      $scope.tutors_page++;
+      return searchTutors();
+    };
+    searchTutors = function() {
+      $scope.searching_tutors = true;
+      return Tutor.search({
+        page: $scope.tutors_page,
+        take: 4
+      }, function(response) {
+        $scope.searching_tutors = false;
+        $scope.tutors_data = response;
+        return $scope.tutors = $scope.tutors.concat(response.data);
+      });
+    };
+    $scope.video = function(tutor) {
+      StreamService.run('tutor_video', tutor.id);
+      player.loadVideoById(tutor.video_link);
+      player.playVideo();
+      if (isMobile) {
+        $('.fullscreen-loading-black').css('display', 'flex');
+      }
+      return openModal('video');
+    };
+    $scope.videoDuration = function(tutor) {
+      var duration, format;
+      duration = parseInt(tutor.video_duration);
+      format = duration >= 60 ? 'm мин s сек' : 's сек';
+      return moment.utc(duration * 1000).format(format);
+    };
+    $scope.videoDurationISO = function(tutor) {
+      return moment.duration(tutor.video_duration, 'seconds').toISOString();
+    };
+    return $scope.toggleShow = function(tutor, prop, iteraction_type, index) {
+      if (index == null) {
+        index = null;
+      }
+      if (tutor[prop]) {
+        return $timeout(function() {
+          return tutor[prop] = false;
+        }, $scope.mobile ? 400 : 0);
+      } else {
+        return tutor[prop] = true;
+      }
     };
   });
 
@@ -16491,6 +16609,63 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 }).call(this);
 
 (function() {
+  var apiPath, countable, updatable;
+
+  angular.module('App').factory('Tutor', function($resource) {
+    return $resource(apiPath('tutors'), {
+      id: '@id',
+      type: '@type'
+    }, {
+      search: {
+        method: 'POST',
+        url: apiPath('tutors', 'search')
+      },
+      reviews: {
+        method: 'GET',
+        isArray: true,
+        url: apiPath('reviews')
+      }
+    });
+  }).factory('Request', function($resource) {
+    return $resource(apiPath('requests'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Cv', function($resource) {
+    return $resource(apiPath('cv'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Stream', function($resource) {
+    return $resource(apiPath('stream'), {
+      id: '@id'
+    });
+  });
+
+  apiPath = function(entity, additional) {
+    if (additional == null) {
+      additional = '';
+    }
+    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
+  };
+
+  updatable = function() {
+    return {
+      update: {
+        method: 'PUT'
+      }
+    };
+  };
+
+  countable = function() {
+    return {
+      count: {
+        method: 'GET'
+      }
+    };
+  };
+
+}).call(this);
+
+(function() {
   angular.module('App').service('PhoneService', function() {
     var isFull;
     this.checkForm = function(element) {
@@ -16663,63 +16838,6 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
     };
     return this;
   });
-
-}).call(this);
-
-(function() {
-  var apiPath, countable, updatable;
-
-  angular.module('App').factory('Tutor', function($resource) {
-    return $resource(apiPath('tutors'), {
-      id: '@id',
-      type: '@type'
-    }, {
-      search: {
-        method: 'POST',
-        url: apiPath('tutors', 'search')
-      },
-      reviews: {
-        method: 'GET',
-        isArray: true,
-        url: apiPath('reviews')
-      }
-    });
-  }).factory('Request', function($resource) {
-    return $resource(apiPath('requests'), {
-      id: '@id'
-    }, updatable());
-  }).factory('Cv', function($resource) {
-    return $resource(apiPath('cv'), {
-      id: '@id'
-    }, updatable());
-  }).factory('Stream', function($resource) {
-    return $resource(apiPath('stream'), {
-      id: '@id'
-    });
-  });
-
-  apiPath = function(entity, additional) {
-    if (additional == null) {
-      additional = '';
-    }
-    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
-  };
-
-  updatable = function() {
-    return {
-      update: {
-        method: 'PUT'
-      }
-    };
-  };
-
-  countable = function() {
-    return {
-      count: {
-        method: 'GET'
-      }
-    };
-  };
 
 }).call(this);
 

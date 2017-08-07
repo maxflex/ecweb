@@ -139,6 +139,9 @@
                             $replacement = Review::get(...$args)->toJson();
                         }
                         break;
+                    case 'abtest':
+                        $replacement = \App\Service\ABTest::parse(...$args);
+                        break;
                     case 'const':
                         $replacement = Factory::constant($args[0]);
                         break;

@@ -15,7 +15,6 @@ angular
         $timeout ->
             # gallery methods
             $scope.gallery = {}
-            $scope.initReviews() if $scope.load_reviews
 
         $scope.initReviews = (count, min_score, grade, subject, university)->
             $scope.search =
