@@ -49,6 +49,13 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 session_start();
 header("Access-Control-Allow-Origin: http://www.ege-centr.ru");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
+// @todo
+$key = md5('abtest-university');
+if (! isset($_COOKIE[$key])) {
+    setcookie($key, mt_rand(0, 1), time() + (10 * 365 * 24 * 60 * 60), '/');
+}
+
 if (! isset($_SESSION['sent_ids'])) {
     $_SESSION['sent_ids'] = [];
 }
