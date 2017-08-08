@@ -4668,24 +4668,20 @@ a[href^="https://www.google.com/maps"] {
     table-layout: fixed;
     width: 100%; }
     .price-list thead {
-      background: #e8e8e8;
+      background: #767676;
+      color: white;
       border-radius: 3px;
       font-family: 'helveticaneuecyrmedium'; }
       .price-list thead td {
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding: 10px;
         vertical-align: top; }
-        .price-list thead td:first-child {
-          padding-left: 3px;
-          border-radius: 4px 0 0 4px; }
-        .price-list thead td:last-child {
-          border-radius: 0 4px 4px 0; }
     .price-list tbody td {
-      padding: 0 0 10px 10px;
+      padding: 0 0 20px 10px;
       line-height: 21px; }
+    .price-list tbody tr.margin-top td {
+      padding-top: 30px; }
     .price-list tbody tr.line-separated {
-      border-top: 1px solid #acacac;
-      border-bottom: 1px solid #acacac; }
+      border-top: 1px solid #acacac; }
       .price-list tbody tr.line-separated td {
         padding: 8px 10px; }
     .price-list tbody tr.after-line-separated td {

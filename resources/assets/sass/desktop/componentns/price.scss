@@ -15,30 +15,35 @@
     table-layout: fixed;
     width: 100%;
     thead {
-        background: #e8e8e8;
+        background: #767676;
+        color: white;
         border-radius: 3px;
         font-family: 'helveticaneuecyrmedium';
         & td {
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding: 10px;
             vertical-align: top;
-            &:first-child {
-                padding-left: 3px;
-                border-radius: 4px 0 0 4px;
-            }
-            &:last-child {
-                border-radius: 0 4px 4px 0;
-            }
+            // &:first-child {
+            //     padding-left: 3px;
+            //     border-radius: 4px 0 0 4px;
+            // }
+            // &:last-child {
+            //     border-radius: 0 4px 4px 0;
+            // }
         }
     }
     tbody {
         & td {
-          padding: 0 0 10px 10px;
+          padding: 0 0 20px 10px;
           line-height: $line-height-main + px;
+        }
+        & tr.margin-top {
+            & td {
+                padding-top: 30px;
+            }
         }
         & tr.line-separated {
             border-top: 1px solid $text-grey-light;
-            border-bottom: 1px solid $text-grey-light;
+            // border-bottom: 1px solid $text-grey-light;
             & td {
                 padding: 8px 10px;
             }
