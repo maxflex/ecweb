@@ -5262,8 +5262,9 @@ ol, ul {
   line-height: 21px; }
   .order-right-block center {
     margin: 20px 0 10px; }
-  .order-right-block span.price {
-    font-size: 18px; }
+
+.price {
+  font-size: 18px; }
 
 .payment-types {
   display: inline-block;
@@ -5277,6 +5278,9 @@ ol, ul {
   line-height: 21px; }
   .signup-bottom-price .signup-bottom-price-deadline {
     margin-top: 10px; }
+
+.signup-bottom {
+  margin-top: 10px; }
 
 #deadline-bar {
   background: #fffccc;

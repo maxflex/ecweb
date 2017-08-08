@@ -273,9 +273,10 @@ ol, ul {
     & center {
         margin: 20px 0 10px;
     }
-    & span.price {
-        font-size: 18px;
-    }
+}
+
+.price {
+    font-size: 18px;
 }
 
 .payment-types {
@@ -292,6 +293,10 @@ ol, ul {
     & .signup-bottom-price-deadline {
         margin-top: 10px;
     }
+}
+
+.signup-bottom {
+    margin-top: 10px;
 }
 
 #deadline-bar {
