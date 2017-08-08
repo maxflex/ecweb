@@ -16998,13 +16998,17 @@ function streamLink(url, action, type, additional) {
         url = '/' + url
     }
 
-    if (url.indexOf('http') === -1) {
-        scope.StreamService.run(action, type, additional).then(function() {
+    if (url.indexOf('http') === -1 && url.indexOf('tel') === -1) {
+        scope.StreamService.run(action, type, additional).then(function(data) {
             window.location = url
         })
     } else {
         scope.StreamService.run(action, type, additional)
-        window.open(url, '_blank')
+        if (url.indexOf('tel') === -1) {
+            window.open(url, '_blank')
+        } else {
+            window.location = url
+        }
     }
 }
 
