@@ -3921,6 +3921,9 @@ input {
   .messenger-list > div:not(:last-of-type) {
     margin-bottom: 7px; }
 
+.button-call {
+  background-color: #717171 !important; }
+
 /* Components */
 .header {
   background: #0c4e69;
