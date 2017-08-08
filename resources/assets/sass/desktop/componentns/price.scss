@@ -35,6 +35,15 @@
         & td {
           padding: 0 0 20px 10px;
           line-height: $line-height-main + px;
+          & .button-green-small {
+              margin-left: 5px;
+              font-family: $font-regular;
+              margin-top: -1px;
+              position: relative;
+              font-size: 12px;
+              padding: 2px 8px;
+              float: right;
+          }
         }
         & tr.margin-top {
             & td {

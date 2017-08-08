@@ -4678,6 +4678,14 @@ a[href^="https://www.google.com/maps"] {
     .price-list tbody td {
       padding: 0 0 20px 10px;
       line-height: 21px; }
+      .price-list tbody td .button-green-small {
+        margin-left: 5px;
+        font-family: "helveticaneuecyrregular";
+        margin-top: -1px;
+        position: relative;
+        font-size: 12px;
+        padding: 2px 8px;
+        float: right; }
     .price-list tbody tr.margin-top td {
       padding-top: 30px; }
     .price-list tbody tr.line-separated {
