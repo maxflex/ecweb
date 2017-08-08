@@ -12,6 +12,7 @@ use DB;
 use Cache;
 use App\Service\Cacher;
 use App\Service\Months;
+use App\Models\Service\Factory;
 
 class ReviewsController extends Controller
 {
@@ -55,7 +56,7 @@ class ReviewsController extends Controller
         }
 
         if ($request->subject) {
-            $subject_id = Service\Factory::getSubjectId($request->subject);
+            $subject_id = Factory::getSubjectId($request->subject);
             $query->where('teacher_reviews.id_subject', '=', $subject_id);
         }
 
