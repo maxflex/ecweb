@@ -54,8 +54,8 @@ class ReviewsController extends Controller
             $query->where('teacher_reviews.grade', '=', $request->grade);
         }
 
-        if ($request->subject_eng) {
-            $subject_id = Service\Factory::getSubjectId($request->subject_eng);
+        if ($request->subject) {
+            $subject_id = Service\Factory::getSubjectId($request->subject);
             $query->where('teacher_reviews.id_subject', '=', $subject_id);
         }
 
