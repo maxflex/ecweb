@@ -266,3 +266,8 @@
             return $value->$child;
         });
     }
+
+    function isTestSubdomain()
+    {
+        return array_shift((explode('.', @$_SERVER['HTTP_HOST']))) === 'test';
+    }

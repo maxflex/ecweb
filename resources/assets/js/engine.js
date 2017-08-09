@@ -166,8 +166,3 @@ function streamLink(url, action, type, additional) {
         }
     }
 }
-
-
-function getSubdomain() {
-    return window.location.host.split('.')[0]
-}

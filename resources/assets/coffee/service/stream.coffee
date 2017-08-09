@@ -69,7 +69,6 @@ angular.module 'App'
                 event: 'configuration'
                 eventCategory: action
                 eventAction: type
-            return Promise.resolve() if getSubdomain() is 'test' # отключаем стрим для поддомена test
             Stream.save(params).$promise
 
         this
