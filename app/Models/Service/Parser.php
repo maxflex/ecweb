@@ -191,6 +191,10 @@
                     case 'count':
                         $type = array_shift($args);
                         switch($type) {
+                            case 'clients': {
+                                $replacement = egecrm('contract_info')->groupBy('id_student')->count();
+                                break;
+                            }
                             case 'tutors':
                                 if (@$args[0] == 'egerep') {
                                     $replacement = egerep('tutors')->where('public_desc', '!=', '')->count();

@@ -4373,7 +4373,7 @@ a[href^="https://www.google.com/maps"] {
 
 .text-red {
   color: #a30000;
-  font-family: "helveticaneuecyrmedium"; }
+  font-family: "helveticaneuecyrbold"; }
 
 /* Components */
 .top-message {
@@ -4803,7 +4803,7 @@ a[href^="https://www.google.com/maps"] {
   .landing-body h2 {
     font-size: 18px; }
     .landing-body h2.header {
-      border-bottom: 2px solid #dfdfdf;
+      border-bottom: 1px solid #dfdfdf;
       margin-bottom: 30px; }
   .landing-body > div {
     background: white;
@@ -4814,7 +4814,7 @@ a[href^="https://www.google.com/maps"] {
       display: -webkit-box;
       display: flex; }
       .landing-body > div .landing-options > div img {
-        height: 150px; }
+        height: 120px; }
       .landing-body > div .landing-options > div h2 {
         padding: 30px 0; }
       .landing-body > div .landing-options > div a {

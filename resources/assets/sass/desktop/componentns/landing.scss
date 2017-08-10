@@ -10,7 +10,7 @@
         font-size: 18px;
         // padding-bottom: 30px;
         &.header {
-            border-bottom: 2px solid lighten($text-grey-light, 20);
+            border-bottom: 1px solid lighten($text-grey-light, 20);
             margin-bottom: 30px;
         }
     }
@@ -24,7 +24,7 @@
            display: flex;
            & > div {
                & img {
-                   height: 150px;
+                   height: 120px;
                }
                & h2 {
                    padding: 30px 0;
