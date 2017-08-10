@@ -192,7 +192,7 @@
                         $type = array_shift($args);
                         switch($type) {
                             case 'clients': {
-                                $replacement = egecrm('contract_info')->groupBy('id_student')->count();
+                                $replacement = egecrm(DB::raw("(select 1 from contract_info group by id_student) as x"))->count();
                                 break;
                             }
                             case 'tutors':
