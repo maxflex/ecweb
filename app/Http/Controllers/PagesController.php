@@ -22,10 +22,12 @@ class PagesController extends Controller
         $page = Page::whereUrl($url);
         if (! $page->exists()) {
             $html = Page::withoutGlobalScopes()->whereUrl('404')->first()->html;
+            $status = 404;
         } else {
             $html = $page->first()->html;
+            $status = 200;
         }
-        return view('pages.index')->with(compact('html'));
+        return response()->view('pages.index', compact('html'), $status);
     }
 
     /**
