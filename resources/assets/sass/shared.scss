@@ -107,3 +107,9 @@ mark {
         display: none;
     }
 }
+
+.price-strokeout {
+    text-decoration: line-through;
+    color: $text-grey-light;
+    font-size: 12px;
+}

@@ -2727,6 +2727,11 @@ mark {
 .page-best-students .button-student-reviews {
   display: none; }
 
+.price-strokeout {
+  text-decoration: line-through;
+  color: #acacac;
+  font-size: 12px; }
+
 @-webkit-keyframes sk-stretchdelay {
   0%, 40%, 100% {
     -webkit-transform: scaleY(0.4); }

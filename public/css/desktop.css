@@ -3818,6 +3818,11 @@ mark {
 .page-best-students .button-student-reviews {
   display: none; }
 
+.price-strokeout {
+  text-decoration: line-through;
+  color: #acacac;
+  font-size: 12px; }
+
 html, body {
   height: 100%;
   -webkit-tap-highlight-color: transparent; }

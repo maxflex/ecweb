@@ -142,6 +142,9 @@
                     case 'abtest':
                         $replacement = \App\Service\ABTest::parse(...$args);
                         break;
+                    case 'abtest-if':
+                        $replacement = @$_COOKIE['abtest-' . $args[0]] ? 'true' : 'false'; 
+                        break;
                     case 'const':
                         $replacement = Factory::constant($args[0]);
                         break;

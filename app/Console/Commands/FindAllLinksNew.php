@@ -7,14 +7,17 @@ use App\Models\Page;
 use App\Models\Variable;
 use Storage;
 
-class FindAllLinks extends Command
+/**
+ * Перед запуском модифицировать helpers.php – getSize
+ */
+class FindAllLinksNew extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'find:links';
+    protected $signature = 'find:links-new';
 
     /**
      * The console command description.
@@ -42,27 +45,15 @@ class FindAllLinks extends Command
     {
         $links = [];
 
-        foreach(Page::all() as $page) {
-            $links = array_merge($links, self::findHrefs($page->getClean('html'), $page->url));
-            $links = array_merge($links, self::findHrefs($page->getClean('html_mobile'), $page->url));
-        }
-
-        foreach(Variable::all() as $variable) {
-            $links = array_merge($links, self::findHrefs($variable->getClean('html')));
-        }
-
-        foreach($links as &$link) {
-            if ($link[0] == '/' || strpos($link, 'http') !== false) {
-                if ($link[strlen($link) - 1] != '/' && strpos($link, '.pdf') === false && strpos($link, '.css') === false && strpos($link, '.js') === false && strpos($link, '.png') === false) {
-                    $link = $link . '/';
-                }
-            }
+        foreach(Page::take(1)->get() as $page) {
+            $links = array_merge($links, self::findHrefs($page->html, $page->url));
+            // $links = array_merge($links, self::findHrefs($page->html_mobile, $page->url));
         }
 
         $links = array_unique($links);
         sort($links);
-
-        Storage::put('links.txt', implode("\n", $links));
+        dd($links);
+        Storage::put('links_new.txt', implode("\n", $links));
 
         $custom_check = ["", "================", "CUSTOM CHECK", "================"];
         $error_links  = ["================", "ERROR LINKS", "================"];
@@ -83,7 +74,7 @@ class FindAllLinks extends Command
             }
         }
 
-        Storage::put('link_problems.txt', implode("\n", array_merge($error_links, $custom_check)));
+        Storage::put('link_problems_new.txt', implode("\n", array_merge($error_links, $custom_check)));
     }
 
     /**

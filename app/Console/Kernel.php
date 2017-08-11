@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\FindAllLinks::class,
+        Commands\FindAllLinksNew::class,
     ];
 
     /**
