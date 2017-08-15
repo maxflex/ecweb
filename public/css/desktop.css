@@ -4430,13 +4430,13 @@ a[href^="https://www.google.com/maps"] {
   .header-contacts {
     float: right;
     font-family: "helveticaneuecyrregular";
-    padding: 5px 0 0 0; }
+    padding: 0; }
     .header-contacts-phone {
       font-size: 24px; }
     .header-contacts-worktime {
       font-size: 14px;
       text-align: right;
-      padding: 5px 0 0 0; }
+      padding: 0; }
   .header-menu {
     height: 44px;
     list-style: none;
@@ -4524,6 +4524,9 @@ a[href^="https://www.google.com/maps"] {
   .lk-wrapper a {
     font-size: 12px;
     font-family: "helveticaneuecyrregular"; }
+
+.header-contact {
+  float: right; }
 
 .footer {
   background: #3b3b3b;

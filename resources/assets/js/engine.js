@@ -166,3 +166,7 @@ function streamLink(url, action, type, additional) {
         }
     }
 }
+
+function openChat() {
+    $('#intergramRoot > div > div').first().click()
+}
