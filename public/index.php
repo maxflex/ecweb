@@ -56,13 +56,6 @@ if (! isset($_COOKIE[$key])) {
     setcookie($key, mt_rand(0, 1), time() + (10 * 365 * 24 * 60 * 60), '/');
 }
 
-$key = 'abtest-price';
-if (! isset($_COOKIE[$key])) {
-    $variant = mt_rand(0, 1);
-    setcookie($key, $variant, time() + (10 * 365 * 24 * 60 * 60), '/');
-    $GLOBALS[$key] = $variant;
-}
-
 if (! isset($_SESSION['sent_ids'])) {
     $_SESSION['sent_ids'] = [];
 }
