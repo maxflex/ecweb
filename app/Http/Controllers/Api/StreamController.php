@@ -12,11 +12,17 @@ class StreamController extends Controller
 {
     public function store(Request $request)
     {
-        if (strpos(@$_SERVER['HTTP_X_REAL_IP'], '213.184.130.') === 0 || @$_SERVER['HTTP_X_REAL_IP'] == '77.37.220.250' || isTestSubdomain()) {
+        $ip = @$_SERVER['HTTP_X_REAL_IP'];
+
+        if (strpos($ip, '213.184.130.') === 0 || $ip == '77.37.220.250' || isTestSubdomain()) {
             return;
         }
 
-        $request->merge(['mobile' => isMobile()]);
+        $request->merge([
+            'mobile' => isMobile(),
+            'ip' => $ip,
+        ]);
+        
         egecrm('stream')->insert($request->all());
     }
 }
