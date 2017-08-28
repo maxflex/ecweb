@@ -5301,6 +5301,13 @@ ol, ul {
   .main {
     display: block !important; } }
 
+.tutor-rating {
+  background-color: #3a6699;
+  color: white;
+  font-family: "helveticaneuecyrmedium";
+  padding: 2px 4px;
+  border-radius: 2px; }
+
 @-webkit-keyframes sk-stretchdelay {
   0%, 40%, 100% {
     -webkit-transform: scaleY(0.4); }

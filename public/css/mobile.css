@@ -3929,6 +3929,13 @@ input {
 .button-call {
   background-color: #717171 !important; }
 
+.tutor-rating {
+  background-color: #3a6699;
+  color: white;
+  font-family: "helveticaneuecyrmedium";
+  padding: 2px 4px;
+  border-radius: 2px; }
+
 /* Components */
 .header {
   background: #0c4e69;
