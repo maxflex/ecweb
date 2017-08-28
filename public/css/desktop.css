@@ -5308,6 +5308,9 @@ ol, ul {
   padding: 2px 4px;
   border-radius: 2px; }
 
+.tutor-rating-line {
+  margin-top: 8px; }
+
 @-webkit-keyframes sk-stretchdelay {
   0%, 40%, 100% {
     -webkit-transform: scaleY(0.4); }
