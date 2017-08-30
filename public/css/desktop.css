@@ -5311,6 +5311,10 @@ ol, ul {
 .tutor-rating-line {
   margin-top: 8px; }
 
+.address-block-bottom {
+  clear: both;
+  margin-top: 18px; }
+
 @-webkit-keyframes sk-stretchdelay {
   0%, 40%, 100% {
     -webkit-transform: scaleY(0.4); }
