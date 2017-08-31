@@ -141,7 +141,7 @@ class Tutor extends Service\Model
             'description',
             'tutor_data.clients_count',
             'tutor_data.reviews_count_egecrm as reviews_count',
-            'tutor_data.first_attachment_date',
+            'tutor.first_attachment_date',
             'tutor_data.review_avg',
             'tutor_data.svg_map',
             'tutor_data.photo_exists',

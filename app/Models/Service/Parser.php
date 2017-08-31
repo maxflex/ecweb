@@ -116,6 +116,10 @@
                     case 'tutor':
                         $replacement = Tutor::find($args[0])->toJson();
                         break;
+                    // is|test
+                    case 'is':
+                        $replacement = isTestSubdomain() ? 'true' : 'false';
+                        break;
                     case 'tutors':
                         // поиск по ID
                         \Log::info($args[0]);
