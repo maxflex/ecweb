@@ -4750,7 +4750,7 @@ a[href^="https://www.google.com/maps"] {
       border-radius: 4px; }
 
 .right-img {
-  padding: 0 0 15px 0; }
+  padding: 0; }
   .right-img-title {
     padding: 0 0 10px 0;
     line-height: 21px;
