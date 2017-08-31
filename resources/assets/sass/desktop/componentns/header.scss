@@ -38,8 +38,8 @@
   &-contacts {
     float: right;
     font-family: $font-regular;
-    // padding: 5px 0 0 0;
-    padding: 0;
+    padding: 5px 0 0 0;
+    // padding: 0;
 
     &-phone {
       font-size: 24px;
@@ -47,8 +47,8 @@
     &-worktime {
       font-size: 14px;
       text-align: right;
-      //padding: 5px 0 0 0;
-      padding: 0;
+      padding: 5px 0 0 0;
+    //   padding: 0;
     }
   }
 
