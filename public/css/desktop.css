@@ -3866,8 +3866,8 @@ b, .address-more li > div:first-of-type {
   font-family: 'helveticaneuecyrbold'; }
 
 p {
-  margin: 0;
-  padding: 0 0 13px 0; }
+  padding: 0;
+  margin: 0 0 13px 0; }
 
 p.last {
   padding: 0; }
@@ -4768,7 +4768,7 @@ a[href^="https://www.google.com/maps"] {
 
 .tutors-small {
   margin: 0;
-  padding: 0 0 20px 0;
+  padding: 0 0 22px 0;
   list-style: none; }
   .tutors-small-item {
     padding: 0 0 10px 0;
@@ -5187,7 +5187,7 @@ p {
   line-height: 21px; }
 
 h3.padding-top {
-  padding-top: 17px; }
+  margin-top: 22px; }
 
 .absolute-message {
   position: absolute;
