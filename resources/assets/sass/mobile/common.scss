@@ -670,6 +670,11 @@ input {
     }
 }
 
+.modal-body-scrollable {
+    height: calc(100% - 47px);
+    overflow-y: scroll;
+}
+
 .custom-checkboxes {
     & > div {
         display: flex;
