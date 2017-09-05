@@ -5,6 +5,13 @@ angular
         bindArguments($scope, arguments)
         initYoutube()
 
+        $scope.popups = {}
+
+        $scope.filterPopup = (popup) ->
+            $scope.popups[popup] = true
+            # openModal("filter-#{popup}") if $scope.mobile
+            # StreamService.run('filter_open', popup)
+
         # сколько загрузок преподавателей было
         search_count = 0
 
@@ -14,10 +21,16 @@ angular
 
         # страница поиска
         $timeout ->
+            $scope.search = {}
             if not $scope.profilePage()
                 # SubjectService.init($scope.search.subjects)
                 # StreamService.run('landing', 'serp')
                 $scope.filter()
+
+        $scope.selectSubject = (id) ->
+            $scope.search.subject_id = id
+            $scope.popups = {}
+            $scope.subjectChanged()
 
         $scope.reviews = (tutor, index) ->
             StreamService.run('tutor_reviews', tutor.id)

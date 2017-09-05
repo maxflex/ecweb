@@ -49,21 +49,25 @@ $(document).ready(function() {
 })
 
 function closeModal() {
-    $('.modal').removeClass('active')
-    $('body').removeClass()
-	// $("body").addClass('open-modal-' + active_modal); active_modal = false
-    $('.container').off('touchmove');
-    // @todo: почему-то эта строчка ломает повторное воспроизведение видео
-    if(window.location.hash == "#modal") {
-        window.history.back()
-    }
-    if (typeof(onCloseModal) == 'function') {
-        onCloseModal()
-    }
+    $('.modal.active').removeClass('modal-animate-open').addClass('modal-animate-close')
+    setTimeout(function() {
+        $('.modal').removeClass('active')
+        $('body').removeClass()
+    	// $("body").addClass('open-modal-' + active_modal); active_modal = false
+        $('.container').off('touchmove');
+        // @todo: почему-то эта строчка ломает повторное воспроизведение видео
+        if(window.location.hash == "#modal") {
+            window.history.back()
+        }
+        if (typeof(onCloseModal) == 'function') {
+            onCloseModal()
+        }
+    }, 300)
 }
 
 function openModal(id) {
-    $(".modal#modal-" + id).addClass('active')
+    modal = $(".modal#modal-" + id)
+    modal.removeClass('modal-animate-close').addClass('active').addClass('modal-animate-open')
     $('#menu-overlay').height('95%').scrollTop(); // iphone5-safari fix
     $("body").addClass('modal-open open-modal-' + id);
     // active_modal = id

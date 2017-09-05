@@ -270,5 +270,8 @@
 
     function isTestSubdomain()
     {
+        if (App::environment('local')) {
+            return true;
+        }
         return array_shift((explode('.', @$_SERVER['HTTP_HOST']))) === 'test';
     }

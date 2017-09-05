@@ -5,6 +5,14 @@ angular
         $timeout ->
             # @todo: client_id, referer, referer_url, user agent
             $scope.order = {}
+            $scope.popups = {}
+
+        $scope.filterPopup = (popup) ->
+            $scope.popups[popup] = true
+
+        $scope.select = (field, value) ->
+            $scope.order[field] = value
+            $scope.popups = {}
 
         $scope.request = ->
             $scope.sending = true

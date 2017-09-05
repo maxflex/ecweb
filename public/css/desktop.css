@@ -4380,6 +4380,84 @@ a[href^="https://www.google.com/maps"] {
   color: #a30000;
   font-family: "helveticaneuecyrbold"; }
 
+.fake-select {
+  border: 1px solid #acacac;
+  background: white;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 38px;
+  padding: 0 7px 0 12px;
+  border-radius: 4px;
+  cursor: pointer; }
+  .fake-select span {
+    -webkit-box-flex: 1;
+    flex: 1;
+    color: #5d5d5d; }
+    .fake-select span b, .fake-select span .address-more li > div:first-of-type, .address-more .fake-select span li > div:first-of-type {
+      font-family: "helveticaneuecyrmedium"; }
+  .fake-select img {
+    height: 15px;
+    width: 15px;
+    margin-top: 6px;
+    position: relative; }
+
+.params-wrapper {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+  z-index: 100;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  margin-top: 5px;
+  padding: 8px 0; }
+  .params-wrapper .hidden-select {
+    -webkit-tap-highlight-color: transparent;
+    opacity: 0;
+    z-index: 99;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; }
+    .params-wrapper .hidden-select select {
+      height: 100%; }
+  .params-wrapper .cross {
+    position: absolute;
+    right: 10px;
+    width: 11px;
+    height: 11px;
+    background: url(../img/svg/cross.svg) no-repeat;
+    cursor: pointer;
+    z-index: 3; }
+  .params-wrapper center {
+    margin-top: 30px; }
+    .params-wrapper center button {
+      font-family: 'helveticaneuecyrregular'; }
+
+.lightbox-background-new {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99; }
+
+.custom-checkboxes > div {
+  cursor: pointer !important;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 28px; }
+  .custom-checkboxes > div:hover {
+    background: #eaf4ff; }
+  .custom-checkboxes > div img {
+    height: 14px;
+    margin: 0px 10px 0 10px; }
+
 /* Components */
 .top-message {
   background: #fef9de;

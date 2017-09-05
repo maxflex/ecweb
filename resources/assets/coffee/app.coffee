@@ -154,6 +154,8 @@ angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angu
         $rootScope.fullName = (tutor) ->
             return tutor.last_name + ' ' + tutor.first_name + ' ' + tutor.middle_name
 
+        $rootScope.objectLength = (obj) -> Object.keys(obj).length
+
         $rootScope.shortenGrades = (tutor) ->
             if tutor.grades.length <= 3
                 grades = _.clone tutor.grades

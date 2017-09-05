@@ -15592,6 +15592,9 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
     $rootScope.fullName = function(tutor) {
       return tutor.last_name + ' ' + tutor.first_name + ' ' + tutor.middle_name;
     };
+    $rootScope.objectLength = function(obj) {
+      return Object.keys(obj).length;
+    };
     $rootScope.shortenGrades = function(tutor) {
       var a, combo_end, combo_start, grade_string, grades, i, j, last_grade, limit, pairs;
       if (tutor.grades.length <= 3) {
@@ -15947,8 +15950,16 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
     var streamString;
     bindArguments($scope, arguments);
     $timeout(function() {
-      return $scope.order = {};
+      $scope.order = {};
+      return $scope.popups = {};
     });
+    $scope.filterPopup = function(popup) {
+      return $scope.popups[popup] = true;
+    };
+    $scope.select = function(field, value) {
+      $scope.order[field] = value;
+      return $scope.popups = {};
+    };
     $scope.request = function() {
       $scope.sending = true;
       $scope.errors = {};
@@ -16212,15 +16223,25 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
     var filter, filter_used, search, search_count;
     bindArguments($scope, arguments);
     initYoutube();
+    $scope.popups = {};
+    $scope.filterPopup = function(popup) {
+      return $scope.popups[popup] = true;
+    };
     search_count = 0;
     $scope.profilePage = function() {
       return RegExp(/^\/tutors\/[\d]+$/).test(window.location.pathname);
     };
     $timeout(function() {
+      $scope.search = {};
       if (!$scope.profilePage()) {
         return $scope.filter();
       }
     });
+    $scope.selectSubject = function(id) {
+      $scope.search.subject_id = id;
+      $scope.popups = {};
+      return $scope.subjectChanged();
+    };
     $scope.reviews = function(tutor, index) {
       StreamService.run('tutor_reviews', tutor.id);
       if (tutor.all_reviews === void 0) {
@@ -16521,6 +16542,63 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 }).call(this);
 
 (function() {
+  var apiPath, countable, updatable;
+
+  angular.module('App').factory('Tutor', function($resource) {
+    return $resource(apiPath('tutors'), {
+      id: '@id',
+      type: '@type'
+    }, {
+      search: {
+        method: 'POST',
+        url: apiPath('tutors', 'search')
+      },
+      reviews: {
+        method: 'GET',
+        isArray: true,
+        url: apiPath('reviews')
+      }
+    });
+  }).factory('Request', function($resource) {
+    return $resource(apiPath('requests'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Cv', function($resource) {
+    return $resource(apiPath('cv'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Stream', function($resource) {
+    return $resource(apiPath('stream'), {
+      id: '@id'
+    });
+  });
+
+  apiPath = function(entity, additional) {
+    if (additional == null) {
+      additional = '';
+    }
+    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
+  };
+
+  updatable = function() {
+    return {
+      update: {
+        method: 'PUT'
+      }
+    };
+  };
+
+  countable = function() {
+    return {
+      count: {
+        method: 'GET'
+      }
+    };
+  };
+
+}).call(this);
+
+(function() {
   angular.module('App').value('AvgScores', {
     '1-11-1': 46.3,
     '2-11': 51.2,
@@ -16605,63 +16683,6 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       11: 'geo'
     }
   });
-
-}).call(this);
-
-(function() {
-  var apiPath, countable, updatable;
-
-  angular.module('App').factory('Tutor', function($resource) {
-    return $resource(apiPath('tutors'), {
-      id: '@id',
-      type: '@type'
-    }, {
-      search: {
-        method: 'POST',
-        url: apiPath('tutors', 'search')
-      },
-      reviews: {
-        method: 'GET',
-        isArray: true,
-        url: apiPath('reviews')
-      }
-    });
-  }).factory('Request', function($resource) {
-    return $resource(apiPath('requests'), {
-      id: '@id'
-    }, updatable());
-  }).factory('Cv', function($resource) {
-    return $resource(apiPath('cv'), {
-      id: '@id'
-    }, updatable());
-  }).factory('Stream', function($resource) {
-    return $resource(apiPath('stream'), {
-      id: '@id'
-    });
-  });
-
-  apiPath = function(entity, additional) {
-    if (additional == null) {
-      additional = '';
-    }
-    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
-  };
-
-  updatable = function() {
-    return {
-      update: {
-        method: 'PUT'
-      }
-    };
-  };
-
-  countable = function() {
-    return {
-      count: {
-        method: 'GET'
-      }
-    };
-  };
 
 }).call(this);
 
@@ -16891,21 +16912,25 @@ $(document).ready(function() {
 })
 
 function closeModal() {
-    $('.modal').removeClass('active')
-    $('body').removeClass()
-	// $("body").addClass('open-modal-' + active_modal); active_modal = false
-    $('.container').off('touchmove');
-    // @todo: почему-то эта строчка ломает повторное воспроизведение видео
-    if(window.location.hash == "#modal") {
-        window.history.back()
-    }
-    if (typeof(onCloseModal) == 'function') {
-        onCloseModal()
-    }
+    $('.modal.active').removeClass('modal-animate-open').addClass('modal-animate-close')
+    setTimeout(function() {
+        $('.modal').removeClass('active')
+        $('body').removeClass()
+    	// $("body").addClass('open-modal-' + active_modal); active_modal = false
+        $('.container').off('touchmove');
+        // @todo: почему-то эта строчка ломает повторное воспроизведение видео
+        if(window.location.hash == "#modal") {
+            window.history.back()
+        }
+        if (typeof(onCloseModal) == 'function') {
+            onCloseModal()
+        }
+    }, 300)
 }
 
 function openModal(id) {
-    $(".modal#modal-" + id).addClass('active')
+    modal = $(".modal#modal-" + id)
+    modal.removeClass('modal-animate-close').addClass('active').addClass('modal-animate-open')
     $('#menu-overlay').height('95%').scrollTop(); // iphone5-safari fix
     $("body").addClass('modal-open open-modal-' + id);
     // active_modal = id
