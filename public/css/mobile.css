@@ -6378,6 +6378,9 @@ input {
   height: 100%;
   z-index: 99; }
 
+button[disabled] {
+  background-color: #8a8a8a !important; }
+
 /* Components */
 .header {
   background: #0c4e69;
