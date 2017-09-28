@@ -696,5 +696,12 @@ input {
 }
 
 button[disabled] {
-    background-color: $gray-mobile !important;
+    background-color: rgba($gray-mobile, .5) !important;
+}
+
+.personal-info-agreement {
+    top: -3px;
+    font-size: 12px;
+    margin-left: 3px;
+    position: relative;
 }

@@ -6379,7 +6379,13 @@ input {
   z-index: 99; }
 
 button[disabled] {
-  background-color: #8a8a8a !important; }
+  background-color: rgba(138, 138, 138, 0.5) !important; }
+
+.personal-info-agreement {
+  top: -3px;
+  font-size: 12px;
+  margin-left: 3px;
+  position: relative; }
 
 /* Components */
 .header {
@@ -7045,7 +7051,7 @@ button[disabled] {
   height: 6.250em; }
 
 .form-row {
-  padding: 0 0 1em 0;
+  padding: 0 0 1.5em 0;
   position: relative; }
 
 .select {

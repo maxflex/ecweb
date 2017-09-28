@@ -13,6 +13,6 @@
   border: 0;
   position: relative;
   &:disabled {
-      background: $text-grey;
+      background: rgba($text-grey, .5);
   }
 }

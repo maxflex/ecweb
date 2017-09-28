@@ -4458,6 +4458,12 @@ a[href^="https://www.google.com/maps"] {
     height: 14px;
     margin: 0px 10px 0 10px; }
 
+.personal-info-agreement {
+  top: -1px;
+  font-size: 12px;
+  margin-left: 3px;
+  position: relative; }
+
 /* Components */
 .top-message {
   background: #fef9de;
@@ -5036,7 +5042,7 @@ a[href^="https://www.google.com/maps"] {
   border: 0;
   position: relative; }
   .button-green-large:disabled, .button-green-small:disabled, .button-blue-large:disabled, .button-white-large:disabled {
-    background: #818181; }
+    background: rgba(129, 129, 129, 0.5); }
 
 .button-green-small {
   height: auto;
@@ -5072,7 +5078,7 @@ a[href^="https://www.google.com/maps"] {
   height: 100px; }
 
 .form-row {
-  padding: 0 0 14px 0; }
+  padding: 0 0 20px 0; }
   .form-row-inner {
     vertical-align: top;
     display: inline-block; }
