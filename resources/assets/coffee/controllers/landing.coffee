@@ -11,14 +11,13 @@ angular
         #
         # REVIEWS
         #
-        $scope.initReviews = (count, min_score, grade, subject, university)->
+        $scope.initReviews = (count, min_score, grade, subject)->
             $scope.search_reviews =
                 page: 1
                 count: count
                 min_score: min_score
                 grade: grade
                 subject: subject
-                university: university
                 ids: []
             $scope.reviews = []
             $scope.has_more_pages = true

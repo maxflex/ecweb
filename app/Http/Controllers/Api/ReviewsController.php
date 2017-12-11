@@ -22,7 +22,7 @@ class ReviewsController extends Controller
      */
     public function index(Request $request)
     {
-        $paginator = Review::withStudent()->orderBy('teacher_reviews.admin_rating_final', 'desc')->orderBy('teacher_reviews.date', 'desc')->simplePaginate(20);
+        $paginator = Review::withStudent()->orderBy('teacher_reviews.date', 'desc')->simplePaginate(20);
 
         return [
             'reviews'        => $paginator->getCollection(),
@@ -43,12 +43,7 @@ class ReviewsController extends Controller
         }
 
         if ($request->min_score) {
-            @list($min_score_ege, $min_score_oge) = explode(',', $request->min_score);
-            if ($min_score_oge) {
-                $query->whereRaw("((teacher_reviews.score >= {$min_score_ege} AND teacher_reviews.grade=11) OR (teacher_reviews.score >= {$min_score_oge} AND teacher_reviews.grade=9))");
-            } else {
-                $query->where('teacher_reviews.score', '>=', $request->min_score);
-            }
+            $query->whereRaw("(teacher_reviews.score / teacher_reviews.max_score) > {$request->min_score}");
         }
 
         if ($request->grade) {
@@ -60,14 +55,7 @@ class ReviewsController extends Controller
             $query->where('teacher_reviews.id_subject', '=', $subject_id);
         }
 
-        if ($request->university) {
-            $query->orderByRaw("case
-                when LOWER(teacher_reviews.admin_comment_final) RLIKE '[[:<:]]" . mb_strtolower($request->university) . "[[:>:]]' then 1
-                else 0 end desc
-            ");
-        }
-
-        $paginator = $query->orderBy('admin_rating_final', 'desc')->inRandomOrder()->simplePaginate($request->count);
+        $paginator = $query->orderBy('teacher_reviews.date', 'desc')->simplePaginate($request->count);
 
         return [
             'reviews' => $paginator->getCollection(),
@@ -81,7 +69,7 @@ class ReviewsController extends Controller
      */
     public function show($id)
     {
-        return Review::withStudent()->where('id_teacher', $id)->orderBy('teacher_reviews.admin_rating_final', 'desc')->orderBy('teacher_reviews.date', 'desc')->get();
+        return Review::withStudent()->where('id_teacher', $id)->orderBy('teacher_reviews.date', 'desc')->get();
     }
 
 }
