@@ -55,7 +55,7 @@ class ReviewsController extends Controller
             $query->where('teacher_reviews.id_subject', '=', $subject_id);
         }
 
-        $paginator = $query->orderBy('teacher_reviews.date', 'desc')->simplePaginate($request->count);
+        $paginator = $query->orderBy('teacher_reviews.date', 'desc')->simplePaginate($request->count || 9999);
 
         return [
             'reviews' => $paginator->getCollection(),
