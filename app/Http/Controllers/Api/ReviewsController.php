@@ -55,7 +55,16 @@ class ReviewsController extends Controller
             $query->where('teacher_reviews.id_subject', '=', $subject_id);
         }
 
-        $paginator = $query->orderBy('teacher_reviews.date', 'desc')->simplePaginate($request->count ? $request->count : 9999);
+        $paginator = $query->orderBy(DB::raw("
+            CASE
+                WHEN ball_efficency >= 0.81 THEN 6
+                WHEN ball_efficency >= 0.71 THEN 5
+                WHEN ball_efficency >= 0.61 THEN 4
+                WHEN ball_efficency >= 0.51 THEN 3
+                WHEN ball_efficency >= 0.41 THEN 2
+                ELSE 1
+            END
+        "), 'desc')->orderBy('teacher_reviews.date', 'desc')->simplePaginate($request->count ? $request->count : 9999);
 
         return [
             'reviews' => $paginator->getCollection(),
@@ -69,7 +78,16 @@ class ReviewsController extends Controller
      */
     public function show($id)
     {
-        return Review::withStudent()->where('id_teacher', $id)->orderBy('teacher_reviews.date', 'desc')->get();
+        return Review::withStudent()->where('id_teacher', $id)->orderBy(DB::raw("
+            CASE
+                WHEN ball_efficency >= 0.81 THEN 6
+                WHEN ball_efficency >= 0.71 THEN 5
+                WHEN ball_efficency >= 0.61 THEN 4
+                WHEN ball_efficency >= 0.51 THEN 3
+                WHEN ball_efficency >= 0.41 THEN 2
+                ELSE 1
+            END
+        "), 'desc')->orderBy('teacher_reviews.date', 'desc')->get();
     }
 
 }
