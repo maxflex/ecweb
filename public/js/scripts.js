@@ -15951,6 +15951,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
       $scope.order = {};
       return $scope.popups = {};
     });
+    $scope.agreement = true;
     $scope.filterPopup = function(popup) {
       return $scope.popups[popup] = true;
     };

@@ -579,6 +579,7 @@
       $scope.order = {};
       return $scope.popups = {};
     });
+    $scope.agreement = true;
     $scope.filterPopup = function(popup) {
       return $scope.popups[popup] = true;
     };

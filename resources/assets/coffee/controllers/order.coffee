@@ -7,6 +7,8 @@ angular
             $scope.order = {}
             $scope.popups = {}
 
+        $scope.agreement = true
+
         $scope.filterPopup = (popup) ->
             $scope.popups[popup] = true
 
