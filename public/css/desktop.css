@@ -6126,6 +6126,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 .header-menu-wrap {
   background: #3a6699;
   position: relative;
+  box-shadow: 0 10px 10px #00000033;
 }
 
 .header-menu-wrap__img {
