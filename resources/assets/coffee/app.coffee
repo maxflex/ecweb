@@ -90,6 +90,9 @@ angular.module("App", ['ngResource', 'angular-ladda', 'angularFileUpload', 'angu
 
         $rootScope.formatDateFull = (date) ->
             moment(date).format "D MMMM YYYY"
+        
+        $rootScope.formatDateCustom = (date, format) ->
+            moment(date).format(format)
 
         $rootScope.dialog = (id) ->
             $("##{id}").modal 'show'

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Bad+Script');
+
 html, body {
   height: 100%;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -561,6 +563,7 @@ p.last {
 .student-review-name {
     color: #3a6699;
     font-family: $font-medium;
+    margin-bottom: 8px;
 }
 
 .student-review-all {
@@ -827,4 +830,174 @@ p.last {
     font-size: 12px;
     margin-left: 3px;
     position: relative;
+}
+
+.month {
+	& .week {
+		display: flex;
+		&:first-of-type {
+			& .day {
+				border-top: 1px solid #c6c6c6;
+			}
+			& .out-month {
+				box-shadow: -1px -1px white;
+				border-top: none;
+			}
+		}
+		&:last-of-type {
+			& .out-month {
+				border-right: none;
+				border-bottom: none;
+			}
+		}
+		& .day {
+			height: 175px;
+			width: 136px;
+			border: 1px solid #c6c6c6;
+			border-top: none;
+			border-left: none;
+			&:last-of-type {
+				border-right: none;
+			}
+			& .day-digit {
+				color: #c6c6c6;
+				font-size: 18px;
+				font-weight: bold;
+				padding: 5px 12px;
+				display: block;
+			}
+			&.out-month {
+				& > * {
+					visibility: hidden;
+				}
+			}
+			& .day-info {
+				font-size: 11px;
+				padding: 8px 12px;
+				line-height: 16px;
+				&.green {
+					background: #bfead7;
+				}
+				&.red {
+					background: #f3c0bf;
+				}
+			}
+		}
+	}
+}
+
+.calendar-month-title {
+    text-align: center;
+    margin: 50px 0;
+    & span {
+		color: white;
+	    background: #3a6699;
+	    padding: 8px 14px;
+	    border-radius: 15px;
+    }
+}
+
+.image-big-preview {
+	text-align: center;
+    margin: 40px 0;
+    & img {
+	    max-width: 80%;
+    }
+}
+
+.header-new {
+	background: url(../img/background/greenboard.webp) no-repeat;
+	background-size: cover;
+	color: white;
+	& a {
+		color: white;
+	}
+	& .header-logo {
+		background: url(../img/svg/logo_yellow_mobile.svg) no-repeat;
+	}
+	& .menu-wrapper {
+		background: rgba(black, .5);
+	}
+	& .header-new-info {
+		margin: 120px 0;
+		width: 600px;
+		& h1 {
+			font-family: 'Bad Script', cursive;
+			font-size: 60px;
+			padding: 0;
+		}
+		& > *:not(:last-child) {
+			margin-bottom: 50px;
+		}
+	}
+	& .header-title {
+		border: none;
+	}
+	margin-bottom: 30px;
+}
+
+.circle-icons {
+	display: flex;
+    flex-wrap: wrap;
+	& > div {
+		display: flex;
+		width: 50%;
+		flex-grow: 1;
+		margin-bottom: 30px;
+		& img {
+			height: 60px;
+		}
+		& .circle-desc {
+		   width: 75%;
+			margin-left: 20px;
+			color: $text-grey;
+			& > * {
+				margin-bottom: 12px;
+				&:last-child {
+					color: black;
+				}
+			}
+		}
+	}
+}
+
+.block-title {
+	font-size: 30px;
+	text-align: center;
+	padding:  0 0 40px;
+}
+
+
+.full-width-wrapper {
+    width: calc(100vw);
+    margin-left: calc((100vw - 960px) / 2 * -1);
+}
+
+.gray-block {
+	background: #f5f5f5;
+}
+
+.block {
+	padding: 40px 0;
+	margin-bottom: 20px;
+}
+
+.main-page-items {
+	display: flex;
+	justify-content: center;
+	& > div {
+		text-align: center;
+		& h1 {
+			font-size: 42px;
+			font-family: $font-bold;
+			padding: 0;
+			margin-top: 15px;
+		}
+		&:nth-child(2n) {
+			margin: 0 200px;
+		}
+	}
+	& img {
+		width: 120px;
+	}
 }

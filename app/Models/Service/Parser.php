@@ -172,7 +172,7 @@
                         break;
                     case 'link':
                         // получить ссылку либо по [link|id_раздела] или по [link|math]
-                        $replacement = is_numeric($args[0]) ? Page::getUrl($args[0]) : Page::getSubjectUrl($args[0]);
+                        $replacement = is_numeric($args[0]) ? ('/' . Page::getUrl($args[0])) : Page::getSubjectUrl($args[0]);
                         break;
                     case 'gallery':
                         if ($args[0] == 'all') {

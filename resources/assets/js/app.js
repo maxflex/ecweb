@@ -133,6 +133,9 @@
     $rootScope.formatDateFull = function(date) {
       return moment(date).format("D MMMM YYYY");
     };
+    $rootScope.formatDateCustom = function(date, format) {
+      return moment(date).format(format);
+    };
     $rootScope.dialog = function(id) {
       $("#" + id).modal('show');
     };
@@ -721,6 +724,61 @@
         $scope.reviews = $scope.reviews.concat(response.data.reviews);
         return $scope.has_more_pages = response.data.has_more_pages;
       });
+    };
+  });
+
+}).call(this);
+
+(function() {
+  angular.module('App').controller('Schedule', function($scope) {
+    bindArguments($scope, arguments);
+    $scope.getDateStringFromMonth = function(month) {
+      var year;
+      year = month >= 9 ? 2018 : 2019;
+      if (month < 10) {
+        month = '0' + month;
+      }
+      return year + "-" + month + "-01";
+    };
+    $scope.getTitle = function(month) {
+      return moment($scope.getDateStringFromMonth(month)).format('MMMM YYYY');
+    };
+    $scope.getDateString = function(date) {
+      return moment(date).format('YYYY-MM-DD');
+    };
+    $scope.calendar = {};
+    $scope.getCalendar = function(month) {
+      var calendar, date, endWeek, startWeek, week;
+      if ($scope.calendar.hasOwnProperty(month)) {
+        return $scope.calendar[month];
+      }
+      date = $scope.getDateStringFromMonth(month);
+      console.log(date);
+      startWeek = moment(date).startOf('month').week();
+      endWeek = moment(date).endOf('month').week();
+      if (startWeek > endWeek) {
+        endWeek = startWeek + 5;
+      }
+      calendar = [];
+      week = startWeek;
+      while (week <= endWeek) {
+        calendar.push(Array(7).fill(0).map((function(_this) {
+          return function(n, i) {
+            return moment(date).week(week).startOf('week').clone().add(n + i, 'day').toDate();
+          };
+        })(this)));
+        week++;
+      }
+      if (month === 9) {
+        calendar = calendar.slice(3, 5);
+      }
+      $scope.calendar[month] = calendar;
+      return calendar;
+    };
+    return $scope.outMonth = function(day, month) {
+      var date;
+      date = $scope.getDateStringFromMonth(month);
+      return moment(day).format('M') !== moment(date).format('M');
     };
   });
 
