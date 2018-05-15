@@ -40,7 +40,7 @@ $icon-width: 2.450;
 
       &-title {
           position: relative;
-          font-family: 'helveticaneuecyrmedium';
+          font-weight: $font-medium;
           padding: 0.7em .8em 0.7em 1.357em;
           cursor: pointer;
           display: flex;
@@ -93,7 +93,7 @@ $icon-width: 2.450;
         }
 
         &-title {
-          font-family: 'helveticaneuecyrregular';
+          font-weight: $font-regular;
           padding-top: 0.25em;
         }
 

@@ -5,6 +5,7 @@
  * Copyright 2013-2017 bootstrap-select
  * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,500,700&subset=cyrillic");
 @import url("https://fonts.googleapis.com/css?family=Bad+Script");
 select.bs-select-hidden,
 select.selectpicker {
@@ -4615,70 +4616,6 @@ th {
   padding: 0;
 }
 
-/**
-* Fonts
-**/
-@font-face {
-  font-family: 'helveticaneuecyrbold';
-  src: url("../fonts/helveticaneuecyr-bold-webfont.eot");
-  src: url("../fonts/helveticaneuecyr-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/helveticaneuecyr-bold-webfont.woff2") format("woff2"), url("../fonts/helveticaneuecyr-bold-webfont.woff") format("woff"), url("../fonts/helveticaneuecyr-bold-webfont.svg#helveticaneuecyrbold") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'helveticaneuecyrlight';
-  src: url("../fonts/helveticaneuecyr-light-webfont.eot");
-  src: url("../fonts/helveticaneuecyr-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/helveticaneuecyr-light-webfont.woff2") format("woff2"), url("../fonts/helveticaneuecyr-light-webfont.woff") format("woff"), url("../fonts/helveticaneuecyr-light-webfont.svg#helveticaneuecyrlight") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'helveticaneuecyrmedium';
-  src: url("../fonts/helveticaneuecyr-medium-webfont.eot");
-  src: url("../fonts/helveticaneuecyr-medium-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/helveticaneuecyr-medium-webfont.woff2") format("woff2"), url("../fonts/helveticaneuecyr-medium-webfont.woff") format("woff"), url("../fonts/helveticaneuecyr-medium-webfont.svg#helveticaneuecyrmedium") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'helveticaneuecyrroman';
-  src: url("../fonts/helveticaneuecyr-roman-webfont.eot");
-  src: url("../fonts/helveticaneuecyr-roman-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/helveticaneuecyr-roman-webfont.woff2") format("woff2"), url("../fonts/helveticaneuecyr-roman-webfont.woff") format("woff"), url("../fonts/helveticaneuecyr-roman-webfont.svg#helveticaneuecyrroman") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'helveticaneuecyrlight_italic';
-  src: url("../fonts/helveticaneuecyr-lightitalic-webfont.eot");
-  src: url("../fonts/helveticaneuecyr-lightitalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/helveticaneuecyr-lightitalic-webfont.woff2") format("woff2"), url("../fonts/helveticaneuecyr-lightitalic-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'helveticaneuecyrthin';
-  src: url("../fonts/helveticaneuecyr-thin-webfont.woff2") format("woff2"), url("../fonts/helveticaneuecyr-thin-webfont.woff") format("woff"), url("../fonts/helveticaneuecyr-thin-webfont.svg#helveticaneuecyrthin") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'helveticaneuecyrultralight';
-  src: url("../fonts/HelveticaNeue-UltraLight.eot") format("eot"), url("../fonts/HelveticaNeue-UltraLight.ttf") format("ttf"), url("../fonts/HelveticaNeue-UltraLight.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'helveticaneuecyrregular';
-  src: url("../fonts/HelveticaNeueRegular.eot") format("eot"), url("../fonts/HelveticaNeueRegular.ttf") format("ttf"), url("../fonts/HelveticaNeueRegular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
 .loading:after {
   overflow: hidden;
   display: inline-block;
@@ -4730,7 +4667,7 @@ th {
   margin-top: -138px;
   box-shadow: 5px 5px 19px 0px #A3A3A3;
   opacity: .95;
-  font-family: "helveticaneuecyrlight";
+  font-weight: 300;
 }
 
 .speech-bubble:after {
@@ -4810,7 +4747,8 @@ html, body {
 }
 
 body {
-  font-family: "helveticaneuecyrregular";
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 14px;
 }
 
@@ -4824,16 +4762,14 @@ h1, .landingnew-page .common h3 {
   margin: 0;
   padding: 0 0 18px 0;
   font-size: 24px;
-  font-weight: normal;
-  font-family: 'helveticaneuecyrmedium';
+  font-weight: 500;
 }
 
 h2 {
   margin: 0;
   padding: 0 0 17px 0;
   font-size: 20px;
-  font-weight: normal;
-  font-family: 'helveticaneuecyrmedium';
+  font-weight: 500;
 }
 
 h2.not-first {
@@ -4844,13 +4780,11 @@ h3 {
   margin: 0;
   padding: 0 0 17px 0;
   font-size: 16px;
-  font-weight: normal;
-  font-family: 'helveticaneuecyrmedium';
+  font-weight: 500;
 }
 
 b, .address-more li > div:first-of-type {
-  font-weight: normal;
-  font-family: 'helveticaneuecyrbold';
+  font-weight: 700;
 }
 
 p {
@@ -4979,7 +4913,7 @@ a:hover, .link-like:hover {
   align-items: center;
   justify-content: center;
   opacity: .9;
-  font-family: "helveticaneuecyrmedium";
+  font-weight: 500;
   color: black;
   left: 0;
   top: 0;
@@ -5026,12 +4960,12 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .medium {
-  font-family: "helveticaneuecyrmedium";
+  font-weight: 500;
 }
 
 .b-like {
   display: block;
-  font-family: "helveticaneuecyrmedium";
+  font-weight: 500;
 }
 
 .external-schedule {
@@ -5059,7 +4993,7 @@ a[href^="https://www.google.com/maps"] {
 
 .external-schedule thead tr td {
   padding: 10px 8px;
-  font-family: "helveticaneuecyrregular";
+  font-weight: 400;
   border: 0;
 }
 
@@ -5084,7 +5018,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .external-schedule-notes b, .external-schedule-notes .address-more li > div:first-of-type, .address-more .external-schedule-notes li > div:first-of-type {
-  font-family: "helveticaneuecyrregular";
+  font-weight: 400;
 }
 
 .external-schedule-wrapper {
@@ -5096,7 +5030,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .font-regular {
-  font-family: "helveticaneuecyrregular";
+  font-weight: 400;
 }
 
 .is-desktop {
@@ -5109,7 +5043,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .stats-table tr.thead td {
-  font-family: "helveticaneuecyrmedium";
+  font-weight: 500;
   padding-bottom: 20px;
 }
 
@@ -5137,7 +5071,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .stats-table tr td b, .stats-table tr td .address-more li > div:first-of-type, .address-more .stats-table tr td li > div:first-of-type {
-  font-family: "helveticaneuecyrmedium";
+  font-weight: 500;
 }
 
 .stats-table tr td:first-of-type {
@@ -5167,7 +5101,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .stats-table tr td .review-popup-signature {
-  font-family: "helveticaneuecyrlight_italic";
+  font-weight: 400i;
   margin-top: 5px;
 }
 
@@ -5195,7 +5129,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .stats-average b, .stats-average .address-more li > div:first-of-type, .address-more .stats-average li > div:first-of-type {
-  font-family: "helveticaneuecyrmedium";
+  font-weight: 500;
 }
 
 .stats-average > div {
@@ -5365,7 +5299,7 @@ a[href^="https://www.google.com/maps"] {
 
 .student-review-name {
   color: #3a6699;
-  font-family: "helveticaneuecyrmedium";
+  font-weight: 500;
   margin-bottom: 8px;
 }
 
@@ -5374,7 +5308,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .button-student-reviews {
-  font-family: "helveticaneuecyrregular" !important;
+  font-weight: 400 !important;
   line-height: 30px !important;
   height: 30px !important;
   padding: 0 11px !important;
@@ -5395,7 +5329,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .table-schedule thead tr td {
-  font-family: 'helveticaneuecyrmedium';
+  font-weight: 500;
   background: #767676;
   color: white;
   padding: 10px;
@@ -5477,13 +5411,13 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .header-landing .header-landing-title {
-  font-family: "helveticaneuecyrultralight";
+  font-weight: 100;
   font-size: 48px;
 }
 
 .header-landing .header-landing-text {
   font-size: 16px;
-  font-family: "helveticaneuecyrlight";
+  font-weight: 300;
   line-height: 26px;
 }
 
@@ -5528,7 +5462,7 @@ a[href^="https://www.google.com/maps"] {
 
 .text-red {
   color: #a30000;
-  font-family: "helveticaneuecyrbold";
+  font-weight: 700;
 }
 
 .fake-select {
@@ -5548,7 +5482,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .fake-select span b, .fake-select span .address-more li > div:first-of-type, .address-more .fake-select span li > div:first-of-type {
-  font-family: "helveticaneuecyrmedium";
+  font-weight: 500;
 }
 
 .fake-select img {
@@ -5600,7 +5534,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .params-wrapper center button {
-  font-family: 'helveticaneuecyrregular';
+  font-weight: 400;
 }
 
 .lightbox-background-new {
@@ -5783,7 +5717,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .circle-icons > div .circle-desc > * a {
-  font-family: "helveticaneuecyrbold";
+  font-weight: 700;
   font-weight: normal;
   font-size: 16px;
 }
@@ -5833,7 +5767,7 @@ a[href^="https://www.google.com/maps"] {
 
 .three-items-block > div h1, .three-items-block > div .landingnew-page .common h3, .landingnew-page .common .three-items-block > div h3 {
   font-size: 20px;
-  font-family: "helveticaneuecyrbold";
+  font-weight: 700;
   padding: 0;
   margin: 15px 0;
 }
@@ -6012,7 +5946,7 @@ a[href^="https://www.google.com/maps"] {
 
 .exams-block .exams-block-items > div h1, .exams-block .exams-block-items > div .landingnew-page .common h3, .landingnew-page .common .exams-block .exams-block-items > div h3 {
   font-size: 20px;
-  font-family: "helveticaneuecyrbold";
+  font-weight: 700;
   margin: 15px 0;
   padding: 0;
 }
@@ -6045,7 +5979,7 @@ a[href^="https://www.google.com/maps"] {
 
 h1.in-between, .landingnew-page .common h3.in-between {
   font-size: 20px;
-  font-family: "helveticaneuecyrbold";
+  font-weight: 700;
   margin: 15px 0;
   padding: 0;
 }
@@ -6060,7 +5994,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
   width: 960px;
   margin: 0 auto;
   padding: 7px 0;
-  font-family: 'helveticaneuecyrregular';
+  font-weight: 400;
   color: #af0000;
   text-align: center;
   position: relative;
@@ -6107,7 +6041,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
   border-left: 1px solid #e5e5e5;
   font-size: 12px;
   line-height: 16px;
-  font-family: "helveticaneuecyrregular";
+  font-weight: 400;
   float: left;
   padding: 0 0 0 15px;
   margin: 5px 0 0 15px;
@@ -6115,7 +6049,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 
 .header-contacts {
   float: right;
-  font-family: "helveticaneuecyrregular";
+  font-weight: 400;
   padding: 5px 0 0 0;
 }
 
@@ -6183,7 +6117,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
   float: left;
   padding: 0 15px;
   font-size: 14px;
-  font-family: 'helveticaneuecyrregular';
+  font-weight: 400;
 }
 
 .header-menu-item__active {
@@ -6213,13 +6147,13 @@ h1.in-between, .landingnew-page .common h3.in-between {
 }
 
 .header-img-title {
-  font-family: "helveticaneuecyrultralight";
+  font-weight: 100;
   font-size: 64px;
   padding: 0 0 20px 0;
 }
 
 .header-img-title__large {
-  font-family: "helveticaneuecyrultralight";
+  font-weight: 100;
   font-size: 132px;
   line-height: 128px;
 }
@@ -6249,7 +6183,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 
 .lk-wrapper a {
   font-size: 12px;
-  font-family: "helveticaneuecyrregular";
+  font-weight: 400;
 }
 
 .header-contact {
@@ -6259,7 +6193,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 .footer {
   background: #3b3b3b;
   color: #fff;
-  font-family: "helveticaneuecyrregular";
+  font-weight: 400;
   font-size: 14px;
   font-weight: normal;
   width: 100%;
@@ -6279,7 +6213,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 
 .footer-title {
   color: #ababab;
-  font-family: 'helveticaneuecyrmedium';
+  font-weight: 500;
   padding: 0 0 20px 0;
 }
 
@@ -6377,7 +6311,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 }
 
 .address-messages {
-  font-family: 'helveticaneuecyrbold';
+  font-weight: 700;
   color: #a30000;
   line-height: 24px;
   padding: 45px 0 0 0;
@@ -6446,7 +6380,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 }
 
 .review-rating {
-  font-family: 'helveticaneuecyrmedium';
+  font-weight: 500;
 }
 
 .price {
@@ -6454,7 +6388,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 }
 
 .price-title {
-  font-family: 'helveticaneuecyrmedium';
+  font-weight: 500;
   background: #767676;
   color: white;
   padding: 10px;
@@ -6472,7 +6406,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
   background: #767676;
   color: white;
   border-radius: 3px;
-  font-family: 'helveticaneuecyrmedium';
+  font-weight: 500;
 }
 
 .price-list thead td {
@@ -6487,7 +6421,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 
 .price-list tbody td .button-green-small {
   margin-left: 5px;
-  font-family: "helveticaneuecyrregular";
+  font-weight: 400;
   margin-top: -1px;
   position: relative;
   font-size: 12px;
@@ -6643,7 +6577,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 }
 
 .tutors-small-item-info li > b, .tutors-small-item-info .address-more li > div:first-of-type, .address-more .tutors-small-item-info li > div:first-of-type {
-  font-family: "helveticaneuecyrmedium";
+  font-weight: 500;
 }
 
 .landing-body {
@@ -6773,7 +6707,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
   display: block;
   width: 100%;
   margin-bottom: 1em;
-  font-family: "helveticaneuecyrmedium";
+  font-weight: 500;
 }
 
 .courses-container .course-items .item-desc {
@@ -6867,7 +6801,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
   font-size: 14px;
   line-height: 40px;
   text-decoration: none;
-  font-family: 'helveticaneuecyrmedium';
+  font-weight: 500;
   height: 40px;
   padding: 0 16px;
   border-radius: 4px;
@@ -6882,7 +6816,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 .button-green-small {
   height: auto;
   line-height: 18px;
-  font-family: 'helveticaneuecyrmedium';
+  font-weight: 500;
   padding: 2px 10px 3px 10px;
 }
 
@@ -6893,7 +6827,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 .button-white-large {
   background: transparent;
   color: #818181;
-  font-family: 'helveticaneuecyrmedium';
+  font-weight: 500;
   border: 1px solid #acacac;
 }
 
@@ -6901,7 +6835,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 .textarea {
   border: 1px solid #acacac;
   border-radius: 4px;
-  font-family: "helveticaneuecyrregular";
+  font-weight: 400;
   font-size: 14px;
   height: 40px;
   box-sizing: border-box;
@@ -6943,12 +6877,11 @@ h1.in-between, .landingnew-page .common h3.in-between {
 * Custom select
 --------------------------------*/
 .custom-select {
-  font-family: 'helveticaneuecyrroman';
   text-align: left;
 }
 
 span.customSelect {
-  font-family: "helveticaneuecyrregular";
+  font-weight: 400;
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
@@ -6956,7 +6889,6 @@ span.customSelect {
   border-radius: 4px;
   font-size: 14px;
   color: #4c4a40;
-  font-family: 'helveticaneuecyrroman';
   text-align: left;
   height: 40px;
   background: #fff url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAGCAYAAADUtS5UAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTg5ODEyNjU3MkE5MTFFNjk3RDVFNzMxNDIyQjJGRjEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTg5ODEyNjY3MkE5MTFFNjk3RDVFNzMxNDIyQjJGRjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1ODk4MTI2MzcyQTkxMUU2OTdENUU3MzE0MjJCMkZGMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1ODk4MTI2NDcyQTkxMUU2OTdENUU3MzE0MjJCMkZGMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pusyf4YAAACGSURBVHjaYuxqb7rFwMAwG4i7GbCDUiBOBWI1MKeiloEagAmINwJxFxBnY5HPhsptYqAyYAHiMiAWAOLJQPwFiBdC5eKhYnOhvqa6xf+BOAOIuaGWfIXKgdgrgTgdqobqFoPAX6gPQZYvhYpthYr9ZaABYEFi/wbiUKT4DAPiXww0AgABBgD2MxsvFJPxAQAAAABJRU5ErkJggg==") no-repeat 100% 50%;
@@ -7047,8 +6979,7 @@ body.modal-open:before {
 }
 
 .modal .modal-content h4 {
-  font-weight: normal;
-  font-family: 'helveticaneuecyrbold';
+  font-weight: 700;
 }
 
 .modal .modal-content .col {
@@ -7159,7 +7090,7 @@ span.customSelect {
 }
 
 .font-medium {
-  font-family: "helveticaneuecyrmedium";
+  font-weight: 500;
 }
 
 p {
@@ -7229,7 +7160,7 @@ ol, ul {
 }
 
 .page-not-found-wrapper .page-not-found h1, .page-not-found-wrapper .page-not-found .landingnew-page .common h3, .landingnew-page .common .page-not-found-wrapper .page-not-found h3 {
-  font-family: "helveticaneuecyrregular";
+  font-weight: 400;
 }
 
 .page-not-found-wrapper .page-not-found ul {
@@ -7310,7 +7241,7 @@ ol, ul {
 .tutor-rating {
   background-color: #3a6699;
   color: white;
-  font-family: "helveticaneuecyrmedium";
+  font-weight: 500;
   padding: 2px 4px;
   border-radius: 2px;
 }

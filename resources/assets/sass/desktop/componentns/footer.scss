@@ -1,7 +1,7 @@
 .footer {
   background: #3b3b3b;
   color: #fff;
-  font-family: $font-regular;
+  font-weight: $font-regular;
   font-size: 14px;
   font-weight: normal;
   width: 100%;
@@ -25,7 +25,7 @@
 
   &-title {
     color: #ababab;
-    font-family: 'helveticaneuecyrmedium';
+    font-weight: $font-medium;
     padding: 0 0 20px 0;
   }
 

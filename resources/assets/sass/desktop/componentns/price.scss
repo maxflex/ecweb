@@ -1,7 +1,7 @@
 .price {
   padding: 0 0 30px 0;
   &-title {
-    font-family: 'helveticaneuecyrmedium';
+    font-weight: $font-medium;
     background: $table-gray;
     color: white;
     // border-radius: 3px;
@@ -18,7 +18,7 @@
         background: #767676;
         color: white;
         border-radius: 3px;
-        font-family: 'helveticaneuecyrmedium';
+        font-weight: $font-medium;
         & td {
             padding: 10px;
             vertical-align: top;
@@ -37,7 +37,7 @@
           line-height: $line-height-main + px;
           & .button-green-small {
               margin-left: 5px;
-              font-family: $font-regular;
+              font-weight: $font-regular;
               margin-top: -1px;
               position: relative;
               font-size: 12px;

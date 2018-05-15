@@ -22,13 +22,12 @@
   }
 }
 
-$font-ultra-light: 'helveticaneuecyrultralight';
-$font-light: 'helveticaneuecyrlight';
-$font-roman: 'helveticaneuecyrroman';
-$font-medium: 'helveticaneuecyrmedium';
-$font-regular: 'helveticaneuecyrregular';
-$font-bold: 'helveticaneuecyrbold';
-$font-italic: 'helveticaneuecyrlight_italic';
+$font-ultra-light: 100;
+$font-light: 300;
+$font-medium: 500;
+$font-regular: 400;
+$font-bold: 700;
+$font-italic: 400i;
 
 .loading-inside-button {
     padding: 0;
@@ -70,7 +69,7 @@ $font-italic: 'helveticaneuecyrlight_italic';
     margin-top: -138px;
     box-shadow: 5px 5px 19px 0px #A3A3A3;
     opacity: .95;
-    font-family: $font-light;
+    font-weight: $font-light;
 }
 
 .speech-bubble:after {

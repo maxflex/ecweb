@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Bad+Script');
-
 $margin-big: 20px;
 $margin-huge: 40px;
 $margin-small: 10px;
@@ -20,7 +18,8 @@ html, body {
 }
 
 body {
-  font-family: $font-regular;
+    font-family: 'Roboto', sans-serif;
+  font-weight: $font-regular;
   font-size: $main-font-size;
 }
 
@@ -34,16 +33,14 @@ h1 {
   margin: 0;
   padding: 0 0 18px 0;
   font-size: $font-size-h1 + px;
-  font-weight: normal;
-  font-family: 'helveticaneuecyrmedium';
+  font-weight: $font-medium;
 }
 
 h2 {
   margin: 0;
   padding: 0 0 17px 0;
   font-size: $font-size-h2 + px;
-  font-weight: normal;
-  font-family: 'helveticaneuecyrmedium';
+  font-weight: $font-medium;
 }
 
 h2.not-first {
@@ -54,13 +51,11 @@ h3 {
   margin: 0;
   padding: 0 0 17px 0;
   font-size: $font-size-h3 + px;
-  font-weight: normal;
-  font-family: 'helveticaneuecyrmedium';
+    font-weight: $font-medium;
 }
 
 b {
-  font-weight: normal;
-  font-family: 'helveticaneuecyrbold';
+    font-weight: $font-bold;
 }
 
 .b-like {
@@ -191,7 +186,7 @@ a, .link-like {
     align-items: center;
     justify-content: center;
     opacity: .9;
-    font-family: $font-medium;
+    font-weight: $font-medium;
     color: black;
     left: 0;
     top: 0;
@@ -246,7 +241,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .medium {
-    font-family: $font-medium;
+    font-weight: $font-medium;
 }
 
 p.last {
@@ -255,7 +250,7 @@ p.last {
 
 .b-like {
     display: block;
-    font-family: $font-medium;
+    font-weight: $font-medium;
 }
 
 .external-schedule {
@@ -284,7 +279,7 @@ p.last {
     & thead tr td {
     	padding: 10px 8px;
     	// border-bottom: 2px solid #6678b1;
-        font-family: $font-regular;
+        font-weight: $font-regular;
         border: 0;
         &:nth-child(2n) {
             border-right: 1px solid lighten($text-grey-light, 20);
@@ -313,7 +308,7 @@ p.last {
     line-height: $line-height-main + px;
     font-size: 12px;
     & b {
-        font-family: $font-regular;
+        font-weight: $font-regular;
     }
 }
 
@@ -325,7 +320,7 @@ p.last {
 }
 
 .font-regular {
-    font-family: $font-regular;
+    font-weight: $font-regular;
 }
 
 .is-desktop {
@@ -336,7 +331,7 @@ p.last {
     width: 100%;
     margin-top: 40px;
     & tr.thead td {
-        font-family: $font-medium;
+        font-weight: $font-medium;
         padding-bottom: 20px;
     }
     & tr.thead.with-average td {
@@ -358,7 +353,7 @@ p.last {
         & td {
             padding: 5px 5px;
             & b {
-                font-family: $font-medium;
+                font-weight: $font-medium;
             }
             &:first-of-type {
                 padding-left: 0;
@@ -383,7 +378,7 @@ p.last {
                     cursor: pointer;
                 }
                 &-signature {
-                    font-family: $font-italic;
+                    font-weight: $font-italic;
                     margin-top: 5px;
                 }
             }
@@ -412,7 +407,7 @@ p.last {
     // padding-bottom: 20px;
     //border-bottom: 1px solid rgba($text-grey-light, .75);
     & b {
-        font-family: $font-medium;
+        font-weight: $font-medium;
     }
     & > div {
         padding: 4px 0;
@@ -576,7 +571,7 @@ p.last {
 
 .student-review-name {
     color: #3a6699;
-    font-family: $font-medium;
+    font-weight: $font-medium;
     margin-bottom: 8px;
 }
 
@@ -585,7 +580,7 @@ p.last {
 }
 
 .button-student-reviews {
-    font-family: $font-regular !important;
+    font-weight: $font-regular !important;
     line-height: 30px !important;
     height: 30px !important;
     padding: 0 11px !important;
@@ -608,7 +603,7 @@ p.last {
     & thead {
         & tr {
             & td {
-                font-family: 'helveticaneuecyrmedium';
+                font-weight: $font-medium;
                 background: $table-gray;
                 color: white;
                 padding: 10px;
@@ -696,16 +691,16 @@ p.last {
         }
     }
     & .header-landing-title {
-        font-family: $font-ultra-light;
+        font-weight: $font-ultra-light;
         font-size: 48px;
     }
     & .header-landing-text {
         font-size: 16px;
-        font-family: $font-light;
+        font-weight: $font-light;
         line-height: $line-height-main + 5 + px;
         & span {
             font-size: 24px;
-            // font-family: $font-regular;
+            // font-weight: $font-regular;
         }
     }
     // &:after {
@@ -745,7 +740,7 @@ p.last {
 
 .text-red {
     color: $text-red;
-    font-family: $font-bold;
+    font-weight: $font-bold;
 }
 
 .fake-select {
@@ -762,7 +757,7 @@ p.last {
         flex: 1;
         color: #5d5d5d;
         & b {
-            font-family: $font-medium;
+            font-weight: $font-medium;
         }
     }
     & img {
@@ -809,7 +804,7 @@ p.last {
     & center {
         margin-top: 30px;
         & button {
-            font-family: 'helveticaneuecyrregular';
+            font-weight: $font-regular;
         }
     }
 }
@@ -972,7 +967,7 @@ p.last {
 			color: $text-grey;
 			& > * {
                 & a {
-                    font-family: $font-bold;
+                    font-weight: $font-bold;
                     font-weight: normal;
                     font-size: 16px;
                 }
@@ -1022,7 +1017,7 @@ p.last {
         flex: 1;
 		& h1 {
 			font-size: $font-size-big;
-			font-family: $font-bold;
+			font-weight: $font-bold;
 			padding: 0;
 			margin: 15px 0;
 		}
@@ -1187,7 +1182,7 @@ p.last {
             }
             & h1 {
                 font-size: $font-size-big;
-                font-family: $font-bold;
+                font-weight: $font-bold;
                 margin: 15px 0;
                 padding: 0;
             }
@@ -1221,7 +1216,7 @@ p.last {
 
 h1.in-between {
     font-size: $font-size-big;
-    font-family: $font-bold;
+    font-weight: $font-bold;
     margin: 15px 0;
     padding: 0;
 }

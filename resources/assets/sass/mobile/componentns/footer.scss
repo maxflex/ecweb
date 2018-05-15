@@ -2,7 +2,7 @@
   background: $color-footer;
   color: #fff;
   text-align: left;
-  font-family: 'helveticaneuecyrlight';
+  font-weight: $font-light;
   font-weight: normal;
   width: 100%;
   padding: $footer-margin 0 1.450em;
@@ -17,7 +17,7 @@
   &-title {
     color: #b6b6b6;
     font-size: 1.250em;
-    font-family: 'helveticaneuecyrmedium';
+    font-weight: $font-medium;
     padding: 0 0 1.763em 0;
   }
 

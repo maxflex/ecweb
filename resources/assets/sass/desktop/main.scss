@@ -59,8 +59,7 @@ body {
     & .modal-content {
         padding: 1em;
         & h4 {
-            font-weight: normal;
-            font-family: 'helveticaneuecyrbold';
+            font-weight: $font-bold;
         }
         & .col {
             width: 50%;
@@ -179,7 +178,7 @@ span.customSelect {
 }
 
 .font-medium {
-    font-family: $font-medium;
+    font-weight: $font-medium;
 }
 
 p {
@@ -245,7 +244,7 @@ ol, ul {
     & .page-not-found {
         text-align: center;
         & h1 {
-            font-family: $font-regular;
+            font-weight: $font-regular;
         }
         & ul {
             list-style: none;
@@ -326,7 +325,7 @@ ol, ul {
 .tutor-rating {
     background-color: $menu-blue;
     color: white;
-    font-family: $font-medium;
+    font-weight: $font-medium;
     padding: 2px 4px;
     border-radius: 2px;
 }

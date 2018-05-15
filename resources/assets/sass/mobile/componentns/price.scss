@@ -68,7 +68,7 @@ $indent-top-bottom: 0.938;
 
       &-title {
         position: relative;
-        font-family: 'helveticaneuecyrmedium';
+        font-weight: $font-medium;
         padding: $indent-top-bottom + em ($common-side-indent*2 + em) $indent-top-bottom + em ($common-side-indent + em);
         cursor: pointer;
         &:after {
@@ -97,7 +97,7 @@ $indent-top-bottom: 0.938;
         padding: $indent-top-bottom + em 1.357em;
         border-bottom: 0.063em solid $color-grey-border;
         & b {
-            font-family: $font-medium;
+            font-weight: $font-medium;
             &.price-title {
                 margin-bottom: 1.6em;
                 display: block;
