@@ -5718,7 +5718,6 @@ a[href^="https://www.google.com/maps"] {
 
 .circle-icons > div .circle-desc > * a {
   font-weight: 700;
-  font-weight: normal;
   font-size: 16px;
 }
 
@@ -5984,6 +5983,31 @@ h1.in-between, .landingnew-page .common h3.in-between {
   padding: 0;
 }
 
+.tutors-block .tutors-block-items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tutors-block .tutors-block-items > div {
+  width: 25%;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.tutors-block .tutors-block-items > div .tutors-item-img {
+  width: auto !important;
+  float: none !important;
+}
+
+.tutors-block .tutors-block-items > div .in-between {
+  font-size: 18px;
+}
+
+.line-height {
+  line-height: 21px;
+}
+
 /* Components */
 .top-message {
   background: #fef9de;
@@ -6195,7 +6219,6 @@ h1.in-between, .landingnew-page .common h3.in-between {
   color: #fff;
   font-weight: 400;
   font-size: 14px;
-  font-weight: normal;
   width: 100%;
   padding-bottom: 20px;
   margin-top: 30px;

@@ -15,6 +15,7 @@ class Tutor extends Service\Model
     protected $appends = [
         'subjects_string',
         'subjects_string_common',
+        'subjects_array_common',
         'types' // ЕГЭ/ОГЭ
     ];
 
@@ -66,6 +67,19 @@ class Tutor extends Service\Model
             $subjects[] = $name;
         }
         return implode(', ', $subjects);
+    }
+
+    public function getSubjectsArrayCommonAttribute()
+    {
+        $subjects = [];
+        foreach($this->subjects as $subject_id) {
+            $name = Cacher::getSubjectName($subject_id, 'name');
+            if (count($this->types)) {
+                $name .= " ({$this->types})";
+            }
+            $subjects[] = $name;
+        }
+        return $subjects;
     }
 
     public function getTypesAttribute()

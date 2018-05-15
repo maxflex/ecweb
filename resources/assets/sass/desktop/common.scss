@@ -968,7 +968,6 @@ p.last {
 			& > * {
                 & a {
                     font-weight: $font-bold;
-                    font-weight: normal;
                     font-size: 16px;
                 }
                 &:nth-child(2n) {
@@ -1219,4 +1218,28 @@ h1.in-between {
     font-weight: $font-bold;
     margin: 15px 0;
     padding: 0;
+}
+
+.tutors-block {
+    & .tutors-block-items {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        & > div {
+            width: 25%;
+            text-align: center;
+            & .tutors-item-img {
+                width: auto !important;
+                float: none !important;
+            }
+            & .in-between {
+                font-size: 18px;
+            }
+            margin-bottom: $margin-huge;
+        }
+    }
+}
+
+.line-height {
+    line-height: $line-height;
 }
