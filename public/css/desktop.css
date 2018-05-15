@@ -5785,12 +5785,13 @@ a[href^="https://www.google.com/maps"] {
 .circle-icons > div .circle-desc > * a {
   font-family: "helveticaneuecyrbold";
   font-weight: normal;
+  font-size: 16px;
 }
 
 .circle-icons > div .circle-desc > *:nth-child(2n) {
   width: 90%;
   font-size: 12px;
-  line-height: 21px;
+  line-height: 17px;
 }
 
 .circle-icons > div .circle-desc > *:last-child {
