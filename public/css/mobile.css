@@ -6361,7 +6361,8 @@ button[disabled] {
 }
 
 .header-new.header__wrap-img {
-  background: url(../img/background/greenboard.webp) no-repeat;
+  background: url(../img/background/greenboard.jpg) no-repeat;
+  background-size: cover;
 }
 
 .header-new.header__wrap-img:before {

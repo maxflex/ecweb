@@ -780,7 +780,8 @@ button[disabled] {
         display: none;
     }
     &.header__wrap-img {
-        background: url(../img/background/greenboard.webp) no-repeat;
+        background: url(../img/background/greenboard.jpg) no-repeat;
+        background-size: cover;
         &:before {
             background: none;
         }
