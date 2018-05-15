@@ -5742,6 +5742,10 @@ a[href^="https://www.google.com/maps"] {
   padding: 0;
 }
 
+.header-new .header-new-info div {
+  line-height: 21px;
+}
+
 .header-new .header-new-info > *:not(:last-child) {
   margin-bottom: 50px;
 }
@@ -5779,12 +5783,14 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .circle-icons > div .circle-desc > * a {
-  font-weight: bold;
+  font-family: "helveticaneuecyrbold";
+  font-weight: normal;
 }
 
 .circle-icons > div .circle-desc > *:nth-child(2n) {
   width: 90%;
   font-size: 12px;
+  line-height: 21px;
 }
 
 .circle-icons > div .circle-desc > *:last-child {

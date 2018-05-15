@@ -938,6 +938,9 @@ p.last {
 			font-size: 60px;
 			padding: 0;
 		}
+        & div {
+            line-height: $line-height;
+        }
 		& > *:not(:last-child) {
 			margin-bottom: 50px;
 		}
@@ -967,11 +970,13 @@ p.last {
 			color: $text-grey;
 			& > * {
                 & a {
-                    font-weight: bold;
+                    font-family: $font-bold;
+                    font-weight: normal;
                 }
                 &:nth-child(2n) {
                     width: 90%;
                     font-size: 12px;
+                    line-height: $line-height;
                 }
 				margin-bottom: 12px;
 				&:last-child {
