@@ -6008,6 +6008,24 @@ h1.in-between, .landingnew-page .common h3.in-between {
   line-height: 21px;
 }
 
+.tax-jumbletoon {
+  background: #ebebeb;
+  padding: 40px 50px;
+  display: flex;
+  align-items: center;
+}
+
+.tax-jumbletoon img {
+  height: 100px;
+  margin-right: 50px;
+}
+
+.tax-jumbletoon b, .tax-jumbletoon .address-more li > div:first-of-type, .address-more .tax-jumbletoon li > div:first-of-type {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
 /* Components */
 .top-message {
   background: #fef9de;
@@ -6102,7 +6120,6 @@ h1.in-between, .landingnew-page .common h3.in-between {
 .header-menu-wrap {
   background: #3a6699;
   position: relative;
-  box-shadow: 0 10px 10px #00000033;
 }
 
 .header-menu-wrap__img {

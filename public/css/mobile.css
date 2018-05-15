@@ -6864,6 +6864,27 @@ button[disabled] {
   pointer-events: none;
 }
 
+.price-list-item__open > .price-list-item-title.tax-jumbletoon {
+  background: #ebebeb;
+  color: black;
+  border: none;
+  font-weight: normal;
+}
+
+.price-list-item__open > .price-list-item-title.tax-jumbletoon img {
+  height: 75px;
+  margin-right: 20px;
+}
+
+.price-list-item__open > .price-list-item-title.tax-jumbletoon .image-link {
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.price-list-item__open > .price-list-item-title.tax-jumbletoon b {
+  font-size: 1.5em;
+}
+
 .price-list-item__open > .price-list-inner {
   display: block !important;
   border: none;

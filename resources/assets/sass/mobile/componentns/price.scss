@@ -21,6 +21,23 @@ $indent-top-bottom: 0.938;
           color: white;
           & > .price-list-item-title {
             pointer-events: none;
+            &.tax-jumbletoon {
+                background: #ebebeb;
+                color: black;
+                border: none;
+                font-weight: normal;
+                & img {
+                    height: 75px;
+                    margin-right: 20px;
+                }
+                & .image-link {
+                    align-items: flex-start;
+                    margin-bottom: 20px;
+                }
+                & b {
+                    font-size: 1.5em;
+                }
+            }
           }
           & > .price-list-inner {
               display: block !important;

@@ -1243,3 +1243,19 @@ h1.in-between {
 .line-height {
     line-height: $line-height;
 }
+
+.tax-jumbletoon {
+    background: #ebebeb;
+    padding: 40px 50px;
+    display: flex;
+    align-items: center;
+    & img {
+        height: 100px;
+        margin-right: 50px;
+    }
+    & b {
+        display: block;
+        font-size: 16px;
+        margin-bottom: $margin-big;
+    }
+}
