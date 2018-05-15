@@ -951,7 +951,8 @@ p.last {
 .circle-icons {
 	display: flex;
     flex-wrap: wrap;
-    padding: 0 10%;
+    padding-left: 10% !important;
+    padding-right: 10% !important;
 	& > div {
 		display: flex;
 		width: 50%;
@@ -965,8 +966,12 @@ p.last {
 			margin-left: 20px;
 			color: $text-grey;
 			& > * {
+                & a {
+                    font-weight: bold;
+                }
                 &:nth-child(2n) {
-                    width: 95%;
+                    width: 90%;
+                    font-size: 12px;
                 }
 				margin-bottom: 12px;
 				&:last-child {

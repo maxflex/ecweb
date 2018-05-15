@@ -5753,7 +5753,8 @@ a[href^="https://www.google.com/maps"] {
 .circle-icons {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 10%;
+  padding-left: 10% !important;
+  padding-right: 10% !important;
 }
 
 .circle-icons > div {
@@ -5777,8 +5778,13 @@ a[href^="https://www.google.com/maps"] {
   margin-bottom: 12px;
 }
 
+.circle-icons > div .circle-desc > * a {
+  font-weight: bold;
+}
+
 .circle-icons > div .circle-desc > *:nth-child(2n) {
-  width: 95%;
+  width: 90%;
+  font-size: 12px;
 }
 
 .circle-icons > div .circle-desc > *:last-child {
