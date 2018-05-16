@@ -5756,6 +5756,7 @@ a[href^="https://www.google.com/maps"] {
   justify-content: center;
   width: 85%;
   margin: 0 auto;
+  padding: 52px 0 !important;
 }
 
 .three-items-block > div {
