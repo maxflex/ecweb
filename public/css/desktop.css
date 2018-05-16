@@ -5765,7 +5765,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .three-items-block > div h1, .three-items-block > div .landingnew-page .common h3, .landingnew-page .common .three-items-block > div h3 {
-  font-size: 20px;
+  font-size: 40px;
   font-weight: 700;
   padding: 0;
   margin: 15px 0;
