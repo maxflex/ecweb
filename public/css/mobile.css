@@ -7575,6 +7575,7 @@ button[disabled] {
   margin: 0;
   height: 2.2em !important;
   line-height: 2.2em !important;
+  font-weight: normal;
 }
 
 .button-green-small, .button-student-reviews {
