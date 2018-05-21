@@ -994,6 +994,7 @@ p.last {
 .full-width-wrapper {
     width: calc(100vw);
     margin-left: calc((100vw - 960px) / 2 * -1);
+    min-width: 1000px;
 }
 
 .gray-block {
@@ -1002,7 +1003,7 @@ p.last {
 
 .block {
 	padding: 40px 0;
-	margin-bottom: 20px;
+// 	margin-bottom: 20px;
 }
 
 .three-items-block {
@@ -1010,19 +1011,24 @@ p.last {
 	justify-content: center;
     width: 85%;
     margin: 0 auto;
-    padding: 52px 0 !important;
+    padding: 70px 0 !important;
 	& > div {
 		text-align: center;
         line-height: $line-height;
         flex: 1;
 		& h1 {
-			font-size: 40px;
+			font-size: 27px;
 			font-weight: $font-bold;
 			padding: 0;
 			margin: 15px 0;
 		}
 		&:nth-child(2n) {
 			margin: 0 150px;
+		}
+		& > div {
+			font-size: 12px;
+			color: $text-grey;
+			line-height: $line-height-small;
 		}
 	}
 	& img {
@@ -1045,9 +1051,14 @@ p.last {
                 font-size: $font-size-big;
                 padding: 6px 0;
             }
+            & span {
+	            color: $text-grey; 
+	            font-size: 12px;
+            }
         }
         & p {
             font-style: italic;
+            text-align: right;
         }
     }
     & .teacher-block-info {
@@ -1055,6 +1066,9 @@ p.last {
         & > * {
             margin-bottom: $margin-big;
         }
+    }
+    & .button-green-large {
+	    margin-left: 81px;
     }
 }
 
@@ -1068,11 +1082,11 @@ p.last {
 }
 
 .subject-icons-block {
+	padding-top: 10px !important;
     & .subject-icons-block-image {
         & img {
             width: 100%;
         }
-        height: 200px;
         overflow: hidden;
         margin-bottom: 50px;
     }
@@ -1108,14 +1122,15 @@ p.last {
     & .schedule-block-items {
         display: flex;
         margin-bottom: $margin-huge;
+        white-space: nowrap;
         & > div {
-            margin-right: 26px;
+            margin-right: 25px;
             line-height: $line-height;
             & b {
                 display: block;
                 margin-bottom: $margin-big;
                 font-size: $font-size-big;
-                width: 45px;
+                width: 35px;
                 border-bottom: 6px solid transparent;
                 &.schedule-day-title {
                     border-bottom: 6px solid #00ac5f;
@@ -1125,6 +1140,9 @@ p.last {
                 }
             }
         }
+    }
+    & .btn-rounded {
+        font-size: 12px !important;
     }
 }
 
@@ -1200,12 +1218,14 @@ p.last {
         flex-wrap: wrap;
         & > div {
             flex-grow: 1;
-            width: 300px;
+            width: 280px;
             text-align: center;
             margin-bottom: 55px;
+            padding: 0 20px;
             & p {
                 color: $text-grey;
                 padding: 0 30px;
+                font-size: 12px;
             }
             & img {
                 width: 150px;
@@ -1234,9 +1254,18 @@ h1.in-between {
                 float: none !important;
             }
             & .in-between {
-                font-size: 18px;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            & .line-height {
+                color: $text-grey;
+                font-size: 12px;
+                line-height: $line-height-small;
             }
             margin-bottom: $margin-huge;
+            & > div {
+	            padding: 0 20px;
+            }
         }
     }
 }
@@ -1257,7 +1286,29 @@ h1.in-between {
     }
     & b {
         display: block;
-        font-size: 16px;
+        font-size: 20px;
         margin-bottom: $margin-big;
     }
+}
+
+.main-page {
+	& .three-items-block {
+		& h1 {
+			font-size: 40px;		
+		}
+	}
+}
+
+.price-digit-block {
+	padding: 50px 0; 
+	text-align: center;
+	& b {
+		font-size: 30px;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	.full-width-wrapper {
+		margin-left: -20px !important;
+	}
 }

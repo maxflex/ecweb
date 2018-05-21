@@ -26,12 +26,12 @@ $indent-top-bottom: 0.938;
                 color: black;
                 border: none;
                 font-weight: normal;
+                pointer-events: all;
                 & img {
                     height: 75px;
                     margin-right: 20px;
                 }
                 & .image-link {
-                    align-items: flex-start;
                     margin-bottom: 20px;
                 }
                 & b {

@@ -16954,7 +16954,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
         step: this.cookie.step,
         google_id: googleClientId(),
         yandex_id: yaCounter8061652.getClientID(),
-        mobile: (typeof isMobile === 'undefined') ? '0' : '1'
+        mobile: typeof isMobile === 'undefined' ? '0' : '1'
       };
       $.each(additional, (function(_this) {
         return function(key, value) {

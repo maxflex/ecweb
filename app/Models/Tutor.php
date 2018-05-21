@@ -15,7 +15,6 @@ class Tutor extends Service\Model
     protected $appends = [
         'subjects_string',
         'subjects_string_common',
-        'subjects_array_common',
         'types' // ЕГЭ/ОГЭ
     ];
 
@@ -48,6 +47,11 @@ class Tutor extends Service\Model
     {
         return $this->hasOne(PlannedAccount::class);
     }
+    
+	public function getPhotoDescAttribute($value)
+	{
+		return nl2br($value);
+	}
 
     public function getSubjectsStringAttribute()
     {
@@ -67,19 +71,6 @@ class Tutor extends Service\Model
             $subjects[] = $name;
         }
         return implode(', ', $subjects);
-    }
-
-    public function getSubjectsArrayCommonAttribute()
-    {
-        $subjects = [];
-        foreach($this->subjects as $subject_id) {
-            $name = Cacher::getSubjectName($subject_id, 'name');
-            if (count($this->types)) {
-                $name .= " ({$this->types})";
-            }
-            $subjects[] = $name;
-        }
-        return $subjects;
     }
 
     public function getTypesAttribute()
@@ -172,6 +163,7 @@ class Tutor extends Service\Model
             'photo_extension',
             'start_career_year',
             'grades',
+            'photo_desc',
             'tutor_data.photo_exists',
         ])->join('tutor_data', 'tutor_data.tutor_id', '=', 'tutors.id');
     }

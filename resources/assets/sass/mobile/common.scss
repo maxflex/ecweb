@@ -5,7 +5,8 @@ $margin-small: 15px;
 
 $circle-image: 60px;
 
-$line-height: 19px;
+$line-height-small: 17px;
+$line-height: 21px;
 $line-height-big: 33px;
 
 $font-size-big: 20px;
@@ -725,11 +726,17 @@ button[disabled] {
 .full-width {
 	margin: 0 -1.357em;
 	padding: 0 1.357em;
+	& h1 {
+		text-align: center;
+	}
 }
 
 .full-width-block {
 	margin: 0 -1.357em;
 	padding: 20px 1.357em;
+	& h1 {
+		text-align: center;
+	}
 }
 
 .schedule-line {
@@ -800,9 +807,14 @@ button[disabled] {
     & .icons-block-items {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-between;
+        & a {
+	        font-size: 16px;
+	        font-weight: $font-bold;
+        }
         & > div {
-            width: 40%;
+            width: 45%; 
+//             padding: 0 3%;
             text-align: center;
             margin-bottom: 40px;
             & > *  {
@@ -816,10 +828,11 @@ button[disabled] {
 }
 
 .three-items-block {
+	padding-top: 60px !important;
 	& > div {
 		text-align: center;
         line-height: $line-height;
-        width: 45%;
+        width: 70%;
         margin: 0 auto;
 		& h1 {
 			font-size: $font-size-huge;
@@ -828,7 +841,7 @@ button[disabled] {
 			margin-top: 15px;
             margin-bottom: $margin-tiny;
 		}
-        margin-bottom: $margin-big;
+        margin-bottom: 32px;
 	}
 	& img {
 		width: 120px;
@@ -836,6 +849,7 @@ button[disabled] {
 }
 
 .subject-icons-block {
+	line-height: 25px;
     & img {
         height: 18px;
         margin-right: 15px;
@@ -847,6 +861,9 @@ button[disabled] {
 
 .schedule-block {
     background: #fff2e8;
+    & h1 {
+	    text-align: left;
+    }
     & .schedule-block-items {
         & > div {
             & b {
@@ -874,6 +891,9 @@ button[disabled] {
 
 .block {
 	padding: 20px 0;
+	& h1 {
+		text-align: center;
+	}
 }
 
 .lk-preview-block {
@@ -884,6 +904,134 @@ button[disabled] {
         margin-bottom: .9em;
     }
     & p {
-        text-align: left;
+		color: $text-grey;
+		font-size: 12px;
+		line-height: $line-height-small;
     }
+}
+
+.line-height {
+	line-height: $line-height;
+}
+
+.tutors-block {
+	& .tutors-block-items {
+		display: flex;
+		flex-wrap: wrap;
+		& > div {
+			width: 46%;
+			padding: 0 2%;
+			text-align: center;
+			& .line-height {
+				margin: $margin-small 0;
+				color: $text-grey;
+				font-size: 12px;
+				line-height: $line-height-small;
+			}
+			& b {
+				line-height: $line-height;
+			}
+		}
+	}
+	& .tutors-item-img {
+		float: none !important;
+		width: auto;
+		max-width: none;
+		margin-bottom: $margin-small;
+		& img {
+			width: 80%;
+			margin: 0 auto;
+		    max-width: 100px;
+		}
+	}		
+}
+
+.price-digit-block {
+	text-align: center;
+	& b {
+		font-size: 30px;
+	}
+}
+
+.reviews-block {	
+	background: #f5f5f5;
+	margin: 20px -1.357em;
+    padding: 40px 1.357em;
+	& button {
+		margin-bottom: 0;
+	}
+}
+
+.exams-block {
+	background: #d4f4ff;
+	& .exams-block-items {
+		text-align: center;
+		margin: 0 auto;
+		width: 70%;
+		& > div {
+			& img {
+				width: 120px;
+			}
+			& h1 {
+				padding: .9em 0;
+			    font-size: 18px;
+			    font-weight: $font-bold;
+			}
+		}
+		& > img {
+			width: 22px;
+			transform: rotate(90deg);
+			margin: 25px 0;
+		}
+	}
+}
+
+.block {
+	& p {
+		line-height: $line-height;
+		padding: 0; 
+	}
+}
+
+.order-button-block {  
+	margin-top: 30px;
+}
+
+
+.address-block {
+	padding: 25px 0;
+}
+
+.teacher-block {
+	& img {
+		width: 100%;
+	}
+	text-align: right;
+	& .teacher-block-teacher-title {
+		line-height: $line-height;
+		& b {
+			display: block;
+			margin-top: $margin-tiny;
+		}
+		& span {
+			font-size: 12px; 
+			color: $text-grey;
+			line-height: $line-height-small;
+		}
+	}
+	& p {
+		font-style: italic;
+		margin-top: $margin-big;
+	}
+}
+
+.teacher-block-items {
+	& .image-link {
+		align-items: flex-start;
+		margin-bottom: $margin-big;
+		& img {
+			height: 60px;
+			margin-right: 20px;
+		}
+	}
 }
