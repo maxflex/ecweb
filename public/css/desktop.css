@@ -6198,6 +6198,32 @@ h1.in-between, .landingnew-page .common h3.in-between {
   font-size: 12px;
 }
 
+.blue-review-block {
+  background: #e9fbff;
+  text-align: center;
+}
+
+.blue-review-block .student-review-photo {
+  width: 120px;
+  height: 120px;
+}
+
+.blue-review-block .review-signature {
+  margin-top: 18px;
+  color: #3a6699;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.blue-review-block .review-text {
+  line-height: 21px;
+  font-style: italic;
+}
+
+.blue-review-block h1, .blue-review-block .landingnew-page .common h3, .landingnew-page .common .blue-review-block h3 {
+  margin-top: 18px;
+}
+
 /* Components */
 .top-message {
   background: #fef9de;
