@@ -7561,7 +7561,7 @@ button[disabled] {
   line-height: 2.8em;
   text-decoration: none;
   font-weight: 700;
-  height: 2.7em;
+  height: 2.2em;
   padding: 0 0.625em;
   border-radius: 2.7em;
   border: 0;
@@ -7580,10 +7580,10 @@ button[disabled] {
 
 .button-white-large {
   background: transparent;
-  color: #818181;
+  color: #35a45a;
   font-weight: 500;
-  line-height: 2.6em;
-  border: 1px solid #acacac;
+  line-height: 2.2em;
+  border: 1px solid #35a45a;
   position: relative;
   text-transform: none;
 }
