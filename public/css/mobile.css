@@ -7575,8 +7575,8 @@ button[disabled] {
   text-transform: lowercase;
   text-decoration: none;
   margin: 0;
-  height: 2.2em !important;
-  line-height: 2.2em !important;
+  height: 2em !important;
+  line-height: 2em !important;
   font-weight: normal !important;
 }
 
