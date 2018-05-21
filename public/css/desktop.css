@@ -5770,6 +5770,7 @@ a[href^="https://www.google.com/maps"] {
   font-weight: 700;
   padding: 0;
   margin: 15px 0;
+  line-height: initial;
 }
 
 .three-items-block > div:nth-child(2n) {
@@ -5941,6 +5942,25 @@ a[href^="https://www.google.com/maps"] {
   width: 100%;
 }
 
+.lk-preview-block > div p {
+  margin: 0;
+}
+
+.lk-preview-block > div .btn-more-info {
+  margin-top: 24px;
+  display: inline-block;
+  width: 100%;
+}
+
+.lk-preview-block > div a {
+  color: #35a45a;
+  border: 1px solid #35a45a;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-transform: lowercase;
+  text-decoration: none;
+}
+
 .lk-preview-block.reverse {
   flex-direction: row-reverse;
 }
@@ -6082,6 +6102,100 @@ h1.in-between, .landingnew-page .common h3.in-between {
   .full-width-wrapper {
     margin-left: -20px !important;
   }
+}
+
+.banner-block {
+  background: url("/img/screenshots/bgsubject.jpeg");
+  background-size: cover;
+  height: 600px;
+  margin-top: -33px;
+  width: calc(100vw - calc((100vw - 960px) / 2));
+  position: relative;
+}
+
+.banner-block .info {
+  text-align: right;
+  justify-content: flex-end;
+  position: inherit;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.banner-block .info h1, .banner-block .info .landingnew-page .common h3, .landingnew-page .common .banner-block .info h3 {
+  padding: 0;
+  font-size: 30px;
+}
+
+.banner-block .info .quote {
+  font-size: 20px;
+  margin: 80px 0;
+}
+
+.banner-block .info .tutor-title {
+  line-height: 21px;
+}
+
+.banner-block .info .tutor-title b, .banner-block .info .tutor-title .address-more li > div:first-of-type, .address-more .banner-block .info .tutor-title li > div:first-of-type {
+  display: block;
+}
+
+.banner-block .gradient {
+  background: linear-gradient(to left, white 33%, transparent 95%);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 70%;
+  left: auto;
+  right: 0;
+}
+
+.three-items-under-banner > div img {
+  width: 60px;
+}
+
+.three-items-under-banner > div > h1, .landingnew-page .common .three-items-under-banner > div > h3 {
+  font-size: 20px;
+}
+
+.three-items-under-banner > div > div {
+  font-size: 14px;
+  color: black;
+  line-height: 21px;
+}
+
+.one-review-block {
+  margin-bottom: 40px;
+}
+
+.one-review-block .common {
+  display: flex;
+  align-items: center;
+}
+
+.one-review-block .student-review-photo {
+  width: 120px;
+  height: 120px;
+  margin-right: 50px;
+}
+
+.one-review-block .review-signature {
+  margin-top: 18px;
+  color: #3a6699;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.one-review-block .review-text {
+  line-height: 21px;
+  font-style: italic;
+  padding-right: 40px;
+}
+
+.one-review-block .student-review-date {
+  font-size: 12px;
 }
 
 /* Components */

@@ -143,6 +143,9 @@
                             $replacement = Review::get(...$args)->toJson();
                         }
                         break;
+                    case 'one-review':
+                        $replacement = Review::whereId($args[0])->first()->toJson();
+                        break;
                     case 'abtest':
                         $replacement = \App\Service\ABTest::parse(...$args);
                         break;

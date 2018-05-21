@@ -1021,6 +1021,7 @@ p.last {
 			font-weight: $font-bold;
 			padding: 0;
 			margin: 15px 0;
+            line-height: initial;
 		}
 		&:nth-child(2n) {
 			margin: 0 150px;
@@ -1052,7 +1053,7 @@ p.last {
                 padding: 6px 0;
             }
             & span {
-	            color: $text-grey; 
+	            color: $text-grey;
 	            font-size: 12px;
             }
         }
@@ -1166,19 +1167,26 @@ p.last {
         & img {
             width: 100%;
         }
-        &:first-of-type {
-
+        & p {
+            margin: 0;
         }
-        &:last-of-type {
-
+        & .btn-more-info {
+            margin-top: 24px;
+            display: inline-block;
+            width: 100%;
+        }
+        & a {
+            color: #35a45a;
+            border: 1px solid #35a45a;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-transform: lowercase;
+            text-decoration: none;
         }
     }
     &.reverse {
         flex-direction: row-reverse;
         & > div {
-            &:first-of-type {
-
-            }
             &:last-of-type {
                 text-align: right;
             }
@@ -1294,13 +1302,13 @@ h1.in-between {
 .main-page {
 	& .three-items-block {
 		& h1 {
-			font-size: 40px;		
+			font-size: 40px;
 		}
 	}
 }
 
 .price-digit-block {
-	padding: 50px 0; 
+	padding: 50px 0;
 	text-align: center;
 	& b {
 		font-size: 30px;
@@ -1311,4 +1319,89 @@ h1.in-between {
 	.full-width-wrapper {
 		margin-left: -20px !important;
 	}
+}
+
+.banner-block {
+    background: url('/img/screenshots/bgsubject.jpeg');
+    background-size: cover;
+    height: 600px;
+    margin-top: -33px;
+    width: calc(100vw - calc((100vw - 960px) / 2));
+    position: relative;
+    & .info {
+        text-align: right;
+        justify-content: flex-end;
+        position: inherit;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        & h1 {
+            padding: 0;
+            font-size: 30px;
+        }
+        & .quote {
+            font-size: 20px;
+            margin: 80px 0;
+        }
+        & .tutor-title {
+            line-height: $line-height;
+            & b {
+                display: block;
+            }
+        }
+    }
+    & .gradient {
+        background: linear-gradient(to left, white 33%, transparent 95%);
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        height: 100%;
+            width: 70%;
+        left: auto;
+        right: 0;
+    }
+}
+
+.three-items-under-banner {
+    & > div {
+        & img {
+            width: 60px;
+        }
+        & > h1 {
+            font-size: 20px;
+        }
+        & > div {
+            font-size: 14px;
+            color: black;
+            line-height: $line-height;
+        }
+    }
+}
+
+.one-review-block {
+    margin-bottom: $margin-huge;
+    & .common {
+        display: flex;
+        align-items: center;
+    }
+    & .student-review-photo {
+        width: 120px;
+        height: 120px;
+        margin-right: 50px;
+    }
+    & .review-signature {
+        margin-top: 18px;
+        color: #3a6699;
+        font-weight: 500;
+        font-size: 12px;
+    }
+    & .review-text {
+        line-height: $line-height;
+        font-style: italic;
+        padding-right: 40px;
+    }
+    & .student-review-date {
+        font-size: 12px;
+    }
 }

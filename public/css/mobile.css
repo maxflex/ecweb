@@ -6443,7 +6443,23 @@ button[disabled] {
 .lk-preview-block p {
   color: #818181;
   font-size: 12px;
-  line-height: 17px;
+  line-height: 17px !important;
+  margin: 0;
+}
+
+.lk-preview-block .btn-more-info {
+  margin-top: 1.4em;
+  display: inline-block;
+  width: 100%;
+}
+
+.lk-preview-block a {
+  color: #35a45a;
+  border: 1px solid #35a45a;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-transform: lowercase;
+  text-decoration: none;
 }
 
 .line-height {
@@ -6578,6 +6594,76 @@ button[disabled] {
 .teacher-block-items .image-link img {
   height: 60px;
   margin-right: 20px;
+}
+
+.events-block img {
+  width: 90%;
+  margin-bottom: 15px;
+}
+
+.events-block b {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.events-block p {
+  color: #818181;
+  font-size: 12px;
+  line-height: 17px !important;
+  margin: 0;
+}
+
+.events-block .tutors-block-items > div {
+  margin-bottom: 15px;
+}
+
+.plan-includes-block {
+  line-height: 21px;
+}
+
+.plan-includes-block > div {
+  margin-bottom: 15px;
+  align-items: flex-start;
+}
+
+.banner-block img {
+  width: 100%;
+  margin-bottom: .9em;
+}
+
+.banner-block .quote {
+  margin-bottom: .9em;
+  padding-right: 10%;
+  line-height: 21px;
+  font-style: italic;
+}
+
+.banner-block .tutor-title {
+  padding-left: 10%;
+  text-align: right;
+  line-height: 21px;
+}
+
+.banner-block .tutor-title b {
+  display: block;
+}
+
+.three-items-under-banner {
+  padding-top: 20px !important;
+}
+
+.three-items-under-banner > div img {
+  width: 60px;
+}
+
+.three-items-under-banner > div > h1 {
+  font-size: 20px;
+}
+
+.three-items-under-banner > div > div {
+  font-size: 14px;
+  color: black;
+  line-height: 21px;
 }
 
 /* Components */
