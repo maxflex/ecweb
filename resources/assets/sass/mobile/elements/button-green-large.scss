@@ -8,10 +8,20 @@
   line-height: ($height-element-form + 0.1)+ em;
   text-decoration: none;
   font-weight: $font-bold;
-  height: 2.2em;
+  height: $height-element-form + em;
   padding: 0 0.625em;
   border-radius: $height-element-form + em;
   border: 0;
   padding: 0 1.5em;
   position: relative;
+}
+
+.button-green-small {
+    color: #35a45a;
+    border: 1px solid #35a45a;
+    text-transform: lowercase;
+    text-decoration: none;
+    margin: 0;
+    height: 2.2em;
+    line-height: 2.2em;
 }

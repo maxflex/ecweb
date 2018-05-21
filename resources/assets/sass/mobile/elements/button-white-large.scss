@@ -2,10 +2,10 @@
   @extend .button-green-large;
 
   background: transparent;
-  color: #35a45a;
+  color: $text-grey;
   font-weight: $font-medium;
-  line-height: 2.2em;
-  border: 1px solid #35a45a;
+  line-height: ($height-element-form - 0.1)+ em;
+  border: 1px solid $text-grey-light;
   position: relative;
   text-transform: none;
 }

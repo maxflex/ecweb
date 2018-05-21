@@ -7561,12 +7561,22 @@ button[disabled] {
   line-height: 2.8em;
   text-decoration: none;
   font-weight: 700;
-  height: 2.2em;
+  height: 2.7em;
   padding: 0 0.625em;
   border-radius: 2.7em;
   border: 0;
   padding: 0 1.5em;
   position: relative;
+}
+
+.button-green-small {
+  color: #35a45a;
+  border: 1px solid #35a45a;
+  text-transform: lowercase;
+  text-decoration: none;
+  margin: 0;
+  height: 2.2em;
+  line-height: 2.2em;
 }
 
 .button-green-small {
@@ -7580,10 +7590,10 @@ button[disabled] {
 
 .button-white-large {
   background: transparent;
-  color: #35a45a;
+  color: #818181;
   font-weight: 500;
-  line-height: 2.2em;
-  border: 1px solid #35a45a;
+  line-height: 2.6em;
+  border: 1px solid #acacac;
   position: relative;
   text-transform: none;
 }
