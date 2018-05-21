@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Page extends Model
 {
     use SoftDeletes;
-    
+
     protected $dates = ['deleted_at'];
 
     // Соответствия между разделами и ID предмета
@@ -70,11 +70,11 @@ class Page extends Model
 
     public function getHtmlAttribute($value)
     {
-        $value = isMobile() ? 'html_mobile' : 'html';
-		if (isset($_GET['af']) && $_GET['af']) {
-			$value .= '_af';
+        $field = isMobile() ? 'html_mobile' : 'html';
+		if (isset($_GET['af']) && $_GET['af'] && isTestSubdomain()) {
+			$field .= '_af';
 		}
-		$value = $this->attributes[$value];
+		$value = $this->attributes[$field];
         $value = Parser::compileVars($value);
         return Parser::compilePage($this, $value);
     }
