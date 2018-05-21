@@ -5963,7 +5963,7 @@ a[href^="https://www.google.com/maps"] {
   color: #35a45b;
 }
 
-.multiselect-popup .button-green-large, .multiselect-popup .button-green-small, .multiselect-popup .button-blue-large, .multiselect-popup .button-white-large {
+.multiselect-popup .button-green-large, .multiselect-popup .button-green-small, .multiselect-popup .button-student-reviews, .multiselect-popup .button-blue-large, .multiselect-popup .button-white-large {
   margin-top: 1em;
 }
 
@@ -6120,12 +6120,6 @@ input {
 .student-review-all {
   margin-bottom: 0.938em;
   display: block;
-}
-
-.button-student-reviews {
-  font-weight: 400 !important;
-  margin-bottom: 0.938em;
-  margin-top: 1em;
 }
 
 .whatsapp {
@@ -6665,6 +6659,10 @@ button[disabled] {
   line-height: 21px;
 }
 
+.button-student-reviews {
+  margin-bottom: 0.938em;
+}
+
 /* Components */
 .header {
   background: #0c4e69;
@@ -6813,7 +6811,7 @@ button[disabled] {
   padding: 0 0 0.725em 0;
 }
 
-.footer .button-green-large, .footer .button-green-small, .footer .button-blue-large, .footer .button-white-large {
+.footer .button-green-large, .footer .button-green-small, .footer .button-student-reviews, .footer .button-blue-large, .footer .button-white-large {
   margin: 0 0 1.750em 0;
 }
 
@@ -7551,7 +7549,7 @@ button[disabled] {
 }
 
 /* Elements */
-.button-green-large, .button-green-small, .button-blue-large, .button-white-large {
+.button-green-large, .button-green-small, .button-student-reviews, .button-blue-large, .button-white-large {
   display: inline-block;
   vertical-align: middle;
   background: #35a45b;
@@ -7569,7 +7567,7 @@ button[disabled] {
   position: relative;
 }
 
-.button-green-small {
+.button-green-small, .button-student-reviews {
   color: #35a45a;
   border: 1px solid #35a45a;
   text-transform: lowercase;
@@ -7579,7 +7577,7 @@ button[disabled] {
   line-height: 2.2em !important;
 }
 
-.button-green-small {
+.button-green-small, .button-student-reviews {
   height: auto;
   font-weight: 500;
 }
