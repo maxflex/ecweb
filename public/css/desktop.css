@@ -6206,6 +6206,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 .blue-review-block .student-review-photo {
   width: 120px;
   height: 120px;
+  margin: 0;
 }
 
 .blue-review-block .review-signature {

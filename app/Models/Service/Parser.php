@@ -144,7 +144,7 @@
                         }
                         break;
                     case 'one-review':
-                        $replacement = Review::whereId($args[0])->first()->toJson();
+                        $replacement = Review::withStudent()->where('teacher_reviews.id', $args[0])->first()->toJson();
                         break;
                     case 'abtest':
                         $replacement = \App\Service\ABTest::parse(...$args);
