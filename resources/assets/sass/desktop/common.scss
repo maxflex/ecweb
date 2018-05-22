@@ -1401,6 +1401,9 @@ h1.in-between {
         font-style: italic;
         padding-right: 40px;
     }
+    & h1 {
+	    padding-right: 40px;
+    }
     & .student-review-date {
         font-size: 12px;
     }

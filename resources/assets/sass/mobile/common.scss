@@ -1116,3 +1116,22 @@ button[disabled] {
         }
     }
 }
+
+.reviews-block-full {
+	&.blue {
+		background: #e9fbff;
+	}
+	&.gray {
+		background: #f5f5f5;
+	}
+    text-align: center;
+    & .student-review-photo {
+	    width: 100px;
+	    height: 100px;
+	    margin: 0;
+	    margin-bottom: .9em;
+    }
+    & .review-text {
+	    margin-bottom: .9em;
+    }
+}
