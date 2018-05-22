@@ -22,7 +22,15 @@
     text-transform: lowercase;
     text-decoration: none;
     margin: 0;
+    padding: 0 1em !important;
     height: 2em !important;
     line-height: 2em !important;
     font-weight: normal !important;
+}
+
+.button-review-more {
+    @extend .button-green-small;
+    margin-top: 2em;
+    border: 1px solid #acacac !important;
+    color: #818181 !important;
 }
