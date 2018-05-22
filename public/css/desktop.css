@@ -6246,7 +6246,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 
 .deadline-block h1, .deadline-block .landingnew-page .common h3, .landingnew-page .common .deadline-block h3 {
   line-height: 33px;
-  padding-top: 18px;
+  padding-top: 5px;
 }
 
 /* Components */
