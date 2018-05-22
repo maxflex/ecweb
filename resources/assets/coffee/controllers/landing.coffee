@@ -11,11 +11,10 @@ angular
         #
         # REVIEWS
         #
-        $scope.initReviews = (count, min_score, grade, subject)->
+        $scope.initReviews = (count, grade, subject)->
             $scope.search_reviews =
                 page: 1
                 count: count
-                min_score: min_score
                 grade: grade
                 subject: subject
                 ids: []

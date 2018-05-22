@@ -401,11 +401,10 @@
     $timeout(function() {
       return $scope.gallery = {};
     });
-    $scope.initReviews = function(count, min_score, grade, subject) {
+    $scope.initReviews = function(count, grade, subject) {
       $scope.search = {
         page: 1,
         count: count,
-        min_score: min_score,
         grade: grade,
         subject: subject,
         ids: []
@@ -462,11 +461,10 @@
       initYoutube();
       return initTutors();
     });
-    $scope.initReviews = function(count, min_score, grade, subject) {
+    $scope.initReviews = function(count, grade, subject) {
       $scope.search_reviews = {
         page: 1,
         count: count,
-        min_score: min_score,
         grade: grade,
         subject: subject,
         ids: []
@@ -1315,63 +1313,6 @@
 }).call(this);
 
 (function() {
-  var apiPath, countable, updatable;
-
-  angular.module('App').factory('Tutor', function($resource) {
-    return $resource(apiPath('tutors'), {
-      id: '@id',
-      type: '@type'
-    }, {
-      search: {
-        method: 'POST',
-        url: apiPath('tutors', 'search')
-      },
-      reviews: {
-        method: 'GET',
-        isArray: true,
-        url: apiPath('reviews')
-      }
-    });
-  }).factory('Request', function($resource) {
-    return $resource(apiPath('requests'), {
-      id: '@id'
-    }, updatable());
-  }).factory('Cv', function($resource) {
-    return $resource(apiPath('cv'), {
-      id: '@id'
-    }, updatable());
-  }).factory('Stream', function($resource) {
-    return $resource(apiPath('stream'), {
-      id: '@id'
-    });
-  });
-
-  apiPath = function(entity, additional) {
-    if (additional == null) {
-      additional = '';
-    }
-    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
-  };
-
-  updatable = function() {
-    return {
-      update: {
-        method: 'PUT'
-      }
-    };
-  };
-
-  countable = function() {
-    return {
-      count: {
-        method: 'GET'
-      }
-    };
-  };
-
-}).call(this);
-
-(function() {
   angular.module('App').service('PhoneService', function() {
     var isFull;
     this.checkForm = function(element) {
@@ -1523,7 +1464,7 @@
         step: this.cookie.step,
         google_id: googleClientId(),
         yandex_id: yaCounter8061652.getClientID(),
-        mobile: typeof isMobile === 'undefined' ? '0' : '1'
+        mobile: (typeof isMobile === 'undefined') ? '0' : '1'
       };
       $.each(additional, (function(_this) {
         return function(key, value) {
@@ -1541,6 +1482,63 @@
     };
     return this;
   });
+
+}).call(this);
+
+(function() {
+  var apiPath, countable, updatable;
+
+  angular.module('App').factory('Tutor', function($resource) {
+    return $resource(apiPath('tutors'), {
+      id: '@id',
+      type: '@type'
+    }, {
+      search: {
+        method: 'POST',
+        url: apiPath('tutors', 'search')
+      },
+      reviews: {
+        method: 'GET',
+        isArray: true,
+        url: apiPath('reviews')
+      }
+    });
+  }).factory('Request', function($resource) {
+    return $resource(apiPath('requests'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Cv', function($resource) {
+    return $resource(apiPath('cv'), {
+      id: '@id'
+    }, updatable());
+  }).factory('Stream', function($resource) {
+    return $resource(apiPath('stream'), {
+      id: '@id'
+    });
+  });
+
+  apiPath = function(entity, additional) {
+    if (additional == null) {
+      additional = '';
+    }
+    return ("/api/" + entity + "/") + (additional ? additional + '/' : '') + ":id";
+  };
+
+  updatable = function() {
+    return {
+      update: {
+        method: 'PUT'
+      }
+    };
+  };
+
+  countable = function() {
+    return {
+      count: {
+        method: 'GET'
+      }
+    };
+  };
 
 }).call(this);
 

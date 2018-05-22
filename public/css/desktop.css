@@ -1408,64 +1408,44 @@ input[type="button"].btn-block {
 }
 
 .fa-spin {
-  -webkit-animation: fa-spin 2s infinite linear;
   animation: fa-spin 2s infinite linear;
 }
 
 .fa-pulse {
-  -webkit-animation: fa-spin 1s infinite steps(8);
   animation: fa-spin 1s infinite steps(8);
-}
-
-@-webkit-keyframes fa-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg);
-  }
 }
 
 @keyframes fa-spin {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
   }
 }
 
 .fa-rotate-90 {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
-  -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 
 .fa-rotate-180 {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
-  -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
 .fa-rotate-270 {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
-  -webkit-transform: rotate(270deg);
   transform: rotate(270deg);
 }
 
 .fa-flip-horizontal {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
-  -webkit-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
 
 .fa-flip-vertical {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
-  -webkit-transform: scale(1, -1);
   transform: scale(1, -1);
 }
 
@@ -4640,7 +4620,6 @@ th {
   overflow: hidden;
   display: inline-block;
   vertical-align: bottom;
-  -webkit-animation: ellipsis steps(4, end) 900ms infinite;
   animation: ellipsis steps(4, end) 900ms infinite;
   content: "\2026";
   /* ascii code for the ellipsis character */
@@ -4649,12 +4628,6 @@ th {
 }
 
 @keyframes ellipsis {
-  to {
-    width: 1.25em;
-  }
-}
-
-@-webkit-keyframes ellipsis {
   to {
     width: 1.25em;
   }
@@ -4759,9 +4732,7 @@ mark {
 }
 
 .image-link {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
 }
 
@@ -4772,7 +4743,7 @@ mark {
 
 html, body {
   height: 100%;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -4784,7 +4755,6 @@ body {
 .common {
   width: 960px;
   margin: 0 auto;
-  -webkit-box-flex: 1;
   flex: 1;
 }
 
@@ -4901,12 +4871,8 @@ a:hover, .link-like:hover {
   height: auto !important;
   height: 100%;
   position: relative;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
   flex-direction: column;
-  -webkit-box-pack: justify;
   justify-content: space-between;
 }
 
@@ -4943,11 +4909,8 @@ a:hover, .link-like:hover {
   width: 100%;
   background: white;
   z-index: 999;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: center;
   justify-content: center;
   opacity: .9;
   font-weight: 500;
@@ -4960,7 +4923,6 @@ a:hover, .link-like:hover {
   overflow: hidden;
   display: inline-block;
   vertical-align: bottom;
-  -webkit-animation: ellipsis steps(4, end) 900ms infinite;
   animation: ellipsis steps(4, end) 900ms infinite;
   /* content: "..."; /* ascii code for the ellipsis character */
   content: "\2026";
@@ -4970,12 +4932,6 @@ a:hover, .link-like:hover {
 }
 
 @keyframes ellipsis {
-  to {
-    width: 1.25em;
-  }
-}
-
-@-webkit-keyframes ellipsis {
   to {
     width: 1.25em;
   }
@@ -5206,7 +5162,6 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .input-group {
-  display: -webkit-box;
   display: flex;
 }
 
@@ -5216,9 +5171,7 @@ a[href^="https://www.google.com/maps"] {
   border-radius: 4px 0 0 4px;
   border-right: none;
   padding-left: 10px;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
 }
 
@@ -5306,12 +5259,11 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .student-review {
-  display: -webkit-box;
   display: flex;
   line-height: 21px;
   margin-bottom: 20px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #c6c6c6;
+  border-bottom: 1px solid #c6c5c5;
 }
 
 .student-review-last {
@@ -5336,7 +5288,6 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .student-review-text {
-  -webkit-box-flex: 1;
   flex: 1;
   font-size: 12px;
   line-height: 18px;
@@ -5416,9 +5367,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .header-messengers > div:last-of-type > div {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
 }
 
@@ -5477,16 +5426,13 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .tutor-columns {
-  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
 }
 
 .tutor-columns .tutors-item {
   width: calc(50% - 10px);
-  display: -webkit-box;
   display: flex;
-  -webkit-box-flex: 1;
   flex-grow: 1;
 }
 
@@ -5522,9 +5468,7 @@ a[href^="https://www.google.com/maps"] {
 .fake-select {
   border: 1px solid #acacac;
   background: white;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
   height: 38px;
   padding: 0 7px 0 12px;
@@ -5533,7 +5477,6 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .fake-select span {
-  -webkit-box-flex: 1;
   flex: 1;
   color: #5d5d5d;
 }
@@ -5561,7 +5504,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .params-wrapper .hidden-select {
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   opacity: 0;
   z-index: 99;
   position: absolute;
@@ -5605,9 +5548,7 @@ a[href^="https://www.google.com/maps"] {
 
 .custom-checkboxes > div {
   cursor: pointer !important;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
   height: 28px;
 }
@@ -5629,7 +5570,6 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .month .week {
-  display: -webkit-box;
   display: flex;
 }
 
@@ -5749,7 +5689,6 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .circle-icons {
-  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
   padding-left: 10% !important;
@@ -5757,10 +5696,8 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .circle-icons > div {
-  display: -webkit-box;
   display: flex;
   width: 50%;
-  -webkit-box-flex: 1;
   flex-grow: 1;
   margin-bottom: 30px;
 }
@@ -5815,9 +5752,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .three-items-block {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-pack: center;
   justify-content: center;
   width: 85%;
   margin: 0 auto;
@@ -5827,7 +5762,6 @@ a[href^="https://www.google.com/maps"] {
 .three-items-block > div {
   text-align: center;
   line-height: 21px;
-  -webkit-box-flex: 1;
   flex: 1;
 }
 
@@ -5854,9 +5788,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .teacher-block {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-pack: justify;
   justify-content: space-between;
 }
 
@@ -5901,9 +5833,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .image-text-block {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: start;
   align-items: flex-start;
 }
 
@@ -5928,7 +5858,6 @@ a[href^="https://www.google.com/maps"] {
 .subject-icons-block .subject-icons-block-subjects {
   width: 80%;
   margin: 0 auto;
-  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
 }
@@ -5957,7 +5886,6 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .schedule-block .schedule-block-items {
-  display: -webkit-box;
   display: flex;
   margin-bottom: 40px;
   white-space: nowrap;
@@ -5997,10 +5925,23 @@ a[href^="https://www.google.com/maps"] {
   text-decoration: none;
 }
 
+.btn-small {
+  color: #35a45a;
+  border: 1px solid #35a45a;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-transform: lowercase;
+  text-decoration: none;
+  background: transparent;
+}
+
+.btn-small.btn-small-gray {
+  border: 1px solid #acacac;
+  color: #818181;
+}
+
 .lk-preview-block {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-pack: justify;
   justify-content: space-between;
 }
 
@@ -6026,18 +5967,7 @@ a[href^="https://www.google.com/maps"] {
   width: 100%;
 }
 
-.lk-preview-block > div a {
-  color: #35a45a;
-  border: 1px solid #35a45a;
-  padding: 5px 10px;
-  border-radius: 5px;
-  text-transform: lowercase;
-  text-decoration: none;
-}
-
 .lk-preview-block.reverse {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
   flex-direction: row-reverse;
 }
 
@@ -6050,9 +5980,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .exams-block .exams-block-items {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
 }
 
@@ -6079,13 +6007,11 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .events-block .events-block-items {
-  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
 }
 
 .events-block .events-block-items > div {
-  -webkit-box-flex: 1;
   flex-grow: 1;
   width: 280px;
   text-align: center;
@@ -6111,9 +6037,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 }
 
 .tutors-block .tutors-block-items {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-pack: center;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -6152,9 +6076,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
   margin: 10px 0 25px;
   background: #ebebeb;
   padding: 40px 50px;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
 }
 
@@ -6199,13 +6121,10 @@ h1.in-between, .landingnew-page .common h3.in-between {
 
 .banner-block .info {
   text-align: right;
-  -webkit-box-pack: end;
   justify-content: flex-end;
   position: inherit;
   z-index: 10;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
   height: 100%;
 }
@@ -6229,7 +6148,6 @@ h1.in-between, .landingnew-page .common h3.in-between {
 }
 
 .banner-block .gradient {
-  background: -webkit-linear-gradient(right, white 33%, transparent 95%);
   background: linear-gradient(to left, white 33%, transparent 95%);
   overflow: hidden;
   position: absolute;
@@ -6259,9 +6177,7 @@ h1.in-between, .landingnew-page .common h3.in-between {
 }
 
 .one-review-block .common {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
 }
 
@@ -6317,6 +6233,20 @@ h1.in-between, .landingnew-page .common h3.in-between {
 
 .blue-review-block h1, .blue-review-block .landingnew-page .common h3, .landingnew-page .common .blue-review-block h3 {
   margin-top: 18px;
+}
+
+.deadline-block {
+  text-align: center;
+  padding: 0;
+}
+
+.deadline-block img {
+  width: 40px;
+}
+
+.deadline-block h1, .deadline-block .landingnew-page .common h3, .landingnew-page .common .deadline-block h3 {
+  line-height: 33px;
+  padding-top: 18px;
 }
 
 /* Components */
@@ -6918,11 +6848,8 @@ h1.in-between, .landingnew-page .common h3.in-between {
   background-image: url("/img/background/landing.jpg");
   background-position: no-repeat;
   background-size: cover;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
   align-items: center;
 }
 
@@ -6943,7 +6870,6 @@ h1.in-between, .landingnew-page .common h3.in-between {
 }
 
 .landing-body > div .landing-options {
-  display: -webkit-box;
   display: flex;
 }
 
@@ -7443,11 +7369,8 @@ h3.padding-top {
   width: 100%;
   top: 0;
   height: 100%;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: center;
   justify-content: center;
   text-align: center;
 }
@@ -7457,9 +7380,7 @@ h3.padding-top {
 }
 
 .back-arrow {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
   margin-bottom: 11px;
 }
@@ -7470,7 +7391,6 @@ h3.padding-top {
 }
 
 .pdf-download {
-  -webkit-box-pack: end;
   justify-content: flex-end;
   font-size: 12px;
 }
@@ -7480,12 +7400,10 @@ h3.padding-top {
 }
 
 .subject-list-flex {
-  display: -webkit-box;
   display: flex;
 }
 
 .subject-list-flex > div {
-  -webkit-box-flex: 1;
   flex: 1;
 }
 
@@ -7495,11 +7413,8 @@ ol, ul {
 
 .page-not-found-wrapper {
   min-height: 400px;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
   align-items: center;
 }
 
@@ -7603,15 +7518,6 @@ ol, ul {
   padding-top: 18px;
 }
 
-@-webkit-keyframes sk-stretchdelay {
-  0%, 40%, 100% {
-    -webkit-transform: scaleY(0.4);
-  }
-  20% {
-    -webkit-transform: scaleY(1);
-  }
-}
-
 @keyframes sk-stretchdelay {
   0%, 40%, 100% {
     transform: scaleY(0.4);
@@ -7624,126 +7530,55 @@ ol, ul {
 }
 
 /*********************************************/
-@-webkit-keyframes revolve-in-forward {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0, 0) translateX(0px);
-    transform: scale(0, 0) translateX(0px);
-  }
-  50% {
-    opacity: 0.5;
-    -webkit-transform: scale(0.5, 0.5) translateX(100%);
-    transform: scale(0.5, 0.5) translateX(100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1, 1) translateX(0px);
-    transform: scale(1, 1) translateX(0px);
-  }
-}
 
 @keyframes revolve-in-forward {
   0% {
     opacity: 0;
-    -webkit-transform: scale(0, 0) translateX(0px);
     transform: scale(0, 0) translateX(0px);
   }
   50% {
     opacity: 0.5;
-    -webkit-transform: scale(0.5, 0.5) translateX(100%);
     transform: scale(0.5, 0.5) translateX(100%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: scale(1, 1) translateX(0px);
     transform: scale(1, 1) translateX(0px);
-  }
-}
-
-@-webkit-keyframes revolve-out-forward {
-  50% {
-    opacity: 0.5;
-    -webkit-transform: scale(0.5, 0.5) translateX(-100%);
-    transform: scale(0.5, 0.5) translateX(-100%);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(0, 0) translateX(0px);
-    transform: scale(0, 0) translateX(0px);
   }
 }
 
 @keyframes revolve-out-forward {
   50% {
     opacity: 0.5;
-    -webkit-transform: scale(0.5, 0.5) translateX(-100%);
     transform: scale(0.5, 0.5) translateX(-100%);
   }
   100% {
     opacity: 0;
-    -webkit-transform: scale(0, 0) translateX(0px);
     transform: scale(0, 0) translateX(0px);
-  }
-}
-
-@-webkit-keyframes revolve-in-backward {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(0, 0) translateX(0px);
-    transform: scale(0, 0) translateX(0px);
-  }
-  50% {
-    opacity: 0.5;
-    -webkit-transform: scale(0.5, 0.5) translateX(-100%);
-    transform: scale(0.5, 0.5) translateX(-100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1, 1) translateX(0px);
-    transform: scale(1, 1) translateX(0px);
   }
 }
 
 @keyframes revolve-in-backward {
   0% {
     opacity: 0;
-    -webkit-transform: scale(0, 0) translateX(0px);
     transform: scale(0, 0) translateX(0px);
   }
   50% {
     opacity: 0.5;
-    -webkit-transform: scale(0.5, 0.5) translateX(-100%);
     transform: scale(0.5, 0.5) translateX(-100%);
   }
   100% {
     opacity: 1;
-    -webkit-transform: scale(1, 1) translateX(0px);
     transform: scale(1, 1) translateX(0px);
-  }
-}
-
-@-webkit-keyframes revolve-out-backward {
-  50% {
-    opacity: 0.5;
-    -webkit-transform: scale(0.5, 0.5) translateX(100%);
-    transform: scale(0.5, 0.5) translateX(100%);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(0, 0) translateX(0px);
-    transform: scale(0, 0) translateX(0px);
   }
 }
 
 @keyframes revolve-out-backward {
   50% {
     opacity: 0.5;
-    -webkit-transform: scale(0.5, 0.5) translateX(100%);
     transform: scale(0.5, 0.5) translateX(100%);
   }
   100% {
     opacity: 0;
-    -webkit-transform: scale(0, 0) translateX(0px);
     transform: scale(0, 0) translateX(0px);
   }
 }
@@ -7795,7 +7630,6 @@ ol, ul {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  -webkit-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -7903,21 +7737,17 @@ ol, ul {
   height: 60px;
   overflow: hidden;
   cursor: pointer;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
 }
 
 .ng-image-gallery .next-wrapper {
   right: 0;
-  -webkit-box-pack: end;
   justify-content: flex-end;
 }
 
 .ng-image-gallery .prev-wrapper {
   left: 0;
-  -webkit-box-pack: start;
   justify-content: flex-start;
 }
 
@@ -7981,7 +7811,6 @@ ol, ul {
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-fade .galleria-image.ng-enter {
-  -webkit-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
 }
@@ -7995,18 +7824,13 @@ ol, ul {
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-fadeup .galleria-image.ng-enter {
-  -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   opacity: 0;
-  -webkit-transform: scale(0.98);
   transform: scale(0.98);
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-fadeup .galleria-image.ng-enter-active {
   opacity: 1;
-  -webkit-transform: scale(1);
   transform: scale(1);
 }
 
@@ -8015,199 +7839,139 @@ ol, ul {
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-zoom .galleria-image.ng-enter {
-  -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   opacity: 0;
-  -webkit-transform: scale(0);
   transform: scale(0);
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-zoom .galleria-image.ng-enter-active {
   opacity: 1;
-  -webkit-transform: scale(1);
   transform: scale(1);
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-zoom .galleria-image.ng-leave {
-  -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-zoom .galleria-image.ng-leave-active {
   opacity: 0;
-  -webkit-transform: scale(0);
   transform: scale(0);
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-slide.img-move-dir-backward .galleria-image.ng-enter {
-  -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
   opacity: 0;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-slide.img-move-dir-backward .galleria-image.ng-enter-active {
-  -webkit-transform: translateX(0px);
   transform: translateX(0px);
   opacity: 1;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-slide.img-move-dir-backward .galleria-image.ng-leave {
-  -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-slide.img-move-dir-backward .galleria-image.ng-leave-active {
   opacity: 0;
-  -webkit-transform: translateX(100%);
   transform: translateX(100%);
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-slide.img-move-dir-forward .galleria-image.ng-enter {
-  -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  -webkit-transform: translateX(100%);
   transform: translateX(100%);
   opacity: 0;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-slide.img-move-dir-forward .galleria-image.ng-enter-active {
-  -webkit-transform: translateX(0px);
   transform: translateX(0px);
   opacity: 1;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-slide.img-move-dir-forward .galleria-image.ng-leave {
-  -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-slide.img-move-dir-forward .galleria-image.ng-leave-active {
   opacity: 0;
-  -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-pop.img-move-dir-backward .galleria-image.ng-enter {
-  -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  -webkit-transform: translateX(-100%) scale(0, 0);
   transform: translateX(-100%) scale(0, 0);
   opacity: 0;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-pop.img-move-dir-backward .galleria-image.ng-enter-active {
-  -webkit-transform: translateX(0px) scale(1, 1);
   transform: translateX(0px) scale(1, 1);
   opacity: 1;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-pop.img-move-dir-backward .galleria-image.ng-leave {
-  -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-pop.img-move-dir-backward .galleria-image.ng-leave-active {
   opacity: 0;
-  -webkit-transform: translateX(100%) scale(0, 0);
   transform: translateX(100%) scale(0, 0);
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-pop.img-move-dir-forward .galleria-image.ng-enter {
-  -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  -webkit-transform: translateX(100%) scale(0, 0);
   transform: translateX(100%) scale(0, 0);
   opacity: 0;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-pop.img-move-dir-forward .galleria-image.ng-enter-active {
-  -webkit-transform: translateX(0px) scale(1, 1);
   transform: translateX(0px) scale(1, 1);
   opacity: 1;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-pop.img-move-dir-forward .galleria-image.ng-leave {
-  -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-pop.img-move-dir-forward .galleria-image.ng-leave-active {
   opacity: 0;
-  -webkit-transform: translateX(-100%) scale(0, 0);
   transform: translateX(-100%) scale(0, 0);
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-revolve.img-move-dir-forward .galleria-image.ng-enter {
-  -webkit-animation: revolve-in-forward;
   animation: revolve-in-forward;
-  -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-revolve.img-move-dir-forward .galleria-image.ng-leave {
-  -webkit-animation: revolve-out-forward;
   animation: revolve-out-forward;
-  -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-revolve.img-move-dir-backward .galleria-image.ng-enter {
-  -webkit-animation: revolve-in-backward;
   animation: revolve-in-backward;
-  -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-images.img-anim-revolve.img-move-dir-backward .galleria-image.ng-leave {
-  -webkit-animation: revolve-out-backward;
   animation: revolve-out-backward;
-  -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-bubbles {
   margin-top: -40px;
-  -webkit-box-flex: 0;
   flex: 0 0 50px;
   text-align: center;
   overflow: hidden;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
   flex-direction: row;
-  -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: baseline;
   align-items: baseline;
   align-content: center;
   flex-wrap: wrap;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .galleria .galleria-bubbles span {
-  -webkit-box-flex: 0;
   flex: none;
   position: relative;
   display: inline-block;
@@ -8225,7 +7989,6 @@ ol, ul {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   overflow: hidden;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -8238,7 +8001,6 @@ ol, ul {
   width: 12px;
   height: 12px;
   margin: 2px 4px;
-  -webkit-transition: border 0.3s ease-in-out;
   transition: border 0.3s ease-in-out;
 }
 
@@ -8253,19 +8015,13 @@ ol, ul {
   bottom: 0;
   left: 0;
   z-index: 3;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
   flex-direction: row;
-  -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
   align-items: center;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-loader .spinner {
-  -webkit-box-flex: 0;
   flex: none;
   width: 50px;
   height: 50px;
@@ -8279,27 +8035,22 @@ ol, ul {
   width: 7px;
   margin: 0 3px 0 0;
   display: inline-block;
-  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
   animation: sk-stretchdelay 1.2s infinite ease-in-out;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-loader .spinner .rect2 {
-  -webkit-animation-delay: -1.1s;
   animation-delay: -1.1s;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-loader .spinner .rect3 {
-  -webkit-animation-delay: -1.0s;
   animation-delay: -1.0s;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-loader .spinner .rect4 {
-  -webkit-animation-delay: -0.9s;
   animation-delay: -0.9s;
 }
 
 .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-loader .spinner .rect5 {
-  -webkit-animation-delay: -0.8s;
   animation-delay: -0.8s;
 }
 
@@ -8354,17 +8105,13 @@ ol, ul {
 }
 
 .galleria-bubbles-wrapper {
-  -webkit-box-flex: 1.3;
   flex: 1.3;
   position: relative;
-  -webkit-box-align: center;
   align-items: center;
 }
 
 .galleria-title-description-wrapper {
-  -webkit-box-flex: 1;
   flex: 1;
-  -webkit-box-align: center;
   align-items: center;
   text-align: center;
 }

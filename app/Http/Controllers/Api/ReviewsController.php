@@ -42,10 +42,6 @@ class ReviewsController extends Controller
             $query->whereNotIn('teacher_reviews.id', $request->ids);
         }
 
-        if ($request->min_score) {
-            $query->whereRaw("(teacher_reviews.score / teacher_reviews.max_score) > {$request->min_score}");
-        }
-
         if ($request->grade) {
             $query->where('teacher_reviews.grade', '=', $request->grade);
         }

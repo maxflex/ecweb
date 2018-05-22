@@ -1135,3 +1135,14 @@ button[disabled] {
 	    margin-bottom: .9em;
     }
 }
+
+.deadline-block {
+    padding-bottom: 0;
+    text-align: center;
+    & img {
+        width: 40px;
+    }
+    & h1 {
+        padding-top: $margin-tiny;
+    }
+}
