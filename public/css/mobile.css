@@ -7576,7 +7576,7 @@ button[disabled] {
   text-decoration: none;
   margin: 0;
   padding: 0 1em !important;
-  height: 2em !important;
+  height: 30px !important;
   line-height: 2em !important;
   font-weight: normal !important;
 }
