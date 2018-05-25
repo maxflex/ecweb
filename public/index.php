@@ -66,6 +66,13 @@ if (! isset($_COOKIE['source']))
 }
 
 
+$key = 'ab-test-facelift';
+if (! isset($_COOKIE[$key])) {
+    $variant = mt_rand(0, 1);
+    setcookie($key, $variant, time() + (10 * 365 * 24 * 60 * 60), '/');
+    $_COOKIE[$key] = $variant;
+}	
+
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(

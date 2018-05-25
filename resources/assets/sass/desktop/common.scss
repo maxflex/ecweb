@@ -897,12 +897,15 @@ p.last {
 
 .calendar-month-title {
     text-align: center;
-    margin: 50px 0;
+    margin: 100px 0 25px;
     & span {
-		color: white;
-	    background: #3a6699;
-	    padding: 8px 14px;
+		color: black;
+		font-weight: $font-bold;
+//	    background: #3a6699; 
+//	    padding: 8px 14px;
 	    border-radius: 15px;
+	    text-transform: uppercase;
+	    font-size: 20px;
     }
 }
 
@@ -932,6 +935,7 @@ p.last {
 		width: 600px;
 		& h1 {
 			font-family: 'Bad Script', cursive;
+			font-weight: normal !important;
 			font-size: 60px;
 			padding: 0;
 		}
@@ -985,7 +989,7 @@ p.last {
 }
 
 .block-title {
-	font-size: 30px;
+	font-size: 36px;
 	text-align: center;
 	padding:  0 0 40px;
 }
@@ -1120,9 +1124,14 @@ p.last {
 
 .schedule-block {
     background: #fff1eb;
+    padding: 60px 0;
+    &.deadline-no {
+		margin-top: 40px;
+		margin-bottom: 40px;
+    }
     & .schedule-block-items {
         display: flex;
-        margin-bottom: $margin-huge;
+		margin-bottom: 55px;
         white-space: nowrap;
         & > div {
             margin-right: 25px;
@@ -1142,17 +1151,16 @@ p.last {
             }
         }
     }
-    & .btn-rounded {
-        font-size: 12px !important;
+    & .btn-example-schedule {
+        color: #3b6599 !important;
+        border-color: #3b6599 !important;
     }
 }
 
 .btn-rounded {
-    background-color: #e0ddde;
-    color: #3a6699;
-    font-weight: bold;
-    border-radius: 20px;
-    padding: 9px 17px;
+    background-color: #e0ddde !important;
+    border: 1px solid #e0ddde !important;
+    color: #3a6699 !important;
     text-decoration: none;
 }
 
@@ -1191,6 +1199,7 @@ p.last {
         }
     }
     &.reverse {
+	    padding-bottom: 90px;
         flex-direction: row-reverse;
         & > div {
             &:last-of-type {
@@ -1202,6 +1211,9 @@ p.last {
 
 .exams-block {
     background: #d5f5ff;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	padding: 60px 0 52px;
     & .exams-block-items {
         display: flex;
         align-items: center;
@@ -1248,14 +1260,16 @@ p.last {
     }
 }
 
-h1.in-between {
+.in-between {
     font-size: $font-size-big;
     font-weight: $font-bold;
     margin: 15px 0;
     padding: 0;
+    display: block;
 }
 
 .tutors-block {
+	padding-bottom: 80px;
     & .tutors-block-items {
         display: flex;
         justify-content: center;
@@ -1322,18 +1336,35 @@ h1.in-between {
 }
 
 @media only screen and (max-width: 1000px) {
-	.full-width-wrapper {
+	.full-width-wrapper:not(.banner-block) {
 		margin-left: -20px !important;
 	}
 }
 
 .banner-block {
-    background: url('/img/screenshots/bgsubject.jpeg');
+//     background: url('https://lk.ege-repetitor.ru/img/tutors/14_original.jpg?ver=1');
+	background-position: -200px center;
+	background-repeat: no-repeat;
     background-size: cover;
     height: 600px;
     margin-top: -33px;
     width: calc(100vw - calc((100vw - 960px) / 2));
     position: relative;
+    margin-bottom: 100px;
+    & .image-link {
+	    position: absolute;
+	    z-index: 90;
+	    top: 14px;
+	    font-size: 12px;
+	    & img {
+		    height: 9px;
+/*
+			top: 1px;
+			position: relative;
+*/
+		    margin-right: 5px;
+	    }
+    }
     & .info {
         text-align: right;
         justify-content: flex-end;
@@ -1356,6 +1387,9 @@ h1.in-between {
                 display: block;
             }
         }
+        & > div {
+	        width: 515px;
+        }
     }
     & .gradient {
         background: linear-gradient(to left, white 33%, transparent 95%);
@@ -1363,18 +1397,33 @@ h1.in-between {
         position: absolute;
         top: 0;
         height: 100%;
-            width: 70%;
+		width: 70%;
         left: auto;
         right: 0;
+    }
+    &.left {
+	    margin-left: 0;
+		margin-right: calc((100vw - 960px) / 2 * -1);
+		background-position: 200px center;
+		& .info {
+			justify-content: flex-start;
+			text-align: left;
+		}
+		& .gradient {
+			left: 0;
+			right: auto;
+			background: linear-gradient(to right, white 33%, transparent 95%);
+		}
     }
 }
 
 .three-items-under-banner {
+	padding-top: 0 !important;
     & > div {
         & img {
-            width: 60px;
+            width: 40px;
         }
-        & > h1 {
+        & > h1 { 
             font-size: 20px;
         }
         & > div {
@@ -1382,18 +1431,22 @@ h1.in-between {
             color: black;
             line-height: $line-height;
         }
+        &:nth-child(2n) {
+			margin: 0 80px !important;
+        }
     }
 }
 
 .one-review-block {
-    margin-bottom: $margin-huge;
+    margin-bottom: 90px;
+    margin-top: 50px;
     & .common {
         display: flex;
         align-items: center;
     }
     & .student-review-photo {
-        width: 120px;
-        height: 120px;
+        width: 150px;
+        height: 150px;
         margin-right: 50px;
     }
     & .review-signature {
@@ -1401,6 +1454,14 @@ h1.in-between {
         color: #3a6699;
         font-weight: 500;
         font-size: 12px;
+        & .review-stars {
+	        display: inline-block;
+	        position: relative;
+	        top: 1px;
+	        margin: 0;
+	        margin-left: 10px;
+	        font-size: 14px;
+        }
     }
     & .review-text {
         line-height: $line-height;
@@ -1409,18 +1470,31 @@ h1.in-between {
     }
     & h1 {
 	    padding-right: 40px;
+	    font-weight: 800;
     }
     & .student-review-date {
         font-size: 12px;
     }
 }
 
+.reviews-block {
+	& > h1 {
+		padding-bottom: 60px;
+	}
+	& .btn-small {
+		margin: 54px 0 14px;
+	}
+}
+
 .blue-review-block {
     background: #e9fbff;
     text-align: center;
+    padding: 80px 0;
+	margin-top: 40px;
+    margin-bottom: 40px;
     & .student-review-photo {
-        width: 120px;
-        height: 120px;
+        width: 150px;
+        height: 150px;
         margin: 0;
     }
     & .review-signature {
@@ -1435,6 +1509,10 @@ h1.in-between {
     }
     & h1 {
         margin-top: 18px;
+        font-weight: 800;
+    }
+    & .common {
+	    width: 500px;
     }
 }
 
@@ -1442,10 +1520,47 @@ h1.in-between {
     text-align: center;
     padding: 0;
     & img {
-        width: 40px;
+        width: 30px;
     }
     & h1 {
         line-height: $line-height-big;
         padding-top: 5px;
     }
+}
+
+.review-stars {
+    margin-bottom: 18px;
+    font-size: 16px;
+    color: #126275;
+    & i {
+	    margin: 0 2px;
+    }
+}
+
+.name-and-stars {
+	display: flex;
+	& .review-stars {
+		margin: 0;
+		margin-left: 10px;
+		font-size: 10px;
+		position: relative;
+		top: 1px;
+	}
+}
+
+.university-page {
+	& .banner-block {
+		& .quote {
+			font-size: 14px;
+			line-height: $line-height;
+		}
+	}
+}
+
+h1 {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 600;
+	&.regular-font {
+		font-family: 'Roboto', sans-serif;
+	}
 }

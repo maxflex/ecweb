@@ -753,16 +753,18 @@ button[disabled] {
 }
 
 .calendar-month-title {
-	position: sticky;
-    top: 0;
-    background: white;
-    box-shadow: 0 0 13px 12px white;
-    margin-top: 10px;
-    margin-bottom: 10px;
+	// position: sticky;
+    // top: 0;
+    // background: white;
+    // box-shadow: 0 0 13px 12px white;
+    margin-top: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 20px;
     & h3 {
 	    padding: 0;
+        font-weight: $font-bold;
     }
 }
 
@@ -797,6 +799,7 @@ button[disabled] {
 
     & .header-image-container {
         font-family: 'Bad Script', cursive;
+        font-weight: normal !important;
         line-height: 90px;
         padding-bottom: .5em;
     }
@@ -804,6 +807,7 @@ button[disabled] {
 
 
 .icons-block {
+	padding: 45px 0 30px !important;
     & .icons-block-items {
         display: flex;
         flex-wrap: wrap;
@@ -861,6 +865,12 @@ button[disabled] {
 
 .schedule-block {
     background: #fff2e8;
+    padding: 40px 1.357em 50px;
+    margin-top: 20px;
+    &.deadline-no {
+		margin-top: 40px;
+		margin-bottom: 40px;
+    }
     & h1 {
 	    text-align: left;
     }
@@ -887,6 +897,11 @@ button[disabled] {
             }
         }
     }
+
+    & .btn-example-schedule {
+	    color: #3b6599 !important;
+        border-color: #3b6599 !important;
+    }
 }
 
 .block {
@@ -896,11 +911,17 @@ button[disabled] {
 	}
 }
 
+& .lk-preview-block-wrap {
+    width: 80%; 
+	margin: 0 auto;
+}
+
 .lk-preview-block {
     text-align: center;
+    padding: 30px 0;
     & img {
-        width: 80%;
-        margin: 0 auto;
+        width: 100%;
+//         margin: 0 auto;
         margin-bottom: .9em;
     }
     & p {
@@ -973,10 +994,24 @@ button[disabled] {
 	& button {
 		margin-bottom: 0;
 	}
+	& .reviews-block-full {
+// 		padding-top: 0;
+		padding-bottom: 0;
+	}
+	& > h1 {
+		padding: 70px 0;
+	}
 }
 
 .exams-block {
 	background: #d4f4ff;
+	margin-top: 70px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-bottom: 50px;
+	& > h1 {
+		margin-bottom: 20px;
+	}
 	& .exams-block-items {
 		text-align: center;
 		margin: 0 auto;
@@ -1012,7 +1047,7 @@ button[disabled] {
 
 
 .address-block {
-	padding: 25px 0;
+	padding: 75px 0 25px;
 }
 
 .teacher-block {
@@ -1072,14 +1107,22 @@ button[disabled] {
 }
 
 .plan-includes-block {
+	margin-top: 60px;
+	margin-bottom: 40px;
     line-height: $line-height;
     & > div {
         margin-bottom: $margin-small;
         align-items: flex-start;
     }
+    & .image-link {
+	    & img {
+		    height: 18px !important;
+	    }
+    }
 }
 
 .banner-block {
+	margin-bottom: 20px;
     & img {
         width: 100%;
         margin-bottom: .9em;
@@ -1098,16 +1141,26 @@ button[disabled] {
             display: block;
         }
     }
+    & .full-width {
+	    margin: 0 -2.6em;
+    }
+}
+
+.full-width-inside-block { 
+    margin: 0 -2.6em;
 }
 
 .three-items-under-banner {
     padding-top: 20px !important;
     & > div {
         & img {
-            width: 60px;
+            width: 40px;
         }
         & > h1 {
             font-size: 20px;
+            margin-bottom: 15px;
+			margin-top: 5px;
+			line-height: initial;
         }
         & > div {
             font-size: 14px;
@@ -1118,31 +1171,89 @@ button[disabled] {
 }
 
 .reviews-block-full {
+	padding-left: 10% !important;
+    padding-right: 10% !important;
 	&.blue {
+		padding: 60px 1.357em;
+		margin-top: 40px;
+		margin-bottom: 40px;
 		background: #e9fbff;
 	}
 	&.gray {
 		background: #f5f5f5;
 	}
     text-align: center;
+    & .review-stars {
+	    margin-bottom: .9em;
+	    font-size: 16px;
+	    color: #126275;
+	    & i {
+		    margin: 0 2px;
+	    }
+    }
     & .student-review-photo {
-	    width: 100px;
-	    height: 100px;
+	    width: 150px;
+		height: 150px;
 	    margin: 0;
 	    margin-bottom: .9em;
     }
     & .review-text {
 	    margin-bottom: .9em;
+	    font-style: italic;
     }
 }
 
 .deadline-block {
     padding-bottom: 0;
     text-align: center;
+    padding-top: 40px;
     & img {
-        width: 40px;
+        width: 30px;
     }
     & h1 {
         padding-top: $margin-tiny;
     }
+}
+
+.seo-text-block {
+	padding: 40px 0;
+}
+
+.student-review-info {
+	& .review-stars {
+		margin: 0;
+	    font-size: 10px;
+	    color: #126275;
+	    & i {
+		    &:first-of-type {
+			    margin-left: 0 !important;
+		    }
+		    margin: 0 2px;
+	    }
+    }
+}
+
+.back-link {
+	font-size: 12px;
+	top: -7px; 
+    position: relative;
+    margin-bottom: 18px;
+	& img {
+	    height: 9px;
+	    margin-right: 5px;
+	    position: relative;
+	    top: 1px;
+	}
+}
+
+.seo-text-block {
+	margin-bottom: 20px;
+}
+
+h1 {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
+	&.regular-font {
+		font-family: 'Roboto', sans-serif;
+	}
 }
