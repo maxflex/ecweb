@@ -10,7 +10,24 @@ $(document).ready(function() {
         openModal('menu')
         streamLink(null, 'menu')
 	})
-
+	
+	// Initialize swiper if present
+	mySwiper = new Swiper('.swiper-container', {
+	    loop: true,
+	
+	    // If we need pagination
+	    pagination: {
+	      el: '.swiper-pagination',
+	    },
+	})
+	
+	// bugfix – убрать троеточие в слайдере
+	setTimeout(function() {
+		$(".swiper-wrapper").contents().filter(function () {
+		     return this.nodeType === 3; 
+		}).remove()
+	}, 1000)
+	
     bindToggle()
 
 	// if (isMobile && isIphone4) $('body').addClass('iphone4fix');

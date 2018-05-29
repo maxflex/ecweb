@@ -5,9 +5,8 @@
  * Copyright 2013-2017 bootstrap-select
  * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
  */
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,500,700&subset=cyrillic");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,800&subset=cyrillic");
 @import url("https://fonts.googleapis.com/css?family=Bad+Script");
-@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:700");
 select.bs-select-hidden,
 select.selectpicker {
   display: none !important;
@@ -4777,7 +4776,7 @@ html, body {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 14px;
 }
@@ -5348,7 +5347,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .student-review-name {
-  color: #3a6699;
+  color: #18658a;
   font-weight: 500;
   margin-bottom: 8px;
 }
@@ -5801,6 +5800,7 @@ a[href^="https://www.google.com/maps"] {
   font-size: 36px;
   text-align: center;
   padding: 0 0 40px;
+  font-weight: 700;
 }
 
 .full-width-wrapper {
@@ -5956,7 +5956,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .schedule-block {
-  background: #fff1eb;
+  background: #feecdd;
   padding: 60px 0;
 }
 
@@ -6001,7 +6001,7 @@ a[href^="https://www.google.com/maps"] {
 .btn-rounded {
   background-color: #e0ddde !important;
   border: 1px solid #e0ddde !important;
-  color: #3a6699 !important;
+  color: #18658a !important;
   text-decoration: none;
 }
 
@@ -6010,7 +6010,6 @@ a[href^="https://www.google.com/maps"] {
   border: 1px solid #35a45a;
   padding: 5px 10px;
   border-radius: 5px;
-  text-transform: lowercase;
   text-decoration: none;
   background: transparent;
 }
@@ -6058,6 +6057,10 @@ a[href^="https://www.google.com/maps"] {
 
 .lk-preview-block.reverse > div:last-of-type {
   text-align: right;
+}
+
+.lk-preview-block h1, .lk-preview-block .landingnew-page .common h3, .landingnew-page .common .lk-preview-block h3 {
+  font-weight: 700;
 }
 
 .exams-block {
@@ -6154,7 +6157,7 @@ a[href^="https://www.google.com/maps"] {
 
 .tutors-block .tutors-block-items > div .in-between {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .tutors-block .tutors-block-items > div .line-height {
@@ -6202,7 +6205,8 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .price-digit-block b, .price-digit-block .address-more li > div:first-of-type, .address-more .price-digit-block li > div:first-of-type {
-  font-size: 30px;
+  font-size: 45px;
+  font-weight: 400;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -6212,7 +6216,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .banner-block {
-  background-position: -200px center;
+  background-position: -230px center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 600px;
@@ -6253,7 +6257,10 @@ a[href^="https://www.google.com/maps"] {
 
 .banner-block .info h1, .banner-block .info .landingnew-page .common h3, .landingnew-page .common .banner-block .info h3 {
   padding: 0;
-  font-size: 30px;
+  font-weight: 800;
+  font-size: 45px;
+  width: 125%;
+  margin-left: -25%;
 }
 
 .banner-block .info .quote {
@@ -6274,8 +6281,8 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .banner-block .gradient {
-  background: -webkit-linear-gradient(right, white 33%, transparent 95%);
-  background: linear-gradient(to left, white 33%, transparent 95%);
+  background: -webkit-linear-gradient(right, white 230px, transparent 95%);
+  background: linear-gradient(to left, white 230px, transparent 95%);
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -6288,7 +6295,7 @@ a[href^="https://www.google.com/maps"] {
 .banner-block.left {
   margin-left: 0;
   margin-right: calc((100vw - 960px) / 2 * -1);
-  background-position: 200px center;
+  background-position: 230px center;
 }
 
 .banner-block.left .info {
@@ -6297,11 +6304,15 @@ a[href^="https://www.google.com/maps"] {
   text-align: left;
 }
 
+.banner-block.left .info h1, .banner-block.left .info .landingnew-page .common h3, .landingnew-page .common .banner-block.left .info h3 {
+  margin-left: 0;
+}
+
 .banner-block.left .gradient {
   left: 0;
   right: auto;
-  background: -webkit-linear-gradient(left, white 33%, transparent 95%);
-  background: linear-gradient(to right, white 33%, transparent 95%);
+  background: -webkit-linear-gradient(left, white 230px, transparent 95%);
+  background: linear-gradient(to right, white 230px, transparent 95%);
 }
 
 .three-items-under-banner {
@@ -6346,7 +6357,7 @@ a[href^="https://www.google.com/maps"] {
 
 .one-review-block .review-signature {
   margin-top: 18px;
-  color: #3a6699;
+  color: #18658a;
   font-weight: 500;
   font-size: 12px;
 }
@@ -6399,7 +6410,7 @@ a[href^="https://www.google.com/maps"] {
 
 .blue-review-block .review-signature {
   margin-top: 18px;
-  color: #3a6699;
+  color: #18658a;
   font-weight: 500;
   font-size: 12px;
 }
@@ -6430,12 +6441,13 @@ a[href^="https://www.google.com/maps"] {
 .deadline-block h1, .deadline-block .landingnew-page .common h3, .landingnew-page .common .deadline-block h3 {
   line-height: 33px;
   padding-top: 5px;
+  font-weight: 700;
 }
 
 .review-stars {
   margin-bottom: 18px;
   font-size: 16px;
-  color: #126275;
+  color: #18658a;
 }
 
 .review-stars i {
@@ -6461,12 +6473,129 @@ a[href^="https://www.google.com/maps"] {
 }
 
 h1, .landingnew-page .common h3 {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 600;
 }
 
-h1.regular-font, .landingnew-page .common h3.regular-font {
-  font-family: 'Roboto', sans-serif;
+.student-review-name, .review-signature {
+  font-weight: 600 !important;
+}
+
+.header-menu-item {
+  padding: 0 14px !important;
+}
+
+.header-menu-item a {
+  padding: 13px 0 1px 0 !important;
+}
+
+.lk-preview-block-new .lk-controls-wrapper {
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.lk-preview-block-new .lk-controls-wrapper .lk-controls {
+  display: -webkit-box;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.lk-preview-block-new .lk-controls-wrapper .lk-controls > div {
+  cursor: pointer;
+  margin: 0 20px;
+  font-weight: 600;
+  z-index: 99;
+  /*
+				&:hover {
+					color: #0c5e3a;
+				}
+*/
+}
+
+.lk-preview-block-new .lk-controls-wrapper .lk-controls > div.active {
+  color: #0c5e3a;
+}
+
+.lk-preview-block-new .lk-controls-wrapper .selected-wrapper {
+  background: #a3e4c9;
+  border-radius: 5px;
+  height: 26px;
+  position: absolute;
+  top: -3px;
+  -webkit-transition: all ease-out .2s;
+  transition: all ease-out .2s;
+}
+
+.lk-preview-block-new .lk-controls-wrapper .selected-wrapper.lk-preview-1 {
+  width: 181px;
+  left: 9px;
+}
+
+.lk-preview-block-new .lk-controls-wrapper .selected-wrapper.lk-preview-2 {
+  width: 192px;
+  left: 213px;
+}
+
+.lk-preview-block-new .lk-controls-wrapper .selected-wrapper.lk-preview-3 {
+  width: 142px;
+  left: 428px;
+}
+
+.lk-preview-block-new img {
+  height: 450px;
+}
+
+.lk-preview-block-new p {
+  margin-bottom: 40px;
+  height: 84px;
+}
+
+.lk-preview-block-new .lk-content-wrapper {
+  opacity: 1;
+  width: 960px;
+  -webkit-transition: all linear 0.3s;
+  transition: all linear 0.3s;
+  position: absolute;
+}
+
+.lk-preview-block-new .lk-preview-content {
+  height: 578px;
+}
+
+.animate-show-hide.ng-hide {
+  opacity: 0;
+}
+
+.ege-trial-block {
+  background: #feecdd;
+  padding: 60px 0 0;
+}
+
+.ege-trial-block p {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.ege-trial-block .btn-wrapper {
+  margin-bottom: 80px;
+}
+
+.ege-trial-block img {
+  width: 70%;
+  top: 4px;
+  position: relative;
+}
+
+.ege-trial-block .btn-small {
+  border-color: #9c561d;
+  color: #9c561d;
+}
+
+.results-showcase-block {
+  padding: 40px 0 100px;
 }
 
 /* Components */

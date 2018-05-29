@@ -78,6 +78,7 @@ elixir(mix => {
             'angular-sanitize/angular-sanitize.min',
             'jquery.actual/jquery.actual.min',
             'mark.js/dist/jquery.mark.min',
+            'swiper/dist/js/swiper.min',
         ]).concat(['resources/assets/js/*.js']), 'public/js/scripts.js')
         .scripts('resources/assets/js/mobile/*.js', 'public/js/mobile/scripts.js')
 });

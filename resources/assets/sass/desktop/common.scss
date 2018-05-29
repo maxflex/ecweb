@@ -18,7 +18,7 @@ html, body {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: $font-regular;
   font-size: $main-font-size;
 }
@@ -570,7 +570,7 @@ p.last {
 }
 
 .student-review-name {
-    color: #3a6699;
+    color: #18658a;
     font-weight: $font-medium;
     margin-bottom: 8px;
 }
@@ -901,7 +901,7 @@ p.last {
     & span {
 		color: black;
 		font-weight: $font-bold;
-//	    background: #3a6699; 
+//	    background: #18658a; 
 //	    padding: 8px 14px;
 	    border-radius: 15px;
 	    text-transform: uppercase;
@@ -992,6 +992,7 @@ p.last {
 	font-size: 36px;
 	text-align: center;
 	padding:  0 0 40px;
+	font-weight: 700;
 }
 
 
@@ -1123,7 +1124,7 @@ p.last {
 }
 
 .schedule-block {
-    background: #fff1eb;
+    background: #feecdd;
     padding: 60px 0;
     &.deadline-no {
 		margin-top: 40px;
@@ -1160,7 +1161,7 @@ p.last {
 .btn-rounded {
     background-color: #e0ddde !important;
     border: 1px solid #e0ddde !important;
-    color: #3a6699 !important;
+    color: #18658a !important;
     text-decoration: none;
 }
 
@@ -1169,7 +1170,6 @@ p.last {
     border: 1px solid #35a45a;
     padding: 5px 10px;
     border-radius: 5px;
-    text-transform: lowercase;
     text-decoration: none;
     background: transparent;
     &.btn-small-gray {
@@ -1206,6 +1206,9 @@ p.last {
                 text-align: right;
             }
         }
+    }
+    & h1 {
+	    font-weight: 700;
     }
 }
 
@@ -1283,7 +1286,7 @@ p.last {
             }
             & .in-between {
                 font-size: 16px;
-                font-weight: 500;
+                font-weight: 700;
             }
             & .line-height {
                 color: $text-grey;
@@ -1331,7 +1334,8 @@ p.last {
 	padding: 50px 0;
 	text-align: center;
 	& b {
-		font-size: 30px;
+		font-size: 45px;
+		font-weight: 400;
 	}
 }
 
@@ -1343,7 +1347,7 @@ p.last {
 
 .banner-block {
 //     background: url('https://lk.ege-repetitor.ru/img/tutors/14_original.jpg?ver=1');
-	background-position: -200px center;
+	background-position: -230px center;
 	background-repeat: no-repeat;
     background-size: cover;
     height: 600px;
@@ -1375,7 +1379,10 @@ p.last {
         height: 100%;
         & h1 {
             padding: 0;
-            font-size: 30px;
+            font-weight: 800;
+			font-size: 45px;
+			width: 125%;
+			margin-left: -25%;
         }
         & .quote {
             font-size: 20px;
@@ -1392,7 +1399,7 @@ p.last {
         }
     }
     & .gradient {
-        background: linear-gradient(to left, white 33%, transparent 95%);
+        background: linear-gradient(to left, white 230px, transparent 95%);
         overflow: hidden;
         position: absolute;
         top: 0;
@@ -1404,15 +1411,18 @@ p.last {
     &.left {
 	    margin-left: 0;
 		margin-right: calc((100vw - 960px) / 2 * -1);
-		background-position: 200px center;
+		background-position: 230px center;
 		& .info {
 			justify-content: flex-start;
 			text-align: left;
+			& h1 {
+				margin-left: 0;
+			}
 		}
-		& .gradient {
+		& .gradient { 
 			left: 0;
 			right: auto;
-			background: linear-gradient(to right, white 33%, transparent 95%);
+			background: linear-gradient(to right, white 230px, transparent 95%);
 		}
     }
 }
@@ -1451,7 +1461,7 @@ p.last {
     }
     & .review-signature {
         margin-top: 18px;
-        color: #3a6699;
+        color: #18658a;
         font-weight: 500;
         font-size: 12px;
         & .review-stars {
@@ -1499,7 +1509,7 @@ p.last {
     }
     & .review-signature {
         margin-top: 18px;
-        color: #3a6699;
+        color: #18658a;
         font-weight: 500;
         font-size: 12px;
     }
@@ -1525,13 +1535,14 @@ p.last {
     & h1 {
         line-height: $line-height-big;
         padding-top: 5px;
+        font-weight: 700;
     }
 }
 
 .review-stars {
     margin-bottom: 18px;
     font-size: 16px;
-    color: #126275;
+    color: #18658a;
     & i {
 	    margin: 0 2px;
     }
@@ -1550,7 +1561,7 @@ p.last {
 
 .university-page {
 	& .banner-block {
-		& .quote {
+		& .quote { 
 			font-size: 14px;
 			line-height: $line-height;
 		}
@@ -1558,9 +1569,111 @@ p.last {
 }
 
 h1 {
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 600;
-	&.regular-font {
-		font-family: 'Roboto', sans-serif;
+}
+
+.student-review-name, .review-signature {
+	font-weight: 600 !important;
+}
+
+.header-menu-item {
+    padding: 0 14px !important;
+}
+.header-menu-item a {
+	padding: 13px 0 1px 0 !important;
+}
+
+.lk-preview-block-new {
+	& .lk-controls-wrapper {
+		margin-bottom: $margin-huge;
+		position: relative;
+		display: inline-block;
+		& .lk-controls {
+			display: flex;
+			text-align: center;
+			justify-content: center;
+			& > div {
+				cursor: pointer;
+				margin: 0 20px;
+				font-weight: 600;
+				z-index: 99;
+/*
+				&:hover {
+					color: #0c5e3a;
+				}
+*/
+				&.active {
+					color: #0c5e3a;
+				}
+			}
+		}
+		& .selected-wrapper {
+			background: #a3e4c9;
+			border-radius: 5px;
+			height: 26px;
+			position: absolute;
+			top: -3px;
+			transition: all ease-out .2s;
+			&.lk-preview-1 {
+				width: 181px;
+				left: 9px;
+			}
+			&.lk-preview-2 {
+				width: 192px;
+				left: 213px;
+			}
+			&.lk-preview-3 {
+				width: 142px;
+				left: 428px;
+			}
+		}	
 	}
+	
+	& img {
+		height: 450px;
+	}
+	& p {
+		margin-bottom: $margin-huge;
+		height: 84px;
+	}
+	& .lk-content-wrapper {
+		opacity: 1;
+		width: 960px;
+		transition: all linear 0.3s;
+		position: absolute;
+	}
+	
+	& .lk-preview-content {
+		height: 578px;
+	}
+}
+
+.animate-show-hide.ng-hide {
+  opacity: 0;
+}
+
+.ege-trial-block {
+    background: #feecdd;
+    padding: 60px 0 0;
+    & p {
+	    text-align: center;
+	    margin-bottom: $margin-huge;
+    }
+    & .btn-wrapper {
+	    margin-bottom: 80px;
+    }
+    & img {
+	    width: 70%;
+	    top: 4px;
+		position: relative;
+    }
+    & .btn-small {
+	    border-color: #9c561d;
+	    color: #9c561d;
+    }
+}
+
+.results-showcase-block {
+    padding: 40px 0 100px;
 }
