@@ -22,6 +22,7 @@ body {
   font-weight: $font-regular;
   font-size: 16px;
   -webkit-overflow-scrolling: touch !important;
+  overflow-y: auto;
   &.modal-open {
         overflow: hidden !important;
         position: fixed;
@@ -852,6 +853,44 @@ button[disabled] {
 	}
 }
 
+.three-items-block-new {
+	padding-top: 60px !important;
+	& > div { 
+        line-height: $line-height;
+        margin: 0 auto;
+        margin-bottom: 32px;
+        & .image-link {
+	        align-items: flex-start;
+	        & b {
+		        font-size: 21px;
+	        }
+        }
+	}
+	& img {
+		height: 80px;
+		margin-right: 20px;
+	}
+}
+
+.for-who-block {
+	padding-top: 60px !important;
+	padding-bottom: 0px !important;
+	&__items {
+		padding-top: 20px !important;
+		& > div {
+			text-align: center;
+	        line-height: $line-height;
+	        width: 70%;
+	        margin: 0 auto;
+	        margin-bottom: 32px;
+		}
+		& img {
+			width: 100%;
+			height: 150px;
+		}
+	}
+}
+
 .subject-icons-block {
 	line-height: 25px;
     & img {
@@ -983,8 +1022,8 @@ button[disabled] {
 .price-digit-block {
 	text-align: center;
 	& b {
-		font-size: 45px;
-		font-weight: 400;
+		font-size: 25px;
+		font-weight: 700;
 	}
 }
 
@@ -1109,7 +1148,6 @@ button[disabled] {
 
 .plan-includes-block {
 	margin-top: 60px;
-	margin-bottom: 40px;
     line-height: $line-height;
     & > div {
         margin-bottom: $margin-small;
@@ -1118,7 +1156,13 @@ button[disabled] {
     & .image-link {
 	    & img {
 		    height: 18px !important;
+		    top: 3px;
+		    position: relative;
 	    }
+	    & b {
+		    display: block;
+	    }
+	    margin-bottom: 30px;
     }
 }
 
@@ -1264,7 +1308,8 @@ h1 {
 }
 
 .block-title {
-	font-size: 1.8em;
+	font-size: 24px;
+	line-height: normal;
 }
 
 .student-review-name, .review-signature {
@@ -1300,13 +1345,33 @@ h1 {
 		width: 100%;
 	}
 	& center {
-		margin-bottom: 40px;
+		margin-bottom: 20px;
 	}
 	& p {
 		padding-bottom: 25px;
+		margin-bottom: 20px;
 	}
 }
 
 .swiper-pagination-bullet-active {
 	background: #898989 !important;
+}
+
+.external-page {
+	& .ege-trial-block {
+		margin-bottom: 40px !important;
+	}
+}
+
+.page-tutors-af {
+	& .tutors-af-block {
+		border-bottom: 1px solid rgba($text-grey-light, .2);
+		padding-bottom: 40px;
+		margin-bottom: 20px;
+	}
+	& .tutors-block {
+		& .button-green-small {
+			display: none;
+		}
+	}
 }

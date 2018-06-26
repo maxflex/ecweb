@@ -144,6 +144,7 @@ a, .link-like {
   min-height: 100%;
   height: auto !important;
   height: 100%;
+  overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -530,8 +531,8 @@ p.last {
 .student-review {
     display: flex;
     line-height: $line-height-main + px;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
+	margin-bottom: 25px;
+    padding-bottom: 25px;
     border-bottom: 1px solid lighten($text-grey-light, 10);
     &-last {
         padding-bottom: 0;
@@ -931,13 +932,14 @@ p.last {
 		background: rgba(black, .5);
 	}
 	& .header-new-info {
-		margin: 120px 0;
-		width: 600px;
+		padding: 120px 0; 
+		width: 600px; 
 		& h1 {
 			font-family: 'Bad Script', cursive;
 			font-weight: normal !important;
 			font-size: 60px;
 			padding: 0;
+			white-space: nowrap;
 		}
         & div {
             line-height: $line-height;
@@ -964,6 +966,7 @@ p.last {
 		margin-bottom: 30px;
 		& img {
 			height: $circle-image;
+			width: $circle-image; 
 		}
 		& .circle-desc {
 		   width: 75%;
@@ -1039,6 +1042,32 @@ p.last {
 	}
 	& img {
 		width: 120px;
+		height: 120px;
+	}
+}
+
+.for-who-block {
+	&__items {
+		display: flex;
+		justify-content: center;
+	    width: 100%;
+	    margin: 0 auto;
+	    padding: 70px 0 !important;
+		& > div {
+			text-align: center;
+	        line-height: $line-height;
+	        flex: 1;
+			&:nth-child(2n) {
+				margin: 0 75px;
+			}
+			& > div {
+				text-align: left;
+			}
+		}
+		& img {
+			height: 150px;
+			margin-bottom: 5px;
+		}
 	}
 }
 
@@ -1120,6 +1149,46 @@ p.last {
 .plan-includes-block {
     & .image-link {
         margin-bottom: $margin-small;
+    }
+}
+
+.plan-includes-block-new {
+	&__item-header {
+		margin-bottom: 20px;
+	}
+    &__items {
+	    margin-top: 20px;
+	    display: flex;
+	    flex-wrap: wrap;
+	    & > div {
+		    width: 269px;
+		    &:nth-child(3n - 1) {
+				margin: 0 75px;
+		    }
+// 			width: calc(50% - 140px);
+// 			padding: 0 70px;
+/*
+			&:nth-child(odd) {
+				padding-left: 100px;
+				padding-right: 40px;
+			}
+			&:nth-child(even) {
+				padding-left: 40px;
+				padding-right: 100px;
+			}
+*/
+			margin-bottom: 50px;
+		    & b {
+			    font-size: 18px;
+			    display: block;
+			    margin-bottom: 2px;
+			    &.text-orange {
+				    font-size: 12px;
+				    color: #f05229;
+				    font-weight: 700;
+			    }
+		    }
+	    }
     }
 }
 
@@ -1334,8 +1403,8 @@ p.last {
 	padding: 50px 0;
 	text-align: center;
 	& b {
-		font-size: 45px;
-		font-weight: 400;
+		font-size: 36px;
+		font-weight: 700;
 	}
 }
 
@@ -1343,29 +1412,42 @@ p.last {
 	.full-width-wrapper:not(.banner-block) {
 		margin-left: -20px !important;
 	}
+	.banner-block.right {
+		margin-left: -20px !important;
+	}
 }
 
+
+$banner-block-gradient-color: #f2f2f2;
+
+.banner-block-full-width-wrapper {
+	background: $banner-block-gradient-color;
+}
 .banner-block {
-//     background: url('https://lk.ege-repetitor.ru/img/tutors/14_original.jpg?ver=1');
-	background-position: -230px center;
-	background-repeat: no-repeat;
-    background-size: cover;
+	$gradient-offset: 230px;
     height: 600px;
     margin-top: -33px;
-    width: calc(100vw - calc((100vw - 960px) / 2));
+    width: calc(100vw - ((100vw - 960px) / 2));
     position: relative;
     margin-bottom: 100px;
+    &__image {
+		background-repeat: no-repeat;
+	    background-size: cover;
+	    background-color: white;
+	    height: 100%;
+		top: 0;
+		position: absolute;
+		width: calc(100% - #{$gradient-offset});
+    }
     & .image-link {
 	    position: absolute;
 	    z-index: 90;
 	    top: 14px;
 	    font-size: 12px;
 	    & img {
-		    height: 9px;
-/*
+		    height: 7px;
 			top: 1px;
 			position: relative;
-*/
 		    margin-right: 5px;
 	    }
     }
@@ -1385,13 +1467,16 @@ p.last {
 			margin-left: -25%;
         }
         & .quote {
-            font-size: 20px;
+            font-size: 18px;
             margin: 80px 0;
+            font-style: italic;
         }
         & .tutor-title {
-            line-height: $line-height;
+            font-size: 10px;
             & b {
+	            font-size: 14px;
                 display: block;
+                margin-bottom: 5px;
             }
         }
         & > div {
@@ -1399,7 +1484,7 @@ p.last {
         }
     }
     & .gradient {
-        background: linear-gradient(to left, white 230px, transparent 95%);
+        background: linear-gradient(to left, $banner-block-gradient-color $gradient-offset, rgba($banner-block-gradient-color, 0) 95%);
         overflow: hidden;
         position: absolute;
         top: 0;
@@ -1419,10 +1504,24 @@ p.last {
 				margin-left: 0;
 			}
 		}
+		& .banner-block__image {
+			right: 0;
+			background-position: center center;
+		}
 		& .gradient { 
 			left: 0;
 			right: auto;
-			background: linear-gradient(to right, white 230px, transparent 95%);
+			background: linear-gradient(to right, $banner-block-gradient-color $gradient-offset, rgba($banner-block-gradient-color, 0) 95%);
+		}
+    }
+    &.right {
+	    min-width: 980px !important;
+		& .banner-block__image {
+			left: 0;
+			background-position: center center;
+		}
+		& .image-link {
+			right: 0px;
 		}
     }
 }
@@ -1664,7 +1763,7 @@ h1 {
 	    margin-bottom: 80px;
     }
     & img {
-	    width: 70%;
+	    width: 60%;
 	    top: 4px;
 		position: relative;
     }
@@ -1676,4 +1775,50 @@ h1 {
 
 .results-showcase-block {
     padding: 40px 0 100px;
+}
+
+.external-page {
+	& .ege-trial-block {
+		margin-top: 40px !important;
+		margin-bottom: 40px !important;
+	}
+	& .external-map-wrapper {
+		position: relative;
+		& #map {
+			width: 100% !important;	
+		}
+		& .address-more {
+			& li {
+				&:first-of-type, &:last-of-type {
+					display: none;
+				}
+			}
+		}
+		& .map-overlay {
+			box-shadow: 0 0 15px rgba(black, .5); 
+			position: absolute;
+		    z-index: 99;
+		    background: white;
+		    padding: 20px;
+		    top: 100px;
+		    left: 30px;
+		}	
+	}
+}
+
+.page-tutors-af {
+	& .tutors-block {
+		padding-bottom: 40px;
+		& .btn-small {
+			display: none;
+		}
+	}
+}
+
+.tutors-af-block {
+	border-bottom: 1px solid rgba($text-grey-light, .2);
+	width: 80%;
+	margin: 0 auto; 
+	margin-bottom: 20px;
+	padding-bottom: 60px;
 }

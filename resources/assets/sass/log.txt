@@ -1,6 +1,6 @@
 /home/ecweb
-[04:03:50] Using gulpfile /home/ecweb/gulpfile.js
-[04:03:50] Starting 'sass'...
+[14:40:53] Using gulpfile /home/ecweb/gulpfile.js
+[14:40:53] Starting 'sass'...
 ┌────────────┬──────────────────────────┬────────────────────────────────────────────┬────────────────────────┐
 │ Task       │ Summary                  │ Source Files                               │ Destination            │
 ├────────────┼──────────────────────────┼────────────────────────────────────────────┼────────────────────────┤
@@ -19,4 +19,9 @@
 │            │ 4. Writing Source Maps   │                                          │                       │
 │            │ 5. Saving to Destination │                                          │                       │
 └────────────┴──────────────────────────┴──────────────────────────────────────────┴───────────────────────┘
-[04:03:51] Finished 'sass' after 604 ms
+[14:40:53] Finished 'sass' after 395 ms
+internal/streams/legacy.js:59
+      throw er; // Unhandled stream error in pipe.
+      ^
+
+Error: EACCES: permission denied, open '/home/ecweb/public/css/desktop.css.map'

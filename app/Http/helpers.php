@@ -273,5 +273,6 @@
         if (App::environment('local')) {
             return true;
         }
-        return array_shift((explode('.', @$_SERVER['HTTP_HOST']))) === 'test';
+        $arr = explode('.', @$_SERVER['HTTP_HOST']);
+        return array_shift($arr) === 'test';
     }

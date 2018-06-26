@@ -22,14 +22,11 @@ function Tooltip(options) {
     this.setMap(this.map_);
 	var me = this;
 	// Show tooltip on mouseover event.
-	google.maps.event.addListener(me.marker_, 'mouseover', function() {
-		me.show();
-	});
-	// Hide tooltip on mouseout event.
-	google.maps.event.addListener(me.marker_, 'mouseout', function() {
-		me.hide();
+	google.maps.event.addListener(me.marker_, 'click', function() {
+		me.toggle();
 	});
 }
+
 // Now we extend google.maps.OverlayView()
 Tooltip.prototype = new google.maps.OverlayView();
 
@@ -92,4 +89,12 @@ Tooltip.prototype.show = function() {
     if (this.div_) {
       this.div_.style.visibility = "visible";
     }
+}
+
+Tooltip.prototype.toggle = function() {
+	if (this.div_.style.visibility == "visible") {
+		this.hide();
+	} else {
+		this.show();
+	}
 }
