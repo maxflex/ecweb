@@ -902,7 +902,7 @@ p.last {
     & span {
 		color: black;
 		font-weight: $font-bold;
-//	    background: #18658a; 
+//	    background: #18658a;
 //	    padding: 8px 14px;
 	    border-radius: 15px;
 	    text-transform: uppercase;
@@ -932,8 +932,8 @@ p.last {
 		background: rgba(black, .5);
 	}
 	& .header-new-info {
-		padding: 120px 0; 
-		width: 600px; 
+		padding: 120px 0;
+		width: 600px;
 		& h1 {
 			font-family: 'Bad Script', cursive;
 			font-weight: normal !important;
@@ -966,7 +966,7 @@ p.last {
 		margin-bottom: 30px;
 		& img {
 			height: $circle-image;
-			width: $circle-image; 
+			width: $circle-image;
 		}
 		& .circle-desc {
 		   width: 75%;
@@ -1344,17 +1344,17 @@ p.last {
 	padding-bottom: 80px;
     & .tutors-block-items {
         display: flex;
-        justify-content: center;
+        // justify-content: center;
         flex-wrap: wrap;
         & > div {
-            width: 25%;
+            width: 240px;
             text-align: center;
             & .tutors-item-img {
                 width: auto !important;
                 float: none !important;
             }
             & .in-between {
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 700;
             }
             & .line-height {
@@ -1508,7 +1508,7 @@ $banner-block-gradient-color: #f2f2f2;
 			right: 0;
 			background-position: center center;
 		}
-		& .gradient { 
+		& .gradient {
 			left: 0;
 			right: auto;
 			background: linear-gradient(to right, $banner-block-gradient-color $gradient-offset, rgba($banner-block-gradient-color, 0) 95%);
@@ -1532,7 +1532,7 @@ $banner-block-gradient-color: #f2f2f2;
         & img {
             width: 40px;
         }
-        & > h1 { 
+        & > h1 {
             font-size: 20px;
         }
         & > div {
@@ -1660,7 +1660,7 @@ $banner-block-gradient-color: #f2f2f2;
 
 .university-page {
 	& .banner-block {
-		& .quote { 
+		& .quote {
 			font-size: 14px;
 			line-height: $line-height;
 		}
@@ -1726,9 +1726,9 @@ h1 {
 				width: 142px;
 				left: 428px;
 			}
-		}	
+		}
 	}
-	
+
 	& img {
 		height: 450px;
 	}
@@ -1742,7 +1742,7 @@ h1 {
 		transition: all linear 0.3s;
 		position: absolute;
 	}
-	
+
 	& .lk-preview-content {
 		height: 578px;
 	}
@@ -1785,7 +1785,7 @@ h1 {
 	& .external-map-wrapper {
 		position: relative;
 		& #map {
-			width: 100% !important;	
+			width: 100% !important;
 		}
 		& .address-more {
 			& li {
@@ -1795,14 +1795,14 @@ h1 {
 			}
 		}
 		& .map-overlay {
-			box-shadow: 0 0 15px rgba(black, .5); 
+			box-shadow: 0 0 15px rgba(black, .5);
 			position: absolute;
 		    z-index: 99;
 		    background: white;
 		    padding: 20px;
 		    top: 100px;
 		    left: 30px;
-		}	
+		}
 	}
 }
 
@@ -1813,12 +1813,15 @@ h1 {
 			display: none;
 		}
 	}
+    & .tutors-block-title {
+        font-size: 48px;
+    }
 }
 
 .tutors-af-block {
 	border-bottom: 1px solid rgba($text-grey-light, .2);
 	width: 80%;
-	margin: 0 auto; 
+	margin: 0 auto;
 	margin-bottom: 20px;
 	padding-bottom: 60px;
 }

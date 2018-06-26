@@ -6135,12 +6135,11 @@ a[href^="https://www.google.com/maps"] {
 
 .tutors-block .tutors-block-items {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
 }
 
 .tutors-block .tutors-block-items > div {
-  width: 25%;
+  width: 240px;
   text-align: center;
   margin-bottom: 40px;
 }
@@ -6151,7 +6150,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .tutors-block .tutors-block-items > div .in-between {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
 }
 
@@ -6644,6 +6643,10 @@ h1, .landingnew-page .common h3 {
 
 .page-tutors-af .tutors-block .btn-small {
   display: none;
+}
+
+.page-tutors-af .tutors-block-title {
+  font-size: 48px;
 }
 
 .tutors-af-block {

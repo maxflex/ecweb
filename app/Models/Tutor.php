@@ -47,7 +47,7 @@ class Tutor extends Service\Model
     {
         return $this->hasOne(PlannedAccount::class);
     }
-    
+
 	public function getPhotoDescAttribute($value)
 	{
 		return nl2br($value);
@@ -182,8 +182,10 @@ class Tutor extends Service\Model
             $query->whereRaw("FIND_IN_SET($grade, grades)");
         }
 
-        return $query->light()
-                     ->take($limit ?: static::SHORT_LIST_COUNT)
-                     ->get();
+        if ($limit) {
+            $query->take($limit);
+        }
+
+        return $query->light()->get();
     }
 }

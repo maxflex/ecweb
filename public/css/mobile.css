@@ -7511,6 +7511,10 @@ h1 {
   display: none;
 }
 
+.page-tutors-af .tutors-block-title {
+  font-size: 32px;
+}
+
 /* Components */
 .header {
   background: #0c4e69;
