@@ -855,7 +855,7 @@ button[disabled] {
 
 .three-items-block-new {
 	padding-top: 60px !important;
-	& > div { 
+	& > div {
         line-height: $line-height;
         margin: 0 auto;
         margin-bottom: 32px;
@@ -950,8 +950,8 @@ button[disabled] {
 	}
 }
 
-& .lk-preview-block-wrap {
-    width: 80%; 
+.lk-preview-block-wrap {
+    width: 80%;
 	margin: 0 auto;
 }
 
@@ -1188,7 +1188,7 @@ button[disabled] {
     }
     & h1 {
 	    font-weight: 800;
-	    text-align: left; 
+	    text-align: left;
 	    font-size: 1.9em;
     }
     & .full-width {
@@ -1196,7 +1196,7 @@ button[disabled] {
     }
 }
 
-.full-width-inside-block { 
+.full-width-inside-block {
     margin: 0 -2.6em;
 }
 
@@ -1288,7 +1288,7 @@ button[disabled] {
 
 .back-link {
 	font-size: 12px;
-	top: -7px; 
+	top: -7px;
     position: relative;
     margin-bottom: 18px;
 	& img {
