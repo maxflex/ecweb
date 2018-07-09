@@ -24,7 +24,7 @@ class Tutor extends Service\Model
 
     const SHORT_LIST_COUNT = 3;
 
-    protected $commaSeparated = ['subjects', 'grades', 'branches'];
+    protected $commaSeparated = ['subjects_ec', 'grades', 'branches'];
 
     protected $multiLine = ['public_desc', 'education', 'achievements', 'experience', 'preferences'];
 
@@ -57,13 +57,13 @@ class Tutor extends Service\Model
     {
         return implode(', ', array_map(function($subject_id) {
             return Cacher::getSubjectName($subject_id, 'dative');
-        }, $this->subjects));
+        }, $this->subjects_ec));
     }
 
     public function getSubjectsStringCommonAttribute()
     {
         $subjects = [];
-        foreach($this->subjects as $subject_id) {
+        foreach($this->subjects_ec as $subject_id) {
             $name = Cacher::getSubjectName($subject_id, 'name');
             if (count($this->types)) {
                 $name .= " ({$this->types})";
@@ -92,7 +92,7 @@ class Tutor extends Service\Model
 
     public function scopeWhereSubject($query, $subject_id)
     {
-        return $query->whereRaw("FIND_IN_SET($subject_id, subjects)");
+        return $query->whereRaw("FIND_IN_SET($subject_id, subjects_ec)");
     }
 
     /**
@@ -123,7 +123,7 @@ class Tutor extends Service\Model
             'first_name',
             'middle_name',
             'last_name',
-            'subjects',
+            'subjects_ec',
             'public_desc',
             'photo_extension',
             'start_career_year',
@@ -159,7 +159,7 @@ class Tutor extends Service\Model
             'first_name',
             'middle_name',
             'last_name',
-            'subjects',
+            'subjects_ec',
             'photo_extension',
             'start_career_year',
             'grades',
