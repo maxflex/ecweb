@@ -6234,7 +6234,7 @@ a[href^="https://www.google.com/maps"] {
 
 .banner-block .image-link {
   position: absolute;
-  z-index: 90;
+  z-index: 12;
   top: 14px;
   font-size: 12px;
 }
@@ -6850,7 +6850,7 @@ h1, .landingnew-page .common h3 {
 .header-menu-wrap {
   background: #3a6699;
   position: relative;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
 }
 
 .header-menu-wrap__img {

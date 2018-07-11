@@ -1442,7 +1442,7 @@ $banner-block-gradient-color: #f2f2f2;
     }
     & .image-link {
 	    position: absolute;
-	    z-index: 90;
+	    z-index: 12;
 	    top: 14px;
 	    font-size: 12px;
 	    & img {
@@ -1485,11 +1485,11 @@ $banner-block-gradient-color: #f2f2f2;
 	            line-height: $line-height-small;
             }
         }
-        
+
 	    & .button-green-large {
             margin-top: 80px;
         }
-        
+
         & > div {
 	        width: 515px;
         }
@@ -1853,9 +1853,9 @@ h1 {
 }
 
 .address-block {
-	display: inline-block; 
-	width: 100%; 
-	padding: 60px 0 20px; 
+	display: inline-block;
+	width: 100%;
+	padding: 60px 0 20px;
 	margin: 0;
 	& .block-title {
 		text-align: left;
