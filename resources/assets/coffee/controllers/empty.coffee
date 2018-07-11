@@ -16,12 +16,13 @@ angular
             # gallery methods
             $scope.gallery = {}
 
-        $scope.initReviews = (count, grade, subject)->
+        $scope.initReviews = (count, grade, subject, exclude_id = null)->
             $scope.search =
                 page: 1
                 count: count
                 grade: grade
                 subject: subject
+                exclude_id: exclude_id
                 ids: []
             $scope.reviews = []
             $scope.has_more_pages = true

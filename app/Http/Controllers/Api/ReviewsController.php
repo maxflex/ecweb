@@ -46,6 +46,10 @@ class ReviewsController extends Controller
             $query->where('teacher_reviews.grade', '=', $request->grade);
         }
 
+        if ($request->exclude_id) {
+            $query->where('teacher_reviews.id', '<>', $request->exclude_id);
+        }
+
         if ($request->subject) {
             $subject_id = Factory::getSubjectId($request->subject);
             $query->where('teacher_reviews.id_subject', '=', $subject_id);
