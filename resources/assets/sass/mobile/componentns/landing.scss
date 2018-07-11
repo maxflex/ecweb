@@ -13,3 +13,39 @@
     }
   }
 }
+
+.landing-af {
+	padding: 0;
+	&-container {
+		padding: 3em 1.2em;
+	     &:nth-child(odd) {
+			background-color: #eefff1;
+		}
+		&:nth-child(even) {
+			background-color: #c1ebf1;
+		}
+	    h2 {
+			font-weight: 700;
+           font-size: 22px;
+           padding: 1.5em 0;
+		   font-family: 'Roboto Slab', serif;
+	    }
+	    .list-main {
+	      padding-bottom: 0;
+	      & li {
+		      padding-bottom: 0.3em;
+	      }
+	    }
+	    & img {
+		    width: 70%;
+
+	    }
+	    & .landing-price {
+			padding: 1.5em 0 2em;
+			&-digit {
+				font-size: 22px;
+				font-family: 'Roboto Slab', serif;
+			}
+		}
+	}
+}

@@ -1348,7 +1348,7 @@ p.last {
         flex-wrap: wrap;
         & > div {
             width: 240px;
-            text-align: center;
+//             text-align: center;
             & .tutors-item-img {
                 width: auto !important;
                 float: none !important;
@@ -1364,7 +1364,7 @@ p.last {
             }
             margin-bottom: $margin-huge;
             & > div {
-	            padding: 0 20px;
+	            padding-right: 40px;
             }
         }
     }
@@ -1425,7 +1425,8 @@ $banner-block-gradient-color: #f2f2f2;
 }
 .banner-block {
 	$gradient-offset: 230px;
-    height: 600px;
+    height: calc(100vw * 0.39);
+    min-height: 600px;
     margin-top: -33px;
     width: calc(100vw - ((100vw - 960px) / 2));
     position: relative;
@@ -1465,20 +1466,30 @@ $banner-block-gradient-color: #f2f2f2;
 			font-size: 45px;
 			width: 125%;
 			margin-left: -25%;
+			padding-bottom: 140px;
         }
         & .quote {
-            font-size: 18px;
-            margin: 80px 0;
+            font-size: 16px;
             font-style: italic;
         }
         & .tutor-title {
-            font-size: 10px;
+	        margin-top: 18px;
+            font-style: italic;
             & b {
-	            font-size: 14px;
+	            font-size: 16px !important;
                 display: block;
                 margin-bottom: 5px;
             }
+            & div {
+	            font-size: 12px !important;
+	            line-height: $line-height-small;
+            }
         }
+        
+	    & .button-green-large {
+            margin-top: 80px;
+        }
+        
         & > div {
 	        width: 515px;
         }
@@ -1531,6 +1542,7 @@ $banner-block-gradient-color: #f2f2f2;
     & > div {
         & img {
             width: 40px;
+            height: 60px;
         }
         & > h1 {
             font-size: 20px;
@@ -1664,6 +1676,11 @@ $banner-block-gradient-color: #f2f2f2;
 			font-size: 14px;
 			line-height: $line-height;
 		}
+		& .info {
+			& h1 {
+				padding-bottom: 80px;
+			}
+		}
 	}
 }
 
@@ -1753,8 +1770,11 @@ h1 {
 }
 
 .ege-trial-block {
-    background: #feecdd;
+    background: linear-gradient(to bottom, #feecdd 94%, black 140%);
     padding: 60px 0 0;
+    & .block-title, & p {
+	    text-align: left !important;
+    }
     & p {
 	    text-align: center;
 	    margin-bottom: $margin-huge;
@@ -1815,13 +1835,87 @@ h1 {
 	}
     & .tutors-block-title {
         font-size: 48px;
+        text-align: left;
     }
 }
 
 .tutors-af-block {
-	border-bottom: 1px solid rgba($text-grey-light, .2);
-	width: 80%;
 	margin: 0 auto;
-	margin-bottom: 20px;
-	padding-bottom: 60px;
+	padding-bottom: 50px;
+	padding-top: 10px;
+	& h1 {
+		text-align: left;
+	}
+}
+
+.tutors-block-title {
+	text-align: left;
+}
+
+.address-block {
+	display: inline-block; 
+	width: 100%; 
+	padding: 60px 0 20px; 
+	margin: 0;
+	& .block-title {
+		text-align: left;
+	}
+}
+
+.seo-text-block {
+	& .block-title {
+		text-align: left;
+	}
+}
+
+.landing-body-af {
+	position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   & > div {
+	   position: relative;
+	   width: 100%;
+	   height: 100%;
+	   z-index: 1;
+       background: white;
+       border-radius: 0;
+       // padding: 20px;
+       & .landing-options {
+           display: flex;
+           height: 100%;
+           & > div {
+	           padding: 80px;
+	           flex: 1;
+	           display: flex;
+	           align-items: center;
+	           justify-content: center;
+               & img {
+                   height: 220px;
+               }
+               & h2 {
+                   padding: 30px 0;
+                   font-weight: 700;
+                   font-size: 22px;
+                   font-family: 'Roboto Slab', serif;
+               }
+               & a {
+
+               }
+               &:nth-child(odd) {
+					background-color: #eefff1;
+				}
+				&:nth-child(even) {
+					background-color: #c1ebf1;
+				}
+				.landing-price {
+					padding: 30px 0 40px;
+					&-digit {
+						font-size: 22px;
+						font-family: 'Roboto Slab', serif;
+					}
+				}
+           }
+       }
+   }
 }
