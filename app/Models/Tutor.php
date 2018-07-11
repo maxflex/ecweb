@@ -170,7 +170,8 @@ class Tutor extends Service\Model
 
     public static function bySubject($subject_eng, $limit = false, $grade = false)
     {
-        $query = static::query();
+        $query = static::where('auto_publish_disabled', 0);
+
         if ($subject_eng != 'any') {
             $subject_id = Service\Factory::getSubjectId($subject_eng);
             $query->whereSubject($subject_id);
