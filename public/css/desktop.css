@@ -6234,7 +6234,7 @@ a[href^="https://www.google.com/maps"] {
 
 .banner-block .image-link {
   position: absolute;
-  z-index: 12;
+  z-index: 11;
   top: 14px;
   font-size: 12px;
 }
