@@ -122,12 +122,16 @@
                         break;
                     case 'tutors':
                         // поиск по ID
-                        if (strpos($args[0], ',') !== false) {
-                            $replacement = Tutor::light()
-                                ->whereIn('id', explode(',', $args[0]))
-                                ->orderBy(DB::raw('FIELD(id, ' . $args[0] . ')'))
-                                ->get()
-                                ->toJson();
+                        if (strpos($args[0], ',') !== false || is_numeric($args[0])) {
+                            $query = Tutor::light();
+                            if (is_numeric($args[0])) {
+                                $query->whereId($args[0]);
+                            } else {
+                                $query
+                                    ->whereIn('id', explode(',', $args[0]))
+                                    ->orderBy(DB::raw('FIELD(id, ' . $args[0] . ')'));
+                            }
+                            $replacement = $query->get()->toJson();
                         } else if ($args[0] == 'reviews') {
                             $replacement = Cache::remember(cacheKey('review-tutors'), 60 * 24, function() {
                                 return Tutor::light()->whereIn('id', Review::pluck('id_teacher')->unique())->orderBy(DB::raw('last_name, first_name, middle_name'))->get();
