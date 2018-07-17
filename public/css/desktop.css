@@ -6842,8 +6842,9 @@ h1, .landingnew-page .common h3 {
   width: 960px;
   position: relative;
   z-index: 99;
-  left: -14px;
   line-height: inherit;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header-menu-wrap {
