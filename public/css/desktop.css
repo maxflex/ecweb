@@ -6839,12 +6839,14 @@ h1, .landingnew-page .common h3 {
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  width: 960px;
+  width: 974px;
   position: relative;
   z-index: 99;
+  left: -7px;
   line-height: inherit;
   display: flex;
   justify-content: space-between;
+  white-space: nowrap;
 }
 
 .header-menu-wrap {

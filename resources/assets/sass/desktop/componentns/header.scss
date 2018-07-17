@@ -57,14 +57,15 @@
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    width: $screen-width;
+    width: 974px;
     position: relative;
     z-index: 99;
     // overflow: hidden;
-    // left: -14px;
+    left: -7px;
     line-height: inherit;
     display: flex;
     justify-content: space-between;
+    white-space: nowrap;
     &-wrap {
       background: #3a6699;
       position: relative;
