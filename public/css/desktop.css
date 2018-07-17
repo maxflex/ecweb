@@ -6237,12 +6237,11 @@ a[href^="https://www.google.com/maps"] {
   z-index: 11;
   top: 14px;
   font-size: 12px;
+  font-weight: 600;
 }
 
 .banner-block .image-link img {
-  height: 7px;
-  top: 1px;
-  position: relative;
+  height: 16px;
   margin-right: 5px;
 }
 
@@ -6889,7 +6888,7 @@ h1, .landingnew-page .common h3 {
   float: left;
   padding: 0 15px;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .header-menu-item__active {
