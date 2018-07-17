@@ -5208,7 +5208,6 @@ a[href^="https://www.google.com/maps"] {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  width: 250px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
   z-index: 3;
   left: 0;
@@ -6509,10 +6508,6 @@ h1, .landingnew-page .common h3 {
 
 .student-review-name, .review-signature {
   font-weight: 600 !important;
-}
-
-.header-menu-item {
-  padding: 0 14px !important;
 }
 
 .header-menu-item a {
