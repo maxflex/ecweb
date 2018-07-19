@@ -6887,6 +6887,7 @@ h1, .landingnew-page .common h3 {
   padding: 0 15px;
   font-size: 14px;
   font-weight: 600;
+  flex: 1;
 }
 
 .header-menu-item__active {
