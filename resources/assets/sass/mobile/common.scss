@@ -762,7 +762,7 @@ button[disabled] {
     padding-top: 10px;
     padding-bottom: 10px;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 32px;
     & h3 {
 	    padding: 0;
         font-weight: $font-bold;
@@ -951,7 +951,7 @@ button[disabled] {
 }
 
 .lk-preview-block-wrap {
-    width: 80%;
+//     width: 80%;
 	margin: 0 auto;
 }
 
@@ -959,15 +959,13 @@ button[disabled] {
     text-align: center;
     padding: 40px 0 30px;
     & img {
-        width: 100%;
-//         margin: 0 auto;
+        width: 80%;
+        margin: 0 auto;
         margin-bottom: 2em;
     }
     & p {
-		color: $text-grey;
-		font-size: 12px;
-		line-height: $line-height-small !important;
         margin: 0;
+        text-align: left;
     }
     & .btn-more-info {
         margin-top: 1.4em;
@@ -994,6 +992,7 @@ button[disabled] {
 		& > div {
 			width: 46%;
 			padding: 0 4% 0 0;
+			margin-bottom: 20px;
 // 			text-align: center;
 			& .line-height {
 				margin: $margin-small 0;
@@ -1001,8 +1000,11 @@ button[disabled] {
 				font-size: 12px;
 				line-height: $line-height-small;
 			}
-			& b {
+			& .tutor-name-link {
 				line-height: $line-height;
+				font-weight: 700;
+				text-decoration: none;
+				color: black;
 			}
 		}
 	}
@@ -1171,22 +1173,30 @@ button[disabled] {
 
 .banner-block {
 	margin-bottom: 20px;
+    font-style: italic;
+	& .h1-top {
+		font-style: normal;
+	}
     & img {
         width: 100%;
         margin-bottom: .9em;
     }
     & .quote {
         margin-bottom: .9em;
-        padding-right: 10%;
+        padding-left: 10%;
+        text-align: right;
         line-height: $line-height;
-        font-style: italic;
     }
     & .tutor-title {
         padding-left: 10%;
         text-align: right;
-        line-height: $line-height;
+        line-height: $line-height-small;
+        font-size: 12px;
         & b {
+            line-height: $line-height;
+	        font-size: 14px;
             display: block;
+            margin-bottom: 4px;
         }
     }
     & h1 {
@@ -1294,8 +1304,9 @@ button[disabled] {
 	top: -7px;
     position: relative;
     margin-bottom: 18px;
+    font-weight: 600;
 	& img {
-	    height: 9px;
+	    height: 13px;
 	    margin-right: 5px;
 	    position: relative;
 	    top: 1px;

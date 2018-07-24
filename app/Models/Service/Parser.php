@@ -120,6 +120,11 @@
                     case 'is':
                         $replacement = isTestSubdomain() ? 'true' : 'false';
                         break;
+                    case 'phonee':
+                    	$key = 'ab-test-facelift';
+                        $val = isset($GLOBALS[$key]) ? $GLOBALS[$key] : @$_COOKIE[$key];
+                    	$replacement = $val == 1 ? '+7 (495) 488-68-85' : '+7 (495) 488-68-82';
+                    	break;
                     case 'tutors':
                         // поиск по ID
                         if (strpos($args[0], ',') !== false || is_numeric($args[0])) {

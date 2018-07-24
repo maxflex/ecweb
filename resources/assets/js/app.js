@@ -1525,7 +1525,7 @@
         step: this.cookie.step,
         google_id: googleClientId(),
         yandex_id: yaCounter8061652.getClientID(),
-        mobile: (typeof isMobile === 'undefined') ? '0' : '1'
+        mobile: typeof isMobile === 'undefined' ? '0' : '1'
       };
       $.each(additional, (function(_this) {
         return function(key, value) {
