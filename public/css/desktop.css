@@ -6757,26 +6757,27 @@ h1, .landingnew-page .common h3 {
   position: absolute;
   background: white;
   top: 0;
-  width: 446px;
+  width: 422px;
   z-index: 99;
-  margin-left: 190px;
+  margin-left: 181px;
   padding: 10px;
   border-radius: 5px;
   top: -32px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  -webkit-filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.5));
 }
 
 .select-subject-overlay img {
   width: 30px;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 5px;
 }
 
 .select-subject-overlay > div {
   display: inline-block;
   text-align: center;
   width: 116px;
-  padding: 15px;
+  padding: 25px 11px;
 }
 
 .select-subject-overlay > div a {
@@ -6792,11 +6793,32 @@ h1, .landingnew-page .common h3 {
   top: 40%;
   width: 0;
   height: 0;
-  border: 20px solid transparent;
+  border: 10px solid transparent;
   border-right-color: white;
   border-left: 0;
-  margin-top: -100px;
-  margin-left: -20px;
+  margin-top: -129px;
+  margin-left: -10px;
+}
+
+.right .select-subject-overlay {
+  margin-right: 277px;
+  margin-left: auto;
+  right: 0;
+}
+
+.right .select-subject-overlay:after {
+  content: '';
+  position: absolute;
+  left: auto;
+  right: 0;
+  top: 40%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: white;
+  border-right: 0;
+  margin-top: -129px;
+  margin-right: -10px;
 }
 
 .select-subject-overlay-close {
