@@ -7394,7 +7394,6 @@ button[disabled] {
 
 .reviews-block-full .review-text {
   margin-bottom: .9em;
-  font-style: italic;
 }
 
 .reviews-block-full h1 {
@@ -7658,7 +7657,7 @@ h1 {
 }
 
 .header__wrap-img.university:before {
-  background-color: rgba(0, 0, 0, 0.4);
+  background: rgba(12, 78, 105, 0.75);
   height: 88px;
 }
 

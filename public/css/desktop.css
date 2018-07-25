@@ -6405,7 +6405,6 @@ a[href^="https://www.google.com/maps"] {
 
 .one-review-block .review-text {
   line-height: 21px;
-  font-style: italic;
   padding-right: 40px;
 }
 
@@ -6449,7 +6448,6 @@ a[href^="https://www.google.com/maps"] {
 
 .blue-review-block .review-text {
   line-height: 21px;
-  font-style: italic;
 }
 
 .blue-review-block h1, .blue-review-block .landingnew-page .common h3, .landingnew-page .common .blue-review-block h3 {
