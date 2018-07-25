@@ -66,9 +66,13 @@
      * Возвратить чистый номер телефона.
      *
      */
-    function cleanNumber($number, $add_seven = false)
+    function cleanNumber($number)
     {
-        return ($add_seven ? '7' : '') . preg_replace("/[^0-9]/", "", $number);
+        $number = preg_replace("/[^0-9]/", "", $number);
+        if ($number && $number[0] != '7') {
+            $number = '7' . $number;
+        }
+        return $number;
     }
 
     /**
@@ -275,4 +279,17 @@
         }
         $arr = explode('.', @$_SERVER['HTTP_HOST']);
         return array_shift($arr) === 'test';
+    }
+
+    function getPhone($unformatted = false)
+    {
+        $phone_new = '+7 (495) 488-68-85';
+        $phone_old = '+7 (495) 488-68-82';
+        if ($unformatted) {
+            $phone_new = cleanNumber($phone_new);
+            $phone_old = cleanNumber($phone_old);
+        }
+        $key = 'ab-test-facelift';
+        $val = isset($GLOBALS[$key]) ? $GLOBALS[$key] : @$_COOKIE[$key];
+        return $val == 1 ? $phone_new : $phone_old;
     }
