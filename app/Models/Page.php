@@ -71,7 +71,7 @@ class Page extends Model
     public function getHtmlAttribute($value)
     {
         $field = isMobile() ? 'html_mobile' : 'html';
-		if (isTestSubdomain() && $_COOKIE['ab-test-facelift'] && trim($this->attributes[$field . '_af']) != '') {
+		if ($_COOKIE['ab-test-facelift'] && trim($this->attributes[$field . '_af']) != '') {
 			$field .= '_af';
 		}
 		$value = $this->attributes[$field];
