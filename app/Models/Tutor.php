@@ -15,7 +15,8 @@ class Tutor extends Service\Model
     protected $appends = [
         'subjects_string',
         'subjects_string_common',
-        'types' // ЕГЭ/ОГЭ
+        'types', // ЕГЭ/ОГЭ
+        'age'
     ];
 
     const USER_TYPE  = 'TEACHER';
@@ -46,6 +47,11 @@ class Tutor extends Service\Model
     public function plannedAccount()
     {
         return $this->hasOne(PlannedAccount::class);
+    }
+
+    public function getAgeAttribute()
+    {
+        return date('Y') - date('Y', strtotime($this->birthday));
     }
 
 	public function getPhotoDescAttribute($value)
@@ -127,7 +133,7 @@ class Tutor extends Service\Model
             'public_desc',
             'photo_extension',
             'start_career_year',
-            'birth_year',
+            'birthday',
             'lesson_duration',
             'public_price',
             'departure_price',
