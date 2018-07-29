@@ -16,7 +16,7 @@
         </div>
         <div class="error-message" ng-show='tutor.request_error'>
             Отправка сообщения временно недоступна<br>
-            Оставьте заявку по телефону +7 495 646-10-80
+            Оставьте заявку по телефону {{ getPhone() }}
         </div>
     </div>
     <div class="request-form-sent" ng-show='tutor.request_sent'>
