@@ -6801,9 +6801,7 @@ h1, .landingnew-page .common h3 {
 }
 
 .right .select-subject-overlay {
-  margin-right: 277px;
-  margin-left: auto;
-  right: 0;
+  right: 176px;
 }
 
 .right .select-subject-overlay:after {
@@ -6920,9 +6918,6 @@ h1, .landingnew-page .common h3 {
   z-index: 99;
   left: -7px;
   line-height: inherit;
-  display: flex;
-  justify-content: space-between;
-  white-space: nowrap;
 }
 
 .header-menu-wrap {
@@ -6984,6 +6979,7 @@ h1, .landingnew-page .common h3 {
   padding: 14px 0 0 0;
   text-decoration: none;
   color: #fff;
+  white-space: nowrap;
 }
 
 .header-img {
@@ -8023,11 +8019,7 @@ ol, ul {
 }
 
 .header-menu-item-order {
-  background: #35a45b;
-}
-
-.header-menu-item-order:hover {
-  background: #1c5730;
+  background: #4b7fbb;
 }
 
 .order-right-block {

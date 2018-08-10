@@ -63,9 +63,6 @@
     // overflow: hidden;
     left: -7px;
     line-height: inherit;
-    display: flex;
-    justify-content: space-between;
-    white-space: nowrap;
     &-wrap {
       background: #3a6699;
       position: relative;
@@ -109,7 +106,7 @@
       padding: 0 15px;
       font-size: 14px;
       font-weight: 600;
-      
+
       &__active {
         background: #6185ad;
       }
@@ -124,6 +121,7 @@
         padding: 14px 0 0 0;
         text-decoration: none;
         color: #fff;
+        white-space: nowrap;
 
         &:hover {
         //   text-decoration: underline;
