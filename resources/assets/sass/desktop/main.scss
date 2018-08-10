@@ -259,10 +259,7 @@ ol, ul {
 }
 
 .header-menu-item-order {
-    background: $color-green;
-    &:hover {
-        background: darken($color-green, 20);
-    }
+    background: lighten(#3a6699, 10);
 }
 
 .order-right-block {

@@ -1627,7 +1627,7 @@ $banner-block-gradient-color: #f2f2f2;
         font-weight: 500;
         font-size: 12px;
     }
-    & .review-text { 
+    & .review-text {
         line-height: $line-height;
         // font-style: italic;
     }
@@ -1964,9 +1964,7 @@ h1 {
 }
 
 .right .select-subject-overlay {
-	margin-right: 277px;
-	margin-left: auto;
-    right: 0;
+    right: 176px;
 	&:after {
 		content: '';
 	    position: absolute;
