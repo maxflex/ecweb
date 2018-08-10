@@ -283,7 +283,8 @@
 
     function getPhone($unformatted = false)
     {
-        $phone_new = '+7 (495) 686-85-92';
+        6468592
+        $phone_new = '+7 (495) 646-85-92';
         $phone_old = '+7 (495) 488-68-82';
         if ($unformatted) {
             $phone_new = cleanNumber($phone_new);
