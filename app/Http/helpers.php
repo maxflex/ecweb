@@ -289,7 +289,8 @@
             $phone_new = cleanNumber($phone_new);
             $phone_old = cleanNumber($phone_old);
         }
-        $key = 'ab-test-facelift';
-        $val = isset($GLOBALS[$key]) ? $GLOBALS[$key] : @$_COOKIE[$key];
-        return $val == 1 ? $phone_new : $phone_old;
+        // $key = 'ab-test-facelift';
+        // $val = isset($GLOBALS[$key]) ? $GLOBALS[$key] : @$_COOKIE[$key];
+        // return $val == 1 ? $phone_new : $phone_old;
+        return $phone_new;
     }

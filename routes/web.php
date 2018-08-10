@@ -6,14 +6,14 @@
     URL::forceSchema('https');
 
     Route::get('sitemap.xml', 'SitemapController@index');
-		
+
 	Route::get('testy', function() {
 		$words = 'ВАВТ ВГНА ВЗФЭИ ГУУ МАДИ МАИ МАРХИ МАТИ МГГУ МГИМО МГЛУ МГМСУ МГМУ МГОУ МГСУ МГТУ МГУ МГУПИ МГЮА МИИТ МИРЭА МИСИС МИФИ МИЭМ МИЭТ МПГУ МСХА МТУСИ МФТИ МЭИ МЭСИ НИУ ВШЭ РАНХИГС РГГУ РГСУ РГУ РНИМУ РУДН РХТУ РЭУ ФА';
-		
+
 		$words = explode(' ', $words);
 		$return = [];
 		foreach($words as $word) {
-			$cnt = \App\Models\Review::withStudent()->where('users.photo_extension', '<>', '')->where('teacher_reviews.score', '>=', 75)
+			$cnt = \App\Models\Review::withStudent()->where('students.photo_extension', '<>', '')->where('teacher_reviews.score', '>=', 75)
 					->where('teacher_reviews.grade', 11)->where('teacher_reviews.admin_comment_final', 'like', "%{$word}%")->count();
 			$return[$word] = $cnt;
 		}
@@ -22,7 +22,7 @@
 			echo "$word | $cnt<br>";
 		}
 	});
-	
+
     Route::get('/full', function() {
         unset($_SESSION['force_mobile']);
         $_SESSION['force_full'] = true;

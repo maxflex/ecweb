@@ -36,7 +36,7 @@ class ReviewsController extends Controller
      */
     public function block(Request $request)
     {
-        $query = Review::withStudent()->where('users.photo_extension', '<>', '');
+        $query = Review::withStudent()->where('students.photo_extension', '<>', '');
 
         if ($request->ids) {
             $query->whereNotIn('teacher_reviews.id', $request->ids);
