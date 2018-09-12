@@ -88,7 +88,7 @@ class StatsController extends Controller
         }
 
         if (isset($request->year) && $request->year) {
-            $query->where('year', $request->year);
+            $query->where('teacher_reviews.year', $request->year);
         }
 
         if (isset($request->subject_grade) && $request->subject_grade) {

@@ -87,6 +87,11 @@ class Page extends Model
         }
         return ' ';
     }
+    
+	public function getH1TextAttribute()
+	{
+		return $this->attributes['h1'];
+	}
 
     public function getH1BottomAttribute($value)
     {
