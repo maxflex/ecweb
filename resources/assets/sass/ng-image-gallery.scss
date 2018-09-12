@@ -211,7 +211,7 @@ $gallery-common-indent: 60px;
             background-size: 100% 100%;
             background-repeat: no-repeat; }
         .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .destroy-icons-container .ext-url:before {
-          background-image: url(../img/icons/external-link.svg); }
+          background-image: url(/img/icons/external-link.svg); }
         .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .control-icons-container .close,
         .ng-image-gallery .ng-image-gallery-modal .ng-image-gallery-content .destroy-icons-container .close:before {
           background-image: url(/img/svg/cross-out.svg);
@@ -562,11 +562,11 @@ $gallery-common-indent: 60px;
       .ng-image-gallery.inline .ng-image-gallery-modal .ng-image-gallery-content .destroy-icons-container .ext-url {
         margin: 0; }
         .ng-image-gallery.inline .ng-image-gallery-modal .ng-image-gallery-content .destroy-icons-container .ext-url:before {
-          background-image: url(../img/icons/external-link-inline.svg); }
+          background-image: url(/img/icons/external-link-inline.svg); }
     .ng-image-gallery.inline .ng-image-gallery-modal .ng-image-gallery-content .prev {
-      background-image: url(../img/icons/prev-inline.svg); }
+      background-image: url(/img/icons/prev-inline.svg); }
     .ng-image-gallery.inline .ng-image-gallery-modal .ng-image-gallery-content .next {
-      background-image: url(../img/icons/next-inline.svg); }
+      background-image: url(/img/icons/next-inline.svg); }
     .ng-image-gallery.inline .ng-image-gallery-modal .ng-image-gallery-content .prev, .ng-image-gallery.inline .ng-image-gallery-modal .ng-image-gallery-content .next {
       margin-top: -15px;
       width: 30px;
@@ -650,10 +650,10 @@ $gallery-common-indent: 60px;
         min-width: 4em;
       }
       &:first-child i {
-         background: url(../img/svg/gallery-prev.svg);
+         background: url(/img/svg/gallery-prev.svg);
       }
       &:last-child i {
-        background: url(../img/svg/gallery-next.svg);
+        background: url(/img/svg/gallery-next.svg);
       }
       & i {
         background-size: contain!important;

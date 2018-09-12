@@ -176,6 +176,9 @@
                     case 'year':
                         $replacement = date('Y');
                         break;
+                    case 'elixir':
+                            $replacement = elixir($args[0]);
+                            break;
                     case 'subject':
                         $replacement = json_encode(Page::getSubjectRoutes());
                         break;

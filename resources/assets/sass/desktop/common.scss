@@ -797,7 +797,7 @@ p.last {
         right: 10px;
         width: 11px;
         height: 11px;
-        background: url(../img/svg/cross.svg) no-repeat;
+        background: url(/img/svg/cross.svg) no-repeat;
         cursor: pointer;
         z-index: 3;
     }
@@ -918,14 +918,14 @@ p.last {
 }
 
 .header-new {
-	background: url(../img/background/greenboard.jpg) no-repeat;
+	background: url(/img/background/greenboard.jpg) no-repeat;
 	background-size: cover;
 	color: white;
 	& a {
 		color: white;
 	}
 	& .header-logo {
-		background: url(../img/svg/logo_yellow_mobile.svg) no-repeat;
+		background: url(/img/svg/logo_yellow_mobile.svg) no-repeat;
 	}
 	& .menu-wrapper {
 		background: rgba(black, .5);

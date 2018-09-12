@@ -81,4 +81,5 @@ elixir(mix => {
             'swiper/dist/js/swiper.min',
         ]).concat(['resources/assets/js/*.js']), 'public/js/scripts.js')
         .scripts('resources/assets/js/mobile/*.js', 'public/js/mobile/scripts.js')
+        .version(['css/desktop.css', 'css/mobile.css', 'js/scripts.js', 'js/mobile/scripts.js']);
 });
