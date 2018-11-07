@@ -50,9 +50,9 @@ $(document).ready(function() {
 
 function closeModal() {
     $('.modal.active').removeClass('modal-animate-open').addClass('modal-animate-close')
-    if(window.location.hash == "#modal") {
-        window.history.back()
-    }
+    // if(window.location.hash == "#modal") {
+    //     window.history.back()
+    // }
     setTimeout(function() {
         $('.modal').removeClass('active')
         $('body').removeClass()
@@ -70,9 +70,9 @@ function openModal(id) {
     modal.removeClass('modal-animate-close').addClass('active').addClass('modal-animate-open')
     $('#menu-overlay').height('95%').scrollTop(); // iphone5-safari fix
     $("body").addClass('modal-open open-modal-' + id);
-    // active_modal = id
+    // active_modal = id 
     $('.container').on('touchmove', function(e){e.preventDefault();});
-    window.location.hash = '#modal'
+    // window.location.hash = '#modal'
     if (typeof(onOpenModal) == 'function') {
         onOpenModal(id)
     }
