@@ -19,7 +19,7 @@ class Api {
 			    $data['referer_url']= $_COOKIE['source']['url'];
                 $url = config('app.api-url');
 			} else {
-                $data['egecentr_source'] = 1;
+                $data['source'] = 1;
                 $url = config('app.api-egerep-url');
             }
 
