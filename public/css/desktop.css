@@ -6955,6 +6955,20 @@ h1, .landingnew-page .common h3 {
   text-align: left;
 }
 
+.footer-menu-item__social {
+  margin-top: 8px;
+}
+
+.footer-menu-item__social a {
+  text-decoration: none;
+  margin-right: 4px;
+}
+
+.footer-menu-item__social img {
+  height: 30px;
+  width: 30px;
+}
+
 /* Components */
 .top-message {
   background: #fef9de;

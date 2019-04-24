@@ -1994,3 +1994,15 @@ h1 {
 	@extend .block-title;
 	text-align: left;
 }
+
+.footer-menu-item__social {
+    margin-top: 8px;
+    & a {
+        text-decoration: none;
+        margin-right: 4px;
+    }
+    & img {
+        height: 30px;
+        width: 30px;
+    }
+}
