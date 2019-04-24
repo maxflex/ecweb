@@ -9,7 +9,7 @@
   font-weight: $font-medium;
   height: $height-element-form + px;
   padding: 0 16px;
-  border-radius: $border-radius-element-form + px;
+  border-radius: $button-border-radius;
   border: 0;
   position: relative;
   &:disabled {

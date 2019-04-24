@@ -6136,7 +6136,7 @@ a[href^="https://www.google.com/maps"] {
   color: #35a45a;
   border: 1px solid #35a45a;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 30px;
   text-decoration: none;
   background: transparent;
 }
@@ -7790,7 +7790,7 @@ h1, .landingnew-page .common h3 {
   font-weight: 500;
   height: 40px;
   padding: 0 16px;
-  border-radius: 4px;
+  border-radius: 30px;
   border: 0;
   position: relative;
 }
