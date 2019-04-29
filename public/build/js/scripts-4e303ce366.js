@@ -17026,9 +17026,9 @@ function initPhotos() {
 
     // добавляем фотки в начало и конец для зациклиивания
     wrapper.prepend(wrapper.children().last().clone())
-    wrapper.prepend(wrapper.children().eq(photosCount - 2).clone())
-    wrapper.prepend(wrapper.children().eq(photosCount - 3).clone())
+    wrapper.prepend(wrapper.children().eq(wrapper.children().length - 2).clone())
     
+    wrapper.append(wrapper.children().eq(2).clone())
     wrapper.append(wrapper.children().eq(3).clone())
     wrapper.append(wrapper.children().eq(4).clone())
     wrapper.append(wrapper.children().eq(5).clone())

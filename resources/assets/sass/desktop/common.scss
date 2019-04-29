@@ -2024,7 +2024,7 @@ h1 {
     $photo-padding: 10px;
     display: flex;
     width: 10000px;
-    margin-left: calc((#{$photo-size / 2} + #{$photo-padding}) * -1 - ((#{$photo-size} + #{$photo-padding * 2}) * 2));
+    margin-left: calc((#{$photo-size / 2} + #{$photo-padding}) * -1 - ((#{$photo-size} + #{$photo-padding * 2}) * 1));
     // margin-left: calc((#{$photo-size / 2} * -1) - #{$photo-padding * 4 });
     // выставляется в JS
     // transition: all ease-in-out .3s;

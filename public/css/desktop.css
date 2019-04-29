@@ -6986,7 +6986,7 @@ h1, .landingnew-page .common h3 {
 .photos {
   display: flex;
   width: 10000px;
-  margin-left: calc((12.5vw + 10px) * -1 - ((25vw + 20px) * 2));
+  margin-left: calc((12.5vw + 10px) * -1 - ((25vw + 20px) * 1));
 }
 
 .photos > img {
