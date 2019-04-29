@@ -9,10 +9,10 @@
     <div class='photo-controls'>
         <div class='photo-controls__left flex-items'>
             <img src='/img/svg/arrow-pointing-left.svg' />
-            <a href='#'>назад</a>
+            <a>назад</a>
         </div>
         <div class='photo-controls__right flex-items'>
-            <a href='#'>вперед</a>
+            <a>вперед</a>
             <img src='/img/svg/arrow-pointing-left.svg' />
         </div>
     </div>

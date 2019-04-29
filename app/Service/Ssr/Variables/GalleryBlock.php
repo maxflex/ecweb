@@ -15,21 +15,9 @@ class GalleryBlock extends SsrVariable {
 
     public function getItems()
     {
-        $items = Photo::whereIn('id', explode(',', $this->args->ids))->get()->all();
-        // В десктопную версию для зацикливания добавляем элемент
-        // 3 фотки в начало и 3 фотки в конец 
-        if (! isMobile()) {
-            // foreach(range(1, 3) as $i) {
-            //     $items
-            // }
-            // $items[] = $items[0];
-            // $items[] = $items[1];
-            // $items[] = $items[3];
-            // array_unshift($items, $items[count($items) - 2]);
-            // array_unshift($items, $items[count($items) - 4]);
-            // array_unshift($items, $items[count($items) - 5]);
-            // array_unshift($items, $items[count($items) - 6]);
+        if ($this->args->ids) {
+            return Photo::whereIn('id', explode(',', $this->args->ids))->get()->all();
         }
-        return $items;
+        return Photo::all();
     }
 }
