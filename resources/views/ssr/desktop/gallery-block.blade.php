@@ -1,4 +1,4 @@
-<div class='full-width-wrapper'>
+<div class='full-width-wrapper block'>
     <div class='photos'>
         @foreach ($items as $item)
             <img src="{{ $item->url }}" />
