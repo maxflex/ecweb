@@ -483,7 +483,7 @@ p.last {
     left: 0;
     background: #17293d;
     color: white;
-    padding: 26px 38px;
+    padding: 23px 35px;
     & a {
         padding: 6px 0 !important;
         height: auto !important;
@@ -2016,9 +2016,10 @@ h1 {
         }
     }
     &__header {
-        font-size: 18px;
+        font-size: 20px;
         margin-bottom: 20px;
         margin-top: 5px;
+        font-weight: bold;
     }
     & a {
         font-weight: normal;
