@@ -483,7 +483,7 @@ p.last {
     left: 0;
     background: #17293d;
     color: white;
-    padding: 10px 15px;
+    padding: 26px 38px;
     & a {
         padding: 6px 0 !important;
         height: auto !important;
@@ -2011,11 +2011,18 @@ h1 {
     display: flex;
     & > div {
         margin-right: 50px;
+        &:last-child {
+            margin-right: 0;
+        }
     }
     &__header {
         font-size: 18px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         margin-top: 5px;
+    }
+    & a {
+        font-weight: normal;
+        padding-top: 8px !important;
     }
 }
 

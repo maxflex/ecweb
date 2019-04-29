@@ -5336,7 +5336,7 @@ a[href^="https://www.google.com/maps"] {
   left: 0;
   background: #17293d;
   color: white;
-  padding: 10px 15px;
+  padding: 26px 38px;
 }
 
 .dropdown-content a {
@@ -6977,10 +6977,19 @@ h1, .landingnew-page .common h3 {
   margin-right: 50px;
 }
 
+.menu-blocks > div:last-child {
+  margin-right: 0;
+}
+
 .menu-blocks__header {
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   margin-top: 5px;
+}
+
+.menu-blocks a {
+  font-weight: normal;
+  padding-top: 8px !important;
 }
 
 .photos {
