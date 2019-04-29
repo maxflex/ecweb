@@ -701,37 +701,6 @@
 }).call(this);
 
 (function() {
-  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Reviews', function($scope, $timeout, $http, Subjects, StreamService) {
-    var search;
-    bindArguments($scope, arguments);
-    $timeout(function() {
-      $scope.reviews = [];
-      $scope.page = 1;
-      $scope.has_more_pages = true;
-      return search();
-    });
-    $scope.popup = function(index) {
-      return $scope.show_review = index;
-    };
-    $scope.nextPage = function() {
-      StreamService.run('all_reviews', 'more');
-      $scope.page++;
-      return search();
-    };
-    return search = function() {
-      $scope.searching = true;
-      return $http.get('/api/reviews?page=' + $scope.page).then(function(response) {
-        console.log(response);
-        $scope.searching = false;
-        $scope.reviews = $scope.reviews.concat(response.data.reviews);
-        return $scope.has_more_pages = response.data.has_more_pages;
-      });
-    };
-  });
-
-}).call(this);
-
-(function() {
   angular.module('App').controller('Schedule', function($scope) {
     bindArguments($scope, arguments);
     $scope.getDateStringFromMonth = function(month) {

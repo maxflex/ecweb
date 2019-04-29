@@ -46,10 +46,4 @@ class PagesController extends Controller
         $_SESSION['action'] = 'profile';
         return response()->view('pages.index', compact('html'), $status);
     }
-
-    public function about()
-    {
-        $html = Page::whereUrl(Faq::URL)->first()->html;
-        return view('pages.index')->with(compact('html'));
-    }
 }

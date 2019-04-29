@@ -16146,37 +16146,6 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 }).call(this);
 
 (function() {
-  angular.module('App').constant('REVIEWS_PER_PAGE', 5).controller('Reviews', function($scope, $timeout, $http, Subjects, StreamService) {
-    var search;
-    bindArguments($scope, arguments);
-    $timeout(function() {
-      $scope.reviews = [];
-      $scope.page = 1;
-      $scope.has_more_pages = true;
-      return search();
-    });
-    $scope.popup = function(index) {
-      return $scope.show_review = index;
-    };
-    $scope.nextPage = function() {
-      StreamService.run('all_reviews', 'more');
-      $scope.page++;
-      return search();
-    };
-    return search = function() {
-      $scope.searching = true;
-      return $http.get('/api/reviews?page=' + $scope.page).then(function(response) {
-        console.log(response);
-        $scope.searching = false;
-        $scope.reviews = $scope.reviews.concat(response.data.reviews);
-        return $scope.has_more_pages = response.data.has_more_pages;
-      });
-    };
-  });
-
-}).call(this);
-
-(function() {
   angular.module('App').controller('Schedule', function($scope) {
     bindArguments($scope, arguments);
     $scope.getDateStringFromMonth = function(month) {
@@ -17028,7 +16997,11 @@ $(document).ready(function() {
 		setTimeout(function() {
 			scope = angular.element('[ng-app=App]').scope()
 		}, 50)
-	})
+    })
+    
+    if (! isMobile) {
+        initPhotos()
+    }
 
     // каждый раз, когда открывается любоая страница
     // отправляем стрим landing
@@ -17042,6 +17015,74 @@ $(document).ready(function() {
         scope.StreamService.run('page', null, {href: window.location.href})
     }, 500)
 })
+
+function initPhotos() {
+    wrapper = $('.photos')
+    // текущий индекс фотки
+    position = 1
+
+    // сколько всего фоток (за исключением дублей в начале и конце для зацикливания)
+    photosCount = wrapper.children().length
+
+    // добавляем фотки в начало и конец для зациклиивания
+    wrapper.prepend(wrapper.children().last().clone())
+    wrapper.prepend(wrapper.children().eq(photosCount - 2).clone())
+    wrapper.prepend(wrapper.children().eq(photosCount - 3).clone())
+    
+    wrapper.append(wrapper.children().eq(3).clone())
+    wrapper.append(wrapper.children().eq(4).clone())
+    wrapper.append(wrapper.children().eq(5).clone())
+
+    applyPosition = function(newPosition, animate) {
+        if (animate === false) {
+            wrapper.css('transition', '')
+        } else {
+            wrapper.css('transition', 'all ease-in-out .3s')
+        }
+        wrapper.css('margin-left', newPosition + 'px')
+    }
+
+    getCurrentPosition = function() {
+        return parseInt(wrapper.css('margin-left'))
+    }
+
+    goDirection = function(isForward, button) {
+        $(button).css('pointer-events', 'none')
+        photoWidth = wrapper.children().first().width()
+        step = photoWidth + 20
+
+        if (isForward) {
+             // если листаем вперед и последняя фотка
+             if (position === photosCount) {
+                newPosition = getCurrentPosition() + (step * photosCount)
+                applyPosition(newPosition, false)
+                position = 0
+            }
+            newPosition = getCurrentPosition() + (step * -1)
+            position++
+        } else {
+            // если листаем назад и первая фотка
+            if (position === 1) {
+                newPosition = getCurrentPosition() + (step * photosCount * -1)
+                applyPosition(newPosition, false)
+                position = photosCount + 1
+            }
+            newPosition = getCurrentPosition() + step
+            position--
+        }
+        console.log(position)
+        applyPosition(newPosition, true)
+        setTimeout(function() {
+            $(button).css('pointer-events', 'auto')
+        }, 300)
+    }
+    $('.photo-controls__right').on('click', function() {
+        goDirection(true, this)
+    })
+    $('.photo-controls__left').on('click', function() {
+        goDirection(false, this)
+    })
+}
 
 function closeModal() {
     $('.modal.active').removeClass('modal-animate-open').addClass('modal-animate-close')

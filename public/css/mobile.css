@@ -7676,6 +7676,49 @@ h1, .h1-top {
   padding-bottom: 1.3em;
 }
 
+.photos {
+  display: flex;
+}
+
+.photos > img {
+  width: 60vw;
+  height: 60vw;
+  margin: 0 8px;
+}
+
+.photos > img:first-child {
+  margin-left: 0;
+}
+
+.photos > img:last-child {
+  margin-right: 0;
+}
+
+.vertical-slider {
+  -webkit-overflow-scrolling: touch;
+  width: calc(100% + 2.4em);
+  overflow: hidden;
+  margin-left: -1.2em;
+}
+
+.vertical-slider > * {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding-bottom: 15px;
+}
+
+.vertical-slider > *::-webkit-scrollbar {
+  display: none;
+}
+
+.vertical-slider > * > *:last-child {
+  padding-right: 1.2em;
+}
+
+.vertical-slider > * > *:first-child {
+  padding-left: 1.2em;
+}
+
 /* Components */
 .header {
   background: #0c4e69;

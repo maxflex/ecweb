@@ -45,7 +45,5 @@
     # Tutor profile page
     Route::get(Tutor::URL . '/{id}', 'PagesController@tutor')->where('id', '[0-9]+');
 
-    Route::get('about', 'PagesController@about');
-
     # All serp pages
     Route::get('{url?}', 'PagesController@index')->where('url', '.*');

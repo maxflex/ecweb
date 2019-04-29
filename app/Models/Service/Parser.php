@@ -8,6 +8,7 @@
     use App\Models\Tutor;
     use DB;
     use Cache;
+    use App\Service\Ssr\SsrParser;
 
     /**
      * Parser
@@ -22,19 +23,24 @@
         const START_VAR_CALC = '{';
         const END_VAR_CALC   = '}';
 
-        public static function compileVars($html)
+        public static function compileVars($html, $page = null)
         {
             preg_match_all('#\\' . static::interpolate('((?>[^\[\]]+)|(?R))*\\') . '#U', $html, $matches);
             $vars = $matches[0];
             foreach ($vars as $var) {
                 $var = trim($var, static::interpolate());
-                // если в переменной есть знак =, то воспроизводить значения
-                if (strpos($var, '=')) {
-                    static::replace($html, $var, static::compileValues($var));
+                $ssrParser = new SsrParser($var, $page);
+                if ($ssrParser->exists()) {
+                    static::replace($html, $var, $ssrParser->parse());
                 } else {
-                    $variable = Variable::findByName($var)->first();
-                    if ($variable) {
-                        static::replace($html, $var, $variable->html);
+                    // если в переменной есть знак =, то воспроизводить значения
+                    if (strpos($var, '=')) {
+                        static::replace($html, $var, static::compileValues($var, $page));
+                    } else {
+                        $variable = Variable::findByName($var)->first();
+                        if ($variable) {
+                            static::replace($html, $var, $variable->html);
+                        }
                     }
                 }
             }
@@ -57,17 +63,19 @@
         /**
          * Компилировать значения типа [map|center=95,23|branch=trg|deadline=[deadline]]
          */
-        public static function compileValues($var_string)
+        public static function compileValues($var_string, $page = null)
         {
             // map|a=1|b=2
             // tutor|{subject}|{count}
             $values = explode('|', $var_string);
             // первая часть – название переменной
-            $html = Variable::findByName($values[0])->first()->html;
+            $html = Variable::findByName($values[0])->first();
             // $html = DB::table('variables')->whereName($values[0])->value('html');
 
             // если переменная нашлась
             if ($html !== null) {
+                $html = $html->html;
+                
                 // убираем название переменной из массива
                 array_shift($values);
 
@@ -90,8 +98,14 @@
 
                 return $html;
             } else {
-                // если переменная не нашлась, возвращаем неизменную $var_string
-                return $var_string;
+                $var = array_shift($values);
+                $ssrParser = new SsrParser($var, $page, $values);
+                if ($ssrParser->exists()) {
+                    return $ssrParser->parse();
+                    // static::replace($html, $var, $ssrParser->parse());
+                } else {
+                    return $var_string;
+                }
             }
         }
 

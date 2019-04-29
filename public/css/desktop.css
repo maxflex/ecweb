@@ -6969,6 +6969,66 @@ h1, .landingnew-page .common h3 {
   width: 30px;
 }
 
+.menu-blocks {
+  display: flex;
+}
+
+.menu-blocks > div {
+  margin-right: 50px;
+}
+
+.menu-blocks__header {
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.photos {
+  display: flex;
+  width: 10000px;
+  margin-left: calc((12.5vw + 10px) * -1 - ((25vw + 20px) * 2));
+}
+
+.photos > img {
+  width: 25vw;
+  height: 25vw;
+  margin: 0 10px;
+}
+
+.photo-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.photo-controls > div {
+  cursor: pointer;
+}
+
+.photo-controls img {
+  height: 20px;
+}
+
+.photo-controls a {
+  text-decoration: none;
+  position: relative;
+  top: -2px;
+}
+
+.photo-controls__left img {
+  margin-right: 5px;
+}
+
+.photo-controls__right img {
+  margin-left: 5px;
+  transform: scaleX(-1);
+}
+
+.flex-items {
+  display: flex;
+  align-items: center;
+}
+
 /* Components */
 .top-message {
   background: #fef9de;

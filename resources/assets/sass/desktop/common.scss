@@ -2006,3 +2006,65 @@ h1 {
         width: 30px;
     }
 }
+
+.menu-blocks {
+    display: flex;
+    & > div {
+        margin-right: 50px;
+    }
+    &__header {
+        font-size: 18px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+}
+
+.photos {
+    $photo-size: 25vw;
+    $photo-padding: 10px;
+    display: flex;
+    width: 10000px;
+    margin-left: calc((#{$photo-size / 2} + #{$photo-padding}) * -1 - ((#{$photo-size} + #{$photo-padding * 2}) * 2));
+    // margin-left: calc((#{$photo-size / 2} * -1) - #{$photo-padding * 4 });
+    // выставляется в JS
+    // transition: all ease-in-out .3s;
+    & > img {
+        width: $photo-size;
+        height: $photo-size;
+        margin: 0 $photo-padding;
+    }
+}
+
+.photo-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    & > div {
+        cursor: pointer;
+    }
+    & img {
+        height: 20px;
+    }
+    a {
+        text-decoration: none;
+        position: relative;
+        top: -2px;
+    }
+    &__left {
+        & img {
+            margin-right: 5px;
+        }
+    }
+    &__right {
+        & img {
+            margin-left: 5px;
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+    }
+}
+
+.flex-items {
+    display: flex;
+    align-items: center;
+}

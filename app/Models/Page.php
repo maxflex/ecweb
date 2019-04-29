@@ -76,7 +76,7 @@ class Page extends Model
 			$field .= '_af';
 		}
 		$value = $this->attributes[$field];
-        $value = Parser::compileVars($value);
+        $value = Parser::compileVars($value, $this);
         return Parser::compilePage($this, $value);
     }
 
