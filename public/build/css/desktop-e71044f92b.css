@@ -4897,11 +4897,11 @@ h2 {
   margin: 0;
   padding: 0 0 17px 0;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 h2.not-first {
-  padding-top: 17px;
+  padding-top: 38px !important;
 }
 
 h3 {
@@ -4922,6 +4922,7 @@ p {
 
 p.last {
   padding: 0;
+  margin: 0;
 }
 
 p.half-padding {
@@ -5094,7 +5095,7 @@ a[href^="https://www.google.com/maps"] {
 
 .b-like {
   display: block;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .external-schedule {

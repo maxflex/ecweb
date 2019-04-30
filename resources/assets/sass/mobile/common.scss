@@ -66,7 +66,16 @@ h2 {
   margin: 0;
   padding: 0 0 0.938em 0;
   font-size: $font-size-h2 + em;
-  font-weight: $font-medium;
+  font-weight: $font-bold;
+}
+
+h2.not-first {
+    padding-top: 28px !important;
+}
+
+p.last {
+    padding: 0;
+    margin: 0;
 }
 
 h3 {

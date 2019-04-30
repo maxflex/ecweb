@@ -40,11 +40,11 @@ h2 {
   margin: 0;
   padding: 0 0 17px 0;
   font-size: $font-size-h2 + px;
-  font-weight: $font-medium;
+  font-weight: $font-bold;
 }
 
 h2.not-first {
-    padding-top: 17px;
+    padding-top: 38px !important;
 }
 
 h3 {
@@ -70,6 +70,7 @@ p {
 
 p.last {
     padding: 0;
+    margin: 0;
 }
 
 p.half-padding {
@@ -251,7 +252,7 @@ p.last {
 
 .b-like {
     display: block;
-    font-weight: $font-medium;
+    font-weight: $font-bold;
 }
 
 .external-schedule {

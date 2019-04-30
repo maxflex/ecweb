@@ -6300,7 +6300,16 @@ h2 {
   margin: 0;
   padding: 0 0 0.938em 0;
   font-size: 1.2em;
-  font-weight: 500;
+  font-weight: 700;
+}
+
+h2.not-first {
+  padding-top: 28px !important;
+}
+
+p.last {
+  padding: 0;
+  margin: 0;
 }
 
 h3 {
