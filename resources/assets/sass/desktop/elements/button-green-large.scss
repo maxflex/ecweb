@@ -4,10 +4,10 @@
   background: $color-green;
   color: #fff;
   font-size: $main-font-size;
-  line-height: $height-element-form + px;
   text-decoration: none;
   font-weight: $font-bold;
-  height: $height-element-form + px;
+  height: 34px !important;
+  line-height: 34px !important;
   padding: 0 15px;
   border-radius: $button-border-radius;
   border: 1px solid $color-green;

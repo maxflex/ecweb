@@ -6137,8 +6137,6 @@ a[href^="https://www.google.com/maps"] {
   border: 1px solid #35a45a;
   background: transparent !important;
   font-weight: 400 !important;
-  height: 34px !important;
-  line-height: 34px !important;
 }
 
 .btn-small.btn-small-gray {
@@ -7855,10 +7853,10 @@ h1, .landingnew-page .common h3 {
   background: #35a45b;
   color: #fff;
   font-size: 14px;
-  line-height: 40px;
   text-decoration: none;
   font-weight: 700;
-  height: 40px;
+  height: 34px !important;
+  line-height: 34px !important;
   padding: 0 15px;
   border-radius: 30px;
   border: 1px solid #35a45b;
