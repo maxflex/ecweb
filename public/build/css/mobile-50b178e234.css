@@ -7930,6 +7930,15 @@ h1, .h1-top {
   padding: 1em 0;
 }
 
+.tutor-info-block {
+  margin-bottom: 24px;
+}
+
+.tutor-info-block__title {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
 .popup {
   display: none;
   position: fixed;

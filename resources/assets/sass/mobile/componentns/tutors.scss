@@ -47,5 +47,12 @@
       padding: 1em 0;
     }
   }
+}
 
+.tutor-info-block {
+  &__title {
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+  margin-bottom: 24px;
 }
