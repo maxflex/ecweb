@@ -122,12 +122,14 @@ function initPhotos() {
 
 function closeModal() {
     $('.modal.active').removeClass('modal-animate-open').addClass('modal-animate-close')
+    $('.lightbox').css('opacity', 0)
     // if(window.location.hash == "#modal") {
     //     window.history.back()
     // }
     setTimeout(function() {
         $('.modal').removeClass('active')
         $('body').removeClass()
+        $('.lightbox').hide()
     	// $("body").addClass('open-modal-' + active_modal); active_modal = false
         $('.container').off('touchmove');
         // @todo: почему-то эта строчка ломает повторное воспроизведение видео
@@ -142,6 +144,7 @@ function openModal(id) {
     modal.removeClass('modal-animate-close').addClass('active').addClass('modal-animate-open')
     $('#menu-overlay').height('95%').scrollTop(); // iphone5-safari fix
     $("body").addClass('modal-open open-modal-' + id);
+    $('.lightbox').show().css('opacity', .7)
     // active_modal = id 
     $('.container').on('touchmove', function(e){e.preventDefault();});
     // window.location.hash = '#modal'

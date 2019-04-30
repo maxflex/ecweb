@@ -173,24 +173,23 @@ a {
     background: white;
     left: 0;
     bottom: 0;
-    border-radius: 0;
+    border-radius: 10px 10px 0 0;
     display: none;
     overflow: hidden;
     z-index: 99;
-    box-shadow: 0 0 15px 7px rgba(0, 0, 0, 0.5);
     & .modal-button {
       background: #f0f0f0;
       height: 47px;
-      padding: 12px 0 0 0;
+      padding: 13px 0 0 0;
       cursor: pointer;
       box-sizing: border-box;
       text-align: center;
       &:after {
         content: '';
         display: inline-block;
-        width: 24px;
-        height: 24px;
-        background: url('/img/svg/cross.svg') no-repeat;
+        width: 22px;
+        height: 22px;
+        background: url('/img/svg/close.svg') no-repeat;
         background-size: cover;
       }
     }
@@ -1463,4 +1462,16 @@ h1 {
             padding-left: 1.2em;
         }
     }
+}
+
+.lightbox {
+    position: absolute;
+    background: black;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+    opacity: 0;
+    transition: opacity linear .3s;
 }
