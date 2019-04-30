@@ -6420,7 +6420,7 @@ a:hover {
 .modal .modal-button {
   background: #f0f0f0;
   height: 47px;
-  padding: 14px 0 0 0;
+  padding: 15px 0 0 0;
   cursor: pointer;
   box-sizing: border-box;
   text-align: center;
@@ -6429,8 +6429,8 @@ a:hover {
 .modal .modal-button:after {
   content: '';
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background: url("/img/svg/close.svg") no-repeat;
   background-size: cover;
 }
@@ -7719,7 +7719,7 @@ h1, .h1-top {
 }
 
 .lightbox {
-  position: absolute;
+  position: fixed;
   background: black;
   left: 0;
   top: 0;
@@ -7728,6 +7728,7 @@ h1, .h1-top {
   display: none;
   opacity: 0;
   transition: all linear .3s;
+  z-index: 80;
 }
 
 /* Components */
