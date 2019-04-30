@@ -7045,6 +7045,18 @@ h1, .landingnew-page .common h3 {
   align-items: center;
 }
 
+.study-plan {
+  display: flex;
+}
+
+.study-plan > div {
+  width: 290px;
+}
+
+.study-plan > div > div {
+  margin-bottom: 8px;
+}
+
 /* Components */
 .top-message {
   background: #fef9de;

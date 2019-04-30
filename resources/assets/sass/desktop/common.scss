@@ -2083,3 +2083,13 @@ h1 {
     display: flex;
     align-items: center;
 }
+
+.study-plan {
+    display: flex;
+    & > div {
+        width: 290px;
+        & > div {
+            margin-bottom: 8px;
+        }
+    }
+}
