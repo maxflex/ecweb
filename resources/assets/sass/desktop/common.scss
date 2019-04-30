@@ -18,7 +18,7 @@ html, body {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+font-family: $fontName, sans-serif;
   font-weight: $font-regular;
   font-size: $main-font-size;
 }
@@ -1688,7 +1688,7 @@ $banner-block-gradient-color: #f2f2f2;
 }
 
 h1 {
-	font-family: 'Open Sans', sans-serif;
+	font-family: $fontName, sans-serif;
 	font-weight: 600;
 }
 

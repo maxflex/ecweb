@@ -57,11 +57,11 @@
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    width: 974px;
+    width: 997px;
     position: relative;
     z-index: 99;
     // overflow: hidden;
-    left: -7px;
+    left: 6px;
     line-height: inherit;
     &-wrap {
       background: #3a6699;
@@ -103,7 +103,7 @@
 
     &-item {
       float: left;
-      padding: 0 15px;
+      padding: 0 13px;
       font-size: 14px;
       font-weight: 600;
 
