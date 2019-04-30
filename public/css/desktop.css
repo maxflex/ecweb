@@ -7895,7 +7895,8 @@ h1, .landingnew-page .common h3 {
 }
 
 .button-green-large:disabled, .btn-small:disabled, .button-green-small:disabled, .button-blue-large:disabled, .button-white-large:disabled {
-  background: rgba(129, 129, 129, 0.5);
+  background: #c0c0c0 !important;
+  border-color: #c0c0c0 !important;
 }
 
 .button-green-small {
