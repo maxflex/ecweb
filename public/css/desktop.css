@@ -5,7 +5,7 @@
  * Copyright 2013-2017 bootstrap-select
  * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
  */
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700,700i,800");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700,700i,900");
 @import url("https://fonts.googleapis.com/css?family=Bad+Script");
 select.bs-select-hidden,
 select.selectpicker {
@@ -4875,7 +4875,7 @@ html, body {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
 }
@@ -6629,7 +6629,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 h1, .landingnew-page .common h3 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
 }
 
