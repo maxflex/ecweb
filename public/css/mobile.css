@@ -7727,7 +7727,7 @@ h1, .h1-top {
   width: 100%;
   display: none;
   opacity: 0;
-  transition: opacity linear .3s;
+  transition: all linear .3s;
 }
 
 /* Components */
