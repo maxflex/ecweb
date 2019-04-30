@@ -2088,8 +2088,13 @@ h1 {
     display: flex;
     & > div {
         width: 290px;
+        & b {
+            font-size: 18px;
+            margin-bottom: 22px;
+            display: block;
+        }
         & > div {
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
     }
 }

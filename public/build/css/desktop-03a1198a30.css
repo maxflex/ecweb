@@ -7053,8 +7053,14 @@ h1, .landingnew-page .common h3 {
   width: 290px;
 }
 
+.study-plan > div b, .study-plan > div .address-more li > div:first-of-type, .address-more .study-plan > div li > div:first-of-type {
+  font-size: 18px;
+  margin-bottom: 22px;
+  display: block;
+}
+
 .study-plan > div > div {
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 /* Components */
