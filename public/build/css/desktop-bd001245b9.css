@@ -6714,7 +6714,7 @@ h1, .landingnew-page .common h3 {
 }
 
 .ege-trial-block {
-  background: linear-gradient(to bottom, #feecdd 94%, black 140%);
+  background: linear-gradient(to bottom, #feecdd 96%, black 140%);
   padding: 60px 0 0;
 }
 
@@ -6980,7 +6980,7 @@ h1, .landingnew-page .common h3 {
 
 .menu-blocks__header {
   font-size: 22px;
-  margin-bottom: 30px;
+  margin-bottom: 26px;
   margin-top: 5px;
   font-weight: bold;
   white-space: nowrap;
@@ -6990,13 +6990,14 @@ h1, .landingnew-page .common h3 {
 .menu-blocks__desc {
   font-size: 12px;
   font-weight: normal;
-  margin-bottom: 30px;
+  margin-bottom: 26px;
   line-height: 16px;
 }
 
 .menu-blocks a {
   font-weight: normal;
-  padding-top: 8px !important;
+  padding-top: 5px !important;
+  font-size: 14px;
 }
 
 .photos {
@@ -7140,7 +7141,7 @@ h1, .landingnew-page .common h3 {
 .header-menu-wrap {
   background: #3a6699;
   position: relative;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .header-menu-wrap__img {

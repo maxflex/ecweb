@@ -1767,7 +1767,7 @@ h1 {
 }
 
 .ege-trial-block {
-    background: linear-gradient(to bottom, #feecdd 94%, black 140%);
+    background: linear-gradient(to bottom, #feecdd 96%, black 140%);
     padding: 60px 0 0;
     & .block-title, & p {
 	    text-align: left !important;
@@ -2015,7 +2015,7 @@ h1 {
     }
     &__header {
         font-size: 22px;
-        margin-bottom: 30px;
+        margin-bottom: 26px;
         margin-top: 5px;
         font-weight: bold;
         white-space: nowrap;
@@ -2024,12 +2024,13 @@ h1 {
     &__desc {
         font-size: 12px;
         font-weight: normal;
-        margin-bottom: 30px;
+        margin-bottom: 26px;
         line-height: 16px;    
     }
     & a {
         font-weight: normal;
-        padding-top: 8px !important;
+        padding-top: 5px !important;
+        font-size: 14px;
     }
 }
 
