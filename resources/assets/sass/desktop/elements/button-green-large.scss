@@ -12,7 +12,7 @@
   border-radius: $button-border-radius;
   border: 1px solid $color-green;
   position: relative;
-  text-transform: uppercase;
+  text-transform: lowercase;
   &:disabled {
       background: rgba($text-grey, .5);
   }
