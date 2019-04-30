@@ -8687,7 +8687,8 @@ h1, .h1-top {
 }
 
 .button-green-large:disabled, .button-green-small:disabled, .button-blue-large:disabled, .button-white-large:disabled {
-  background: rgba(129, 129, 129, 0.5);
+  background: #c4c4c4 !important;
+  border-color: #c4c4c4 !important;
 }
 
 .button-green-small {

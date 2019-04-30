@@ -5349,7 +5349,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .main-page .dropdown-content, .landingnew-page .dropdown-content {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: #10120e;
 }
 
 .main-page .dropdown-content:before, .landingnew-page .dropdown-content:before {
@@ -5360,7 +5360,6 @@ a[href^="https://www.google.com/maps"] {
   height: 100%;
   width: 100%;
   z-index: -1;
-  background: rgba(0, 0, 0, 0.4);
 }
 
 /* Show the dropdown menu on hover */
@@ -6979,7 +6978,7 @@ h1, .landingnew-page .common h3 {
 }
 
 .menu-blocks__header {
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 26px;
   margin-top: 5px;
   font-weight: bold;
@@ -6996,7 +6995,7 @@ h1, .landingnew-page .common h3 {
 
 .menu-blocks a {
   font-weight: normal;
-  padding-top: 5px !important;
+  padding-top: 4px !important;
   font-size: 14px;
 }
 
@@ -7188,7 +7187,7 @@ h1, .landingnew-page .common h3 {
 }
 
 .header-menu-item:hover {
-  background: rgba(0, 0, 0, 0.6);
+  background: #17293d;
 }
 
 .header-menu-item a {
@@ -7252,6 +7251,10 @@ h1, .landingnew-page .common h3 {
 
 .header-contact {
   float: right;
+}
+
+.main-page .header-menu-item:hover {
+  background: #10120e !important;
 }
 
 .footer {

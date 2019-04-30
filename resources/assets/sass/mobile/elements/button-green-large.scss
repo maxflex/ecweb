@@ -14,7 +14,8 @@
   position: relative;
   text-transform: lowercase;
   &:disabled {
-      background: rgba($text-grey, .5);
+      background: #c4c4c4 !important;
+      border-color: #c4c4c4 !important;
   }
 }
 

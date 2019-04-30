@@ -111,8 +111,11 @@
         background: #6185ad;
       }
 
+      // &:hover {
+      //     background: #10120e;
+      // }
       &:hover {
-          background: rgba(0, 0, 0, .6);
+        background: #17293d;
       }
 
       a {
@@ -182,4 +185,10 @@
 
 .header-contact {
     float: right;
+}
+
+.main-page {
+  & .header-menu-item:hover {
+    background: #10120e !important;
+  }
 }
