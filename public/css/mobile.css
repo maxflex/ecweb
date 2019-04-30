@@ -7904,7 +7904,7 @@ h1, .h1-top {
 }
 
 .tutors-item-img {
-  float: left;
+  float: right;
   width: 30%;
   max-width: 9.375em;
 }
@@ -7918,7 +7918,7 @@ h1, .h1-top {
   box-sizing: border-box;
   float: left;
   width: 70%;
-  padding: 0 0 0 1em;
+  padding: 0 1em 0 0;
 }
 
 .tutors-item-title {
