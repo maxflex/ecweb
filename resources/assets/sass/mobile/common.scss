@@ -180,15 +180,15 @@ a {
     & .modal-button {
       background: #f0f0f0;
       height: 47px;
-      padding: 13px 0 0 0;
+      padding: 14px 0 0 0;
       cursor: pointer;
       box-sizing: border-box;
       text-align: center;
       &:after {
         content: '';
         display: inline-block;
-        width: 22px;
-        height: 22px;
+        width: 20px;
+        height: 20px;
         background: url('/img/svg/close.svg') no-repeat;
         background-size: cover;
       }
