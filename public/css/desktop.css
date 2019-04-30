@@ -6137,6 +6137,8 @@ a[href^="https://www.google.com/maps"] {
   border: 1px solid #35a45a;
   background: transparent !important;
   font-weight: 400 !important;
+  height: 34px !important;
+  line-height: 34px !important;
 }
 
 .btn-small.btn-small-gray {
