@@ -1234,15 +1234,13 @@ p.last {
 }
 
 .btn-small {
-    color: #35a45a;
+    @extend .button-green-large;
+    color: #35a45a !important;
     border: 1px solid #35a45a;
-    padding: 5px 10px;
-    border-radius: $button-border-radius;
-    text-decoration: none;
-    background: transparent;
+    background: transparent !important;
     &.btn-small-gray {
         border: 1px solid #acacac;
-        color: #818181;
+        color: #818181 !important;
     }
 }
 
@@ -1789,7 +1787,7 @@ h1 {
     }
     & .btn-small {
 	    border-color: #9c561d;
-	    color: #9c561d;
+	    color: #9c561d !important;
     }
 }
 

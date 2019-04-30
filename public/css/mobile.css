@@ -6578,10 +6578,6 @@ a[href^="https://www.google.com/maps"] {
   position: absolute;
 }
 
-.faq-page ul {
-  margin-bottom: 1.8em;
-}
-
 .back-arrow {
   display: flex;
   align-items: flex-start;
@@ -7731,6 +7727,12 @@ h1, .h1-top {
   z-index: 80;
 }
 
+.link-list {
+  padding: 0 0 30px 0;
+  margin: 0;
+  list-style: none;
+}
+
 /* Components */
 .header {
   background: #0c4e69;
@@ -8028,12 +8030,6 @@ h1, .h1-top {
   height: 100%;
 }
 
-.licence-list {
-  padding: 0 0 30px 0;
-  margin: 0;
-  list-style: none;
-}
-
 .main-menu {
   padding: 1.6em 1.2em;
 }
@@ -8311,12 +8307,6 @@ h1, .h1-top {
 
 .price-list-item.price-list-inner-item {
   padding: 0;
-}
-
-.questions {
-  margin: 0;
-  padding: 0 0 0 0;
-  list-style: none;
 }
 
 .questions-item {

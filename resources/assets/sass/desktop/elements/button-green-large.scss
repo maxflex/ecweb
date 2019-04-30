@@ -6,12 +6,13 @@
   font-size: $main-font-size;
   line-height: $height-element-form + px;
   text-decoration: none;
-  font-weight: $font-medium;
+  font-weight: $font-bold;
   height: $height-element-form + px;
-  padding: 0 16px;
+  padding: 0 15px;
   border-radius: $button-border-radius;
-  border: 0;
+  border: 1px solid $color-green;
   position: relative;
+  text-transform: uppercase;
   &:disabled {
       background: rgba($text-grey, .5);
   }
