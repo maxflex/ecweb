@@ -609,6 +609,7 @@ input {
 
 .button-call {
     background-color: #717171 !important;
+    border-color: #717171 !important;
 }
 
 .tutor-rating-line {
@@ -1475,4 +1476,9 @@ h1 {
     padding: 0 0 30px 0;
     margin: 0;
     list-style: none;      
+}
+
+.price-section {
+    line-height: 20px;
+    margin-bottom: 20px;
 }

@@ -3,35 +3,29 @@
   vertical-align: middle;
   background: $color-green;
   color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: ($height-element-form + 0.1)+ em;
+  font-size: 14px;
   text-decoration: none;
   font-weight: $font-bold;
-  height: $height-element-form + em;
-  padding: 0 0.625em;
-  border-radius: $height-element-form + em;
-  border: 0;
-  padding: 0 1.5em;
+  height: 34px !important;
+  line-height: 34px !important;
+  padding: 0 15px;
+  border-radius: 30px;
+  border: 1px solid $color-green;
   position: relative;
+  text-transform: lowercase;
+  &:disabled {
+      background: rgba($text-grey, .5);
+  }
 }
 
 .button-green-small {
     color: #35a45a !important;
     border: 1px solid #35a45a !important;
-    text-transform: lowercase;
-    text-decoration: none;
-    margin: 0;
-    padding: 0 1em !important;
-//     height: 28px !important;
-    line-height: 2em !important;
-    font-weight: normal !important;
+    font-weight: $font-regular !important;
 }
 
 .button-review-more {
-    @extend .button-green-small;
-    margin-top: 2em;
     border: 1px solid #acacac !important;
     color: #818181 !important;
-    height: 30px !important;
+    font-weight: $font-regular !important;
 }

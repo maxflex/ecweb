@@ -6392,12 +6392,10 @@ a[href^="https://www.google.com/maps"] {
 
 .banner-block .info .quote {
   font-size: 16px;
-  font-style: italic;
 }
 
 .banner-block .info .tutor-title {
   margin-top: 18px;
-  font-style: italic;
 }
 
 .banner-block .info .tutor-title b, .banner-block .info .tutor-title .address-more li > div:first-of-type, .address-more .banner-block .info .tutor-title li > div:first-of-type {
@@ -6972,7 +6970,8 @@ h1, .landingnew-page .common h3 {
 }
 
 .menu-blocks > div {
-  margin-right: 50px;
+  width: 180px;
+  margin-right: 40px;
 }
 
 .menu-blocks > div:last-child {
@@ -6980,10 +6979,19 @@ h1, .landingnew-page .common h3 {
 }
 
 .menu-blocks__header {
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 22px;
+  margin-bottom: 30px;
   margin-top: 5px;
   font-weight: bold;
+  white-space: nowrap;
+  line-height: 30px;
+}
+
+.menu-blocks__desc {
+  font-size: 12px;
+  font-weight: normal;
+  margin-bottom: 30px;
+  line-height: 16px;
 }
 
 .menu-blocks a {
@@ -7035,6 +7043,10 @@ h1, .landingnew-page .common h3 {
 .flex-items {
   display: flex;
   align-items: center;
+}
+
+.header-contacts-phone {
+  font-weight: 700;
 }
 
 /* Components */

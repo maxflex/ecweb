@@ -6643,7 +6643,7 @@ a[href^="https://www.google.com/maps"] {
   color: #35a45b;
 }
 
-.multiselect-popup .button-green-large, .multiselect-popup .button-green-small, .multiselect-popup .button-review-more, .multiselect-popup .button-blue-large, .multiselect-popup .button-white-large {
+.multiselect-popup .button-green-large, .multiselect-popup .button-green-small, .multiselect-popup .button-blue-large, .multiselect-popup .button-white-large {
   margin-top: 1em;
 }
 
@@ -6842,6 +6842,7 @@ input {
 
 .button-call {
   background-color: #717171 !important;
+  border-color: #717171 !important;
 }
 
 .tutor-rating-line {
@@ -7232,7 +7233,7 @@ button[disabled] {
   color: black;
 }
 
-.tutors-block .button-green-small, .tutors-block .button-review-more {
+.tutors-block .button-green-small {
   margin-top: 15px;
 }
 
@@ -7607,7 +7608,7 @@ h1, .h1-top {
   position: relative;
 }
 
-.ege-trial-block .button-green-small, .ege-trial-block .button-review-more {
+.ege-trial-block .button-green-small {
   border-color: #9c561d !important;
   color: #9c561d !important;
 }
@@ -7645,7 +7646,7 @@ h1, .h1-top {
   text-align: left;
 }
 
-.page-tutors-af .tutors-block .button-green-small, .page-tutors-af .tutors-block .button-review-more {
+.page-tutors-af .tutors-block .button-green-small {
   display: none;
 }
 
@@ -7731,6 +7732,11 @@ h1, .h1-top {
   padding: 0 0 30px 0;
   margin: 0;
   list-style: none;
+}
+
+.price-section {
+  line-height: 20px;
+  margin-bottom: 20px;
 }
 
 /* Components */
@@ -7882,7 +7888,7 @@ h1, .h1-top {
   padding: 0 0 0.725em 0;
 }
 
-.footer .button-green-large, .footer .button-green-small, .footer .button-review-more, .footer .button-blue-large, .footer .button-white-large {
+.footer .button-green-large, .footer .button-green-small, .footer .button-blue-large, .footer .button-white-large {
   margin: 0 0 1.750em 0;
 }
 
@@ -8186,29 +8192,6 @@ h1, .h1-top {
   pointer-events: none;
 }
 
-.price-list-item__open > .price-list-item-title.tax-jumbletoon {
-  background: #ebebeb;
-  color: black;
-  border: none;
-  font-weight: normal;
-  pointer-events: all;
-  padding-top: 2em;
-  margin-top: 1.5em;
-}
-
-.price-list-item__open > .price-list-item-title.tax-jumbletoon img {
-  height: 75px;
-  margin-right: 20px;
-}
-
-.price-list-item__open > .price-list-item-title.tax-jumbletoon .image-link {
-  margin-bottom: 20px;
-}
-
-.price-list-item__open > .price-list-item-title.tax-jumbletoon b {
-  font-size: 1.5em;
-}
-
 .price-list-item__open > .price-list-inner {
   display: block !important;
   border: none;
@@ -8307,6 +8290,29 @@ h1, .h1-top {
 
 .price-list-item.price-list-inner-item {
   padding: 0;
+}
+
+.tax-jumbletoon {
+  background: #ebebeb;
+  color: black;
+  border: none;
+  font-weight: normal;
+  pointer-events: all;
+  padding-top: 2em;
+  margin-top: 1.5em;
+}
+
+.tax-jumbletoon img {
+  height: 75px;
+  margin-right: 20px;
+}
+
+.tax-jumbletoon .image-link {
+  margin-bottom: 20px;
+}
+
+.tax-jumbletoon b {
+  font-size: 1.5em;
 }
 
 .questions-item {
@@ -8663,43 +8669,40 @@ h1, .h1-top {
 }
 
 /* Elements */
-.button-green-large, .button-green-small, .button-review-more, .button-blue-large, .button-white-large {
+.button-green-large, .button-green-small, .button-blue-large, .button-white-large {
   display: inline-block;
   vertical-align: middle;
   background: #35a45b;
   color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 2.8em;
+  font-size: 14px;
   text-decoration: none;
   font-weight: 700;
-  height: 2.7em;
-  padding: 0 0.625em;
-  border-radius: 2.7em;
-  border: 0;
-  padding: 0 1.5em;
+  height: 34px !important;
+  line-height: 34px !important;
+  padding: 0 15px;
+  border-radius: 30px;
+  border: 1px solid #35a45b;
   position: relative;
+  text-transform: lowercase;
 }
 
-.button-green-small, .button-review-more {
+.button-green-large:disabled, .button-green-small:disabled, .button-blue-large:disabled, .button-white-large:disabled {
+  background: rgba(129, 129, 129, 0.5);
+}
+
+.button-green-small {
   color: #35a45a !important;
   border: 1px solid #35a45a !important;
-  text-transform: lowercase;
-  text-decoration: none;
-  margin: 0;
-  padding: 0 1em !important;
-  line-height: 2em !important;
-  font-weight: normal !important;
+  font-weight: 400 !important;
 }
 
 .button-review-more {
-  margin-top: 2em;
   border: 1px solid #acacac !important;
   color: #818181 !important;
-  height: 30px !important;
+  font-weight: 400 !important;
 }
 
-.button-green-small, .button-review-more {
+.button-green-small {
   height: auto;
   font-weight: 500;
 }

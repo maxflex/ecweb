@@ -21,25 +21,6 @@ $indent-top-bottom: 0.938;
           color: white;
           & > .price-list-item-title {
             pointer-events: none;
-            &.tax-jumbletoon {
-                background: #ebebeb;
-                color: black;
-                border: none;
-                font-weight: normal;
-                pointer-events: all;
-                padding-top: 2em;
-				margin-top: 1.5em;
-                & img {
-                    height: 75px;
-                    margin-right: 20px;
-                }
-                & .image-link {
-                    margin-bottom: 20px;
-                }
-                & b {
-                    font-size: 1.5em;
-                }
-            }
           }
           & > .price-list-inner {
               display: block !important;
@@ -141,4 +122,24 @@ $indent-top-bottom: 0.938;
 
 .price-list-item.price-list-inner-item {
     padding: 0;
+}
+
+.tax-jumbletoon {
+  background: #ebebeb;
+  color: black;
+  border: none;
+  font-weight: normal;
+  pointer-events: all;
+  padding-top: 2em;
+margin-top: 1.5em;
+  & img {
+      height: 75px;
+      margin-right: 20px;
+  }
+  & .image-link {
+      margin-bottom: 20px;
+  }
+  & b {
+      font-size: 1.5em;
+  }
 }
