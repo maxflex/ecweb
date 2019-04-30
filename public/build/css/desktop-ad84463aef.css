@@ -8215,6 +8215,11 @@ h3.padding-top {
   margin-right: 5px;
 }
 
+.back-arrow span {
+  position: relative;
+  top: -1px;
+}
+
 .pdf-download {
   justify-content: flex-end;
   font-size: 12px;

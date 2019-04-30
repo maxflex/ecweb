@@ -356,8 +356,12 @@ a[href^="https://www.google.com/maps"] {
         height: 14px;
         margin-right: 5px;
     }
+    & span {
+        position: relative;
+        top: -1px;
+    }
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     font-weight: $font-regular;
     margin-bottom: 11px;
 }

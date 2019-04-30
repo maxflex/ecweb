@@ -6589,7 +6589,7 @@ a[href^="https://www.google.com/maps"] {
 
 .back-arrow {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   font-weight: 400;
   margin-bottom: 11px;
 }
@@ -6597,6 +6597,11 @@ a[href^="https://www.google.com/maps"] {
 .back-arrow img {
   height: 14px;
   margin-right: 5px;
+}
+
+.back-arrow span {
+  position: relative;
+  top: -1px;
 }
 
 .b-like {
