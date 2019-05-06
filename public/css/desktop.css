@@ -5335,8 +5335,7 @@ a[href^="https://www.google.com/maps"] {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
   z-index: 3;
   left: 0;
-  background: #17293d;
-  color: white;
+  background: white;
   padding: 23px 35px;
 }
 
@@ -6979,12 +6978,12 @@ h1, .landingnew-page .common h3 {
 }
 
 .menu-blocks__header {
-  font-size: 20px;
-  margin-bottom: 26px;
+  font-size: 14px;
+  margin-bottom: 20px;
   margin-top: 5px;
   font-weight: bold;
   white-space: nowrap;
-  line-height: 30px;
+  line-height: 14px;
 }
 
 .menu-blocks__desc {
@@ -6994,10 +6993,21 @@ h1, .landingnew-page .common h3 {
   line-height: 16px;
 }
 
+.menu-blocks__attention {
+  position: absolute;
+  height: 6px;
+  width: 6px;
+  background: #df5549;
+  left: -11px;
+  border-radius: 50%;
+  top: 10px;
+}
+
 .menu-blocks a {
   font-weight: normal;
   padding-top: 4px !important;
   font-size: 14px;
+  position: relative;
 }
 
 .photos {
@@ -7209,12 +7219,15 @@ h1, .landingnew-page .common h3 {
   background: #17293d;
 }
 
+.header-menu-item > a {
+  color: #fff;
+}
+
 .header-menu-item a {
   display: block;
   height: 30px;
   padding: 14px 0 0 0;
   text-decoration: none;
-  color: #fff;
   white-space: nowrap;
 }
 

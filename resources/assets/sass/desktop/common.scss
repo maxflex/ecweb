@@ -482,8 +482,9 @@ p.last {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
     z-index: 3;
     left: 0;
-    background: #17293d;
-    color: white;
+    // background: #17293d;
+    background: white;
+    // color: black;
     padding: 23px 35px;
     & a {
         padding: 6px 0 !important;
@@ -2015,12 +2016,12 @@ h1 {
         }
     }
     &__header {
-        font-size: 20px;
-        margin-bottom: 26px;
+        font-size: 14px;
+        margin-bottom: 20px;
         margin-top: 5px;
         font-weight: bold;
         white-space: nowrap;
-        line-height: 30px;
+        line-height: 14px;
     }
     &__desc {
         font-size: 12px;
@@ -2028,10 +2029,20 @@ h1 {
         margin-bottom: 26px;
         line-height: 16px;    
     }
+    &__attention {
+        position: absolute;
+        height: 6px;
+        width: 6px;
+        background: #df5549;
+        left: -11px;
+        border-radius: 50%;
+        top: 10px;
+    }
     & a {
         font-weight: normal;
         padding-top: 4px !important;
         font-size: 14px;
+        position: relative;
     }
 }
 
