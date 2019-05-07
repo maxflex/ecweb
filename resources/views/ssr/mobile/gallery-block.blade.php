@@ -1,5 +1,5 @@
 <div class='block block_photos vertical-slider'>
-    <div class='photos'>
+    <div class='photos block__gallery'>
         @foreach ($items as $item)
             <img src="{{ $item->url }}" />
         @endforeach

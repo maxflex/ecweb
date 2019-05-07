@@ -46,6 +46,11 @@ $(document).ready(function() {
     setTimeout(function() {
         scope.StreamService.run('page', null, {href: window.location.href})
     }, 500)
+
+    $('.block__gallery').one('scroll', function(event) {
+        console.log('gallery-scroll')
+        scope.StreamService.run('gallery-scroll')
+    })
 })
 
 function closeModal() {
