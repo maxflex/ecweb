@@ -962,6 +962,10 @@ button[disabled] {
     &_photos {
         padding: 96px 0 0;
     }
+
+    &_programs {
+        margin: 40px 0;
+    }
     
     &__icons {
         display: flex;
@@ -1568,11 +1572,11 @@ h1 {
         &:before {
             content: '';
             display: inline-block;
-            height: 14px;
-            width: 14px;
+            height: 11px;
+            width: 11px;
             background-size: cover;
             background-image: url(/img/svg/green-checkmark.svg);
-            top: 3px;
+            top: 1px;
             position: relative;
             left: -6px;
         }

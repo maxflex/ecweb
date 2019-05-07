@@ -7193,6 +7193,10 @@ button[disabled] {
   padding: 96px 0 0;
 }
 
+.block_programs {
+  margin: 40px 0;
+}
+
 .block__icons {
   display: flex;
   justify-content: space-around;
@@ -7831,11 +7835,11 @@ h1, .h1-top {
 .green-checkmarks > div:before {
   content: '';
   display: inline-block;
-  height: 14px;
-  width: 14px;
+  height: 11px;
+  width: 11px;
   background-size: cover;
   background-image: url(/img/svg/green-checkmark.svg);
-  top: 3px;
+  top: 1px;
   position: relative;
   left: -6px;
 }
