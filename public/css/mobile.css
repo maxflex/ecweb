@@ -7190,7 +7190,7 @@ button[disabled] {
 }
 
 .block_photos {
-  padding: 64px 0 0;
+  padding: 96px 0 0;
 }
 
 .block__icons {
@@ -7340,6 +7340,7 @@ button[disabled] {
 
 .price-digit-block {
   text-align: center;
+  margin-top: 40px;
 }
 
 .price-digit-block b {
@@ -7766,7 +7767,7 @@ h1, .h1-top {
 
 .photos > img {
   height: 60vw;
-  margin: 0 8px;
+  margin: 0 5px;
 }
 
 .photos > img:first-child {
@@ -7787,7 +7788,7 @@ h1, .h1-top {
 .vertical-slider > * {
   overflow-y: hidden;
   overflow-x: scroll;
-  padding-bottom: 15px;
+  padding-bottom: 9px;
 }
 
 .vertical-slider > *::-webkit-scrollbar {
