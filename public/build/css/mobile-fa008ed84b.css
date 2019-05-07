@@ -7758,6 +7758,7 @@ h1, .h1-top {
 }
 
 .photos {
+  margin-left: -0.5em;
   display: flex;
 }
 
@@ -7772,13 +7773,14 @@ h1, .h1-top {
 
 .photos > img:last-child {
   margin-right: 0;
+  padding-right: .7em;
 }
 
 .vertical-slider {
   -webkit-overflow-scrolling: touch;
   width: calc(100% + 2.4em);
   overflow: hidden;
-  margin-left: -1.7em;
+  margin-left: -1.2em;
 }
 
 .vertical-slider > * {
