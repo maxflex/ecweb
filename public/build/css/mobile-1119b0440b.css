@@ -7225,7 +7225,7 @@ button[disabled] {
 }
 
 .block__icons img {
-  height: 60px;
+  height: 48px;
 }
 
 .block__showcase__desc {
@@ -7960,7 +7960,7 @@ h1, .h1-top {
   text-align: left;
   font-weight: 300;
   width: 100%;
-  padding: 2em 0 1.45em;
+  padding: 4em 0 1.450em;
   box-sizing: content-box;
   margin-top: 2em;
   padding-left: 1.2em;
