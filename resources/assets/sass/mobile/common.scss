@@ -910,7 +910,7 @@ button[disabled] {
 }
 
 .schedule-block {
-    background: #feecdd;
+    background: #fbece0;
     padding: 40px 1.357em 50px;
     margin-top: 20px;
     &.deadline-no {
@@ -918,15 +918,18 @@ button[disabled] {
 		margin-bottom: 40px;
     }
     & h1 {
-	    text-align: left;
+	   padding-bottom: 40px;
     }
     & .schedule-block-items {
         & > div {
+            display: flex;
             & b {
-                display: inline-block;
-                width: 50px;
+                width: 80px;
             }
-            margin-bottom: $margin-tiny;
+            & span {
+                flex: 1;
+            }
+            margin-bottom: 18px;
         }
     }
     & .schedule-block-warning {
@@ -954,7 +957,74 @@ button[disabled] {
 	padding: 20px 0;
 	& h1 {
 		text-align: center;
-	}
+    }
+
+    &_photos {
+        padding: 64px 0 0;
+    }
+    
+    &__icons {
+        display: flex;
+        justify-content: space-around;
+        margin: 0 auto;
+        padding: 70px 0 40px !important;
+        flex-wrap: wrap;
+        & > div {
+            text-align: center;
+            margin-bottom: 20px;
+            width: 50%;
+            & h1 {
+                font-size: 24px;
+                padding: 0;
+                margin: 15px 0;
+                line-height: initial;
+            }
+            & > div {
+                font-size: 12px;
+                color: $text-grey;
+                line-height: $line-height-small;
+            }
+        }
+        & img {
+            // width: 80px;
+            height: 60px;
+        }
+    }
+
+    &__showcase {
+        &__desc {
+            text-align: center;
+            line-height: $line-height;
+        }
+        &__report-img {
+            & img {
+                width: 100%;
+                margin: 40px auto;
+                border-radius: 5px;
+                box-shadow: 0 0 10px #0000004f;
+            }
+        }
+        &__icons {
+            & > div {
+                display: flex;
+                line-height: $line-height;
+                &:first-child {
+                    margin: 20px 0 40px;
+                }
+                & img {
+                    margin-right: 30px;
+                    height: 40px;
+                }
+                & h1 {
+                    text-align: left;
+                }
+                & > div > div:before {
+                    content: '– ';
+                }
+            }
+        }
+    }
+
 }
 
 .lk-preview-block-wrap {
@@ -1247,7 +1317,7 @@ button[disabled] {
 		padding: 60px 1.357em;
 		margin-top: 40px;
 		margin-bottom: 40px;
-		background: #e9fbff;
+		background: #ecfafe;
 	}
 	&.gray {
 		background: #f5f5f5;
@@ -1439,7 +1509,6 @@ h1 {
     $photo-padding: 8px;
     display: flex;
     & > img {
-        width: $photo-size;
         height: $photo-size;
         margin: 0 $photo-padding;
         &:first-child {
@@ -1494,4 +1563,23 @@ h1 {
 .price-section {
     line-height: 20px;
     margin-bottom: 20px;
+}
+
+.green-checkmarks {
+    margin: 22px 0;
+    padding-left: 6px;
+    & > div {
+        margin: 8px 0;
+        &:before {
+            content: '';
+            display: inline-block;
+            height: 14px;
+            width: 14px;
+            background-size: cover;
+            background-image: url(/img/svg/green-checkmark.svg);
+            top: 3px;
+            position: relative;
+            left: -6px;
+        }
+    }
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -7130,7 +7131,7 @@ button[disabled] {
 }
 
 .schedule-block {
-  background: #feecdd;
+  background: #fbece0;
   padding: 40px 1.357em 50px;
   margin-top: 20px;
 }
@@ -7141,16 +7142,20 @@ button[disabled] {
 }
 
 .schedule-block h1, .schedule-block .h1-top {
-  text-align: left;
+  padding-bottom: 40px;
 }
 
 .schedule-block .schedule-block-items > div {
-  margin-bottom: 5px;
+  display: flex;
+  margin-bottom: 18px;
 }
 
 .schedule-block .schedule-block-items > div b {
-  display: inline-block;
-  width: 50px;
+  width: 80px;
+}
+
+.schedule-block .schedule-block-items > div span {
+  flex: 1;
 }
 
 .schedule-block .schedule-block-warning {
@@ -7182,6 +7187,75 @@ button[disabled] {
 
 .block h1, .block .h1-top {
   text-align: center;
+}
+
+.block_photos {
+  padding: 64px 0 0;
+}
+
+.block__icons {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 70px 0 40px !important;
+  flex-wrap: wrap;
+}
+
+.block__icons > div {
+  text-align: center;
+  margin-bottom: 20px;
+  width: 50%;
+}
+
+.block__icons > div h1, .block__icons > div .h1-top {
+  font-size: 24px;
+  padding: 0;
+  margin: 15px 0;
+  line-height: initial;
+}
+
+.block__icons > div > div {
+  font-size: 12px;
+  color: #818181;
+  line-height: 17px;
+}
+
+.block__icons img {
+  height: 60px;
+}
+
+.block__showcase__desc {
+  text-align: center;
+  line-height: 21px;
+}
+
+.block__showcase__report-img img {
+  width: 100%;
+  margin: 40px auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #0000004f;
+}
+
+.block__showcase__icons > div {
+  display: flex;
+  line-height: 21px;
+}
+
+.block__showcase__icons > div:first-child {
+  margin: 20px 0 40px;
+}
+
+.block__showcase__icons > div img {
+  margin-right: 30px;
+  height: 40px;
+}
+
+.block__showcase__icons > div h1, .block__showcase__icons > div .h1-top {
+  text-align: left;
+}
+
+.block__showcase__icons > div > div > div:before {
+  content: '– ';
 }
 
 .lk-preview-block-wrap {
@@ -7501,7 +7575,7 @@ button[disabled] {
   padding: 60px 1.357em;
   margin-top: 40px;
   margin-bottom: 40px;
-  background: #e9fbff;
+  background: #ecfafe;
 }
 
 .reviews-block-full.gray {
@@ -7691,7 +7765,6 @@ h1, .h1-top {
 }
 
 .photos > img {
-  width: 60vw;
   height: 60vw;
   margin: 0 8px;
 }
@@ -7751,6 +7824,27 @@ h1, .h1-top {
 .price-section {
   line-height: 20px;
   margin-bottom: 20px;
+}
+
+.green-checkmarks {
+  margin: 22px 0;
+  padding-left: 6px;
+}
+
+.green-checkmarks > div {
+  margin: 8px 0;
+}
+
+.green-checkmarks > div:before {
+  content: '';
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  background-size: cover;
+  background-image: url(/img/svg/green-checkmark.svg);
+  top: 3px;
+  position: relative;
+  left: -6px;
 }
 
 /* Components */
