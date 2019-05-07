@@ -7498,11 +7498,6 @@ button[disabled] {
 
 .banner-block {
   margin-bottom: 20px;
-  font-style: italic;
-}
-
-.banner-block .h1-top {
-  font-style: normal;
 }
 
 .banner-block img {
@@ -7576,7 +7571,7 @@ button[disabled] {
   padding: 60px 1.357em;
   margin-top: 40px;
   margin-bottom: 40px;
-  background: #ecfafe;
+  background: #e9f2f0;
 }
 
 .reviews-block-full.gray {
@@ -7677,10 +7672,7 @@ h1, .h1-top {
   margin-top: 60px;
   padding-top: 40px !important;
   padding-bottom: 0 !important;
-}
-
-.ege-trial-block .block-title, .ege-trial-block .h1-top, .ege-trial-block p {
-  text-align: left !important;
+  line-height: 21px;
 }
 
 .ege-trial-block > p {
@@ -7689,12 +7681,12 @@ h1, .h1-top {
 }
 
 .ege-trial-block > center {
-  margin-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 .ege-trial-block img {
-  top: 4px;
-  position: relative;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .ege-trial-block .button-green-small {

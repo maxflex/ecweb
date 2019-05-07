@@ -1251,10 +1251,6 @@ button[disabled] {
 
 .banner-block {
 	margin-bottom: 20px;
-    font-style: italic;
-	& .h1-top {
-		font-style: normal;
-	}
     & img {
         width: 100%;
         margin-bottom: .9em;
@@ -1318,7 +1314,7 @@ button[disabled] {
 		padding: 60px 1.357em;
 		margin-top: 40px;
 		margin-bottom: 40px;
-		background: #ecfafe;
+		background: #e9f2f0;
 	}
 	&.gray {
 		background: #f5f5f5;
@@ -1413,19 +1409,17 @@ h1 {
     margin-top: 60px;
     padding-top: 40px !important;
     padding-bottom: 0 !important;
-    & .block-title, & p {
-	    text-align: left !important;
-    }
+    line-height: $line-height;
     & > p {
 	    padding-bottom: 25px;
 	    text-align: center;
     }
     & > center {
-	    margin-bottom: 50px;
+	    padding-bottom: 50px;
     }
     & img {
-	    top: 4px;
-		position: relative;
+        width: 80%;
+        margin: 0 auto;
     }
     & .button-green-small {
 	    border-color: #9c561d !important;
