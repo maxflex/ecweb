@@ -815,7 +815,7 @@ button[disabled] {
 
 
 .icons-block {
-	padding: 45px 0 30px !important;
+	padding: 60px 0 60px !important;
     & .icons-block-items {
         display: flex;
         flex-wrap: wrap;
@@ -1525,7 +1525,7 @@ h1 {
     -webkit-overflow-scrolling: touch;
     width: calc(100% + 2.4em);
     overflow: hidden;
-    margin-left: -1.2em;
+    margin-left: -1.7em;
     & > * {
         overflow-y: hidden;
         overflow-x: scroll;

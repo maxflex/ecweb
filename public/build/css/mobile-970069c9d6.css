@@ -7020,7 +7020,7 @@ button[disabled] {
 }
 
 .icons-block {
-  padding: 45px 0 30px !important;
+  padding: 60px 0 60px !important;
 }
 
 .icons-block .icons-block-items {
@@ -7782,7 +7782,7 @@ h1, .h1-top {
   -webkit-overflow-scrolling: touch;
   width: calc(100% + 2.4em);
   overflow: hidden;
-  margin-left: -1.2em;
+  margin-left: -1.7em;
 }
 
 .vertical-slider > * {
