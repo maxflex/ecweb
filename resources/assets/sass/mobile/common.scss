@@ -1573,13 +1573,14 @@ h1 {
 }
 
 .green-checkmarks {
-    padding-left: 6px;
     & > div {
         margin: 4px 0;
         display: flex; 
         & img {
             height: 11px;
             width: 11px;
+            margin-right: 12px;
+            margin-top: 4px;
         }
     }
 }

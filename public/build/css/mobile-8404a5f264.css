@@ -7828,10 +7828,6 @@ h1, .h1-top {
   margin-bottom: 20px;
 }
 
-.green-checkmarks {
-  padding-left: 6px;
-}
-
 .green-checkmarks > div {
   margin: 4px 0;
   display: flex;
@@ -7840,6 +7836,8 @@ h1, .h1-top {
 .green-checkmarks > div img {
   height: 11px;
   width: 11px;
+  margin-right: 12px;
+  margin-top: 4px;
 }
 
 /* Components */
