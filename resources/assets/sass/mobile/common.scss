@@ -1576,18 +1576,14 @@ h1 {
     padding-left: 6px;
     & > div {
         margin: 4px 0;
-        & span {
-            display: block;
-            margin-left: 21px;
-        }
         &:before {
             content: '';
-            display: inline-block;
+            display: block;
             height: 11px;
-            width: 11px;
+            width: 17px;
             background-size: cover;
             background-image: url(/img/svg/green-checkmark.svg);
-            top: 1px;
+            top: 5px;
             position: relative;
             left: -6px;
             margin-right: 7px;

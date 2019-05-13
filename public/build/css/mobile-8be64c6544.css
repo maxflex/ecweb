@@ -7836,19 +7836,14 @@ h1, .h1-top {
   margin: 4px 0;
 }
 
-.green-checkmarks > div span {
-  display: block;
-  margin-left: 21px;
-}
-
 .green-checkmarks > div:before {
   content: '';
-  display: inline-block;
+  display: block;
   height: 11px;
-  width: 11px;
+  width: 17px;
   background-size: cover;
   background-image: url(/img/svg/green-checkmark.svg);
-  top: 1px;
+  top: 5px;
   position: relative;
   left: -6px;
   margin-right: 7px;
