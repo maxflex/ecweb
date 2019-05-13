@@ -7834,19 +7834,12 @@ h1, .h1-top {
 
 .green-checkmarks > div {
   margin: 4px 0;
+  display: flex;
 }
 
-.green-checkmarks > div:before {
-  content: '';
-  display: block;
+.green-checkmarks > div img {
   height: 11px;
   width: 11px;
-  background-size: cover;
-  background-image: url(/img/svg/green-checkmark.svg);
-  top: 5px;
-  position: relative;
-  left: -6px;
-  margin-right: 7px;
 }
 
 /* Components */
