@@ -1140,6 +1140,9 @@ p.last {
     & .image-link {
         margin-bottom: $margin-small;
     }
+    & .block-title {
+        text-align: left;
+    }
 }
 
 .plan-includes-block-new {
