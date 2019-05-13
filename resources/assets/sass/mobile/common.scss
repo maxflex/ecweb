@@ -1505,16 +1505,18 @@ h1 {
     $photo-padding: 5px;
     margin-left: -0.5em;
     display: flex;
-    & > img {
+    & > div {
         height: $photo-size;
         margin: 0 $photo-padding;
-        border-radius: 8px;
         &:first-child {
             margin-left: 0;
         }
         &:last-child {
             margin-right: 0;
             padding-right: .7em;
+        }
+        & > img {
+            border-radius: 8px;
         }
     }
 }

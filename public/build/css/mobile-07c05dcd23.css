@@ -7757,19 +7757,22 @@ h1, .h1-top {
   display: flex;
 }
 
-.photos > img {
+.photos > div {
   height: 60vw;
   margin: 0 5px;
-  border-radius: 8px;
 }
 
-.photos > img:first-child {
+.photos > div:first-child {
   margin-left: 0;
 }
 
-.photos > img:last-child {
+.photos > div:last-child {
   margin-right: 0;
   padding-right: .7em;
+}
+
+.photos > div > img {
+  border-radius: 8px;
 }
 
 .vertical-slider {
