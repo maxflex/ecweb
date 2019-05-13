@@ -966,6 +966,12 @@ button[disabled] {
     &_programs {
         margin: 40px 0;
     }
+
+    &__programs {
+        & .green-checkmarks {
+            margin: 22px 0;
+        }
+    }
     
     &__icons {
         display: flex;
@@ -1567,10 +1573,13 @@ h1 {
 }
 
 .green-checkmarks {
-    margin: 22px 0;
     padding-left: 6px;
     & > div {
         margin: 8px 0;
+        & span {
+            display: block;
+            margin-left: 21px;
+        }
         &:before {
             content: '';
             display: inline-block;

@@ -7196,6 +7196,10 @@ button[disabled] {
   margin: 40px 0;
 }
 
+.block__programs .green-checkmarks {
+  margin: 22px 0;
+}
+
 .block__icons {
   display: flex;
   justify-content: space-around;
@@ -7825,12 +7829,16 @@ h1, .h1-top {
 }
 
 .green-checkmarks {
-  margin: 22px 0;
   padding-left: 6px;
 }
 
 .green-checkmarks > div {
   margin: 8px 0;
+}
+
+.green-checkmarks > div span {
+  display: block;
+  margin-left: 21px;
 }
 
 .green-checkmarks > div:before {
