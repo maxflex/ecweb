@@ -2172,18 +2172,16 @@ h1 {
         &__icons {
             display: flex;
             justify-content: space-between;
-            width: 87%;
+            width: 100%;
             margin: 50px auto 0;
             & > div {
                 display: flex;
                 line-height: $line-height;
+                width: 430px;
                 & img {
                     margin-right: 30px;
                     height: 40px;
-                }
-                & > div > div:before {
-                    content: '– ';
-                }
+                } 
             }
         }
     }

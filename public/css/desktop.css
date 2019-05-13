@@ -7144,22 +7144,19 @@ h1, .landingnew-page .common h3 {
 .block__showcase__icons {
   display: flex;
   justify-content: space-between;
-  width: 87%;
+  width: 100%;
   margin: 50px auto 0;
 }
 
 .block__showcase__icons > div {
   display: flex;
   line-height: 21px;
+  width: 430px;
 }
 
 .block__showcase__icons > div img {
   margin-right: 30px;
   height: 40px;
-}
-
-.block__showcase__icons > div > div > div:before {
-  content: '– ';
 }
 
 .block__gallery {
