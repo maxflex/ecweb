@@ -1576,17 +1576,10 @@ h1 {
     padding-left: 6px;
     & > div {
         margin: 4px 0;
-        &:before {
-            content: '';
-            display: block;
+        display: flex;
+        & img {
             height: 11px;
             width: 11px;
-            background-size: cover;
-            background-image: url(/img/svg/green-checkmark.svg);
-            top: 5px;
-            position: relative;
-            left: -6px;
-            margin-right: 7px;
         }
     }
 }
