@@ -6030,7 +6030,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .plan-includes-block .block-title, .plan-includes-block .h1-top {
-  text-align: left;
+  text-align: left !important;
 }
 
 .plan-includes-block-new__item-header {
@@ -7186,7 +7186,7 @@ h1, .landingnew-page .common h3 {
 }
 
 .green-checkmarks > div {
-  margin: 8px 0;
+  margin: 6px 0;
   padding-left: 7px;
 }
 
