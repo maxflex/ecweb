@@ -6030,7 +6030,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .plan-includes-block .block-title, .plan-includes-block .h1-top {
-  text-align: left;
+  text-align: left !important;
 }
 
 .plan-includes-block-new__item-header {

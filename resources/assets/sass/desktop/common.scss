@@ -1141,7 +1141,7 @@ p.last {
         margin-bottom: $margin-small;
     }
     & .block-title {
-        text-align: left;
+        text-align: left !important;
     }
 }
 

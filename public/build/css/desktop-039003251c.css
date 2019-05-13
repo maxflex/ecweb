@@ -6029,6 +6029,10 @@ a[href^="https://www.google.com/maps"] {
   margin-bottom: 10px;
 }
 
+.plan-includes-block .block-title, .plan-includes-block .h1-top {
+  text-align: left;
+}
+
 .plan-includes-block-new__item-header {
   margin-bottom: 20px;
 }
