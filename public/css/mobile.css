@@ -7840,7 +7840,7 @@ h1, .h1-top {
   content: '';
   display: block;
   height: 11px;
-  width: 17px;
+  width: 11px;
   background-size: cover;
   background-image: url(/img/svg/green-checkmark.svg);
   top: 5px;
