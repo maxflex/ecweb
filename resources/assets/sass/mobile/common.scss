@@ -1506,7 +1506,6 @@ h1 {
     margin-left: -0.5em;
     display: flex;
     & > div {
-        height: $photo-size;
         margin: 0 $photo-padding;
         &:first-child {
             margin-left: 0;
@@ -1516,6 +1515,7 @@ h1 {
             padding-right: .7em;
         }
         & > img {
+            height: $photo-size;
             border-radius: 8px;
         }
     }

@@ -7758,7 +7758,6 @@ h1, .h1-top {
 }
 
 .photos > div {
-  height: 60vw;
   margin: 0 5px;
 }
 
@@ -7772,6 +7771,7 @@ h1, .h1-top {
 }
 
 .photos > div > img {
+  height: 60vw;
   border-radius: 8px;
 }
 
