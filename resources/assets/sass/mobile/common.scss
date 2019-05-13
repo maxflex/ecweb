@@ -1508,6 +1508,7 @@ h1 {
     & > img {
         height: $photo-size;
         margin: 0 $photo-padding;
+        border-radius: 8px;
         &:first-child {
             margin-left: 0;
         }

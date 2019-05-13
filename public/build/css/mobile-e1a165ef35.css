@@ -7760,6 +7760,7 @@ h1, .h1-top {
 .photos > img {
   height: 60vw;
   margin: 0 5px;
+  border-radius: 8px;
 }
 
 .photos > img:first-child {
