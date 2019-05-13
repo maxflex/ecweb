@@ -7172,9 +7172,9 @@ h1, .landingnew-page .common h3 {
 }
 
 .block__gallery img {
-  padding-right: 12px;
+  margin-right: 12px;
   height: 100%;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .green-checkmarks {
