@@ -1022,9 +1022,6 @@ button[disabled] {
                 & h1 {
                     text-align: left;
                 }
-                & > div > div:before {
-                    content: '– ';
-                }
             }
         }
     }
