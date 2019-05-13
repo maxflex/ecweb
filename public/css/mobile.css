@@ -7213,7 +7213,7 @@ button[disabled] {
 .block__icons > div h1, .block__icons > div .h1-top {
   font-size: 24px;
   padding: 0;
-  margin: 30px 0 15px;
+  margin: 15px 0;
   line-height: initial;
 }
 
@@ -7843,6 +7843,7 @@ h1, .h1-top {
   top: 1px;
   position: relative;
   left: -6px;
+  margin-right: 7px;
 }
 
 /* Components */

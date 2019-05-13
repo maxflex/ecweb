@@ -980,7 +980,7 @@ button[disabled] {
             & h1 {
                 font-size: 24px;
                 padding: 0;
-                margin: 30px 0 15px;
+                margin: 15px 0;
                 line-height: initial;
             }
             & > div {
@@ -1581,6 +1581,7 @@ h1 {
             top: 1px;
             position: relative;
             left: -6px;
+            margin-right: 7px;
         }
     }
 }
