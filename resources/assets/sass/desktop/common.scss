@@ -2228,3 +2228,24 @@ h1 {
     }
 }
 
+.plan-includes-table {
+    & tr {
+        & td {
+            padding: 30px 6px;
+            border-bottom: 1px solid $text-grey-light;
+            vertical-align: top;
+            &:last-child {
+                text-align: right;
+            }
+        }
+        &:last-child {
+            td {
+                border-bottom: none;
+            }
+        }
+    }
+    &__price {
+        color: $color-green;
+        font-weight: 700;
+    }
+}

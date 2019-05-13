@@ -7203,6 +7203,25 @@ h1, .landingnew-page .common h3 {
   margin-right: 7px;
 }
 
+.plan-includes-table tr td {
+  padding: 30px 6px;
+  border-bottom: 1px solid #acacac;
+  vertical-align: top;
+}
+
+.plan-includes-table tr td:last-child {
+  text-align: right;
+}
+
+.plan-includes-table tr:last-child td {
+  border-bottom: none;
+}
+
+.plan-includes-table__price {
+  color: #35a45b;
+  font-weight: 700;
+}
+
 /* Components */
 .top-message {
   background: #fef9de;
