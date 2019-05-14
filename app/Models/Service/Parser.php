@@ -213,7 +213,10 @@
                         }
                         break;
                     case 'photo':
-                        $replacement = Photo::find($args[0])->url;
+                        $photo = Photo::find($args[0]);
+                        if ($photo !== null) {
+                            $replacement = $photo->url;
+                        }
                         break;
                     case 'program':
                         $replacement = view('pages.program', ['program' => Program::find($args[0])]);
