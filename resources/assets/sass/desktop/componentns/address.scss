@@ -86,6 +86,7 @@
   display: flex;
   align-items: center;
   left: calc((100vw - 960px) / 2);
+  max-width: 450px;
   & > *  {
     background: white;
     padding: 20px;
