@@ -6465,7 +6465,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .banner-block .info .button-green-large, .banner-block .info .btn-small, .banner-block .info .button-green-small, .banner-block .info .button-blue-large, .banner-block .info .button-white-large {
-  margin-top: 80px;
+  margin-top: 56px;
 }
 
 .banner-block .info > div {
@@ -7172,6 +7172,12 @@ h1, .landingnew-page .common h3 {
 .block__showcase__icons > div img {
   margin-right: 30px;
   height: 40px;
+}
+
+.block__showcase__icons > div > div {
+  font-size: 12px;
+  color: #818181;
+  line-height: 17px;
 }
 
 .block__gallery {
