@@ -6363,6 +6363,10 @@ a[href^="https://www.google.com/maps"] {
   font-size: 40px;
 }
 
+.main-page .reviews-block {
+  background: #f5f5f5 !important;
+}
+
 .price-digit-block {
   padding: 50px 0;
   text-align: center;
