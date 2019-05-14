@@ -6384,6 +6384,9 @@ a[href^="https://www.google.com/maps"] {
   .banner-block.right {
     margin-left: -20px !important;
   }
+  .address-list-wrapper {
+    left: 20px !important;
+  }
 }
 
 .banner-block-full-width-wrapper {

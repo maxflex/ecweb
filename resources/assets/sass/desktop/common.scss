@@ -1461,9 +1461,14 @@ p.last {
 	.full-width-wrapper:not(.banner-block) {
 		margin-left: -20px !important;
 	}
-	.banner-block.right {
+    
+    .banner-block.right {
 		margin-left: -20px !important;
-	}
+    }
+    
+    .address-list-wrapper {
+        left: 20px !important;
+    }
 }
 
 
