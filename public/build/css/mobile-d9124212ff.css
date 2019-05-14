@@ -7576,10 +7576,6 @@ button[disabled] {
   background: #e9f2f0;
 }
 
-.reviews-block-full.gray {
-  background: #f5f5f5;
-}
-
 .reviews-block-full .review-stars {
   margin-bottom: .9em;
   font-size: 16px;
@@ -7957,7 +7953,7 @@ h1, .h1-top {
   text-align: left;
   font-weight: 300;
   width: 100%;
-  padding: 4em 0 1.450em;
+  padding: 3em 0 1.450em;
   box-sizing: content-box;
   margin-top: 2em;
   padding-left: 1.2em;
@@ -7998,7 +7994,7 @@ h1, .h1-top {
 
 .footer.hidden {
   display: block !important;
-  margin-top: 2em;
+  margin-top: 3em;
 }
 
 .tutors {
