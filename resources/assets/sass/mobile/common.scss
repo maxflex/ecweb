@@ -1023,7 +1023,8 @@ button[disabled] {
                 }
                 & img {
                     margin-right: 30px;
-                    height: 40px;
+                    width: 42px;
+                    align-self: flex-start;
                 }
                 & h1 {
                     text-align: left;

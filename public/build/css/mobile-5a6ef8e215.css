@@ -7254,7 +7254,8 @@ button[disabled] {
 
 .block__showcase__icons > div img {
   margin-right: 30px;
-  height: 40px;
+  width: 42px;
+  align-self: flex-start;
 }
 
 .block__showcase__icons > div h1, .block__showcase__icons > div .h1-top {
