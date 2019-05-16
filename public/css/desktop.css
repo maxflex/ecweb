@@ -7198,10 +7198,6 @@ h1, .landingnew-page .common h3 {
   border-radius: 8px;
 }
 
-.block__gallery > div:last-child {
-  padding-right: 12px;
-}
-
 .green-checkmarks > div {
   margin: 4px 0;
   padding-left: 7px;

@@ -1620,6 +1620,8 @@ h1 {
     }
 }
 
-.loading-inside-button { 
-    top: 8px !important;
+.button-green-large {
+    & .loading-inside-button { 
+        top: 8px !important;
+    }
 }
