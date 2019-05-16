@@ -7482,7 +7482,6 @@ button[disabled] {
 
 .plan-includes-block {
   margin-top: 60px;
-  line-height: 21px;
 }
 
 .plan-includes-block > div {
@@ -7502,6 +7501,30 @@ button[disabled] {
 
 .plan-includes-block .image-link b {
   display: block;
+}
+
+.plan-includes-block-items > div {
+  display: flex;
+  margin-bottom: 13px;
+}
+
+.plan-includes-block-items > div:last-child {
+  margin-bottom: 0;
+}
+
+.plan-includes-block-items > div .green-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #35a45b;
+  top: 6px;
+  position: relative;
+  background: #35a45b;
+  margin-right: 12px;
+}
+
+.plan-includes-block-items > div > div:last-child > div {
+  margin-bottom: 18px;
 }
 
 .banner-block {

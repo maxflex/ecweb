@@ -1243,7 +1243,6 @@ button[disabled] {
 
 .plan-includes-block {
 	margin-top: 60px;
-    line-height: $line-height;
     & > div {
         margin-bottom: $margin-small;
         align-items: flex-start;
@@ -1258,6 +1257,31 @@ button[disabled] {
 		    display: block;
 	    }
 	    margin-bottom: 30px;
+    }
+}
+
+.plan-includes-block-items {
+    & > div {
+        display: flex;
+        margin-bottom: 13px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        & .green-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #35a45b;
+            top: 6px;
+            position: relative;
+            background: $color-green;
+            margin-right: 12px;
+        }
+        & > div:last-child {
+            & > div {
+                margin-bottom: 18px;
+            }
+        }
     }
 }
 
