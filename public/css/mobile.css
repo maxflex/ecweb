@@ -7527,6 +7527,10 @@ button[disabled] {
   margin-bottom: 18px;
 }
 
+.plan-includes-block-items > div > div:last-child > div .color-green {
+  font-size: 16px;
+}
+
 .banner-block {
   margin-bottom: 20px;
 }
