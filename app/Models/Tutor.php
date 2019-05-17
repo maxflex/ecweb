@@ -51,7 +51,10 @@ class Tutor extends Service\Model
 
     public function getAgeAttribute()
     {
-        return date('Y') - $this->birth_year;
+        if ($this->birth_year) {
+            return date('Y') - $this->birth_year;
+        }
+        return null;
     }
 
 	public function getPhotoDescAttribute($value)
