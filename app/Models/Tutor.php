@@ -51,7 +51,7 @@ class Tutor extends Service\Model
 
     public function getAgeAttribute()
     {
-        return date('Y') - date('Y', strtotime($this->birthday));
+        return date('Y') - $this->birth_year;
     }
 
 	public function getPhotoDescAttribute($value)
@@ -133,7 +133,7 @@ class Tutor extends Service\Model
             'public_desc',
             'photo_extension',
             'start_career_year',
-            'birthday',
+            'birth_year',
             'lesson_duration',
             'public_price',
             'departure_price',
