@@ -1826,8 +1826,8 @@ h1 {
 	    margin-bottom: $margin-huge;
     }
     & img {
-        width: 40%;
-        padding-top: 20px;
+        width: 33%;
+        padding-top: 50px;
         padding-bottom: 60px;
     }
     & .btn-small {
@@ -2113,8 +2113,42 @@ h1 {
 }
 
 .block {
+    &_arrows {
+
+    }
+
+    &__arrows {
+        display: flex;
+        & > div {
+            flex: 1;
+            text-align: center;
+            & img {
+                width: 100%;
+            }
+            & h2 {
+                font-size: 27px;
+                font-weight: 700;
+                padding: 0;
+                margin: 15px 0;
+                line-height: initial;
+            }
+            & > div {
+                font-size: 12px;
+                color: #818181;
+                line-height: 17px;
+            }
+            &.arrow {
+                & img {
+                    padding: 72px 10px 0;
+                    width: 50%;
+                }
+            }
+        }
+    }
+
     &_programs {
-        padding-bottom: 100px;
+        padding-bottom: 120px;
+        padding-top: 60px;
     }
     &__programs {
         display: flex;
@@ -2122,8 +2156,9 @@ h1 {
             flex: 1;
             width: 50%;
             &:first-child {
+                text-align: center;
                 & img {
-                    width: 90%;
+                    width: 65%;
                     margin: 0 auto;
                 }
             }
@@ -2261,5 +2296,21 @@ h1 {
         color: $color-green;
         font-weight: 700;
         font-size: 18px;
+    }
+}
+
+.block-404 {
+    & img {
+        width: 60%;
+        padding-bottom: 100px;
+    }
+}
+
+.page-not-found {
+    .h1-top {
+        margin-top: 100px;
+        font-weight: 500;
+        font-size: 26px;
+        text-align: center;
     }
 }
