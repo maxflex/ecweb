@@ -7085,6 +7085,7 @@ h1, .landingnew-page .common h3 {
 }
 
 .block__arrows > div.arrow img {
+  padding: 72px 10px 0;
   width: 50%;
   height: initial;
 }
