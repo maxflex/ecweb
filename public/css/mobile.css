@@ -7221,11 +7221,12 @@ button[disabled] {
 }
 
 .block__arrows > div img {
-  height: 200px;
+  height: 140px;
+  margin-bottom: 5px;
 }
 
 .block__arrows > div:nth-child(even) img {
-  height: 80px;
+  height: 56px;
 }
 
 .block__programs .green-checkmarks {

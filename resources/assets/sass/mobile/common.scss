@@ -986,11 +986,12 @@ button[disabled] {
                 margin: 0 auto 15px;
             }
             & img {
-                height: 200px;
+                height: 140px;
+                margin-bottom: 5px;
             }
             &:nth-child(even) {
                 & img {
-                    height: 80px;
+                    height: 56px;
                 }
             }
         }
