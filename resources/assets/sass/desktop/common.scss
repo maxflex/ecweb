@@ -2097,7 +2097,8 @@ h1 {
             flex: 1;
             text-align: center;
             & img {
-                width: 75%;
+                height: 180px; 
+                width: initial;
             }
             & h2 {
                 font-size: 27px;
@@ -2113,8 +2114,8 @@ h1 {
             }
             &.arrow {
                 & img {
-                    padding: 72px 10px 0;
                     width: 50%;
+                    height: initial;
                 }
             }
         }

@@ -7066,7 +7066,8 @@ h1, .landingnew-page .common h3 {
 }
 
 .block__arrows > div img {
-  width: 75%;
+  height: 180px;
+  width: initial;
 }
 
 .block__arrows > div h2 {
@@ -7084,8 +7085,8 @@ h1, .landingnew-page .common h3 {
 }
 
 .block__arrows > div.arrow img {
-  padding: 72px 10px 0;
   width: 50%;
+  height: initial;
 }
 
 .block_programs {
