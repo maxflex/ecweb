@@ -6232,40 +6232,6 @@ a[href^="https://www.google.com/maps"] {
   font-weight: 700;
 }
 
-.exams-block {
-  background: #d5f5ff;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  padding: 60px 0 52px;
-}
-
-.exams-block .exams-block-items {
-  display: flex;
-  align-items: center;
-}
-
-.exams-block .exams-block-items > div {
-  text-align: center;
-  width: 200px;
-  margin: 0 50px;
-}
-
-.exams-block .exams-block-items > div img {
-  height: 150px;
-}
-
-.exams-block .exams-block-items > div h1, .exams-block .exams-block-items > div .landingnew-page .common h3, .landingnew-page .common .exams-block .exams-block-items > div h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 15px 0;
-  padding: 0;
-}
-
-.exams-block .exams-block-items > img {
-  height: 35px;
-  margin-top: -110px;
-}
-
 .events-block .events-block-items {
   display: flex;
   flex-wrap: wrap;
@@ -7081,6 +7047,13 @@ h1, .landingnew-page .common h3 {
 
 .study-plan > div > div {
   margin-bottom: 4px;
+}
+
+.block_arrows {
+  background: #d5f5ff;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 60px 0 52px;
 }
 
 .block__arrows {

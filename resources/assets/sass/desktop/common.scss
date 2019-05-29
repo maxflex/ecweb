@@ -1323,35 +1323,6 @@ p.last {
     }
 }
 
-.exams-block {
-    background: #d5f5ff;
-	margin-top: 20px;
-	margin-bottom: 40px;
-	padding: 60px 0 52px;
-    & .exams-block-items {
-        display: flex;
-        align-items: center;
-        & > div {
-            text-align: center;
-            width: 200px;
-            margin: 0 50px;
-            & img {
-                height: 150px;
-            }
-            & h1 {
-                font-size: $font-size-big;
-                font-weight: $font-bold;
-                margin: 15px 0;
-                padding: 0;
-            }
-        }
-        & > img {
-            height: 35px;
-            margin-top: -110px;
-        }
-    }
-}
-
 .events-block {
     & .events-block-items {
         display: flex;
@@ -2114,7 +2085,10 @@ h1 {
 
 .block {
     &_arrows {
-
+        background: #d5f5ff;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        padding: 60px 0 52px;
     }
 
     &__arrows {
