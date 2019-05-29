@@ -5821,8 +5821,8 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .circle-icons > div img {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
 }
 
 .circle-icons > div .circle-desc {
@@ -5986,7 +5986,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .image-text-block img {
-  height: 60px;
+  height: 50px;
   margin-right: 20px;
 }
 
