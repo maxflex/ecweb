@@ -7208,7 +7208,7 @@ button[disabled] {
 .block__arrows > div h2 {
   font-size: 24px;
   padding: 0;
-  margin: 15px 0;
+  margin: 5px 0 15px;
   line-height: initial;
 }
 
@@ -7222,7 +7222,6 @@ button[disabled] {
 
 .block__arrows > div img {
   height: 140px;
-  margin-bottom: 5px;
 }
 
 .block__arrows > div:nth-child(even) img {
