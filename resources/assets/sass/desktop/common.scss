@@ -913,6 +913,9 @@ p.last {
 	background-size: cover;
     color: white;
     background-position: center bottom;
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
 	& a {
 		color: white;
 	}
@@ -923,8 +926,8 @@ p.last {
 		background: rgba(black, .5);
 	}
 	& .header-new-info {
-        padding: 70px 0 150px; 
-		width: 600px;
+        padding: 0;
+        width: 600px;
         & div {
             line-height: $line-height;
         }

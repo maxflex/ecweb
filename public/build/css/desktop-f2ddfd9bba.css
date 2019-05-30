@@ -5766,6 +5766,9 @@ a[href^="https://www.google.com/maps"] {
   background-size: cover;
   color: white;
   background-position: center bottom;
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
   margin-bottom: 30px;
 }
 
@@ -5782,7 +5785,7 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .header-new .header-new-info {
-  padding: 70px 0 150px;
+  padding: 0;
   width: 600px;
 }
 
