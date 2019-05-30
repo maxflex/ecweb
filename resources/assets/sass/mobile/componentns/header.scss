@@ -62,6 +62,9 @@
     &-container {
       font-size: 3em;
       padding-bottom: 1.300em;
+      & img {
+        width: 80%;
+      }
     }
 
     &-title {
@@ -73,7 +76,7 @@
     position: relative;
     background: url('/img/background/main.jpeg') no-repeat 50% 0;
     background-size: cover;
-    height: 36em;
+    height: 42em;
 
     .header {
       background: none;

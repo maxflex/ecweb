@@ -6,7 +6,6 @@
  * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
  */
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700,700i,900");
-@import url("https://fonts.googleapis.com/css?family=Bad+Script");
 select.bs-select-hidden,
 select.selectpicker {
   display: none !important;
@@ -5763,9 +5762,10 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .header-new {
-  background: url(/img/background/greenboard.jpg) no-repeat;
+  background: url(/img/background/desk.jpg) no-repeat;
   background-size: cover;
   color: white;
+  background-position: center bottom;
   margin-bottom: 30px;
 }
 
@@ -5782,16 +5782,8 @@ a[href^="https://www.google.com/maps"] {
 }
 
 .header-new .header-new-info {
-  padding: 120px 0;
+  padding: 120px 0 200px;
   width: 600px;
-}
-
-.header-new .header-new-info h1, .header-new .header-new-info .landingnew-page .common h3, .landingnew-page .common .header-new .header-new-info h3 {
-  font-family: 'Bad Script', cursive;
-  font-weight: normal !important;
-  font-size: 60px;
-  padding: 0;
-  white-space: nowrap;
 }
 
 .header-new .header-new-info div {

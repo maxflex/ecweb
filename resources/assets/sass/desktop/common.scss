@@ -909,9 +909,10 @@ p.last {
 }
 
 .header-new {
-	background: url(/img/background/greenboard.jpg) no-repeat;
+	background: url(/img/background/desk.jpg) no-repeat;
 	background-size: cover;
-	color: white;
+    color: white;
+    background-position: center bottom;
 	& a {
 		color: white;
 	}
@@ -922,15 +923,8 @@ p.last {
 		background: rgba(black, .5);
 	}
 	& .header-new-info {
-		padding: 120px 0;
+		padding: 120px 0 200px;
 		width: 600px;
-		& h1 {
-			font-family: 'Bad Script', cursive;
-			font-weight: normal !important;
-			font-size: 60px;
-			padding: 0;
-			white-space: nowrap;
-		}
         & div {
             line-height: $line-height;
         }

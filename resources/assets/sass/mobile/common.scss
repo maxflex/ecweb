@@ -792,7 +792,7 @@ button[disabled] {
         display: none;
     }
     &.header__wrap-img {
-        background: url(/img/background/greenboard.jpg) no-repeat;
+        background: url(/img/background/desk.jpg) no-repeat;
         background-size: cover;
         &:before {
             background: none;
@@ -803,13 +803,6 @@ button[disabled] {
         &:after {
             background: url(/img/icons/phone-green.svg) no-repeat 0 0.063em;
         }
-    }
-
-    & .header-image-container {
-        font-family: 'Bad Script', cursive;
-        font-weight: normal !important;
-        line-height: 90px;
-        padding-bottom: .5em;
     }
 }
 
