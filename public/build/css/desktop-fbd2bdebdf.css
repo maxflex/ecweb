@@ -6413,6 +6413,13 @@ a[href^="https://www.google.com/maps"] {
   font-size: 16px;
 }
 
+.banner-block .info .quote span > span {
+  background: #df5549;
+  color: white;
+  padding: 1px 6px 2px;
+  border-radius: 1px;
+}
+
 .banner-block .info .tutor-title {
   margin-top: 18px;
 }
@@ -6755,6 +6762,10 @@ h1, .landingnew-page .common h3 {
 
 .results-showcase-block {
   padding: 40px 0 100px;
+}
+
+.external-page .banner-block h1, .external-page .banner-block .landingnew-page .common h3, .landingnew-page .common .external-page .banner-block h3 {
+  padding-bottom: 20px !important;
 }
 
 .external-page .ege-trial-block {
