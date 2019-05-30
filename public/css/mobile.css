@@ -7969,7 +7969,7 @@ h1, .h1-top {
   text-align: center;
   color: #fff;
   font-weight: 100;
-  padding: 3.5em 0 0 0;
+  padding: 3.5em 0 8em;
   position: relative;
 }
 
@@ -7990,7 +7990,6 @@ h1, .h1-top {
   position: relative;
   background: url("/img/background/main.jpeg") no-repeat 50% 0;
   background-size: cover;
-  height: 42em;
 }
 
 .header__wrap-img .header {

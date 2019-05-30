@@ -56,7 +56,7 @@
     text-align: center;
     color: #fff;
     font-weight: $font-ultra-light;
-    padding: 3.5em 0 0 0;
+    padding: 3.5em 0 8em;
     position: relative;
 
     &-container {
@@ -76,7 +76,6 @@
     position: relative;
     background: url('/img/background/main.jpeg') no-repeat 50% 0;
     background-size: cover;
-    height: 42em;
 
     .header {
       background: none;
