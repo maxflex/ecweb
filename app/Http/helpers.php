@@ -283,14 +283,14 @@
 
     function getPhone($unformatted = false)
     {
-        $phone_new = '+7 (495) 646-85-92';
-        $phone_old = '+7 (495) 488-68-82';
+        $phone = isExperiment() ? '+7 (495) 646-85-92' : '+7 (495) 646-85-74';
         if ($unformatted) {
-            $phone_new = cleanNumber($phone_new);
-            $phone_old = cleanNumber($phone_old);
+            $phone = cleanNumber($phone);
         }
-        // $key = 'ab-test-facelift';
-        // $val = isset($GLOBALS[$key]) ? $GLOBALS[$key] : @$_COOKIE[$key];
-        // return $val == 1 ? $phone_new : $phone_old;
-        return $phone_new;
+        return $phone;
+    }
+
+    function isExperiment($key = AB_TEST_KEY)
+    {
+      return isset($_COOKIE[$key]) && $_COOKIE[$key];
     }

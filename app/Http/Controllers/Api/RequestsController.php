@@ -20,8 +20,11 @@ class RequestsController extends Controller
             'data' => json_encode($request->all())
         ]);
         return Limiter::run('request', 24, 200, function() use ($request) {
+            if (isExperiment()) {
+                $request->merge(['comment' => $request->comment . ' (цена в месяц)']);
+            }
             Api::exec('AddRequest', array_merge($request->input(), [
-                'branches' => [$request->branch_id]
+                'branches' => [$request->branch_id],
             ]));
         }, function() use ($request) {
             Redis::sadd('ecweb:request:blocked', json_encode($request->input()));

@@ -67,14 +67,15 @@ if (! isset($_COOKIE['source']))
 
 
 
-/*
-$key = 'ab-test-facelift';
-if (! isset($_COOKIE[$key])) {
+
+define('AB_TEST_KEY', 'ab-test-price-format');
+
+if (! isset($_COOKIE[AB_TEST_KEY])) {
     $variant = mt_rand(0, 1);
-    setcookie($key, $variant, time() + (10 * 365 * 24 * 60 * 60), '/');
-    $_COOKIE[$key] = $variant;
+    setcookie(AB_TEST_KEY, $variant, time() + (86400 * 30 * 3), '/'); // кука на 3 месяца
+    $_COOKIE[AB_TEST_KEY] = $variant;
 }
-*/
+
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 

@@ -121,6 +121,15 @@
                 $function_name = $args[0];
                 array_shift($args);
                 switch ($function_name) {
+                    case 'subject-price-ege-experiment':
+                        $replacement = isExperiment() ? 8400 : 23100;
+                        break;
+                    case 'subject-price-oge-experiment':
+                        $replacement = isExperiment() ? 7600 : 20900;
+                        break;
+                    case 'subject-price-unit':
+                        $replacement = isExperiment() ? 'месяц' : 'триместр';
+                        break;
                     case 'mobile':
                         $replacement = isMobile(true) ? 'is-mobile' : 'is-desktop';
                         break;
@@ -191,8 +200,11 @@
                         $replacement = date('Y');
                         break;
                     case 'elixir':
-                            $replacement = elixir($args[0]);
-                            break;
+                        $replacement = elixir($args[0]);
+                        break;
+                    case 'ab-test-if':
+                        $replacement = isExperiment() ? 'true' : 'false';
+                        break;
                     case 'subject':
                         $replacement = json_encode(Page::getSubjectRoutes());
                         break;
