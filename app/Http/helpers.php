@@ -283,7 +283,7 @@
 
     function getPhone($unformatted = false)
     {
-        $phone = isExperiment() ? '+7 (495) 646-85-92' : '+7 (495) 646-85-74';
+        $phone = isExperiment() ? '+7 (495) 662-95-20' : '+7 (495) 646-85-74';
         if ($unformatted) {
             $phone = cleanNumber($phone);
         }
