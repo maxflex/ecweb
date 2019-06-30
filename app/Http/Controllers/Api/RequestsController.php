@@ -25,6 +25,7 @@ class RequestsController extends Controller
             }
             Api::exec('requests', array_merge($request->input(), [
                 'branches' => [$request->branch_id],
+                'grade_id' => $request->grade,
                 'phones' => [
                     [
                         'phone' =>$request->phone
