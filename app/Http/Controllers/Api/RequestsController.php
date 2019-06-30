@@ -23,8 +23,13 @@ class RequestsController extends Controller
             if (isExperiment()) {
                 $request->merge(['comment' => $request->comment . ' (цена в месяц)']);
             }
-            Api::exec('AddRequest', array_merge($request->input(), [
+            Api::exec('requests', array_merge($request->input(), [
                 'branches' => [$request->branch_id],
+                'phones' => [
+                    [
+                        'phone' =>$request->phone
+                    ],
+                ]
             ]));
         }, function() use ($request) {
             Redis::sadd('ecweb:request:blocked', json_encode($request->input()));

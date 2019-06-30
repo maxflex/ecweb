@@ -12,11 +12,8 @@ class Api {
 
 			// Добавляем API_KEY к запросу
 			// $data["API_KEY"] = self::API_KEY;
-			if ($function == 'AddRequest') {
-				$data['id_google']  = static::_googleId();
-                $data['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
-                $data['referer']	= $_COOKIE['source']['referer'];
-			    $data['referer_url']= $_COOKIE['source']['url'];
+			if ($function == 'requests') {
+				$data['google_id']  = static::_googleId();
                 $url = config('app.api-url');
 			} else {
                 $data['source'] = 1;
@@ -36,7 +33,8 @@ class Api {
 			$server_output = curl_exec($ch);
 
 			curl_close($ch);
-
+			// logger('trying to add...' . $url . $function);
+			// logger($server_output);
 			return ($decode ? json_decode($server_output, true) : $server_output);
 		}
 
