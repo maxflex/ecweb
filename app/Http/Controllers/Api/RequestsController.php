@@ -20,9 +20,6 @@ class RequestsController extends Controller
             'data' => json_encode($request->all())
         ]);
         return Limiter::run('request', 24, 200, function() use ($request) {
-            if (isExperiment()) {
-                $request->merge(['comment' => $request->comment . ' (цена в месяц)']);
-            }
             Api::exec('requests', array_merge($request->input(), [
                 'branches' => [$request->branch_id],
                 'grade_id' => $request->grade,
