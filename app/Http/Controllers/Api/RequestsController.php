@@ -28,7 +28,8 @@ class RequestsController extends Controller
                 'grade_id' => $request->grade,
                 'phones' => [
                     [
-                        'phone' =>$request->phone
+                        'phone' =>$request->phone,
+                        'comment' => $request->name,
                     ],
                 ]
             ]));
