@@ -287,6 +287,7 @@
         $phone = '+7 (495) 646-85-92';
         if ($unformatted) {
             $phone = cleanNumber($phone);
+            $phone[0] = '8';
         }
         return $phone;
     }
