@@ -13,7 +13,7 @@ class MissingRequests extends Command
      *
      * @var string
      */
-    protected $signature = 'requests:missing';
+    protected $signature = 'requests:missing {startingFromId}';
 
     /**
      * The console command description.
@@ -39,7 +39,7 @@ class MissingRequests extends Command
      */
     public function handle()
     {
-        $requests = DB::table('request_log')->where('id', '>=', 6404)->get();
+        $requests = DB::table('request_log')->where('id', '>=', $this->argument('startingFromId'))->get();
 
         foreach($requests as $request) {
             $request = json_decode($request->data);
@@ -49,7 +49,7 @@ class MissingRequests extends Command
                 'phones' => [
                     [
                         'phone' =>$request->phone,
-                        'comment' => $request->name,
+                        'comment' => isset($request->name) ? $request->name : '',
                     ],
                 ]
             ]));
