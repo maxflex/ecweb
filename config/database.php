@@ -67,6 +67,17 @@ return [
             'unix_socket' => env('DB_SOCKET', ''),
         ],
 
+        'lk2' => [
+            'driver'    => 'mysql',
+            'host'      => env('DB_HOST_LK2', 'localhost'),
+            'database'  => env('DB_DATABASE_LK2'),
+            'username'  => env('DB_USERNAME_LK2'),
+            'password'  => env('DB_PASSWORD_LK2'),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ],
+
         'egecrm' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST_EGECRM', 'localhost'),

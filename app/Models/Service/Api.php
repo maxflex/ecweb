@@ -13,7 +13,6 @@ class Api {
 			// Добавляем API_KEY к запросу
 			// $data["API_KEY"] = self::API_KEY;
 			if ($function == 'requests') {
-				$data['google_id']  = static::_googleId();
                 $url = config('app.api-url');
 			} else {
                 $data['source'] = 1;
@@ -37,15 +36,6 @@ class Api {
 			// logger($server_output);
 			return ($decode ? json_decode($server_output, true) : $server_output);
 		}
-
-        private static function _googleId()
-        {
-            if (! isset($_COOKIE['_ga'])) {
-                return '';
-            }
- 			$parts = explode('.', $_COOKIE['_ga']);
- 			return "{$parts[2]}.{$parts[3]}";
- 		}
 }
 
 ?>
