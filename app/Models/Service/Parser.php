@@ -4,6 +4,7 @@
     use App\Models\Variable;
     use App\Models\Photo;
     use App\Models\Review;
+    use App\Models\NewReview;
     use App\Models\Page;
     use App\Models\Tutor;
     use DB;
@@ -177,7 +178,8 @@
                         }
                         break;
                     case 'one-review':
-                        $replacement = Review::withStudent()->where('teacher_reviews.id', $args[0])->first()->toJson();
+                        // $replacement = Review::withStudent()->where('teacher_reviews.id', $args[0])->first()->toJson();
+                        $replacement = NewReview::find($args[0])->toJson();
                         break;
                     case 'abtest':
                         $replacement = \App\Service\ABTest::parse(...$args);

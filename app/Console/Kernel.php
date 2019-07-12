@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         Commands\FindAllLinks::class,
         Commands\FindAllLinksNew::class,
         Commands\MissingRequests::class,
+        Commands\TransferReviewIds::class,
     ];
 
     /**

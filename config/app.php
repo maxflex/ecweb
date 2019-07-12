@@ -54,6 +54,7 @@ return [
     'url' => env('APP_URL', 'http://localhost'),
     'crm-url' => env('CRM_URL'),
     'api-url' => env('API_URL'),
+    'lk2-url' => env('LK2_URL'),
     'api-egerep-url' => env('API_EGEREP_URL'),
 
     'admin-phone-numbers' => explode(',', env('ADMIN_PHONE_NUMBERS')),
