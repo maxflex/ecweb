@@ -23,7 +23,7 @@ class ReviewsController extends Controller
      */
     public function index(Request $request)
     {
-        $paginator = NewReview::join('review_comments', 'review_comments.review_id', '=', 'reviews.id')->orderBy('review_comments.created_at', 'desc')->simplePaginate(20);
+        $paginator = NewReview::orderBy('review_comments.created_at', 'desc')->simplePaginate(20);
 
         return [
             'reviews'        => $paginator->getCollection(),
@@ -37,8 +37,13 @@ class ReviewsController extends Controller
      */
     public function block(Request $request)
     {
-        $query = NewReview::join('review_comments', 'review_comments.review_id', '=', 'reviews.id');
-
+        $query = NewReview::whereHas('client', function($query) {
+	       return $query->whereHas('photo', function($query) {
+		      return $query->where('has_cropped', 1); 
+	       });
+        });
+        
+        
         if ($request->ids) {
             $query->whereNotIn('reviews.id', $request->ids);
         }

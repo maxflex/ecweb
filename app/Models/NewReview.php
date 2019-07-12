@@ -36,7 +36,12 @@ class NewReview extends Model
 
     public function getDateStringAttribute()
     {
-        $date = $this->comment->created_at;
+	    try {
+		 	$date = $this->comment->created_at;   
+	    }
+	    catch (\Exception $e) {
+		    logger("errorid: " . $this->id);
+	    }
         return date('j ', strtotime($date)) . Months::SHORT[date('n', strtotime($date))] . date(' Y', strtotime($date));
     }
 
@@ -45,7 +50,13 @@ class NewReview extends Model
         parent::boot();
 
         static::addGlobalScope('reviews-scope', function ($query) {
-           $query->where('is_published', 1)->whereHas('comment');
+			$query->join('review_comments', function($join) {
+		   		$join
+		   			->on('review_comments.review_id', '=', 'reviews.id')
+		   			->where('review_comments.type', 'final');
+           })
+           ->select("reviews.*")
+           ->where('is_published', 1);
         });
     }
 }
