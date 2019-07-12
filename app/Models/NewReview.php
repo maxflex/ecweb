@@ -45,7 +45,7 @@ class NewReview extends Model
         parent::boot();
 
         static::addGlobalScope('reviews-scope', function ($query) {
-           $query->where('is_published', 1); 
+           $query->where('is_published', 1)->whereHas('comment');
         });
     }
 }

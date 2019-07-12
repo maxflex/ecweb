@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Tutor;
 use App\Models\Review;
+use App\Models\NewReview;
 use DB;
 use Cache;
 use App\Service\Cacher;
@@ -22,7 +23,7 @@ class ReviewsController extends Controller
      */
     public function index(Request $request)
     {
-        $paginator = Review::withStudent()->orderBy('teacher_reviews.date', 'desc')->simplePaginate(20);
+        $paginator = NewReview::join('review_comments', 'review_comments.review_id', '=', 'reviews.id')->orderBy('review_comments.created_at', 'desc')->simplePaginate(20);
 
         return [
             'reviews'        => $paginator->getCollection(),
@@ -36,35 +37,35 @@ class ReviewsController extends Controller
      */
     public function block(Request $request)
     {
-        $query = Review::withStudent()->where('students.has_photo_cropped', 1);
+        $query = NewReview::join('review_comments', 'review_comments.review_id', '=', 'reviews.id');
 
         if ($request->ids) {
-            $query->whereNotIn('teacher_reviews.id', $request->ids);
+            $query->whereNotIn('reviews.id', $request->ids);
         }
 
-        if ($request->grade) {
-            $query->where('teacher_reviews.grade', '=', $request->grade);
+        if ($request->grade_id) {
+            $query->where('reviews.grade_id', '=', $request->grade);
         }
 
         if ($request->exclude_id) {
-            $query->where('teacher_reviews.id', '<>', $request->exclude_id);
+            $query->where('reviews.id', '<>', $request->exclude_id);
         }
 
         if ($request->subject) {
             $subject_id = Factory::getSubjectId($request->subject);
-            $query->where('teacher_reviews.id_subject', '=', $subject_id);
+            $query->where('reviews.subject_id', '=', $subject_id);
         }
 
         $paginator = $query->orderBy(DB::raw("
             CASE
-                WHEN ball_efficency >= 0.81 THEN 6
-                WHEN ball_efficency >= 0.71 THEN 5
-                WHEN ball_efficency >= 0.61 THEN 4
-                WHEN ball_efficency >= 0.51 THEN 3
-                WHEN ball_efficency >= 0.41 THEN 2
+                WHEN (reviews.score / reviews.max_score) >= 0.81 THEN 6
+                WHEN (reviews.score / reviews.max_score) >= 0.71 THEN 5
+                WHEN (reviews.score / reviews.max_score) >= 0.61 THEN 4
+                WHEN (reviews.score / reviews.max_score) >= 0.51 THEN 3
+                WHEN (reviews.score / reviews.max_score) >= 0.41 THEN 2
                 ELSE 1
             END
-        "), 'desc')->orderBy('teacher_reviews.date', 'desc')->simplePaginate($request->count ? $request->count : 9999);
+        "), 'desc')->orderBy('review_comments.created_at', 'desc')->simplePaginate($request->count ? $request->count : 9999);
 
         return [
             'reviews' => $paginator->getCollection(),
@@ -78,16 +79,16 @@ class ReviewsController extends Controller
      */
     public function show($id)
     {
-        return Review::withStudent()->where('id_teacher', $id)->orderBy(DB::raw("
-            CASE
-                WHEN ball_efficency >= 0.81 THEN 6
-                WHEN ball_efficency >= 0.71 THEN 5
-                WHEN ball_efficency >= 0.61 THEN 4
-                WHEN ball_efficency >= 0.51 THEN 3
-                WHEN ball_efficency >= 0.41 THEN 2
-                ELSE 1
-            END
-        "), 'desc')->orderBy('teacher_reviews.date', 'desc')->get();
+        // return Review::withStudent()->where('id_teacher', $id)->orderBy(DB::raw("
+        //     CASE
+        //         WHEN ball_efficency >= 0.81 THEN 6
+        //         WHEN ball_efficency >= 0.71 THEN 5
+        //         WHEN ball_efficency >= 0.61 THEN 4
+        //         WHEN ball_efficency >= 0.51 THEN 3
+        //         WHEN ball_efficency >= 0.41 THEN 2
+        //         ELSE 1
+        //     END
+        // "), 'desc')->orderBy('teacher_reviews.date', 'desc')->get();
     }
 
 }
