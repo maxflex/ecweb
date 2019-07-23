@@ -48,7 +48,7 @@ class ReviewsController extends Controller
             $query->whereNotIn('reviews.id', $request->ids);
         }
 
-        if ($request->grade_id) {
+        if ($request->grade) {
             $query->where('reviews.grade_id', '=', $request->grade);
         }
 
