@@ -7202,11 +7202,12 @@ h1, .landingnew-page .common h3 {
 }
 
 .block__gallery {
-  display: flex;
   overflow-x: scroll;
   height: 21vw;
   position: relative;
   padding: 80px 0 10px 12px;
+  white-space: nowrap;
+  overflow-y: hidden;
 }
 
 .block__gallery::-webkit-scrollbar {
@@ -7217,6 +7218,11 @@ h1, .landingnew-page .common h3 {
   margin-right: 12px;
   height: 100%;
   border-radius: 8px;
+}
+
+.block__gallery > div {
+  height: 100%;
+  display: inline-block;
 }
 
 .green-checkmarks > div {
