@@ -262,7 +262,7 @@
                                 if (@$args[0] == 'egerep') {
                                     $replacement = egerep('reviews')->where('state', 'published')->count();
                                 } else {
-                                    $replacement = Review::count();
+                                    $replacement = NewReview::count();
                                 }
                                 break;
                             case 'subjects':
