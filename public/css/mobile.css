@@ -7902,10 +7902,6 @@ h1, .h1-top {
   background: #f5f5f5 !important;
 }
 
-.button-green-large .loading-inside-button, .button-green-small .loading-inside-button, .button-blue-large .loading-inside-button, .button-white-large .loading-inside-button {
-  top: 8px !important;
-}
-
 .block-404 {
   text-align: center;
 }

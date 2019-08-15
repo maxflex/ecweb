@@ -38,5 +38,5 @@ angular
             $http.get('/api/reviews/block?' + $.param($scope.search)).then (response) ->
                 $scope.searching_reviews = false
                 $scope.reviews = $scope.reviews.concat(response.data.reviews)
-                $scope.search.ids = _.pluck($scope.reviews, 'id')
+                # $scope.search.ids = _.pluck($scope.reviews, 'id')
                 $scope.has_more_pages = response.data.has_more_pages
